@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SetupProfileViewController: UIViewController, UITextFieldDelegate {
+class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadioButtonControllerDelegate {
     
     let Utility = UIUtility()
 
@@ -30,6 +30,16 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var SkillsInput: FloatLabelTextField!
     @IBOutlet weak var EmploymentInput: FloatLabelTextField!
     @IBOutlet weak var DesiredSectorInput: FloatLabelTextField!
+    @IBOutlet weak var CurrentSectorInput: FloatLabelTextField!
+    
+    
+    @IBOutlet weak var workExperienceYesButton: SSRadioButton!
+    @IBOutlet weak var workExperienceNoButton: SSRadioButton!
+    @IBOutlet weak var currentyEmployedYesButton: SSRadioButton!
+    @IBOutlet weak var currentyEmployedNoButton: SSRadioButton!
+    
+    var workExperienceRadioController: SSRadioButtonsController?
+    
     
     //segue
     @IBAction func backToSetupProfile(segue: UIStoryboardSegue) {
@@ -143,6 +153,10 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate {
         SkillsInput.delegate = self
         EmploymentInput.delegate = self
         DesiredSectorInput.delegate = self
+        
+        //set work experience radio button
+        workExperienceRadioController = SSRadioButtonsController(buttons: workExperienceYesButton, workExperienceNoButton)
+        workExperienceRadioController!.delegate = self
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
@@ -218,6 +232,7 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate {
     func closeNumpad() {
         BirthdateInput.resignFirstResponder()
     }
+    
     
     deinit {
         NotificationCenter.default.removeObserver(self)

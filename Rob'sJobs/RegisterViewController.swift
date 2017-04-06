@@ -94,8 +94,8 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         guard let value = notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue else { return }
         let keyboardFrame = value.cgRectValue
         let adjustmentHeight = (keyboardFrame.height + 20) * (show ? 1 : -1)
-        ScrollView.contentInset.bottom += adjustmentHeight
-        ScrollView.scrollIndicatorInsets.bottom += adjustmentHeight
+        ScrollView.contentInset.bottom = adjustmentHeight
+        ScrollView.scrollIndicatorInsets.bottom = adjustmentHeight
     }
     
     func keyboardWillShow(notification: Notification) {
