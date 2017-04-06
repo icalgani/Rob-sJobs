@@ -7,10 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FAB952CF1E96AE8500FC033C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAB952CE1E96AE8500FC033C /* Assets.xcassets */; };
+		FAB953321E96AF5D00FC033C /* ButtonCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9532E1E96AF5D00FC033C /* ButtonCustom.swift */; };
+		FAB953331E96AF5D00FC033C /* UIUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9532F1E96AF5D00FC033C /* UIUtility.swift */; };
+		FAB953341E96AF5D00FC033C /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB953301E96AF5D00FC033C /* Checkbox.swift */; };
+		FAB953351E96AF5D00FC033C /* InputButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB953311E96AF5D00FC033C /* InputButton.swift */; };
+		FAB9533A1E96BFEB00FC033C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB953391E96BFEB00FC033C /* ViewController.swift */; };
+		FAB9533E1E96C06C00FC033C /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9533B1E96C06C00FC033C /* ResetPasswordViewController.swift */; };
+		FAB9533F1E96C06C00FC033C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9533C1E96C06C00FC033C /* LoginViewController.swift */; };
+		FAB953401E96C06C00FC033C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9533D1E96C06C00FC033C /* RegisterViewController.swift */; };
+		FAB9536F1E96C14C00FC033C /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9536E1E96C14C00FC033C /* FloatLabelTextField.swift */; };
+		FAB953711E96C15600FC033C /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB953701E96C15600FC033C /* FloatLabelTextView.swift */; };
+		FAB953741E96C30500FC033C /* FirstTimeLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAB953731E96C30500FC033C /* FirstTimeLogin.storyboard */; };
+		FAB953761E96C31A00FC033C /* DesiredSectorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB953751E96C31A00FC033C /* DesiredSectorTableViewController.swift */; };
+		FAB953781E96C32500FC033C /* SalaryPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB953771E96C32500FC033C /* SalaryPickerTableViewController.swift */; };
+		FAB9537A1E96C32E00FC033C /* CityPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB953791E96C32E00FC033C /* CityPickerTableViewController.swift */; };
+		FAB9537C1E96C33800FC033C /* ProvincePickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9537B1E96C33800FC033C /* ProvincePickerTableViewController.swift */; };
+		FAB9537E1E96C34100FC033C /* SkillsPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9537D1E96C34100FC033C /* SkillsPickerTableViewController.swift */; };
+		FAB953801E96C34A00FC033C /* EmploymentPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9537F1E96C34A00FC033C /* EmploymentPickerTableViewController.swift */; };
+		FAB953821E96C35600FC033C /* CharactersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB953811E96C35600FC033C /* CharactersTableViewController.swift */; };
+		FAB953841E96C35E00FC033C /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB953831E96C35E00FC033C /* SetupProfileViewController.swift */; };
 		FAC973CC1E96A453002A4E6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC973CB1E96A453002A4E6E /* AppDelegate.swift */; };
-		FAC973CE1E96A453002A4E6E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC973CD1E96A453002A4E6E /* ViewController.swift */; };
 		FAC973D11E96A453002A4E6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC973CF1E96A453002A4E6E /* Main.storyboard */; };
-		FAC973D31E96A453002A4E6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC973D21E96A453002A4E6E /* Assets.xcassets */; };
 		FAC973D61E96A453002A4E6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC973D41E96A453002A4E6E /* LaunchScreen.storyboard */; };
 		FAC973E11E96A453002A4E6E /* Rob_sJobsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC973E01E96A453002A4E6E /* Rob_sJobsTests.swift */; };
 		FAC973EC1E96A453002A4E6E /* Rob_sJobsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC973EB1E96A453002A4E6E /* Rob_sJobsUITests.swift */; };
@@ -34,11 +52,29 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FAB952CE1E96AE8500FC033C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FAB9532E1E96AF5D00FC033C /* ButtonCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonCustom.swift; sourceTree = "<group>"; };
+		FAB9532F1E96AF5D00FC033C /* UIUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUtility.swift; sourceTree = "<group>"; };
+		FAB953301E96AF5D00FC033C /* Checkbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
+		FAB953311E96AF5D00FC033C /* InputButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputButton.swift; sourceTree = "<group>"; };
+		FAB953391E96BFEB00FC033C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FAB9533B1E96C06C00FC033C /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
+		FAB9533C1E96C06C00FC033C /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		FAB9533D1E96C06C00FC033C /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		FAB9536E1E96C14C00FC033C /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
+		FAB953701E96C15600FC033C /* FloatLabelTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextView.swift; sourceTree = "<group>"; };
+		FAB953731E96C30500FC033C /* FirstTimeLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FirstTimeLogin.storyboard; sourceTree = "<group>"; };
+		FAB953751E96C31A00FC033C /* DesiredSectorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesiredSectorTableViewController.swift; sourceTree = "<group>"; };
+		FAB953771E96C32500FC033C /* SalaryPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SalaryPickerTableViewController.swift; sourceTree = "<group>"; };
+		FAB953791E96C32E00FC033C /* CityPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityPickerTableViewController.swift; sourceTree = "<group>"; };
+		FAB9537B1E96C33800FC033C /* ProvincePickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvincePickerTableViewController.swift; sourceTree = "<group>"; };
+		FAB9537D1E96C34100FC033C /* SkillsPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillsPickerTableViewController.swift; sourceTree = "<group>"; };
+		FAB9537F1E96C34A00FC033C /* EmploymentPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmploymentPickerTableViewController.swift; sourceTree = "<group>"; };
+		FAB953811E96C35600FC033C /* CharactersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersTableViewController.swift; sourceTree = "<group>"; };
+		FAB953831E96C35E00FC033C /* SetupProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
 		FAC973C81E96A453002A4E6E /* Rob'sJobs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rob'sJobs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC973CB1E96A453002A4E6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FAC973CD1E96A453002A4E6E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FAC973D01E96A453002A4E6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FAC973D21E96A453002A4E6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAC973D51E96A453002A4E6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAC973D71E96A453002A4E6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAC973DC1E96A453002A4E6E /* Rob'sJobsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rob'sJobsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +110,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FAB953361E96AF6900FC033C /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				FAB9536E1E96C14C00FC033C /* FloatLabelTextField.swift */,
+				FAB953701E96C15600FC033C /* FloatLabelTextView.swift */,
+				FAB9532E1E96AF5D00FC033C /* ButtonCustom.swift */,
+				FAB9532F1E96AF5D00FC033C /* UIUtility.swift */,
+				FAB953301E96AF5D00FC033C /* Checkbox.swift */,
+				FAB953311E96AF5D00FC033C /* InputButton.swift */,
+				FAB953721E96C2E100FC033C /* FirstTimeLogin */,
+			);
+			name = Class;
+			sourceTree = "<group>";
+		};
+		FAB953721E96C2E100FC033C /* FirstTimeLogin */ = {
+			isa = PBXGroup;
+			children = (
+				FAB953731E96C30500FC033C /* FirstTimeLogin.storyboard */,
+				FAB953751E96C31A00FC033C /* DesiredSectorTableViewController.swift */,
+				FAB953771E96C32500FC033C /* SalaryPickerTableViewController.swift */,
+				FAB953791E96C32E00FC033C /* CityPickerTableViewController.swift */,
+				FAB9537B1E96C33800FC033C /* ProvincePickerTableViewController.swift */,
+				FAB9537D1E96C34100FC033C /* SkillsPickerTableViewController.swift */,
+				FAB9537F1E96C34A00FC033C /* EmploymentPickerTableViewController.swift */,
+				FAB953811E96C35600FC033C /* CharactersTableViewController.swift */,
+				FAB953831E96C35E00FC033C /* SetupProfileViewController.swift */,
+			);
+			name = FirstTimeLogin;
+			sourceTree = "<group>";
+		};
 		FAC973BF1E96A453002A4E6E = {
 			isa = PBXGroup;
 			children = (
@@ -97,11 +163,15 @@
 		FAC973CA1E96A453002A4E6E /* Rob'sJobs */ = {
 			isa = PBXGroup;
 			children = (
+				FAB953391E96BFEB00FC033C /* ViewController.swift */,
+				FAB953361E96AF6900FC033C /* Class */,
+				FAB952CE1E96AE8500FC033C /* Assets.xcassets */,
 				FAC973CB1E96A453002A4E6E /* AppDelegate.swift */,
-				FAC973CD1E96A453002A4E6E /* ViewController.swift */,
 				FAC973CF1E96A453002A4E6E /* Main.storyboard */,
-				FAC973D21E96A453002A4E6E /* Assets.xcassets */,
 				FAC973D41E96A453002A4E6E /* LaunchScreen.storyboard */,
+				FAB9533B1E96C06C00FC033C /* ResetPasswordViewController.swift */,
+				FAB9533C1E96C06C00FC033C /* LoginViewController.swift */,
+				FAB9533D1E96C06C00FC033C /* RegisterViewController.swift */,
 				FAC973D71E96A453002A4E6E /* Info.plist */,
 			);
 			path = "Rob'sJobs";
@@ -235,8 +305,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAB953741E96C30500FC033C /* FirstTimeLogin.storyboard in Resources */,
 				FAC973D61E96A453002A4E6E /* LaunchScreen.storyboard in Resources */,
-				FAC973D31E96A453002A4E6E /* Assets.xcassets in Resources */,
+				FAB952CF1E96AE8500FC033C /* Assets.xcassets in Resources */,
 				FAC973D11E96A453002A4E6E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,8 +333,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAC973CE1E96A453002A4E6E /* ViewController.swift in Sources */,
+				FAB953801E96C34A00FC033C /* EmploymentPickerTableViewController.swift in Sources */,
+				FAB953401E96C06C00FC033C /* RegisterViewController.swift in Sources */,
+				FAB9533A1E96BFEB00FC033C /* ViewController.swift in Sources */,
+				FAB953341E96AF5D00FC033C /* Checkbox.swift in Sources */,
+				FAB9536F1E96C14C00FC033C /* FloatLabelTextField.swift in Sources */,
+				FAB953351E96AF5D00FC033C /* InputButton.swift in Sources */,
+				FAB9537C1E96C33800FC033C /* ProvincePickerTableViewController.swift in Sources */,
+				FAB953821E96C35600FC033C /* CharactersTableViewController.swift in Sources */,
+				FAB953331E96AF5D00FC033C /* UIUtility.swift in Sources */,
+				FAB9537E1E96C34100FC033C /* SkillsPickerTableViewController.swift in Sources */,
+				FAB9533F1E96C06C00FC033C /* LoginViewController.swift in Sources */,
+				FAB953321E96AF5D00FC033C /* ButtonCustom.swift in Sources */,
+				FAB953781E96C32500FC033C /* SalaryPickerTableViewController.swift in Sources */,
+				FAB953761E96C31A00FC033C /* DesiredSectorTableViewController.swift in Sources */,
+				FAB953711E96C15600FC033C /* FloatLabelTextView.swift in Sources */,
 				FAC973CC1E96A453002A4E6E /* AppDelegate.swift in Sources */,
+				FAB953841E96C35E00FC033C /* SetupProfileViewController.swift in Sources */,
+				FAB9537A1E96C32E00FC033C /* CityPickerTableViewController.swift in Sources */,
+				FAB9533E1E96C06C00FC033C /* ResetPasswordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +602,7 @@
 				FAC973F21E96A453002A4E6E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FAC973F31E96A453002A4E6E /* Build configuration list for PBXNativeTarget "Rob'sJobsTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +611,7 @@
 				FAC973F51E96A453002A4E6E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FAC973F61E96A453002A4E6E /* Build configuration list for PBXNativeTarget "Rob'sJobsUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +620,7 @@
 				FAC973F81E96A453002A4E6E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,26 +1,520 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TSk-vB-8JG">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--StartingPoint-->
+        <scene sceneID="bBQ-nA-0sh">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StartingPoint" title="StartingPoint" id="TSk-vB-8JG" customClass="ViewController" customModule="Rob_sJobs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="KFd-g2-2tE"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gjs-aj-amw"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="nxe-zC-Iis">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="voj-1L-Be5">
+                                <rect key="frame" x="21" y="468" width="333" height="140"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in with" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIl-Dz-4OZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="333" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcz-1P-hHW" customClass="ButtonCustom" customModule="Rob_sJobs" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="333" height="40"/>
+                                        <color key="backgroundColor" red="0.1055056378" green="0.54004389050000001" blue="0.4216414094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="07o-te-fpc"/>
+                                        </constraints>
+                                        <state key="normal" title="Email / Phone Number">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="SDh-ka-5z8" kind="presentation" id="N6Q-lW-uh7"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="oxF-Wn-i35">
+                                        <rect key="frame" x="0.0" y="100" width="333" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nwT-5j-r0B" customClass="ButtonCustom" customModule="Rob_sJobs" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="161.5" height="40"/>
+                                                <color key="backgroundColor" red="0.23137254900000001" green="0.34901960780000002" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                                <state key="normal" title="Facebook">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5uf-pY-zDR" customClass="ButtonCustom" customModule="Rob_sJobs" customModuleProvider="target">
+                                                <rect key="frame" x="171.5" y="0.0" width="161.5" height="40"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                                <state key="normal" title="Create Account">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="VnQ-yJ-EhD" kind="presentation" id="HRc-Az-kMa"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_logo" translatesAutoresizingMaskIntoConstraints="NO" id="R3E-ap-ih4">
+                                <rect key="frame" x="36" y="150" width="303" height="91"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="91" id="TcZ-kA-B2r"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="voj-1L-Be5" secondAttribute="trailing" constant="5" id="9TI-Ge-36L"/>
+                            <constraint firstItem="R3E-ap-ih4" firstAttribute="leading" secondItem="nxe-zC-Iis" secondAttribute="leadingMargin" constant="20" id="FWz-Sx-obg"/>
+                            <constraint firstItem="R3E-ap-ih4" firstAttribute="top" secondItem="KFd-g2-2tE" secondAttribute="bottom" constant="130" id="MSJ-7e-MDQ"/>
+                            <constraint firstItem="voj-1L-Be5" firstAttribute="leading" secondItem="nxe-zC-Iis" secondAttribute="leadingMargin" constant="5" id="OKN-gk-rEZ"/>
+                            <constraint firstItem="Gjs-aj-amw" firstAttribute="top" secondItem="voj-1L-Be5" secondAttribute="bottom" constant="59" id="Qz3-iW-ubr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="R3E-ap-ih4" secondAttribute="trailing" constant="20" id="l3P-xw-R55"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="CreateAccountButton" destination="5uf-pY-zDR" id="sKV-bs-jM4"/>
+                        <outlet property="FacebookButton" destination="nwT-5j-r0B" id="20P-j4-sL3"/>
+                        <outlet property="LoginWIthEmailAndPhoneButton" destination="fcz-1P-hHW" id="alL-Uj-KAQ"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RUA-rC-dMp" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="159.42028985507247" y="192.39130434782609"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="dJw-NR-dbI">
+            <objects>
+                <viewController title="Login" id="SDh-ka-5z8" customClass="LoginViewController" customModule="Rob_sJobs" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cDt-0J-yyY"/>
+                        <viewControllerLayoutGuide type="bottom" id="rG7-is-2kn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FNY-q9-OS3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="4Zi-LT-k8F">
+                                <rect key="frame" x="36" y="127" width="303" height="150"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email/Phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tAL-bN-21v" customClass="FloatLabelTextField" customModule="Rob_sJobs" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="303" height="38"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="titleYPadding">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="titleTextColour">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="titleActiveTextColour">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kT7-lP-l03" customClass="FloatLabelTextField" customModule="Rob_sJobs" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="56" width="303" height="38"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="titleTextColour">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="titleActiveTextColour">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBE-nk-E6D" customClass="ButtonCustom" customModule="Rob_sJobs" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="112" width="303" height="38"/>
+                                        <color key="backgroundColor" red="0.1055056378" green="0.54004389050000001" blue="0.4216414094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Log in">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="doLogin:" destination="SDh-ka-5z8" eventType="touchUpInside" id="DHU-um-gXs"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="rMS-4d-YnG"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="pHA-FW-Zjn">
+                                <rect key="frame" x="36" y="285" width="303" height="137.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2y-al-50d">
+                                        <rect key="frame" x="90" y="0.0" width="123" height="34.5"/>
+                                        <state key="normal" title="Forgot Password?">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="LTG-4D-5x9" kind="presentation" id="hvP-nb-wxH"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zG2-ac-J8B">
+                                        <rect key="frame" x="140" y="54.5" width="23.5" height="23"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9op-hF-8O5" customClass="ButtonCustom" customModule="Rob_sJobs" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="97.5" width="303" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Z8Z-qm-fS1"/>
+                                        </constraints>
+                                        <state key="normal" title="Create Account">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="VnQ-yJ-EhD" kind="presentation" id="iL9-4t-ylg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="9op-hF-8O5" secondAttribute="trailing" id="cS1-CF-HMO"/>
+                                    <constraint firstItem="9op-hF-8O5" firstAttribute="leading" secondItem="pHA-FW-Zjn" secondAttribute="leading" id="gIe-bB-3dy"/>
+                                    <constraint firstAttribute="trailing" secondItem="9op-hF-8O5" secondAttribute="trailing" id="n9F-Bl-bWX"/>
+                                </constraints>
+                            </stackView>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oLr-b5-Gmo">
+                                <rect key="frame" x="0.0" y="12" width="375" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Ao7-rq-i62"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.82745098039999998" green="0.82745098039999998" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem title="Login" id="2wc-bb-ium">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="eXH-30-fQz">
+                                            <connections>
+                                                <segue destination="HJm-nB-n2S" kind="unwind" unwindAction="backToLoginWithSegue:" id="llU-se-7B7"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1055056378" green="0.54004389050000001" blue="0.4216414094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="pHA-FW-Zjn" secondAttribute="trailing" constant="20" id="CFP-sL-vZ2"/>
+                            <constraint firstItem="pHA-FW-Zjn" firstAttribute="top" secondItem="4Zi-LT-k8F" secondAttribute="bottom" constant="8" id="CfO-cY-QRm"/>
+                            <constraint firstItem="oLr-b5-Gmo" firstAttribute="centerX" secondItem="4Zi-LT-k8F" secondAttribute="centerX" id="GP3-pK-fSm"/>
+                            <constraint firstItem="pHA-FW-Zjn" firstAttribute="leading" secondItem="FNY-q9-OS3" secondAttribute="leadingMargin" constant="20" id="OrD-YG-79A"/>
+                            <constraint firstItem="4Zi-LT-k8F" firstAttribute="leading" secondItem="FNY-q9-OS3" secondAttribute="leadingMargin" constant="20" id="cEp-Cg-fP8"/>
+                            <constraint firstItem="4Zi-LT-k8F" firstAttribute="top" secondItem="FNY-q9-OS3" secondAttribute="top" constant="127" id="hE8-qR-o0Z"/>
+                            <constraint firstItem="oLr-b5-Gmo" firstAttribute="leading" secondItem="FNY-q9-OS3" secondAttribute="leading" id="lHB-LW-Ws8"/>
+                            <constraint firstItem="4Zi-LT-k8F" firstAttribute="top" secondItem="oLr-b5-Gmo" secondAttribute="bottom" constant="65" id="lgo-I5-rUx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4Zi-LT-k8F" secondAttribute="trailing" constant="20" id="rkZ-au-IiO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="CreateAccountButton" destination="9op-hF-8O5" id="SwA-Xo-f4V"/>
+                        <outlet property="EmailPhoneNumberTextfield" destination="tAL-bN-21v" id="XKb-CD-ngG"/>
+                        <outlet property="LoginButton" destination="aBE-nk-E6D" id="Yf1-f7-Lbg"/>
+                        <outlet property="PasswordTextfield" destination="kT7-lP-l03" id="flu-aR-fJQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yGQ-wU-O48" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="HJm-nB-n2S" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1088.8" y="-52.623688155922046"/>
+        </scene>
+        <!--Reset Password-->
+        <scene sceneID="d0C-sL-dte">
+            <objects>
+                <viewController title="Reset Password" id="LTG-4D-5x9" customClass="ResetPasswordViewController" customModule="Rob_sJobs" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2U2-WT-Q67"/>
+                        <viewControllerLayoutGuide type="bottom" id="36F-iH-Ey5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OYB-XK-nQy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WUF-2M-MeM">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Reset Password" id="i8j-Qx-Ihd">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="lbb-hE-PPZ">
+                                            <connections>
+                                                <segue destination="uAC-bX-Ain" kind="unwind" unwindAction="goToLoginWithSegue:" id="9xx-OH-mFG"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="XXh-Jg-gZb">
+                                <rect key="frame" x="36" y="348" width="303" height="91"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Registered email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bcQ-fv-OOo" customClass="FloatLabelTextField" customModule="Rob_sJobs" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="303" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="hEu-RA-gLD"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="titleTextColour">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="titleActiveTextColour">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dhw-Ix-N94" customClass="ButtonCustom" customModule="Rob_sJobs" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="51" width="303" height="40"/>
+                                        <color key="backgroundColor" red="0.1055056378" green="0.54004389050000001" blue="0.4216414094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="y9c-jO-Ask"/>
+                                        </constraints>
+                                        <state key="normal" title="Reset Password">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="XXh-Jg-gZb" secondAttribute="trailing" constant="20" id="K0V-E1-Gt6"/>
+                            <constraint firstItem="WUF-2M-MeM" firstAttribute="leading" secondItem="OYB-XK-nQy" secondAttribute="leading" id="LJj-1K-vNK"/>
+                            <constraint firstItem="XXh-Jg-gZb" firstAttribute="leading" secondItem="OYB-XK-nQy" secondAttribute="leadingMargin" constant="20" id="eHN-TG-1Sr"/>
+                            <constraint firstItem="36F-iH-Ey5" firstAttribute="top" secondItem="XXh-Jg-gZb" secondAttribute="bottom" constant="228" id="iEU-Qp-S6a"/>
+                            <constraint firstItem="WUF-2M-MeM" firstAttribute="centerX" secondItem="XXh-Jg-gZb" secondAttribute="centerX" id="lNr-EP-8Et"/>
+                            <constraint firstItem="WUF-2M-MeM" firstAttribute="top" secondItem="2U2-WT-Q67" secondAttribute="bottom" id="niH-8W-EZ3"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="rJl-HF-pnY"/>
+                    <connections>
+                        <outlet property="RegisteredEmailTextfield" destination="bcQ-fv-OOo" id="ZZb-UU-te8"/>
+                        <outlet property="ResetPasswordButton" destination="Dhw-Ix-N94" id="Fdo-Go-AKe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kPs-SG-Uxg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="uAC-bX-Ain" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2102" y="-77"/>
+        </scene>
+        <!--Register User-->
+        <scene sceneID="CV5-8s-9Xf">
+            <objects>
+                <viewController title="Register User" id="VnQ-yJ-EhD" customClass="RegisterViewController" customModule="Rob_sJobs" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L5U-mB-3cY"/>
+                        <viewControllerLayoutGuide type="bottom" id="250-yf-4ss"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2Sg-8t-zTQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vYK-ty-h3T">
+                                <rect key="frame" x="16" y="64" width="343" height="603"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cDD-HO-lmn">
+                                        <rect key="frame" x="20" y="114" width="303" height="375"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dF2-eh-1gm" customClass="FloatLabelTextField" customModule="Rob_sJobs" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="303" height="45"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="titleTextColour">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="titleActiveTextColour">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EHU-kZ-g6n" customClass="FloatLabelTextField" customModule="Rob_sJobs" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="55" width="303" height="45"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="titleTextColour">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="titleActiveTextColour">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type Your Email Address Again" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="geR-r5-y3h" customClass="FloatLabelTextField" customModule="Rob_sJobs" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="110" width="303" height="45"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="titleTextColour">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="titleActiveTextColour">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XbG-oI-yhG" customClass="FloatLabelTextField" customModule="Rob_sJobs" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="165" width="303" height="45"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="titleTextColour">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="titleActiveTextColour">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ak2-07-QYe" customClass="FloatLabelTextField" customModule="Rob_sJobs" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="220" width="303" height="45"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="titleTextColour">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="titleActiveTextColour">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rHE-h1-nW2" customClass="FloatLabelTextField" customModule="Rob_sJobs" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="275" width="303" height="45"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="vcH-Xm-tLa"/>
+                                                </constraints>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="titleTextColour">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="titleActiveTextColour">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJj-Zm-8Ir" customClass="ButtonCustom" customModule="Rob_sJobs" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="330" width="303" height="45"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <state key="normal" title="Sign Up">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="RegisterUser:" destination="VnQ-yJ-EhD" eventType="touchUpInside" id="QqQ-iF-oTA"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="cDD-HO-lmn" firstAttribute="centerX" secondItem="vYK-ty-h3T" secondAttribute="centerX" id="CSx-Od-otT"/>
+                                    <constraint firstItem="cDD-HO-lmn" firstAttribute="centerY" secondItem="vYK-ty-h3T" secondAttribute="centerY" id="be9-46-Rk0"/>
+                                    <constraint firstAttribute="trailing" secondItem="cDD-HO-lmn" secondAttribute="trailing" constant="20" id="ck2-De-ypF"/>
+                                    <constraint firstAttribute="bottom" secondItem="cDD-HO-lmn" secondAttribute="bottom" constant="20" id="iyN-Qk-kZK"/>
+                                    <constraint firstItem="cDD-HO-lmn" firstAttribute="leading" secondItem="vYK-ty-h3T" secondAttribute="leadingMargin" constant="12" id="kZa-Nv-vo9"/>
+                                </constraints>
+                            </scrollView>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x20-Bw-8Mz">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="barTintColor" red="0.82745098039999998" green="0.82745098039999998" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem title="Create Account" id="wGd-jF-dVi">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="PRo-RU-f9b">
+                                            <connections>
+                                                <segue destination="zq6-sE-dMZ" kind="unwind" unwindAction="backToLoginWithSegue:" id="ucz-Vm-Ms7"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="x20-Bw-8Mz" firstAttribute="centerX" secondItem="vYK-ty-h3T" secondAttribute="centerX" id="3cm-Xd-Ndx"/>
+                            <constraint firstItem="vYK-ty-h3T" firstAttribute="top" secondItem="x20-Bw-8Mz" secondAttribute="bottom" id="8jK-jY-j1V"/>
+                            <constraint firstItem="x20-Bw-8Mz" firstAttribute="leading" secondItem="2Sg-8t-zTQ" secondAttribute="leading" id="8yc-1w-2p3"/>
+                            <constraint firstItem="x20-Bw-8Mz" firstAttribute="top" secondItem="L5U-mB-3cY" secondAttribute="bottom" id="Ci4-5K-nUQ"/>
+                            <constraint firstItem="250-yf-4ss" firstAttribute="top" secondItem="vYK-ty-h3T" secondAttribute="bottom" id="IQh-aM-1vm"/>
+                            <constraint firstItem="vYK-ty-h3T" firstAttribute="leading" secondItem="2Sg-8t-zTQ" secondAttribute="leadingMargin" id="pAW-Es-rWt"/>
+                            <constraint firstItem="vYK-ty-h3T" firstAttribute="trailing" secondItem="2Sg-8t-zTQ" secondAttribute="trailingMargin" id="v1b-y8-N7Z"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="B80-bg-ChW"/>
+                    <connections>
+                        <outlet property="EmailTextfield" destination="EHU-kZ-g6n" id="t7I-SC-B3Z"/>
+                        <outlet property="NameTextfield" destination="dF2-eh-1gm" id="QFl-ej-SfL"/>
+                        <outlet property="PasswordTextfield" destination="ak2-07-QYe" id="OdZ-7i-8pr"/>
+                        <outlet property="PhoneNumberTextfield" destination="XbG-oI-yhG" id="T33-Ho-xeT"/>
+                        <outlet property="RetypeEmailTextfield" destination="geR-r5-y3h" id="jXp-8A-YdO"/>
+                        <outlet property="RetypePasswordTextfield" destination="rHE-h1-nW2" id="hzp-DC-lCS"/>
+                        <outlet property="ScrollView" destination="vYK-ty-h3T" id="b4m-VW-LKB"/>
+                        <outlet property="SignUpButton" destination="uJj-Zm-8Ir" id="mvc-My-Hlq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C7r-g8-thb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="zq6-sE-dMZ" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1135.546875" y="1025.5125"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="img_logo" width="300" height="60"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="HRc-Az-kMa"/>
+    </inferredMetricsTieBreakers>
 </document>
