@@ -20,7 +20,10 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
     var passedSkillValue:[String] = []
     var passedEmploymentValue:String = ""
     var passedDesiredSectorValue:String = ""
+    var passedCurrentSectorValue:String = ""
     
+    @IBOutlet weak var StackView: UIStackView!
+    @IBOutlet weak var ScrollView: UIScrollView!
     @IBOutlet weak var CharacterInput: FloatLabelTextField!
     @IBOutlet weak var ProvinceInput: FloatLabelTextField!
     @IBOutlet weak var NameInput: FloatLabelTextField!
@@ -30,16 +33,30 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
     @IBOutlet weak var SkillsInput: FloatLabelTextField!
     @IBOutlet weak var EmploymentInput: FloatLabelTextField!
     @IBOutlet weak var DesiredSectorInput: FloatLabelTextField!
+    @IBOutlet weak var NextButton: UIButton!
     @IBOutlet weak var CurrentSectorInput: FloatLabelTextField!
-    
+    @IBOutlet weak var DescribeYourselfInput: FloatLabelTextField!
     
     @IBOutlet weak var workExperienceYesButton: SSRadioButton!
     @IBOutlet weak var workExperienceNoButton: SSRadioButton!
     @IBOutlet weak var currentyEmployedYesButton: SSRadioButton!
     @IBOutlet weak var currentyEmployedNoButton: SSRadioButton!
     
-    var workExperienceRadioController: SSRadioButtonsController?
+    @IBOutlet weak var SearchDistanceSlider: UISlider!
     
+    var workExperienceRadioController: SSRadioButtonsController?
+    var currentlyEmployedRadioController: SSRadioButtonsController?
+    
+    @IBAction func goToTutorialPage(_ sender: UIButton) {
+        //close keypad
+        view.endEditing(true)
+        
+        //go to tutorial page
+        let storyBoard : UIStoryboard = UIStoryboard(name: "TutorialPage", bundle: nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TutorialTestPageViewController") as UIViewController
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController = nextViewController
+    }
     
     //segue
     @IBAction func backToSetupProfile(segue: UIStoryboardSegue) {
@@ -112,13 +129,23 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
             }
         }
         
-        //if segue from Salary picker
+        //if segue from desired sector picker
         if(segue.source.isKind(of: DesiredSectorTableViewController.self)){
             let DesiredSector:DesiredSectorTableViewController = segue.source as! DesiredSectorTableViewController
             
             if(DesiredSector.desiredSectorToPass != ""){
                 passedDesiredSectorValue = DesiredSector.desiredSectorToPass
                 DesiredSectorInput.text = passedDesiredSectorValue
+            }
+        }
+        
+        //if segue from current sector picker
+        if(segue.source.isKind(of: CurrentSectorTableViewController.self)){
+            let CurrentSector:CurrentSectorTableViewController = segue.source as! CurrentSectorTableViewController
+            
+            if(CurrentSector.currentSectorToPass != ""){
+                passedCurrentSectorValue = CurrentSector.currentSectorToPass
+                CurrentSectorInput.text = passedCurrentSectorValue
             }
         }
     }
@@ -153,10 +180,28 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
         SkillsInput.delegate = self
         EmploymentInput.delegate = self
         DesiredSectorInput.delegate = self
+        CurrentSectorInput.delegate = self
         
         //set work experience radio button
         workExperienceRadioController = SSRadioButtonsController(buttons: workExperienceYesButton, workExperienceNoButton)
         workExperienceRadioController!.delegate = self
+        
+        //set currently employed radio button
+        currentlyEmployedRadioController = SSRadioButtonsController(buttons: currentyEmployedYesButton, currentyEmployedNoButton)
+        currentlyEmployedRadioController!.delegate = self
+        
+        //set keyboard
+        NotificationCenter.default.addObserver(self,selector: #selector(keyboardWillShow(notification:)),name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)),name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func keyboardWillShow(notification: Notification) {
+        adjustInsetForKeyboardShow(show: true, notification: notification)
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        adjustInsetForKeyboardShow(show: false, notification: notification as Notification)
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
@@ -192,6 +237,11 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
         
         if(textField == self.DesiredSectorInput){
             performSegue(withIdentifier: "showDesiredSector", sender: self)
+            return false
+        }
+        
+        if(textField == self.CurrentSectorInput){
+            performSegue(withIdentifier: "showCurrentSector", sender: self)
             return false
         }
     return true
@@ -231,6 +281,15 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
     
     func closeNumpad() {
         BirthdateInput.resignFirstResponder()
+    }
+    
+    //adjust keyboard so you can see what you fill in
+    func adjustInsetForKeyboardShow(show: Bool, notification: Notification) {
+        guard let value = notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue else { return }
+        let keyboardFrame = value.cgRectValue
+        let adjustmentHeight = (keyboardFrame.height + 20) * (show ? 1 : -1)
+        ScrollView.contentInset.bottom = adjustmentHeight
+        ScrollView.scrollIndicatorInsets.bottom = adjustmentHeight
     }
     
     

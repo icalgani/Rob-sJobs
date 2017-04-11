@@ -10,6 +10,14 @@ import Foundation
 import UIKit
 
 class UIUtility{
+    
+    func setBackgroundColorGreen(View: UIViewController){
+        
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "bg_login")
+        View.view.insertSubview(backgroundImage, at: 0)
+    }
+    
     //set status bar color
     func setStatusBarBackgroundColor(color: UIColor) {
         

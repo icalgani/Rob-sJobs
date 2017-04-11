@@ -90,6 +90,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    //adjust keyboard so you can see what you fill in
     func adjustInsetForKeyboardShow(show: Bool, notification: Notification) {
         guard let value = notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue else { return }
         let keyboardFrame = value.cgRectValue

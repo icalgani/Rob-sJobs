@@ -30,10 +30,18 @@
 		FAB953871E96CC4000FC033C /* SSRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB953851E96CC4000FC033C /* SSRadioButton.swift */; };
 		FAB953881E96CC4000FC033C /* SSRadioButtonsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB953861E96CC4000FC033C /* SSRadioButtonsController.swift */; };
 		FAB9538A1E96D09500FC033C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAB953891E96D09500FC033C /* LaunchScreen.storyboard */; };
+		FAB9538C1E96DFF100FC033C /* CurrentSectorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9538B1E96DFF100FC033C /* CurrentSectorTableViewController.swift */; };
+		FAB953911E975A4C00FC033C /* TutorialPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAB953901E975A4C00FC033C /* TutorialPage.storyboard */; };
+		FAB953951E9C7B0900FC033C /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB953941E9C7B0900FC033C /* TutorialPageViewController.swift */; };
+		FAB953971E9C7CD800FC033C /* Page1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB953961E9C7CD800FC033C /* Page1ViewController.swift */; };
+		FAB953991E9C7CE800FC033C /* Page2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB953981E9C7CE800FC033C /* Page2ViewController.swift */; };
+		FAB9539B1E9C7CEF00FC033C /* Page3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9539A1E9C7CEF00FC033C /* Page3ViewController.swift */; };
+		FAB9539D1E9C7CFA00FC033C /* Page4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9539C1E9C7CFA00FC033C /* Page4ViewController.swift */; };
 		FAC973CC1E96A453002A4E6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC973CB1E96A453002A4E6E /* AppDelegate.swift */; };
 		FAC973D11E96A453002A4E6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC973CF1E96A453002A4E6E /* Main.storyboard */; };
 		FAC973E11E96A453002A4E6E /* Rob_sJobsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC973E01E96A453002A4E6E /* Rob_sJobsTests.swift */; };
 		FAC973EC1E96A453002A4E6E /* Rob_sJobsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC973EB1E96A453002A4E6E /* Rob_sJobsUITests.swift */; };
+		FAE02A291E9C958B00084F66 /* TutorialTestPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE02A281E9C958B00084F66 /* TutorialTestPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +85,13 @@
 		FAB953851E96CC4000FC033C /* SSRadioButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSRadioButton.swift; sourceTree = "<group>"; };
 		FAB953861E96CC4000FC033C /* SSRadioButtonsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSRadioButtonsController.swift; sourceTree = "<group>"; };
 		FAB953891E96D09500FC033C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FAB9538B1E96DFF100FC033C /* CurrentSectorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentSectorTableViewController.swift; sourceTree = "<group>"; };
+		FAB953901E975A4C00FC033C /* TutorialPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TutorialPage.storyboard; sourceTree = "<group>"; };
+		FAB953941E9C7B0900FC033C /* TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialPageViewController.swift; path = ../TutorialPageViewController.swift; sourceTree = "<group>"; };
+		FAB953961E9C7CD800FC033C /* Page1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page1ViewController.swift; sourceTree = "<group>"; };
+		FAB953981E9C7CE800FC033C /* Page2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page2ViewController.swift; sourceTree = "<group>"; };
+		FAB9539A1E9C7CEF00FC033C /* Page3ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page3ViewController.swift; sourceTree = "<group>"; };
+		FAB9539C1E9C7CFA00FC033C /* Page4ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page4ViewController.swift; sourceTree = "<group>"; };
 		FAC973C81E96A453002A4E6E /* Rob'sJobs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rob'sJobs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC973CB1E96A453002A4E6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAC973D01E96A453002A4E6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -87,6 +102,7 @@
 		FAC973E71E96A453002A4E6E /* Rob'sJobsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rob'sJobsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC973EB1E96A453002A4E6E /* Rob_sJobsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rob_sJobsUITests.swift; sourceTree = "<group>"; };
 		FAC973ED1E96A453002A4E6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAE02A281E9C958B00084F66 /* TutorialTestPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialTestPageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +141,6 @@
 				FAB953851E96CC4000FC033C /* SSRadioButton.swift */,
 				FAB953861E96CC4000FC033C /* SSRadioButtonsController.swift */,
 				FAB953311E96AF5D00FC033C /* InputButton.swift */,
-				FAB953721E96C2E100FC033C /* FirstTimeLogin */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -135,6 +150,7 @@
 			children = (
 				FAB953731E96C30500FC033C /* FirstTimeLogin.storyboard */,
 				FAB953751E96C31A00FC033C /* DesiredSectorTableViewController.swift */,
+				FAB9538B1E96DFF100FC033C /* CurrentSectorTableViewController.swift */,
 				FAB953771E96C32500FC033C /* SalaryPickerTableViewController.swift */,
 				FAB953791E96C32E00FC033C /* CityPickerTableViewController.swift */,
 				FAB9537B1E96C33800FC033C /* ProvincePickerTableViewController.swift */,
@@ -144,6 +160,20 @@
 				FAB953831E96C35E00FC033C /* SetupProfileViewController.swift */,
 			);
 			name = FirstTimeLogin;
+			sourceTree = "<group>";
+		};
+		FAB9538F1E975A3300FC033C /* TutorialPage */ = {
+			isa = PBXGroup;
+			children = (
+				FAB953941E9C7B0900FC033C /* TutorialPageViewController.swift */,
+				FAB953961E9C7CD800FC033C /* Page1ViewController.swift */,
+				FAB953981E9C7CE800FC033C /* Page2ViewController.swift */,
+				FAB9539A1E9C7CEF00FC033C /* Page3ViewController.swift */,
+				FAB9539C1E9C7CFA00FC033C /* Page4ViewController.swift */,
+				FAB953901E975A4C00FC033C /* TutorialPage.storyboard */,
+				FAE02A281E9C958B00084F66 /* TutorialTestPageViewController.swift */,
+			);
+			name = TutorialPage;
 			sourceTree = "<group>";
 		};
 		FAC973BF1E96A453002A4E6E = {
@@ -172,6 +202,8 @@
 				FAB953391E96BFEB00FC033C /* ViewController.swift */,
 				FAB953361E96AF6900FC033C /* Class */,
 				FAB952CE1E96AE8500FC033C /* Assets.xcassets */,
+				FAB9538F1E975A3300FC033C /* TutorialPage */,
+				FAB953721E96C2E100FC033C /* FirstTimeLogin */,
 				FAC973CB1E96A453002A4E6E /* AppDelegate.swift */,
 				FAC973CF1E96A453002A4E6E /* Main.storyboard */,
 				FAB953891E96D09500FC033C /* LaunchScreen.storyboard */,
@@ -315,6 +347,7 @@
 				FAB952CF1E96AE8500FC033C /* Assets.xcassets in Resources */,
 				FAB9538A1E96D09500FC033C /* LaunchScreen.storyboard in Resources */,
 				FAC973D11E96A453002A4E6E /* Main.storyboard in Resources */,
+				FAB953911E975A4C00FC033C /* TutorialPage.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,17 +374,24 @@
 			files = (
 				FAB953801E96C34A00FC033C /* EmploymentPickerTableViewController.swift in Sources */,
 				FAB953401E96C06C00FC033C /* RegisterViewController.swift in Sources */,
+				FAB9539D1E9C7CFA00FC033C /* Page4ViewController.swift in Sources */,
 				FAB953881E96CC4000FC033C /* SSRadioButtonsController.swift in Sources */,
+				FAB9538C1E96DFF100FC033C /* CurrentSectorTableViewController.swift in Sources */,
 				FAB9533A1E96BFEB00FC033C /* ViewController.swift in Sources */,
 				FAB953341E96AF5D00FC033C /* Checkbox.swift in Sources */,
 				FAB9536F1E96C14C00FC033C /* FloatLabelTextField.swift in Sources */,
 				FAB953351E96AF5D00FC033C /* InputButton.swift in Sources */,
 				FAB9537C1E96C33800FC033C /* ProvincePickerTableViewController.swift in Sources */,
+				FAB9539B1E9C7CEF00FC033C /* Page3ViewController.swift in Sources */,
+				FAB953971E9C7CD800FC033C /* Page1ViewController.swift in Sources */,
 				FAB953821E96C35600FC033C /* CharactersTableViewController.swift in Sources */,
+				FAB953951E9C7B0900FC033C /* TutorialPageViewController.swift in Sources */,
 				FAB953331E96AF5D00FC033C /* UIUtility.swift in Sources */,
 				FAB9537E1E96C34100FC033C /* SkillsPickerTableViewController.swift in Sources */,
 				FAB9533F1E96C06C00FC033C /* LoginViewController.swift in Sources */,
+				FAB953991E9C7CE800FC033C /* Page2ViewController.swift in Sources */,
 				FAB953321E96AF5D00FC033C /* ButtonCustom.swift in Sources */,
+				FAE02A291E9C958B00084F66 /* TutorialTestPageViewController.swift in Sources */,
 				FAB953781E96C32500FC033C /* SalaryPickerTableViewController.swift in Sources */,
 				FAB953761E96C31A00FC033C /* DesiredSectorTableViewController.swift in Sources */,
 				FAB953711E96C15600FC033C /* FloatLabelTextView.swift in Sources */,
