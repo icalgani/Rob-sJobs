@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="akI-Dt-fM9">
+            <objects>
+                <viewController id="ivr-Mx-xeA" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZaT-H3-IN9"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jz1-td-hOU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6Gt-EH-9Mr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="icon_chat_active" selectedImage="icon_chat_active" id="gsp-lu-rkP">
+                        <inset key="imageInsets" minX="0.0" minY="13" maxX="0.0" maxY="-13"/>
+                    </tabBarItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cfo-a5-rzZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-833" y="682"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="PSs-on-wtN">
+            <objects>
+                <viewController id="kAW-1T-6Zy" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="q4o-ge-ldC"/>
+                        <viewControllerLayoutGuide type="bottom" id="UKV-8I-OgS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kHS-Jd-7DG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="icon_profile" selectedImage="icon_profile" id="SUw-HD-R1Y">
+                        <inset key="imageInsets" minX="0.0" minY="13" maxX="0.0" maxY="-13"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lix-lO-MVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="124" y="270"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="AVJ-dJ-GeX">
+            <objects>
+                <viewController id="tpS-5Z-uio" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jl4-eR-uh8"/>
+                        <viewControllerLayoutGuide type="bottom" id="Cxy-FH-YSX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7fb-NT-Rzv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="icon_jobscard_active" selectedImage="icon_jobscard" id="AVh-LW-Ihq">
+                        <inset key="imageInsets" minX="0.0" minY="10" maxX="0.0" maxY="-20"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7DH-Wg-ffT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="124" y="-385"/>
+        </scene>
+        <!--Custom Tabbar View Controller-->
+        <scene sceneID="zY4-vU-kst">
+            <objects>
+                <tabBarController storyboardIdentifier="SwipingScene" id="iid-pl-IdM" customClass="CustomTabbarViewController" customModule="Rob_sJobs" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="KtC-EG-Uuz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="tpS-5Z-uio" kind="relationship" relationship="viewControllers" id="BZK-3U-tQ7"/>
+                        <segue destination="kAW-1T-6Zy" kind="relationship" relationship="viewControllers" id="mcY-eN-CMr"/>
+                        <segue destination="ivr-Mx-xeA" kind="relationship" relationship="viewControllers" id="Stb-bH-f0A"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PE2-y5-vaU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-828" y="-57"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icon_chat_active" width="43" height="43"/>
+        <image name="icon_jobscard" width="43" height="43"/>
+        <image name="icon_jobscard_active" width="43" height="43"/>
+        <image name="icon_profile" width="43" height="43"/>
+    </resources>
+</document>

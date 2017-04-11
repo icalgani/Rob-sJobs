@@ -201,14 +201,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMr-Si-1ZS">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pdD-Kb-a69">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="jBz-xB-U8p">
-                                        <rect key="frame" x="20" y="30" width="351" height="1782"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="jBz-xB-U8p">
+                                        <rect key="frame" x="20" y="20" width="348" height="797"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="csz-aq-68E" customClass="FloatLabelTextField" customModule="Rob_sJobs" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="351" height="72"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="348" height="37"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
@@ -225,7 +225,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Birthdate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nxy-sY-dPR" customClass="FloatLabelTextField" customModule="Rob_sJobs" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="90" width="351" height="72"/>
+                                                <rect key="frame" x="0.0" y="40" width="348" height="37"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -245,7 +245,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Province" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E9C-LB-TVr" customClass="FloatLabelTextField" customModule="Rob_sJobs" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="180" width="351" height="72"/>
+                                                <rect key="frame" x="0.0" y="80" width="348" height="37"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -265,7 +265,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dL3-0A-m0A" customClass="FloatLabelTextField" customModule="Rob_sJobs" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="270" width="351" height="72"/>
+                                                <rect key="frame" x="0.0" y="120" width="348" height="37"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -285,7 +285,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Expected Salary" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xOh-d7-DTd" customClass="FloatLabelTextField" customModule="Rob_sJobs" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="360" width="351" height="72"/>
+                                                <rect key="frame" x="0.0" y="160" width="348" height="37"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -305,7 +305,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Characters" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vzo-ic-IPJ" customClass="FloatLabelTextField" customModule="Rob_sJobs" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="450" width="351" height="72"/>
+                                                <rect key="frame" x="0.0" y="200" width="348" height="37"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -325,7 +325,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Skills" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JQz-id-PRK" customClass="FloatLabelTextField" customModule="Rob_sJobs" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="540" width="351" height="72"/>
+                                                <rect key="frame" x="0.0" y="240" width="348" height="37"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -345,7 +345,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Desired employment" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nju-C8-rZu" customClass="FloatLabelTextField" customModule="Rob_sJobs" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="630" width="351" height="72"/>
+                                                <rect key="frame" x="0.0" y="280" width="348" height="37"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -365,7 +365,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Desired Sector" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ULi-5F-gLg" customClass="FloatLabelTextField" customModule="Rob_sJobs" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="720" width="351" height="72"/>
+                                                <rect key="frame" x="0.0" y="320" width="348" height="37"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -385,13 +385,13 @@
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Has work experience in field?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9f-13-Jv7">
-                                                <rect key="frame" x="0.0" y="810" width="351" height="72"/>
+                                                <rect key="frame" x="0.0" y="360" width="348" height="37"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2S-2d-KZj" customClass="SSRadioButton" customModule="Rob_sJobs" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="900" width="351" height="72"/>
+                                                <rect key="frame" x="0.0" y="400" width="348" height="37"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Yes">
@@ -405,7 +405,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HI1-FC-JW8" customClass="SSRadioButton" customModule="Rob_sJobs" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="990" width="351" height="72"/>
+                                                <rect key="frame" x="0.0" y="440" width="348" height="37"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="No">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -418,13 +418,13 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currently employed?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCu-lG-qhy">
-                                                <rect key="frame" x="0.0" y="1080" width="351" height="72"/>
+                                                <rect key="frame" x="0.0" y="480" width="348" height="37"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DVO-QT-Prp" customClass="SSRadioButton" customModule="Rob_sJobs" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="1170" width="351" height="72"/>
+                                                <rect key="frame" x="0.0" y="520" width="348" height="37"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Yes">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -437,7 +437,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7p-um-cin" customClass="SSRadioButton" customModule="Rob_sJobs" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="1260" width="351" height="72"/>
+                                                <rect key="frame" x="0.0" y="560" width="348" height="37"/>
                                                 <color key="tintColor" red="0.10550563782453537" green="0.54004389047622681" blue="0.42164140939712524" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="No">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -450,7 +450,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Current Sector" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Mc-gQ-nmB" customClass="FloatLabelTextField" customModule="Rob_sJobs" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="1350" width="351" height="72"/>
+                                                <rect key="frame" x="0.0" y="600" width="348" height="37"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -470,7 +470,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Describe yourself" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Isv-K2-cEs" customClass="FloatLabelTextField" customModule="Rob_sJobs" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="1440" width="351" height="72"/>
+                                                <rect key="frame" x="0.0" y="640" width="348" height="37"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
@@ -487,42 +487,39 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P7I-Cr-jbw">
-                                                <rect key="frame" x="0.0" y="1530" width="351" height="72"/>
+                                                <rect key="frame" x="0.0" y="680" width="348" height="37"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="25" minValue="1" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="7gb-xJ-Ddn">
-                                                <rect key="frame" x="-2" y="1620" width="355" height="73"/>
+                                                <rect key="frame" x="-2" y="720" width="352" height="38"/>
                                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </slider>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kx4-Tf-G4N">
-                                                <rect key="frame" x="0.0" y="1710" width="351" height="72"/>
+                                                <rect key="frame" x="0.0" y="760" width="348" height="37"/>
                                                 <state key="normal" image="icon_next"/>
                                                 <connections>
                                                     <action selector="goToTutorialPage:" destination="gRa-oJ-IvR" eventType="touchUpInside" id="3F6-h9-iXT"/>
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="351" id="dd0-Lq-a6V"/>
-                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="jBz-xB-U8p" firstAttribute="leading" secondItem="qMr-Si-1ZS" secondAttribute="leading" constant="20" id="1Pg-5v-q0X"/>
-                                    <constraint firstItem="jBz-xB-U8p" firstAttribute="top" secondItem="qMr-Si-1ZS" secondAttribute="top" constant="30" id="Wlm-Gg-jXZ"/>
-                                    <constraint firstAttribute="bottom" secondItem="jBz-xB-U8p" secondAttribute="bottom" constant="-44" id="dVa-Gf-y6m"/>
-                                    <constraint firstAttribute="trailing" secondItem="jBz-xB-U8p" secondAttribute="trailing" constant="20" id="fZz-YZ-DOg"/>
+                                    <constraint firstAttribute="bottom" secondItem="jBz-xB-U8p" secondAttribute="bottom" constant="20" id="Hk4-LS-4TZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="jBz-xB-U8p" secondAttribute="trailing" constant="20" id="ekL-x1-IIk"/>
+                                    <constraint firstItem="jBz-xB-U8p" firstAttribute="top" secondItem="pdD-Kb-a69" secondAttribute="top" constant="20" id="jEh-Mu-NY8"/>
+                                    <constraint firstItem="jBz-xB-U8p" firstAttribute="leading" secondItem="pdD-Kb-a69" secondAttribute="leading" constant="20" id="pB9-zy-KbK"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.10550563782453537" green="0.54004389047622681" blue="0.42164140939712524" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="qMr-Si-1ZS" firstAttribute="leading" secondItem="14v-Uf-Aj3" secondAttribute="leading" id="KnZ-xb-sxY"/>
-                            <constraint firstItem="qMr-Si-1ZS" firstAttribute="top" secondItem="M3U-LK-Fcp" secondAttribute="bottom" id="ago-du-ycg"/>
-                            <constraint firstAttribute="trailing" secondItem="qMr-Si-1ZS" secondAttribute="trailing" id="o5h-Nx-OOq"/>
-                            <constraint firstAttribute="bottom" secondItem="qMr-Si-1ZS" secondAttribute="bottom" id="qOQ-di-gIc"/>
+                            <constraint firstItem="pdD-Kb-a69" firstAttribute="top" secondItem="M3U-LK-Fcp" secondAttribute="bottom" id="BK8-2Q-RJ6"/>
+                            <constraint firstItem="pdD-Kb-a69" firstAttribute="leading" secondItem="14v-Uf-Aj3" secondAttribute="leading" id="axj-JA-bcX"/>
+                            <constraint firstAttribute="bottom" secondItem="pdD-Kb-a69" secondAttribute="bottom" id="hKB-Rb-7A7"/>
+                            <constraint firstAttribute="trailing" secondItem="pdD-Kb-a69" secondAttribute="trailing" id="ucg-fM-IOs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Set up your profile" id="F4O-73-UeM"/>
@@ -538,9 +535,11 @@
                         <outlet property="NextButton" destination="kx4-Tf-G4N" id="Xeh-yf-QJc"/>
                         <outlet property="ProvinceInput" destination="E9C-LB-TVr" id="DVE-bw-a9j"/>
                         <outlet property="SalaryInput" destination="xOh-d7-DTd" id="L5Z-CP-aAh"/>
+                        <outlet property="Scrollview" destination="pdD-Kb-a69" id="UUX-ac-D0e"/>
                         <outlet property="SearchDistanceSlider" destination="7gb-xJ-Ddn" id="KeX-N0-bwl"/>
                         <outlet property="SkillsInput" destination="JQz-id-PRK" id="JbS-tL-T8F"/>
                         <outlet property="StackView" destination="jBz-xB-U8p" id="w0v-Y6-dXa"/>
+                        <outlet property="Stackview" destination="jBz-xB-U8p" id="7Um-Hs-yYh"/>
                         <outlet property="currentyEmployedNoButton" destination="r7p-um-cin" id="eCt-t6-TOX"/>
                         <outlet property="currentyEmployedYesButton" destination="DVO-QT-Prp" id="59o-h8-hdA"/>
                         <outlet property="workExperienceNoButton" destination="HI1-FC-JW8" id="qiS-gx-ivw"/>
@@ -897,6 +896,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon_next" width="72" height="72"/>
+        <image name="icon_next" width="37" height="37"/>
     </resources>
 </document>

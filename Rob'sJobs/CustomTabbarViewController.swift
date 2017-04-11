@@ -1,5 +1,5 @@
 //
-//  Page1ViewController.swift
+//  CustomTabbarViewController.swift
 //  Rob'sJobs
 //
 //  Created by MacBook on 4/11/17.
@@ -8,24 +8,25 @@
 
 import UIKit
 
-class Page1ViewController: UIViewController {
+class CustomTabbarViewController: UITabBarController {
 
-    @IBAction func SkipTutorial(_ sender: UIButton) {
-        //go to tutorial page
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Core", bundle: nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SwipingScene") as UIViewController
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController = nextViewController
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-                
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        var tabFrame:CGRect = self.tabBar.frame
+        tabFrame.size.height = 80
+        tabFrame.origin.y = self.view.frame.origin.y
+        self.tabBar.frame = tabFrame
+        self.title = nil
+
     }
     
 

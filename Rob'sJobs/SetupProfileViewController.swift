@@ -22,8 +22,8 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
     var passedDesiredSectorValue:String = ""
     var passedCurrentSectorValue:String = ""
     
+    @IBOutlet weak var Stackview: UIStackView!
     @IBOutlet weak var StackView: UIStackView!
-    @IBOutlet weak var ScrollView: UIScrollView!
     @IBOutlet weak var CharacterInput: FloatLabelTextField!
     @IBOutlet weak var ProvinceInput: FloatLabelTextField!
     @IBOutlet weak var NameInput: FloatLabelTextField!
@@ -36,6 +36,7 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
     @IBOutlet weak var NextButton: UIButton!
     @IBOutlet weak var CurrentSectorInput: FloatLabelTextField!
     @IBOutlet weak var DescribeYourselfInput: FloatLabelTextField!
+    @IBOutlet weak var Scrollview: UIScrollView!
     
     @IBOutlet weak var workExperienceYesButton: SSRadioButton!
     @IBOutlet weak var workExperienceNoButton: SSRadioButton!
@@ -194,6 +195,7 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
         NotificationCenter.default.addObserver(self,selector: #selector(keyboardWillShow(notification:)),name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)),name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
     }
     
     func keyboardWillShow(notification: Notification) {
@@ -288,8 +290,8 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
         guard let value = notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue else { return }
         let keyboardFrame = value.cgRectValue
         let adjustmentHeight = (keyboardFrame.height + 20) * (show ? 1 : -1)
-        ScrollView.contentInset.bottom = adjustmentHeight
-        ScrollView.scrollIndicatorInsets.bottom = adjustmentHeight
+        Scrollview.contentInset.bottom = adjustmentHeight
+        Scrollview.scrollIndicatorInsets.bottom = adjustmentHeight
     }
     
     
