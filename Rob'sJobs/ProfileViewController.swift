@@ -1,5 +1,5 @@
 //
-//  Page4ViewController.swift
+//  ProfileViewController.swift
 //  Rob'sJobs
 //
 //  Created by MacBook on 4/11/17.
@@ -8,28 +8,22 @@
 
 import UIKit
 
-class Page4ViewController: UIViewController {
+class ProfileViewController: UIViewController {
 
-    @IBAction func ExitFromTutorial(_ sender: UIButton) {
+    @IBOutlet weak var UserDescriptionLabel: UILabel!
+    @IBOutlet weak var ProfileDetailStackView: UIStackView!
+    @IBOutlet weak var LabelForUnderline: UILabel!
+    @IBOutlet weak var LogOutButton: ButtonCustom!
     
+    @IBAction func doLogOut(_ sender: ButtonCustom) {
     }
-    
-    @IBAction func FinishTutorial(_ sender: ButtonCustom) {
-        //go to tutorial page
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Core", bundle: nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SwipingScene") as UIViewController
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController = nextViewController
-    }
-    
-    @IBOutlet weak var FinishButton: ButtonCustom!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //set white border
-        FinishButton.whiteBorder()
-        
+        //add underline on user description
+        UserDescriptionLabel.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.black, thickness: 1)
+        LabelForUnderline.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.black, thickness: 1)
     }
 
     override func didReceiveMemoryWarning() {

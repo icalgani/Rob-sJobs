@@ -1,21 +1,35 @@
 //
-//  Page3ViewController.swift
+//  JobSwipingViewController.swift
 //  Rob'sJobs
 //
-//  Created by MacBook on 4/11/17.
+//  Created by MacBook on 4/12/17.
 //  Copyright © 2017 MacBook. All rights reserved.
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
-class Page3ViewController: UIViewController {
+class JobSwipingViewController: UIViewController,CLLocationManagerDelegate {
 
-    @IBOutlet weak var TextLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let locationManager = CLLocationManager()
         
-        TextLabel.sizeToFit()
+        // Ask for Authorisation from the User.
+        locationManager.requestAlwaysAuthorization()
+        
+        // For use in foreground
+        locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
     }
 
     override func didReceiveMemoryWarning() {

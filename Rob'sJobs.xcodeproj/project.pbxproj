@@ -44,6 +44,11 @@
 		FAE02A291E9C958B00084F66 /* TutorialTestPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE02A281E9C958B00084F66 /* TutorialTestPageViewController.swift */; };
 		FAE02A331E9CC5F400084F66 /* Core.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAE02A321E9CC5F400084F66 /* Core.storyboard */; };
 		FAE02A351E9CC78200084F66 /* CustomTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE02A341E9CC78200084F66 /* CustomTabbarViewController.swift */; };
+		FAE02A371E9D153C00084F66 /* LabelUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE02A361E9D153C00084F66 /* LabelUtility.swift */; };
+		FAE02A391E9D1BD200084F66 /* ExtensionCALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE02A381E9D1BD200084F66 /* ExtensionCALayer.swift */; };
+		FAE02A3B1E9D1F1500084F66 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE02A3A1E9D1F1500084F66 /* ProfileViewController.swift */; };
+		FAE02A3D1E9DD90700084F66 /* JobSwipingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE02A3C1E9DD90700084F66 /* JobSwipingViewController.swift */; };
+		FAE02A401E9DD9F100084F66 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE02A3F1E9DD9F100084F66 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +112,11 @@
 		FAE02A281E9C958B00084F66 /* TutorialTestPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialTestPageViewController.swift; sourceTree = "<group>"; };
 		FAE02A321E9CC5F400084F66 /* Core.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Core.storyboard; sourceTree = "<group>"; };
 		FAE02A341E9CC78200084F66 /* CustomTabbarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabbarViewController.swift; sourceTree = "<group>"; };
+		FAE02A361E9D153C00084F66 /* LabelUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelUtility.swift; sourceTree = "<group>"; };
+		FAE02A381E9D1BD200084F66 /* ExtensionCALayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionCALayer.swift; sourceTree = "<group>"; };
+		FAE02A3A1E9D1F1500084F66 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		FAE02A3C1E9DD90700084F66 /* JobSwipingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobSwipingViewController.swift; sourceTree = "<group>"; };
+		FAE02A3F1E9DD9F100084F66 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAE02A401E9DD9F100084F66 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,10 +153,12 @@
 				FAB953701E96C15600FC033C /* FloatLabelTextView.swift */,
 				FAB9532E1E96AF5D00FC033C /* ButtonCustom.swift */,
 				FAB9532F1E96AF5D00FC033C /* UIUtility.swift */,
+				FAE02A381E9D1BD200084F66 /* ExtensionCALayer.swift */,
 				FAB953301E96AF5D00FC033C /* Checkbox.swift */,
 				FAB953851E96CC4000FC033C /* SSRadioButton.swift */,
 				FAB953861E96CC4000FC033C /* SSRadioButtonsController.swift */,
 				FAB953311E96AF5D00FC033C /* InputButton.swift */,
+				FAE02A361E9D153C00084F66 /* LabelUtility.swift */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -188,6 +201,7 @@
 				FAC973DF1E96A453002A4E6E /* Rob'sJobsTests */,
 				FAC973EA1E96A453002A4E6E /* Rob'sJobsUITests */,
 				FAC973C91E96A453002A4E6E /* Products */,
+				FAE02A3E1E9DD9F100084F66 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -243,8 +257,18 @@
 			isa = PBXGroup;
 			children = (
 				FAE02A321E9CC5F400084F66 /* Core.storyboard */,
+				FAE02A3C1E9DD90700084F66 /* JobSwipingViewController.swift */,
+				FAE02A3A1E9D1F1500084F66 /* ProfileViewController.swift */,
 			);
 			name = CoreApp;
+			sourceTree = "<group>";
+		};
+		FAE02A3E1E9DD9F100084F66 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FAE02A3F1E9DD9F100084F66 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,6 +341,11 @@
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = GDR59R6QDD;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					FAC973DB1E96A453002A4E6E = {
 						CreatedOnToolsVersion = 8.3;
@@ -393,16 +422,20 @@
 				FAB9539D1E9C7CFA00FC033C /* Page4ViewController.swift in Sources */,
 				FAB953881E96CC4000FC033C /* SSRadioButtonsController.swift in Sources */,
 				FAB9538C1E96DFF100FC033C /* CurrentSectorTableViewController.swift in Sources */,
+				FAE02A3B1E9D1F1500084F66 /* ProfileViewController.swift in Sources */,
 				FAB9533A1E96BFEB00FC033C /* ViewController.swift in Sources */,
 				FAB953341E96AF5D00FC033C /* Checkbox.swift in Sources */,
 				FAB9536F1E96C14C00FC033C /* FloatLabelTextField.swift in Sources */,
 				FAB953351E96AF5D00FC033C /* InputButton.swift in Sources */,
 				FAB9537C1E96C33800FC033C /* ProvincePickerTableViewController.swift in Sources */,
+				FAE02A371E9D153C00084F66 /* LabelUtility.swift in Sources */,
+				FAE02A3D1E9DD90700084F66 /* JobSwipingViewController.swift in Sources */,
 				FAB9539B1E9C7CEF00FC033C /* Page3ViewController.swift in Sources */,
 				FAB953971E9C7CD800FC033C /* Page1ViewController.swift in Sources */,
 				FAB953821E96C35600FC033C /* CharactersTableViewController.swift in Sources */,
 				FAB953951E9C7B0900FC033C /* TutorialPageViewController.swift in Sources */,
 				FAB953331E96AF5D00FC033C /* UIUtility.swift in Sources */,
+				FAE02A391E9D1BD200084F66 /* ExtensionCALayer.swift in Sources */,
 				FAB9537E1E96C34100FC033C /* SkillsPickerTableViewController.swift in Sources */,
 				FAB9533F1E96C06C00FC033C /* LoginViewController.swift in Sources */,
 				FAB953991E9C7CE800FC033C /* Page2ViewController.swift in Sources */,

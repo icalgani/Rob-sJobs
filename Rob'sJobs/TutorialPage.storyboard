@@ -48,9 +48,6 @@
                                     <constraint firstAttribute="width" constant="25" id="VFT-3z-cro"/>
                                 </constraints>
                                 <state key="normal" image="icon_close"/>
-                                <connections>
-                                    <action selector="SkipTutorial:" destination="xHY-AQ-5ye" eventType="touchUpInside" id="054-Il-p7g"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.10550563782453537" green="0.54004389047622681" blue="0.42164140939712524" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -149,6 +146,9 @@
                                 <state key="normal" title="Finish">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="FinishTutorial:" destination="o8s-f6-Od6" eventType="touchUpInside" id="31J-bK-8PA"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now you are ready to find a dream job!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQf-uY-V2L">
                                 <rect key="frame" x="26" y="463" width="268" height="21"/>
@@ -210,10 +210,10 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walk_4" translatesAutoresizingMaskIntoConstraints="NO" id="DL9-Xv-Pyj">
                                 <rect key="frame" x="20" y="120" width="280" height="298"/>
                             </imageView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" currentPage="2" translatesAutoresizingMaskIntoConstraints="NO" id="Loj-0v-rOZ">
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" currentPage="2" translatesAutoresizingMaskIntoConstraints="NO" id="Loj-0v-rOZ">
                                 <rect key="frame" x="133" y="497" width="55" height="33"/>
                             </pageControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Continue talks with the company through chat" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AnK-0U-fuB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Continue talks with the company through chat" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AnK-0U-fuB">
                                 <rect key="frame" x="26" y="456" width="268" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="Noy-Fb-Ogw"/>
@@ -247,6 +247,9 @@
                             <constraint firstItem="cYm-bZ-CBs" firstAttribute="leading" secondItem="BkO-OD-D5P" secondAttribute="leadingMargin" id="t5O-O6-aG1"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="TextLabel" destination="AnK-0U-fuB" id="QVJ-cA-goN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HBN-kh-iUE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
