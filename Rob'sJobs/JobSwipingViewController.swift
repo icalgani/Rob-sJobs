@@ -10,14 +10,12 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class JobSwipingViewController: UIViewController,CLLocationManagerDelegate {
+class JobSwipingViewController: UIViewController,CLLocationManagerDelegate, UITabBarControllerDelegate {
 
-    
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let locationManager = CLLocationManager()
         
         // Ask for Authorisation from the User.
         locationManager.requestAlwaysAuthorization()
@@ -25,11 +23,9 @@ class JobSwipingViewController: UIViewController,CLLocationManagerDelegate {
         // For use in foreground
         locationManager.requestWhenInUseAuthorization()
         
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
-        }
+        self.tabBarController?.delegate = self
+        checkLocationIsOn()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,7 +33,24 @@ class JobSwipingViewController: UIViewController,CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        let tabBarIndex = tabBarController.selectedIndex
+        if tabBarIndex == 0 {
+            //do your stuff
+        }
+    }
+    
+    func checkLocationIsOn(){
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }else{
+            if let settingsURL = URL(string: UIApplicationOpenSettingsURLString + Bundle.main.bundleIdentifier!) {
+                UIApplication.shared.open(settingsURL)
+            }
+        }
+    }
     /*
     // MARK: - Navigation
 
