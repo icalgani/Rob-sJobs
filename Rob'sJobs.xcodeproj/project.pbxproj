@@ -37,6 +37,9 @@
 		FAB953991E9C7CE800FC033C /* Page2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB953981E9C7CE800FC033C /* Page2ViewController.swift */; };
 		FAB9539B1E9C7CEF00FC033C /* Page3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9539A1E9C7CEF00FC033C /* Page3ViewController.swift */; };
 		FAB9539D1E9C7CFA00FC033C /* Page4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9539C1E9C7CFA00FC033C /* Page4ViewController.swift */; };
+		FAC899191E9F256500D4800A /* DraggableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC899161E9F256500D4800A /* DraggableView.swift */; };
+		FAC8991A1E9F256500D4800A /* DraggableViewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC899171E9F256500D4800A /* DraggableViewBackground.swift */; };
+		FAC8991B1E9F256500D4800A /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC899181E9F256500D4800A /* OverlayView.swift */; };
 		FAC973CC1E96A453002A4E6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC973CB1E96A453002A4E6E /* AppDelegate.swift */; };
 		FAC973D11E96A453002A4E6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC973CF1E96A453002A4E6E /* Main.storyboard */; };
 		FAC973E11E96A453002A4E6E /* Rob_sJobsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC973E01E96A453002A4E6E /* Rob_sJobsTests.swift */; };
@@ -99,6 +102,9 @@
 		FAB953981E9C7CE800FC033C /* Page2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page2ViewController.swift; sourceTree = "<group>"; };
 		FAB9539A1E9C7CEF00FC033C /* Page3ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page3ViewController.swift; sourceTree = "<group>"; };
 		FAB9539C1E9C7CFA00FC033C /* Page4ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page4ViewController.swift; sourceTree = "<group>"; };
+		FAC899161E9F256500D4800A /* DraggableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableView.swift; sourceTree = "<group>"; };
+		FAC899171E9F256500D4800A /* DraggableViewBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableViewBackground.swift; sourceTree = "<group>"; };
+		FAC899181E9F256500D4800A /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
 		FAC973C81E96A453002A4E6E /* Rob'sJobs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rob'sJobs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC973CB1E96A453002A4E6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAC973D01E96A453002A4E6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -194,6 +200,16 @@
 			name = TutorialPage;
 			sourceTree = "<group>";
 		};
+		FAC8991C1E9F257000D4800A /* SwipeLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				FAC899161E9F256500D4800A /* DraggableView.swift */,
+				FAC899171E9F256500D4800A /* DraggableViewBackground.swift */,
+				FAC899181E9F256500D4800A /* OverlayView.swift */,
+			);
+			name = SwipeLibrary;
+			sourceTree = "<group>";
+		};
 		FAC973BF1E96A453002A4E6E = {
 			isa = PBXGroup;
 			children = (
@@ -218,6 +234,7 @@
 		FAC973CA1E96A453002A4E6E /* Rob'sJobs */ = {
 			isa = PBXGroup;
 			children = (
+				FAC8991C1E9F257000D4800A /* SwipeLibrary */,
 				FAB953361E96AF6900FC033C /* Class */,
 				FAB952CE1E96AE8500FC033C /* Assets.xcassets */,
 				FAE02A311E9CC56E00084F66 /* CoreApp */,
@@ -416,6 +433,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAC899191E9F256500D4800A /* DraggableView.swift in Sources */,
 				FAE02A351E9CC78200084F66 /* CustomTabbarViewController.swift in Sources */,
 				FAB953801E96C34A00FC033C /* EmploymentPickerTableViewController.swift in Sources */,
 				FAB953401E96C06C00FC033C /* RegisterViewController.swift in Sources */,
@@ -424,11 +442,13 @@
 				FAB9538C1E96DFF100FC033C /* CurrentSectorTableViewController.swift in Sources */,
 				FAE02A3B1E9D1F1500084F66 /* ProfileViewController.swift in Sources */,
 				FAB9533A1E96BFEB00FC033C /* ViewController.swift in Sources */,
+				FAC8991B1E9F256500D4800A /* OverlayView.swift in Sources */,
 				FAB953341E96AF5D00FC033C /* Checkbox.swift in Sources */,
 				FAB9536F1E96C14C00FC033C /* FloatLabelTextField.swift in Sources */,
 				FAB953351E96AF5D00FC033C /* InputButton.swift in Sources */,
 				FAB9537C1E96C33800FC033C /* ProvincePickerTableViewController.swift in Sources */,
 				FAE02A371E9D153C00084F66 /* LabelUtility.swift in Sources */,
+				FAC8991A1E9F256500D4800A /* DraggableViewBackground.swift in Sources */,
 				FAE02A3D1E9DD90700084F66 /* JobSwipingViewController.swift in Sources */,
 				FAB9539B1E9C7CEF00FC033C /* Page3ViewController.swift in Sources */,
 				FAB953971E9C7CD800FC033C /* Page1ViewController.swift in Sources */,
