@@ -27,7 +27,7 @@ class JobSwipingViewController: UIViewController,CLLocationManagerDelegate, UITa
         self.tabBarController?.delegate = self
         checkLocationIsOn()
         
-        var draggableBackground: DraggableViewBackground = DraggableViewBackground(frame: self.view.frame)
+        let draggableBackground: DraggableViewBackground = DraggableViewBackground(frame: self.view.frame)
         self.view.addSubview(draggableBackground)
         
         
