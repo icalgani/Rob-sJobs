@@ -39,9 +39,19 @@ class DraggableView: UIView {
     
     var locationLogo: UIImageView!
     var locationLabel: UILabel!
-    var distanceLabel: UILabel!
-
+    var informationLocationLabel: UILabel!
     
+    var typeLogo: UIImageView!
+    var typeLabel: UILabel!
+    var informationTypesLabel: UILabel!
+    
+    var salaryLogo: UIImageView!
+    var salaryLabel: UILabel!
+    var informationSalaryLabel: UILabel!
+    
+    var experienceLogo: UIImageView!
+    var experienceLabel: UILabel!
+    var informationExperienceLabel: UILabel!
 
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -89,7 +99,6 @@ class DraggableView: UIView {
         
         //container detail
         containerDetail = UIView()
-        containerDetail.backgroundColor = UIColor.black
         self.addSubview(containerDetail)
         //container constraint
         containerDetail.translatesAutoresizingMaskIntoConstraints = false
@@ -125,9 +134,10 @@ class DraggableView: UIView {
                            multiplier: 1.0,
                            constant: -200.0).isActive = true
         
+        let leadingSize = (self.frame.size.width - 20) / 4
+        
         //distance detail view
         distanceDetailView = UIView()
-        distanceDetailView.backgroundColor = UIColor.orange
         self.addSubview(distanceDetailView)
         //distance detail view constraint
         distanceDetailView.translatesAutoresizingMaskIntoConstraints = false
@@ -135,38 +145,53 @@ class DraggableView: UIView {
         
         //types detail view
         typeDetailView = UIView()
-        typeDetailView.backgroundColor = UIColor.red
         self.addSubview(typeDetailView)
         //types detail view constraint
         typeDetailView.translatesAutoresizingMaskIntoConstraints = false
-        createDetailConstraint(container: typeDetailView, leadingToItem: containerDetail, leadingSize: 60)
+        createDetailConstraint(container: typeDetailView, leadingToItem: containerDetail, leadingSize: Float(leadingSize))
 
-        //types detail view
+        //salary detail view
         salaryDetailView = UIView()
-        salaryDetailView.backgroundColor = UIColor.blue
         self.addSubview(salaryDetailView)
-        //types detail view constraint
+        //salary detail view constraint
         salaryDetailView.translatesAutoresizingMaskIntoConstraints = false
-        createDetailConstraint(container: salaryDetailView, leadingToItem: typeDetailView, leadingSize: 60)
+        createDetailConstraint(container: salaryDetailView, leadingToItem: typeDetailView, leadingSize: Float(leadingSize))
         
         //experience detail view
         experienceDetailView = UIView()
-        experienceDetailView.backgroundColor = UIColor.green
         self.addSubview(experienceDetailView)
-        //types detail view constraint
+        //experience detail view constraint
         experienceDetailView.translatesAutoresizingMaskIntoConstraints = false
-        createDetailConstraint(container: experienceDetailView, leadingToItem: salaryDetailView, leadingSize: 60)
+        createDetailConstraint(container: experienceDetailView, leadingToItem: salaryDetailView, leadingSize: Float(leadingSize))
         
-        //location logo initiate
-        print(typeDetailView.frame.size.width)
-        locationLogo = UIImageView(frame: CGRect(x:0 ,y:0 ,width: 15, height: 15))
-        locationLogo.image = UIImage(named:"icon_location")
-        typeDetailView.addSubview(locationLogo)
-        //location logo constraint
-        NSLayoutConstraint(item: locationLogo, attribute: .centerX, relatedBy: .equal, toItem: typeDetailView, attribute: .centerX, multiplier: 1.0, constant: 1).isActive = true
-        NSLayoutConstraint(item: locationLogo, attribute: .top, relatedBy: .equal, toItem: typeDetailView, attribute: .top, multiplier: 1.0, constant: 0.0).isActive = true
+        //create all detail information
+        //distance detail
+        locationLogo = UIImageView(frame: CGRect(x:(leadingSize-15)/2 ,y:0 ,width: 15, height: 15))
+        locationLabel = UILabel(frame: CGRect(x:0 ,y:20 ,width: (leadingSize), height: 15))
+        informationLocationLabel = UILabel(frame: CGRect(x:0 ,y:35 ,width: (leadingSize), height: 15))
+        //initiate detail
+        createInformationDetail(logoImage: locationLogo, imageName: "icon_location", addtoView: distanceDetailView, labelView: locationLabel, labelText: "121Km", informationLabel: informationLocationLabel, informationDetail: "Distance")
         
+        //types detail
+        typeLogo = UIImageView(frame: CGRect(x: (leadingSize-15)/2, y:0 , width: 15, height: 15))
+        typeLabel = UILabel(frame: CGRect(x:0 ,y:20 ,width: (leadingSize), height: 15))
+        informationTypesLabel = UILabel(frame: CGRect(x:0 ,y:35 ,width: (leadingSize), height: 15))
+        //initiate detail
+        createInformationDetail(logoImage: typeLogo, imageName: "icon_employment", addtoView: typeDetailView, labelView: typeLabel, labelText: "Full-time", informationLabel: informationTypesLabel, informationDetail: "Types")
         
+        //Salary detail
+        salaryLogo = UIImageView(frame: CGRect(x: (leadingSize-15)/2, y:0 , width: 15, height: 15))
+        salaryLabel = UILabel(frame: CGRect(x:0 ,y:20 ,width: (leadingSize), height: 15))
+        informationSalaryLabel = UILabel(frame: CGRect(x:0 ,y:35 ,width: (leadingSize), height: 15))
+        //initiate detail
+        createInformationDetail(logoImage: salaryLogo, imageName: "icon_salary", addtoView: salaryDetailView, labelView: salaryLabel, labelText: "5jt-7.5jt", informationLabel: informationSalaryLabel, informationDetail: "Salary")
+        
+        //experience detail
+        experienceLogo = UIImageView(frame: CGRect(x: (leadingSize-15)/2, y:0 , width: 15, height: 15))
+        experienceLabel = UILabel(frame: CGRect(x:0 ,y:20 ,width: (leadingSize), height: 15))
+        informationExperienceLabel = UILabel(frame: CGRect(x:0 ,y:35 ,width: (leadingSize), height: 15))
+        //initiate detail
+        createInformationDetail(logoImage: experienceLogo, imageName: "icon_experience", addtoView: experienceDetailView, labelView: experienceLabel, labelText: "No", informationLabel: informationExperienceLabel, informationDetail: "Experience")
     }
 
     func setupView() -> Void {
@@ -176,6 +201,29 @@ class DraggableView: UIView {
         self.layer.shadowOffset = CGSize(width: 1,height: 1);
     }
     
+    func createInformationDetail(logoImage: UIImageView, imageName: String, addtoView: UIView, labelView: UILabel, labelText: String,informationLabel: UILabel, informationDetail: String){
+//        let leadingSize = (self.frame.size.width - 20) / 4
+
+        //logo image
+        logoImage.image = UIImage(named:imageName)
+        addtoView.addSubview(logoImage)
+        
+        //value label
+        labelView.text = labelText
+        labelView.font = UIFont(name: "Arial", size: 10)
+        labelView.textColor = UIColor.black
+        labelView.textAlignment = NSTextAlignment.center
+        addtoView.addSubview(labelView)
+        
+        //information label
+        informationLabel.text = informationDetail
+        informationLabel.font = UIFont(name: "Arial", size: 10)
+        informationLabel.textColor = UIColor.green
+        informationLabel.textAlignment = NSTextAlignment.center
+        addtoView.addSubview(informationLabel)
+        
+    }
+    
     func createDetailConstraint(container: UIView, leadingToItem: UIView, leadingSize: Float){
         NSLayoutConstraint(item: container,
                            attribute: .leading,
@@ -183,7 +231,7 @@ class DraggableView: UIView {
                            toItem: leadingToItem,
                            attribute: .leading,
                            multiplier: 1.0,
-                           constant: (self.frame.size.width - 20) / 4).isActive = true
+                           constant: CGFloat(leadingSize)).isActive = true
         
         NSLayoutConstraint(item: container,
                            attribute: .top,
@@ -200,7 +248,6 @@ class DraggableView: UIView {
                            attribute: .notAnAttribute,
                            multiplier: 1.0,
                            constant: (self.frame.size.width - 20) / 4).isActive = true
-                        print(self.frame.size.width)
         
         NSLayoutConstraint(item: container,
                            attribute: .bottom,
