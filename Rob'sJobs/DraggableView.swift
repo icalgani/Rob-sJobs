@@ -28,7 +28,18 @@ class DraggableView: UIView {
     var overlayView: OverlayView!
     var xFromCenter: Float!
     var yFromCenter: Float!
+    
     var companyNameLabel: UILabel!
+    var companyLogoView: UIImageView!
+    var containerDetail: UIView!
+    var distanceDetailView: UIView!
+    var typeDetailView: UIView!
+    var salaryDetailView: UIView!
+    var experienceDetailView: UIView!
+    
+    var locationLogo: UIImageView!
+    var locationLabel: UILabel!
+    var distanceLabel: UILabel!
 
     
 
@@ -58,54 +69,104 @@ class DraggableView: UIView {
     }
     
     func setUpDraggableContent(){
-        var companyLogoView: UIImageView!
-        var locationLogo: UIImageView!
-        var locationLabel: UILabel!
-        var distanceLabel: UILabel!
+
 
 
         
         //company Logo
-        companyLogoView = UIImageView(frame: CGRect(x: 0,y: 30,width: 100,height: 100))
+        companyLogoView = UIImageView(frame: CGRect(x: 0,y: 10,width: 120,height: 80))
         companyLogoView.image = UIImage(named:"ads")
         companyLogoView.frame.origin.x = (self.bounds.size.width - companyLogoView.frame.size.width) / 2.0
         
         //company name
-        companyNameLabel = UILabel(frame: CGRect(x: 0,y: 100,width: self.frame.size.width,height: 100))
+        companyNameLabel = UILabel(frame: CGRect(x: 0,y: 100,width: self.frame.size.width,height: 30))
         companyNameLabel.text = "no info given"
         companyNameLabel.textAlignment = NSTextAlignment.center
         companyNameLabel.textColor = UIColor.black
         companyNameLabel.font.withSize(20)
-        
-        //location logo
-        locationLogo = UIImageView(frame: CGRect(x: 0,y: 0,width: 10,height: 10))
-        locationLogo.image = UIImage(named:"icon_location")
-        //location label
-        locationLabel = UILabel(frame: CGRect(x: 0,y: 20,width: self.frame.size.width,height: self.frame.size.height))
-        locationLabel.text = "121 KM"
-        locationLabel.textAlignment = NSTextAlignment.center
-        locationLabel.textColor = UIColor.black
-        //location label
-        distanceLabel = UILabel(frame: CGRect(x: 0,y: 40,width: self.frame.size.width,height: self.frame.size.height))
-        distanceLabel.text = "Distance"
-        distanceLabel.textAlignment = NSTextAlignment.center
-        distanceLabel.textColor = UIColor.black
-        
-        let stackView   = UIStackView(frame: CGRect(x: 0,y: 150,width: 30,height: 30))
-        stackView.axis  = UILayoutConstraintAxis.vertical
-        stackView.distribution  = UIStackViewDistribution.equalSpacing
-        stackView.alignment = UIStackViewAlignment.center
-        stackView.spacing   = 16.0
-        
-        stackView.addArrangedSubview(locationLogo)
-        stackView.addArrangedSubview(locationLabel)
-        stackView.addArrangedSubview(distanceLabel)
-        stackView.frame.origin.y = 100.0
-        stackView.frame.origin.x = 20.0
-        
         self.addSubview(companyNameLabel)
         self.addSubview(companyLogoView)
-        self.addSubview(stackView)
+        
+        //container detail
+        containerDetail = UIView()
+        containerDetail.backgroundColor = UIColor.black
+        self.addSubview(containerDetail)
+        //container constraint
+        containerDetail.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: containerDetail,
+                           attribute: .leading,
+                           relatedBy: .equal,
+                           toItem: self,
+                           attribute: .leading,
+                           multiplier: 1.0,
+                           constant: 10.0).isActive = true
+        
+        NSLayoutConstraint(item: containerDetail,
+                           attribute: .trailing,
+                           relatedBy: .equal,
+                           toItem: self,
+                           attribute: .trailing,
+                           multiplier: 1.0,
+                           constant: -10.0).isActive = true
+        
+        NSLayoutConstraint(item: containerDetail,
+                           attribute: .top,
+                           relatedBy: .equal,
+                           toItem: companyNameLabel,
+                           attribute: .top,
+                           multiplier: 1.0,
+                           constant: 40.0).isActive = true
+        
+        NSLayoutConstraint(item: containerDetail,
+                           attribute: .bottom,
+                           relatedBy: .equal,
+                           toItem: self,
+                           attribute: .bottom,
+                           multiplier: 1.0,
+                           constant: -200.0).isActive = true
+        
+        //distance detail view
+        distanceDetailView = UIView()
+        distanceDetailView.backgroundColor = UIColor.orange
+        self.addSubview(distanceDetailView)
+        //distance detail view constraint
+        distanceDetailView.translatesAutoresizingMaskIntoConstraints = false
+        createDetailConstraint(container: distanceDetailView, leadingToItem: containerDetail, leadingSize: 0)
+        
+        //types detail view
+        typeDetailView = UIView()
+        typeDetailView.backgroundColor = UIColor.red
+        self.addSubview(typeDetailView)
+        //types detail view constraint
+        typeDetailView.translatesAutoresizingMaskIntoConstraints = false
+        createDetailConstraint(container: typeDetailView, leadingToItem: containerDetail, leadingSize: 60)
+
+        //types detail view
+        salaryDetailView = UIView()
+        salaryDetailView.backgroundColor = UIColor.blue
+        self.addSubview(salaryDetailView)
+        //types detail view constraint
+        salaryDetailView.translatesAutoresizingMaskIntoConstraints = false
+        createDetailConstraint(container: salaryDetailView, leadingToItem: typeDetailView, leadingSize: 60)
+        
+        //experience detail view
+        experienceDetailView = UIView()
+        experienceDetailView.backgroundColor = UIColor.green
+        self.addSubview(experienceDetailView)
+        //types detail view constraint
+        experienceDetailView.translatesAutoresizingMaskIntoConstraints = false
+        createDetailConstraint(container: experienceDetailView, leadingToItem: salaryDetailView, leadingSize: 60)
+        
+        //location logo initiate
+        print(typeDetailView.frame.size.width)
+        locationLogo = UIImageView(frame: CGRect(x:0 ,y:0 ,width: 15, height: 15))
+        locationLogo.image = UIImage(named:"icon_location")
+        typeDetailView.addSubview(locationLogo)
+        //location logo constraint
+        NSLayoutConstraint(item: locationLogo, attribute: .centerX, relatedBy: .equal, toItem: typeDetailView, attribute: .centerX, multiplier: 1.0, constant: 1).isActive = true
+        NSLayoutConstraint(item: locationLogo, attribute: .top, relatedBy: .equal, toItem: typeDetailView, attribute: .top, multiplier: 1.0, constant: 0.0).isActive = true
+        
+        
     }
 
     func setupView() -> Void {
@@ -113,6 +174,46 @@ class DraggableView: UIView {
         self.layer.shadowRadius = 3;
         self.layer.shadowOpacity = 0.2;
         self.layer.shadowOffset = CGSize(width: 1,height: 1);
+    }
+    
+    func createDetailConstraint(container: UIView, leadingToItem: UIView, leadingSize: Float){
+        NSLayoutConstraint(item: container,
+                           attribute: .leading,
+                           relatedBy: .equal,
+                           toItem: leadingToItem,
+                           attribute: .leading,
+                           multiplier: 1.0,
+                           constant: (self.frame.size.width - 20) / 4).isActive = true
+        
+        NSLayoutConstraint(item: container,
+                           attribute: .top,
+                           relatedBy: .equal,
+                           toItem: containerDetail,
+                           attribute: .top,
+                           multiplier: 1.0,
+                           constant: 0.0).isActive = true
+        
+        NSLayoutConstraint(item: container,
+                           attribute: .width,
+                           relatedBy: .equal,
+                           toItem: nil,
+                           attribute: .notAnAttribute,
+                           multiplier: 1.0,
+                           constant: (self.frame.size.width - 20) / 4).isActive = true
+                        print(self.frame.size.width)
+        
+        NSLayoutConstraint(item: container,
+                           attribute: .bottom,
+                           relatedBy: .equal,
+                           toItem: containerDetail,
+                           attribute: .bottom,
+                           multiplier: 1.0,
+                           constant: 0.0).isActive = true
+        
+    }
+    
+    func createInsideDetailConstraint(){
+    
     }
 
     func beingDragged(_ gestureRecognizer: UIPanGestureRecognizer) -> Void {
@@ -171,6 +272,7 @@ class DraggableView: UIView {
     }
     
     func rightAction() -> Void {
+        
         let finishPoint: CGPoint = CGPoint(x: 500,y: 2 * CGFloat(yFromCenter) + self.originPoint.y)
         UIView.animate(withDuration: 0.3,
             animations: {
@@ -219,4 +321,6 @@ class DraggableView: UIView {
         })
         delegate.cardSwipedLeft(card: self)
     }
+    
+    
 }

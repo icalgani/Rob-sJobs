@@ -14,6 +14,7 @@ class JobSwipingViewController: UIViewController,CLLocationManagerDelegate, UITa
 
     let locationManager = CLLocationManager()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,6 +29,8 @@ class JobSwipingViewController: UIViewController,CLLocationManagerDelegate, UITa
         
         var draggableBackground: DraggableViewBackground = DraggableViewBackground(frame: self.view.frame)
         self.view.addSubview(draggableBackground)
+        
+        
 
     }
 
