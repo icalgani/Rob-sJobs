@@ -57,6 +57,7 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
     func createDraggableViewWithDataAtIndex(index: NSInteger) -> DraggableView {
         let draggableView = DraggableView(frame: CGRect(x: (self.frame.size.width - CARD_WIDTH)/2,y: (self.frame.size.height - CARD_HEIGHT)/2,width: CARD_WIDTH,height: CARD_HEIGHT))
         draggableView.companyNameLabel.text = exampleCardLabels[index]
+        draggableView.companyNameLabel.font = UIFont(name: "Arial", size: 30)
         draggableView.delegate = self
         return draggableView
     }
@@ -65,7 +66,7 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
         if exampleCardLabels.count > 0 {
             let numLoadedCardsCap = exampleCardLabels.count > MAX_BUFFER_SIZE ? MAX_BUFFER_SIZE : exampleCardLabels.count
             for i in 0 ..< exampleCardLabels.count {
-                var newCard: DraggableView = self.createDraggableViewWithDataAtIndex(index: i)
+                let newCard: DraggableView = self.createDraggableViewWithDataAtIndex(index: i)
                 allCards.append(newCard)
                 if i < numLoadedCardsCap {
                     loadedCards.append(newCard)

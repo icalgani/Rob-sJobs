@@ -40,6 +40,7 @@
 		FAC899191E9F256500D4800A /* DraggableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC899161E9F256500D4800A /* DraggableView.swift */; };
 		FAC8991A1E9F256500D4800A /* DraggableViewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC899171E9F256500D4800A /* DraggableViewBackground.swift */; };
 		FAC8991B1E9F256500D4800A /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC899181E9F256500D4800A /* OverlayView.swift */; };
+		FAC8991E1EA5F85100D4800A /* UIDetailInformationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC8991D1EA5F85100D4800A /* UIDetailInformationRow.swift */; };
 		FAC973CC1E96A453002A4E6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC973CB1E96A453002A4E6E /* AppDelegate.swift */; };
 		FAC973D11E96A453002A4E6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC973CF1E96A453002A4E6E /* Main.storyboard */; };
 		FAC973E11E96A453002A4E6E /* Rob_sJobsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC973E01E96A453002A4E6E /* Rob_sJobsTests.swift */; };
@@ -105,6 +106,7 @@
 		FAC899161E9F256500D4800A /* DraggableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableView.swift; sourceTree = "<group>"; };
 		FAC899171E9F256500D4800A /* DraggableViewBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableViewBackground.swift; sourceTree = "<group>"; };
 		FAC899181E9F256500D4800A /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
+		FAC8991D1EA5F85100D4800A /* UIDetailInformationRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDetailInformationRow.swift; sourceTree = "<group>"; };
 		FAC973C81E96A453002A4E6E /* Rob'sJobs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rob'sJobs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC973CB1E96A453002A4E6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAC973D01E96A453002A4E6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				FAC899161E9F256500D4800A /* DraggableView.swift */,
 				FAC899171E9F256500D4800A /* DraggableViewBackground.swift */,
 				FAC899181E9F256500D4800A /* OverlayView.swift */,
+				FAC8991D1EA5F85100D4800A /* UIDetailInformationRow.swift */,
 			);
 			name = SwipeLibrary;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				FAC973CC1E96A453002A4E6E /* AppDelegate.swift in Sources */,
 				FAB953841E96C35E00FC033C /* SetupProfileViewController.swift in Sources */,
 				FAB9537A1E96C32E00FC033C /* CityPickerTableViewController.swift in Sources */,
+				FAC8991E1EA5F85100D4800A /* UIDetailInformationRow.swift in Sources */,
 				FAB9533E1E96C06C00FC033C /* ResetPasswordViewController.swift in Sources */,
 				FAB953871E96CC4000FC033C /* SSRadioButton.swift in Sources */,
 			);

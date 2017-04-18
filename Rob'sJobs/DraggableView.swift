@@ -37,6 +37,8 @@ class DraggableView: UIView {
     var salaryDetailView: UIView!
     var experienceDetailView: UIView!
     
+    var requiredSkillView: UIView!
+    
     var locationLogo: UIImageView!
     var locationLabel: UILabel!
     var informationLocationLabel: UILabel!
@@ -52,6 +54,15 @@ class DraggableView: UIView {
     var experienceLogo: UIImageView!
     var experienceLabel: UILabel!
     var informationExperienceLabel: UILabel!
+    
+    var requiredSkill: [String] = ["Accounting","Analysis","Audit","Finance","Reporting","Accurate","Analytical Thinking", "Motivated","Problem Solver","Used To Working Under Pressure"]
+    var requiredSkillLabel: UILabel!
+    
+    var offerTimeView: UIView!
+    var offerTimeLabel: UILabel!
+    
+    var moreButtonView: UIView!
+    var moreButton: UIButton!
 
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -84,12 +95,12 @@ class DraggableView: UIView {
 
         
         //company Logo
-        companyLogoView = UIImageView(frame: CGRect(x: 0,y: 10,width: 120,height: 80))
+        companyLogoView = UIImageView(frame: CGRect(x: 0,y: 10,width: 115,height: 80))
         companyLogoView.image = UIImage(named:"ads")
         companyLogoView.frame.origin.x = (self.bounds.size.width - companyLogoView.frame.size.width) / 2.0
         
         //company name
-        companyNameLabel = UILabel(frame: CGRect(x: 0,y: 100,width: self.frame.size.width,height: 30))
+        companyNameLabel = UILabel(frame: CGRect(x: 0,y: 120,width: self.frame.size.width,height: 30))
         companyNameLabel.text = "no info given"
         companyNameLabel.textAlignment = NSTextAlignment.center
         companyNameLabel.textColor = UIColor.black
@@ -124,7 +135,7 @@ class DraggableView: UIView {
                            toItem: companyNameLabel,
                            attribute: .top,
                            multiplier: 1.0,
-                           constant: 40.0).isActive = true
+                           constant: 55.0).isActive = true
         
         NSLayoutConstraint(item: containerDetail,
                            attribute: .bottom,
@@ -135,34 +146,35 @@ class DraggableView: UIView {
                            constant: -200.0).isActive = true
         
         let leadingSize = (self.frame.size.width - 20) / 4
-        
+        let detailInformationUI = UIDetailInformationRow()
+
         //distance detail view
         distanceDetailView = UIView()
         self.addSubview(distanceDetailView)
         //distance detail view constraint
         distanceDetailView.translatesAutoresizingMaskIntoConstraints = false
-        createDetailConstraint(container: distanceDetailView, leadingToItem: containerDetail, leadingSize: 0)
+        detailInformationUI.createDetailConstraint(container: distanceDetailView, leadingToItem: containerDetail, leadingSize: 0, frameSizeWidth: Float(leadingSize), ToItem: containerDetail)
         
         //types detail view
         typeDetailView = UIView()
         self.addSubview(typeDetailView)
         //types detail view constraint
         typeDetailView.translatesAutoresizingMaskIntoConstraints = false
-        createDetailConstraint(container: typeDetailView, leadingToItem: containerDetail, leadingSize: Float(leadingSize))
+        detailInformationUI.createDetailConstraint(container: typeDetailView, leadingToItem: containerDetail, leadingSize: Float(leadingSize),frameSizeWidth: Float(leadingSize), ToItem: containerDetail)
 
         //salary detail view
         salaryDetailView = UIView()
         self.addSubview(salaryDetailView)
         //salary detail view constraint
         salaryDetailView.translatesAutoresizingMaskIntoConstraints = false
-        createDetailConstraint(container: salaryDetailView, leadingToItem: typeDetailView, leadingSize: Float(leadingSize))
+        detailInformationUI.createDetailConstraint(container: salaryDetailView, leadingToItem: typeDetailView, leadingSize: Float(leadingSize),frameSizeWidth: Float(leadingSize), ToItem: containerDetail)
         
         //experience detail view
         experienceDetailView = UIView()
         self.addSubview(experienceDetailView)
         //experience detail view constraint
         experienceDetailView.translatesAutoresizingMaskIntoConstraints = false
-        createDetailConstraint(container: experienceDetailView, leadingToItem: salaryDetailView, leadingSize: Float(leadingSize))
+        detailInformationUI.createDetailConstraint(container: experienceDetailView, leadingToItem: salaryDetailView, leadingSize: Float(leadingSize),frameSizeWidth: Float(leadingSize), ToItem: containerDetail)
         
         //create all detail information
         //distance detail
@@ -170,97 +182,176 @@ class DraggableView: UIView {
         locationLabel = UILabel(frame: CGRect(x:0 ,y:20 ,width: (leadingSize), height: 15))
         informationLocationLabel = UILabel(frame: CGRect(x:0 ,y:35 ,width: (leadingSize), height: 15))
         //initiate detail
-        createInformationDetail(logoImage: locationLogo, imageName: "icon_location", addtoView: distanceDetailView, labelView: locationLabel, labelText: "121Km", informationLabel: informationLocationLabel, informationDetail: "Distance")
+        detailInformationUI.createInformationDetail(logoImage: locationLogo, imageName: "icon_location", addtoView: distanceDetailView, labelView: locationLabel, labelText: "121Km", informationLabel: informationLocationLabel, informationDetail: "Distance")
         
         //types detail
         typeLogo = UIImageView(frame: CGRect(x: (leadingSize-15)/2, y:0 , width: 15, height: 15))
         typeLabel = UILabel(frame: CGRect(x:0 ,y:20 ,width: (leadingSize), height: 15))
         informationTypesLabel = UILabel(frame: CGRect(x:0 ,y:35 ,width: (leadingSize), height: 15))
         //initiate detail
-        createInformationDetail(logoImage: typeLogo, imageName: "icon_employment", addtoView: typeDetailView, labelView: typeLabel, labelText: "Full-time", informationLabel: informationTypesLabel, informationDetail: "Types")
+        detailInformationUI.createInformationDetail(logoImage: typeLogo, imageName: "icon_employment", addtoView: typeDetailView, labelView: typeLabel, labelText: "Full-time", informationLabel: informationTypesLabel, informationDetail: "Types")
         
         //Salary detail
         salaryLogo = UIImageView(frame: CGRect(x: (leadingSize-15)/2, y:0 , width: 15, height: 15))
         salaryLabel = UILabel(frame: CGRect(x:0 ,y:20 ,width: (leadingSize), height: 15))
         informationSalaryLabel = UILabel(frame: CGRect(x:0 ,y:35 ,width: (leadingSize), height: 15))
         //initiate detail
-        createInformationDetail(logoImage: salaryLogo, imageName: "icon_salary", addtoView: salaryDetailView, labelView: salaryLabel, labelText: "5jt-7.5jt", informationLabel: informationSalaryLabel, informationDetail: "Salary")
+        detailInformationUI.createInformationDetail(logoImage: salaryLogo, imageName: "icon_salary", addtoView: salaryDetailView, labelView: salaryLabel, labelText: "5jt-7.5jt", informationLabel: informationSalaryLabel, informationDetail: "Salary")
         
         //experience detail
         experienceLogo = UIImageView(frame: CGRect(x: (leadingSize-15)/2, y:0 , width: 15, height: 15))
         experienceLabel = UILabel(frame: CGRect(x:0 ,y:20 ,width: (leadingSize), height: 15))
         informationExperienceLabel = UILabel(frame: CGRect(x:0 ,y:35 ,width: (leadingSize), height: 15))
         //initiate detail
-        createInformationDetail(logoImage: experienceLogo, imageName: "icon_experience", addtoView: experienceDetailView, labelView: experienceLabel, labelText: "No", informationLabel: informationExperienceLabel, informationDetail: "Experience")
+        detailInformationUI.createInformationDetail(logoImage: experienceLogo, imageName: "icon_experience", addtoView: experienceDetailView, labelView: experienceLabel, labelText: "No", informationLabel: informationExperienceLabel, informationDetail: "Experience")
+        
+        //create requiredSkillView
+        requiredSkillView = UIView()
+        requiredSkillView.backgroundColor = UIColor(red:0.91, green:0.98, blue:0.96, alpha:1.0)
+        self.addSubview(requiredSkillView)
+        //container constraint
+        requiredSkillView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: requiredSkillView,
+                           attribute: .leading,
+                           relatedBy: .equal,
+                           toItem: self,
+                           attribute: .leading,
+                           multiplier: 1.0,
+                           constant: 0.0).isActive = true
+        
+        NSLayoutConstraint(item: requiredSkillView,
+                           attribute: .trailing,
+                           relatedBy: .equal,
+                           toItem: self,
+                           attribute: .trailing,
+                           multiplier: 1.0,
+                           constant: 0.0).isActive = true
+        
+        NSLayoutConstraint(item: requiredSkillView,
+                           attribute: .top,
+                           relatedBy: .equal,
+                           toItem: containerDetail,
+                           attribute: .top,
+                           multiplier: 1.0,
+                           constant: 55.0).isActive = true
+        
+        NSLayoutConstraint(item: requiredSkillView,
+                           attribute: .bottom,
+                           relatedBy: .equal,
+                           toItem: self,
+                           attribute: .bottom,
+                           multiplier: 1.0,
+                           constant: -100.0).isActive = true
+        
+        requiredSkillLabel = UILabel(frame: CGRect(x:0 ,y:0 ,width: self.frame.size.width, height: 60))
+        requiredSkillLabel.textColor = UIColor(red:0.15, green:0.57, blue:0.45, alpha:1.0)
+        requiredSkillLabel.textAlignment = NSTextAlignment.center
+        requiredSkillLabel.font = UIFont(name: "Arial", size: 12)
+        requiredSkillLabel.numberOfLines = 0
+        requiredSkillLabel.text = requiredSkill.joined(separator: ", ")
+        requiredSkillView.addSubview(requiredSkillLabel)
+        
+        //offer time
+        //create requiredSkillView
+        offerTimeView = UIView()
+        self.addSubview(offerTimeView)
+        //container constraint
+        offerTimeView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: offerTimeView,
+                           attribute: .leading,
+                           relatedBy: .equal,
+                           toItem: self,
+                           attribute: .leading,
+                           multiplier: 1.0,
+                           constant: 0.0).isActive = true
+        
+        NSLayoutConstraint(item: offerTimeView,
+                           attribute: .trailing,
+                           relatedBy: .equal,
+                           toItem: self,
+                           attribute: .trailing,
+                           multiplier: 1.0,
+                           constant: 0.0).isActive = true
+        
+        NSLayoutConstraint(item: offerTimeView,
+                           attribute: .top,
+                           relatedBy: .equal,
+                           toItem: requiredSkillView,
+                           attribute: .top,
+                           multiplier: 1.0,
+                           constant: 65.0).isActive = true
+        
+        NSLayoutConstraint(item: offerTimeView,
+                           attribute: .bottom,
+                           relatedBy: .equal,
+                           toItem: self,
+                           attribute: .bottom,
+                           multiplier: 1.0,
+                           constant: -70.0).isActive = true
+        
+        offerTimeLabel = UILabel(frame: CGRect(x:0 ,y:0 ,width: self.frame.size.width, height: 20))
+        offerTimeLabel.textColor = UIColor.black
+        offerTimeLabel.textAlignment = NSTextAlignment.center
+        offerTimeLabel.font = UIFont(name: "Arial", size: 10)
+        offerTimeLabel.numberOfLines = 1
+        offerTimeLabel.text = "End in 64 Days"
+        offerTimeView.addSubview(offerTimeLabel)
+        
+        //create button
+//        detailInformationUI.createTapForMoreButton(view: self)
+        moreButtonView = UIView()
+        self.addSubview(moreButtonView)
+        
+        moreButtonView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: moreButtonView,
+                           attribute: .leading,
+                           relatedBy: .equal,
+                           toItem: self,
+                           attribute: .leading,
+                           multiplier: 1.0,
+                           constant:10.0).isActive = true
+        
+        NSLayoutConstraint(item: moreButtonView,
+                           attribute: .trailing,
+                           relatedBy: .equal,
+                           toItem: self,
+                           attribute: .trailing,
+                           multiplier: 1.0,
+                           constant: -10.0).isActive = true
+        
+        NSLayoutConstraint(item: moreButtonView,
+                           attribute: .top,
+                           relatedBy: .equal,
+                           toItem: offerTimeView,
+                           attribute: .top,
+                           multiplier: 1.0,
+                           constant: 25.0).isActive = true
+        
+        NSLayoutConstraint(item: moreButtonView,
+                           attribute: .bottom,
+                           relatedBy: .equal,
+                           toItem: self,
+                           attribute: .bottom,
+                           multiplier: 1.0,
+                           constant: -10.0).isActive = true
+        
+        moreButton = UIButton(frame: CGRect(x: 0,y: 0,width: self.frame.size.width - 20,height: 50))
+        moreButton.backgroundColor = UIColor(red:0.22, green:0.83, blue:0.65, alpha:1.0)
+        moreButton.layer.cornerRadius = 5
+        moreButton.setTitle("Tap For More", for: .normal)
+        moreButton.addTarget(self, action: #selector(self.action(_:)), for: UIControlEvents.touchUpInside)
+        moreButtonView.addSubview(moreButton)
     }
-
+    
+    func action(_ sender:UIButton!) {
+        print("Button Clicked")
+    }
+    
     func setupView() -> Void {
         self.layer.cornerRadius = 4;
         self.layer.shadowRadius = 3;
         self.layer.shadowOpacity = 0.2;
         self.layer.shadowOffset = CGSize(width: 1,height: 1);
-    }
-    
-    func createInformationDetail(logoImage: UIImageView, imageName: String, addtoView: UIView, labelView: UILabel, labelText: String,informationLabel: UILabel, informationDetail: String){
-//        let leadingSize = (self.frame.size.width - 20) / 4
-
-        //logo image
-        logoImage.image = UIImage(named:imageName)
-        addtoView.addSubview(logoImage)
-        
-        //value label
-        labelView.text = labelText
-        labelView.font = UIFont(name: "Arial", size: 10)
-        labelView.textColor = UIColor.black
-        labelView.textAlignment = NSTextAlignment.center
-        addtoView.addSubview(labelView)
-        
-        //information label
-        informationLabel.text = informationDetail
-        informationLabel.font = UIFont(name: "Arial", size: 10)
-        informationLabel.textColor = UIColor.green
-        informationLabel.textAlignment = NSTextAlignment.center
-        addtoView.addSubview(informationLabel)
-        
-    }
-    
-    func createDetailConstraint(container: UIView, leadingToItem: UIView, leadingSize: Float){
-        NSLayoutConstraint(item: container,
-                           attribute: .leading,
-                           relatedBy: .equal,
-                           toItem: leadingToItem,
-                           attribute: .leading,
-                           multiplier: 1.0,
-                           constant: CGFloat(leadingSize)).isActive = true
-        
-        NSLayoutConstraint(item: container,
-                           attribute: .top,
-                           relatedBy: .equal,
-                           toItem: containerDetail,
-                           attribute: .top,
-                           multiplier: 1.0,
-                           constant: 0.0).isActive = true
-        
-        NSLayoutConstraint(item: container,
-                           attribute: .width,
-                           relatedBy: .equal,
-                           toItem: nil,
-                           attribute: .notAnAttribute,
-                           multiplier: 1.0,
-                           constant: (self.frame.size.width - 20) / 4).isActive = true
-        
-        NSLayoutConstraint(item: container,
-                           attribute: .bottom,
-                           relatedBy: .equal,
-                           toItem: containerDetail,
-                           attribute: .bottom,
-                           multiplier: 1.0,
-                           constant: 0.0).isActive = true
-        
-    }
-    
-    func createInsideDetailConstraint(){
-    
     }
 
     func beingDragged(_ gestureRecognizer: UIPanGestureRecognizer) -> Void {
