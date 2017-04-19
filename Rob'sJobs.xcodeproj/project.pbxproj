@@ -41,6 +41,7 @@
 		FAC8991A1E9F256500D4800A /* DraggableViewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC899171E9F256500D4800A /* DraggableViewBackground.swift */; };
 		FAC8991B1E9F256500D4800A /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC899181E9F256500D4800A /* OverlayView.swift */; };
 		FAC8991E1EA5F85100D4800A /* UIDetailInformationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC8991D1EA5F85100D4800A /* UIDetailInformationRow.swift */; };
+		FAC899201EA73DB700D4800A /* JsonRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC8991F1EA73DB700D4800A /* JsonRequest.swift */; };
 		FAC973CC1E96A453002A4E6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC973CB1E96A453002A4E6E /* AppDelegate.swift */; };
 		FAC973D11E96A453002A4E6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC973CF1E96A453002A4E6E /* Main.storyboard */; };
 		FAC973E11E96A453002A4E6E /* Rob_sJobsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC973E01E96A453002A4E6E /* Rob_sJobsTests.swift */; };
@@ -107,6 +108,7 @@
 		FAC899171E9F256500D4800A /* DraggableViewBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableViewBackground.swift; sourceTree = "<group>"; };
 		FAC899181E9F256500D4800A /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
 		FAC8991D1EA5F85100D4800A /* UIDetailInformationRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDetailInformationRow.swift; sourceTree = "<group>"; };
+		FAC8991F1EA73DB700D4800A /* JsonRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonRequest.swift; sourceTree = "<group>"; };
 		FAC973C81E96A453002A4E6E /* Rob'sJobs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rob'sJobs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC973CB1E96A453002A4E6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAC973D01E96A453002A4E6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				FAB9532F1E96AF5D00FC033C /* UIUtility.swift */,
 				FAE02A381E9D1BD200084F66 /* ExtensionCALayer.swift */,
 				FAB953301E96AF5D00FC033C /* Checkbox.swift */,
+				FAC8991F1EA73DB700D4800A /* JsonRequest.swift */,
 				FAB953851E96CC4000FC033C /* SSRadioButton.swift */,
 				FAB953861E96CC4000FC033C /* SSRadioButtonsController.swift */,
 				FAB953311E96AF5D00FC033C /* InputButton.swift */,
@@ -445,6 +448,7 @@
 				FAB9538C1E96DFF100FC033C /* CurrentSectorTableViewController.swift in Sources */,
 				FAE02A3B1E9D1F1500084F66 /* ProfileViewController.swift in Sources */,
 				FAB9533A1E96BFEB00FC033C /* ViewController.swift in Sources */,
+				FAC899201EA73DB700D4800A /* JsonRequest.swift in Sources */,
 				FAC8991B1E9F256500D4800A /* OverlayView.swift in Sources */,
 				FAB953341E96AF5D00FC033C /* Checkbox.swift in Sources */,
 				FAB9536F1E96C14C00FC033C /* FloatLabelTextField.swift in Sources */,

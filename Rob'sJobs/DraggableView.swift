@@ -345,24 +345,42 @@ class DraggableView: UIView {
     
     func action(_ sender:UIButton!) {
         var request = URLRequest(url: URL(string: "http://api.robsjobs.co/api/v1/user/login")!)
+        //create the session object
+        
         request.httpMethod = "POST"
-        let postString = "email=&password=Jack"
+        let postString = "email=666clover@gmail.com&password=luckynumber"
         request.httpBody = postString.data(using: .utf8)
+        
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {                                                 // check for fundamental networking error
-                print("error=\(error)")
+                print("error=\(String(describing: error))")
                 return
             }
             
-            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
-                print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                print("response = \(response)")
+            //handling json
+            do {
+                //create json object from data
+                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                    if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                        //if status code is not 200
+                        let errorMessage = json["error"] as! [String:Any]
+                        print(errorMessage)
+                        let currentErrorMessage = errorMessage["message"] as! String
+                        print(currentErrorMessage)
+                    }else{
+                        let jsonData = json["data"] as! [String:Any]
+                        let userID = jsonData["id"] as! Int
+                        print(userID)
+                    }
+                }
+                
+            } catch let error {
+                print(error.localizedDescription)
             }
-            
-            let responseString = String(data: data, encoding: .utf8)
-            print("responseString = \(responseString)")
+
         }
-        task.resume()    }
+        task.resume()
+    }
     
     
     func setupView() -> Void {
