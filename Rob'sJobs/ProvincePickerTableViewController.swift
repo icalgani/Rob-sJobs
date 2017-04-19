@@ -10,7 +10,9 @@ import UIKit
 
 class ProvincePickerTableViewController: UITableViewController, UITextFieldDelegate {
     var province: [String] = []
+    var ProvinceID: [String] = []
     var valueToPass: String = ""
+    var idToPass: String = ""
     let jsonRequest = JsonRequest()
     
     var selectedProvince:String? {
@@ -60,15 +62,13 @@ class ProvincePickerTableViewController: UITableViewController, UITextFieldDeleg
                             
                             self.province.append(aObject["province_name"] as! String)
                         }
-                        print(self.province.joined(separator: ", "))
-
                     }
                 }
                 
             } catch let error {
                 print(error.localizedDescription)
             }
-            DispatchQueue.main.async(execute: {self.do_table_refresh()})
+            DispatchQueue.main.async(execute: {self.tableView.reloadData()})
 
         }
         task.resume()
@@ -128,7 +128,7 @@ class ProvincePickerTableViewController: UITableViewController, UITextFieldDeleg
         
         // Get Cell Label
         valueToPass = province[(indexPath.row)]
-        
+        idToPass = String(province.index(of: valueToPass)! + 1)
     }
     
      func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -137,13 +137,13 @@ class ProvincePickerTableViewController: UITableViewController, UITextFieldDeleg
             let viewController = segue.destination as! SetupProfileViewController
         
             // your new view controller should have property that will store passed value
+            let sendID = sender as! String
             viewController.passedProvinceValue = valueToPass
-        
+            viewController.provinceID = idToPass
     }
     
     func do_table_refresh()
     {
-        print(province.joined(separator: ", "))
         self.tableView.reloadData()
         
     }

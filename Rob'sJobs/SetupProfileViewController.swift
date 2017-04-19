@@ -21,6 +21,7 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
     var passedEmploymentValue:String = ""
     var passedDesiredSectorValue:String = ""
     var passedCurrentSectorValue:String = ""
+    var provinceID: String = ""
     
     @IBOutlet weak var Stackview: UIStackView!
     @IBOutlet weak var StackView: UIStackView!
@@ -68,13 +69,17 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
             let view2:ProvincePickerTableViewController = segue.source as! ProvincePickerTableViewController
             
             if(view2.valueToPass != ""){
-                passedProvinceValue = view2.valueToPass
+                self.passedProvinceValue = view2.valueToPass
                 ProvinceInput.text = passedProvinceValue
+                self.provinceID = view2.idToPass
+                let cityView = CityPickerTableViewController()
+                cityView.passedProvinceID = provinceID
             }
             
             if(passedProvinceValue != "" && passedProvinceValue != "Province"){
                 CityInput.isUserInteractionEnabled=true
             }
+            print(provinceID)
             
         }
         
@@ -213,7 +218,9 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
         }
         
         if(textField==self.CityInput){
-            performSegue(withIdentifier: "showCityPicker", sender: self)
+            self.performSegue(withIdentifier: "showCityPicker", sender: self)
+            
+            print("perform segue with identifier.\(provinceID)")
             return false
         }
         
@@ -300,14 +307,19 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
     }
 
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showCityPicker" {
+            let dvc = segue.destination as! UINavigationController
+            let view = dvc.topViewController as! CityPickerTableViewController
+            view.passedProvinceID = provinceID
+            print("prepare segue, province id  =\(provinceID)")
+        }
+        print("prepare segue outside if.\(provinceID)")
     }
-    */
+ 
 
 }
