@@ -318,7 +318,6 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
             view.passedProvinceID = provinceID
             print("prepare segue, province id  =\(provinceID)")
         }
-        print("prepare segue outside if.\(provinceID)")
     }
  
 

@@ -10,11 +10,8 @@ import UIKit
 
 class SalaryPickerTableViewController: UITableViewController {
     
-    var salaryArray: [String] = [
-    "<3.000.000",
-    ">3.000.000 to 5.000.000",
-    ">5.000.000 to 7.500.000"]
-    
+    let jsonRequest = JsonRequest()
+    var salaryArray: [String] = []
     var salaryToPass: String = ""
     
     var selectedSalary:String? {
@@ -28,7 +25,8 @@ class SalaryPickerTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadList), name:NSNotification.Name(rawValue: "load"), object: nil)
+        jsonRequest.getSalaryFromServer()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -100,6 +98,12 @@ class SalaryPickerTableViewController: UITableViewController {
         // your new view controller should have property that will store passed value
         viewController.passedSalaryValue = salaryToPass
         
+    }
+    
+    func loadList(notification: NSNotification){
+        //load data here
+        salaryArray = jsonRequest.salaryToSend
+        self.tableView.reloadData()
     }
 
     /*
