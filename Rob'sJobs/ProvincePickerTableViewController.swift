@@ -26,52 +26,8 @@ class ProvincePickerTableViewController: UITableViewController, UITextFieldDeleg
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getProvinceFromServer()
-    }
-    
-    func getProvinceFromServer(){
-        var request = URLRequest(url: URL(string: "http://api.robsjobs.co/api/v1/init/province")!)
-        //create the session object
-        
-        request.httpMethod = "GET"
-        //        let postString = "province"
-        //        request.httpBody = postString.data(using: .utf8)
-        
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {                                                 // check for fundamental networking error
-                print("error=\(String(describing: error))")
-                return
-            }
-            
-            //handling json
-            do {
-                //create json object from data
-                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
-                    
-                    if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
-                        //if status code is not 200
-                        let errorMessage = json["error"] as! [String:Any]
-                        print(errorMessage)
-                        let currentErrorMessage = errorMessage["message"] as! String
-                        print(currentErrorMessage)
-                    }else{
-                        let jsonData = json["data"] as! [[String:Any]]
-                        for index in 0...jsonData.count-1 {
-                            
-                            let aObject = jsonData[index]
-                            
-                            self.province.append(aObject["province_name"] as! String)
-                        }
-                    }
-                }
-                
-            } catch let error {
-                print(error.localizedDescription)
-            }
-            DispatchQueue.main.async(execute: {self.tableView.reloadData()})
-
-        }
-        task.resume()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadList), name:NSNotification.Name(rawValue: "load"), object: nil)
+        jsonRequest.getDataFromServer(dataToGet: "province")
     }
     
     override func didReceiveMemoryWarning() {
@@ -137,15 +93,14 @@ class ProvincePickerTableViewController: UITableViewController, UITextFieldDeleg
             let viewController = segue.destination as! SetupProfileViewController
         
             // your new view controller should have property that will store passed value
-            let sendID = sender as! String
             viewController.passedProvinceValue = valueToPass
             viewController.provinceID = idToPass
     }
     
-    func do_table_refresh()
-    {
+    func loadList(notification: NSNotification){
+        //load data here
+        province = jsonRequest.provinceToSend
         self.tableView.reloadData()
-        
     }
 
 }

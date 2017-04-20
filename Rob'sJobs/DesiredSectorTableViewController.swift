@@ -9,11 +9,9 @@
 import UIKit
 
 class DesiredSectorTableViewController: UITableViewController {
-
-    var desiredSectorArray: [String] = [
-        "Mobile",
-        "Web",
-        "FullStack"]
+    
+    let jsonRequest = JsonRequest()
+    var desiredSectorArray: [String] = []
     
     var desiredSectorToPass: String = ""
     
@@ -29,12 +27,17 @@ class DesiredSectorTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadList), name:NSNotification.Name(rawValue: "load"), object: nil)
+        jsonRequest.getDataFromServer(dataToGet: "employmentsector")
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+    func loadList(notification: NSNotification){
+        //load data here
+        desiredSectorArray = jsonRequest.employmentSectorToSend
+        self.tableView.reloadData()
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

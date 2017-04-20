@@ -13,7 +13,8 @@ class CityPickerTableViewController: UITableViewController {
     
     var cityToPass: String = ""
     var passedProvinceID: String = ""
-    
+    let jsonRequest = JsonRequest()
+
     var selectedCity:String? {
         didSet {
             if let city = selectedCity {
@@ -28,63 +29,10 @@ class CityPickerTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getCityFromServer()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadList), name:NSNotification.Name(rawValue: "load"), object: nil)
+        jsonRequest.getDataFromServer(dataToGet: "city/\(passedProvinceID)")
     }
     
-    func getCityFromServer(){
-        let SetupProfile = SetupProfileViewController()
-        var request = URLRequest(url: URL(string: "http://api.robsjobs.co/api/v1/init/city/\(passedProvinceID)")!)
-        print(SetupProfile.provinceID)
-        print("http://api.robsjobs.co/api/v1/init/city/\(passedProvinceID)")
-        //create the session object
-        
-        request.httpMethod = "GET"
-        //        let postString = "province"
-        //        request.httpBody = postString.data(using: .utf8)
-        
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {                                                 // check for fundamental networking error
-                print("error=\(String(describing: error))")
-                return
-            }
-            
-            //handling json
-            do {
-                //create json object from data
-                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
-                    
-                    if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
-                        //if status code is not 200
-                        let errorMessage = json["error"] as! [String:Any]
-                        print(errorMessage)
-                        let currentErrorMessage = errorMessage["message"] as! String
-                        print(currentErrorMessage)
-                    }else{
-                        let jsonData = json["data"] as! [[String:Any]]
-                        for index in 0...jsonData.count-1 {
-                            
-                            let aObject = jsonData[index]
-                            
-                            self.City.append(aObject["city"] as! String)
-                        }
-                    }
-                }
-                
-            } catch let error {
-                print(error.localizedDescription)
-            }
-            DispatchQueue.main.async(execute: {self.do_table_refresh()})
-            
-        }
-        task.resume()
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -151,9 +99,9 @@ class CityPickerTableViewController: UITableViewController {
         
     }
     
-    func do_table_refresh()
-    {
-        self.tableView.reloadData()
-        
+    func loadList(notification: NSNotification){
+    //load data here
+    City = jsonRequest.cityToSend
+    self.tableView.reloadData()
     }
 }

@@ -9,12 +9,9 @@
 import UIKit
 
 class EmploymentPickerTableViewController: UITableViewController {
-
-    var employments:[String] = [
-        "FulltIme",
-        "Parttime",
-        "Freelance"]
     
+    let jsonRequest = JsonRequest()
+    var employments:[String] = []
     var employmentToPass: String = ""
     
     var selectedEmployment:String? {
@@ -24,6 +21,7 @@ class EmploymentPickerTableViewController: UITableViewController {
             }
         }
     }
+    
     var selectedEmploymentIndex:Int?
     
     
@@ -31,12 +29,17 @@ class EmploymentPickerTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadList), name:NSNotification.Name(rawValue: "load"), object: nil)
+        jsonRequest.getDataFromServer(dataToGet: "employmenttype")
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+    func loadList(notification: NSNotification){
+        //load data here
+        employments = jsonRequest.desiredEmploymentToSend
+        self.tableView.reloadData()
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

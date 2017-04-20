@@ -205,10 +205,10 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="jBz-xB-U8p">
-                                        <rect key="frame" x="20" y="20" width="492" height="797"/>
+                                        <rect key="frame" x="20" y="20" width="508" height="797"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="csz-aq-68E" customClass="FloatLabelTextField" customModule="Rob_sJobs" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="492" height="37"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="508" height="37"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
@@ -225,7 +225,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Birthdate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nxy-sY-dPR" customClass="FloatLabelTextField" customModule="Rob_sJobs" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="40" width="492" height="37"/>
+                                                <rect key="frame" x="0.0" y="40" width="508" height="37"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -245,7 +245,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Province" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E9C-LB-TVr" customClass="FloatLabelTextField" customModule="Rob_sJobs" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="80" width="492" height="37"/>
+                                                <rect key="frame" x="0.0" y="80" width="508" height="37"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -265,7 +265,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dL3-0A-m0A" customClass="FloatLabelTextField" customModule="Rob_sJobs" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="120" width="492" height="37"/>
+                                                <rect key="frame" x="0.0" y="120" width="508" height="37"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -285,7 +285,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Expected Salary" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xOh-d7-DTd" customClass="FloatLabelTextField" customModule="Rob_sJobs" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="160" width="492" height="37"/>
+                                                <rect key="frame" x="0.0" y="160" width="508" height="37"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -305,7 +305,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Characters" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vzo-ic-IPJ" customClass="FloatLabelTextField" customModule="Rob_sJobs" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="200" width="492" height="37"/>
+                                                <rect key="frame" x="0.0" y="200" width="508" height="37"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -325,7 +325,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Skills" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JQz-id-PRK" customClass="FloatLabelTextField" customModule="Rob_sJobs" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="240" width="492" height="37"/>
+                                                <rect key="frame" x="0.0" y="240" width="508" height="37"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -345,7 +345,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Desired employment" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nju-C8-rZu" customClass="FloatLabelTextField" customModule="Rob_sJobs" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="280" width="492" height="37"/>
+                                                <rect key="frame" x="0.0" y="280" width="508" height="37"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -365,7 +365,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Desired Sector" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ULi-5F-gLg" customClass="FloatLabelTextField" customModule="Rob_sJobs" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="320" width="492" height="37"/>
+                                                <rect key="frame" x="0.0" y="320" width="508" height="37"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -385,13 +385,13 @@
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Has work experience in field?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9f-13-Jv7">
-                                                <rect key="frame" x="0.0" y="360" width="492" height="37"/>
+                                                <rect key="frame" x="0.0" y="360" width="508" height="37"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2S-2d-KZj" customClass="SSRadioButton" customModule="Rob_sJobs" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="400" width="492" height="37"/>
+                                                <rect key="frame" x="0.0" y="400" width="508" height="37"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Yes">
@@ -405,11 +405,11 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HI1-FC-JW8" customClass="SSRadioButton" customModule="Rob_sJobs" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="440" width="492" height="37"/>
+                                                <rect key="frame" x="0.0" y="440" width="508" height="37"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="No">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
@@ -418,17 +418,17 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currently employed?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCu-lG-qhy">
-                                                <rect key="frame" x="0.0" y="480" width="492" height="37"/>
+                                                <rect key="frame" x="0.0" y="480" width="508" height="37"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DVO-QT-Prp" customClass="SSRadioButton" customModule="Rob_sJobs" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="520" width="492" height="37"/>
+                                                <rect key="frame" x="0.0" y="520" width="508" height="37"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <state key="normal" title="Yes">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
@@ -437,7 +437,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r7p-um-cin" customClass="SSRadioButton" customModule="Rob_sJobs" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="560" width="492" height="37"/>
+                                                <rect key="frame" x="0.0" y="560" width="508" height="37"/>
                                                 <color key="tintColor" red="0.10550563782453537" green="0.54004389047622681" blue="0.42164140939712524" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="No">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -450,7 +450,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </button>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Current Sector" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Mc-gQ-nmB" customClass="FloatLabelTextField" customModule="Rob_sJobs" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="600" width="492" height="37"/>
+                                                <rect key="frame" x="0.0" y="600" width="508" height="37"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -470,7 +470,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Describe yourself" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Isv-K2-cEs" customClass="FloatLabelTextField" customModule="Rob_sJobs" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="640" width="492" height="37"/>
+                                                <rect key="frame" x="0.0" y="640" width="508" height="37"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
@@ -487,17 +487,17 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P7I-Cr-jbw">
-                                                <rect key="frame" x="0.0" y="680" width="492" height="37"/>
+                                                <rect key="frame" x="0.0" y="680" width="508" height="37"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="25" minValue="1" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="7gb-xJ-Ddn">
-                                                <rect key="frame" x="-2" y="720" width="496" height="38"/>
+                                                <rect key="frame" x="-2" y="720" width="512" height="38"/>
                                                 <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </slider>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kx4-Tf-G4N">
-                                                <rect key="frame" x="0.0" y="760" width="492" height="37"/>
+                                                <rect key="frame" x="0.0" y="760" width="508" height="37"/>
                                                 <state key="normal" image="icon_next"/>
                                                 <connections>
                                                     <action selector="goToTutorialPage:" destination="gRa-oJ-IvR" eventType="touchUpInside" id="3F6-h9-iXT"/>

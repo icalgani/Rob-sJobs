@@ -10,15 +10,8 @@ import UIKit
 
 class SkillsPickerTableViewController: UITableViewController {
     
-    let skills:[String] = [
-        "Android",
-        "Ios",
-        "C++",
-        "Java",
-        "PHP",
-        "Assembly"
-    ]
-    
+    var skills:[String] = []
+    let jsonRequest = JsonRequest()
     var numberOfSkillSelected: Int = 0
     
     var skillToPass:[String] = []
@@ -26,7 +19,19 @@ class SkillsPickerTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.allowsMultipleSelection = true
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadList), name:NSNotification.Name(rawValue: "load"), object: nil)
+        jsonRequest.getDataFromServer(dataToGet: "skill")
+        
     }
+    
+    //refresh table when data from JsonRequest is ready
+    func loadList(notification: NSNotification){
+        //load data here
+        skills = jsonRequest.skillToSend
+        self.tableView.reloadData()
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

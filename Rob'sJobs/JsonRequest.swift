@@ -10,14 +10,20 @@ import Foundation
 
 class JsonRequest{
     var salaryToSend: [String] = []
+    var provinceToSend: [String] = []
+    var cityToSend: [String] = []
+    var characterToSend: [String] = []
+    var educationToSend: [String] = []
+    var desiredEmploymentToSend: [String] = []
+    var employmentSectorToSend: [String] = []
+    var skillToSend: [String] = []
 
-    func getSalaryFromServer(){
-        var request = URLRequest(url: URL(string: "http://api.robsjobs.co/api/v1/init/salary")!)
+
+    func getDataFromServer(dataToGet: String){
+        var request = URLRequest(url: URL(string: "http://api.robsjobs.co/api/v1/init/\(dataToGet)")!)
         //create the session object
         
         request.httpMethod = "GET"
-        //        let postString = "province"
-        //        request.httpBody = postString.data(using: .utf8)
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {                                                 // check for fundamental networking error
@@ -41,10 +47,44 @@ class JsonRequest{
                         for index in 0...jsonData.count-1 {
                             
                             let aObject = jsonData[index]
+                            if (dataToGet.range(of: "city") != nil){ //if dataToGet include city
+                                self.cityToSend.append(aObject["city"] as! String)
+                            }else{
+                                switch dataToGet{
+                                    case "salary":
+                                        self.salaryToSend.append(aObject["label"] as! String)
+                                        break
                             
-                            self.salaryToSend.append(aObject["label"] as! String)
-                            
-                        }
+                                    case "province":
+                                        self.provinceToSend.append(aObject["province_name"] as! String)
+                                        break
+                                    
+                                    case "interest":
+                                        self.characterToSend.append(aObject["interest"] as! String)
+                                        break
+                                    case "education":
+                                        self.educationToSend.append(aObject["education"] as! String)
+                                        break
+                                    
+                                    case "employmenttype":
+                                        self.desiredEmploymentToSend.append(aObject["employment_type"] as! String)
+                                        break
+                                    
+                                    case "employmentsector":
+                                        self.employmentSectorToSend.append(aObject["sector"] as! String) //sector id is NOT sorted
+                                        break
+                                    
+                                    case "skill":
+                                        self.skillToSend.append(aObject["skill"] as! String) //skill id is NOT sorted
+                                        break
+                                    
+                                    default:
+                                        print("switch default")
+                                        break
+                                
+                                } //end switch
+                            } //end if else
+                        }// end for
                         DispatchQueue.main.async {
                             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
                         }

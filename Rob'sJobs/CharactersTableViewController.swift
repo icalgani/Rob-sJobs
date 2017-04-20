@@ -10,26 +10,27 @@ import UIKit
 
 class CharactersTableViewController: UITableViewController {
     
-    let characters:[String] = [
-    "Accurate",
-    "Agile",
-    "Apologetic",
-    "Arranger",
-    "Artistic",
-    "Assertive"
-    ]
-    
+    var characters:[String] = []
+    let jsonRequest = JsonRequest()
     var numberOfCharacterSelected: Int = 0
-    
     var charactersToPass:[String] = []
-    
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.allowsMultipleSelection = true
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadList), name:NSNotification.Name(rawValue: "load"), object: nil)
+        jsonRequest.getDataFromServer(dataToGet: "interest")
+        
     }
+    
+    func loadList(notification: NSNotification){
+        //load data here
+        characters = jsonRequest.characterToSend
+        self.tableView.reloadData()
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
