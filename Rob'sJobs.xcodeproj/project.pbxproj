@@ -42,6 +42,7 @@
 		FAC8991B1E9F256500D4800A /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC899181E9F256500D4800A /* OverlayView.swift */; };
 		FAC8991E1EA5F85100D4800A /* UIDetailInformationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC8991D1EA5F85100D4800A /* UIDetailInformationRow.swift */; };
 		FAC899201EA73DB700D4800A /* JsonRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC8991F1EA73DB700D4800A /* JsonRequest.swift */; };
+		FAC899241EA88CF000D4800A /* EducationPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC899231EA88CF000D4800A /* EducationPickerTableViewController.swift */; };
 		FAC973CC1E96A453002A4E6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC973CB1E96A453002A4E6E /* AppDelegate.swift */; };
 		FAC973D11E96A453002A4E6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC973CF1E96A453002A4E6E /* Main.storyboard */; };
 		FAC973E11E96A453002A4E6E /* Rob_sJobsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC973E01E96A453002A4E6E /* Rob_sJobsTests.swift */; };
@@ -109,6 +110,7 @@
 		FAC899181E9F256500D4800A /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
 		FAC8991D1EA5F85100D4800A /* UIDetailInformationRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDetailInformationRow.swift; sourceTree = "<group>"; };
 		FAC8991F1EA73DB700D4800A /* JsonRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonRequest.swift; sourceTree = "<group>"; };
+		FAC899231EA88CF000D4800A /* EducationPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EducationPickerTableViewController.swift; sourceTree = "<group>"; };
 		FAC973C81E96A453002A4E6E /* Rob'sJobs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rob'sJobs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC973CB1E96A453002A4E6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAC973D01E96A453002A4E6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				FAB953731E96C30500FC033C /* FirstTimeLogin.storyboard */,
+				FAC899231EA88CF000D4800A /* EducationPickerTableViewController.swift */,
 				FAB953751E96C31A00FC033C /* DesiredSectorTableViewController.swift */,
 				FAB9538B1E96DFF100FC033C /* CurrentSectorTableViewController.swift */,
 				FAB953771E96C32500FC033C /* SalaryPickerTableViewController.swift */,
@@ -439,6 +442,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAC899241EA88CF000D4800A /* EducationPickerTableViewController.swift in Sources */,
 				FAC899191E9F256500D4800A /* DraggableView.swift in Sources */,
 				FAE02A351E9CC78200084F66 /* CustomTabbarViewController.swift in Sources */,
 				FAB953801E96C34A00FC033C /* EmploymentPickerTableViewController.swift in Sources */,

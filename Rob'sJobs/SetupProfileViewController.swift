@@ -15,6 +15,7 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
     
     var passedProvinceValue:String = "Province"
     var passedCityValue:String = ""
+    var passedEducationValue: String = ""
     var passedSalaryValue:String = ""
     var passedCharacterValue:[String] = []
     var passedSkillValue:[String] = []
@@ -23,6 +24,7 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
     var passedCurrentSectorValue:String = ""
     var provinceID: String = ""
     
+    @IBOutlet weak var EducationInput: FloatLabelTextField!
     @IBOutlet weak var Stackview: UIStackView!
     @IBOutlet weak var StackView: UIStackView!
     @IBOutlet weak var CharacterInput: FloatLabelTextField!
@@ -90,6 +92,16 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
             if(CityView.cityToPass != ""){
                 passedCityValue = CityView.cityToPass
                 CityInput.text = passedCityValue
+            }
+        }
+        
+        //if segue from educationpicker
+        if(segue.source.isKind(of: EducationPickerTableViewController.self)){
+            let educationView:EducationPickerTableViewController = segue.source as! EducationPickerTableViewController
+            
+            if(educationView.educationToPass != ""){
+                passedEducationValue = educationView.educationToPass
+                EducationInput.text = passedEducationValue
             }
         }
         
@@ -181,6 +193,7 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
         //add dropdown image
         ProvinceInput.delegate = self
         CityInput.delegate = self
+        EducationInput.delegate = self
         SalaryInput.delegate = self
         CharacterInput.delegate = self
         SkillsInput.delegate = self
@@ -219,8 +232,11 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
         
         if(textField==self.CityInput){
             self.performSegue(withIdentifier: "showCityPicker", sender: self)
-            
-            print("perform segue with identifier.\(provinceID)")
+            return false
+        }
+        
+        if(textField == self.EducationInput){
+            performSegue(withIdentifier: "showEducationPicker", sender: self)
             return false
         }
         
