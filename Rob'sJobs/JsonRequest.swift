@@ -99,6 +99,8 @@ class JsonRequest{
         task.resume()
     }
     
+    
+    
 
     
     func getProvinceFromServer() -> Array<String>{

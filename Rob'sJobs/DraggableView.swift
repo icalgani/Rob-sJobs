@@ -369,7 +369,7 @@ class DraggableView: UIView {
                         print(currentErrorMessage)
                     }else{
                         let jsonData = json["data"] as! [String:Any]
-                        let userID = jsonData["id"] as! Int
+                        let userID = jsonData["id"] as! String
                         print(userID)
                     }
                 }
