@@ -81,25 +81,26 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
 //        draggableView.locationLabel.text = distanceArray[index]
         draggableView.salaryLabel.text = salaryArray[index]
         
-        if let checkedUrl = URL(string: companyLogoArray[index]) {
-        
-            downloadImage(url: checkedUrl)
+        for index in 0...companyLogoArray.count-1 {
+            if let checkedUrl = URL(string: companyLogoArray[index]) {
+                
+                downloadImage(url: checkedUrl,imageIndex: index)
+            }
         }
         
         draggableView.delegate = self
         return draggableView
     }
     
-    func downloadImage(url: URL) {
+    func downloadImage(url: URL, imageIndex: NSInteger) {
         print("Download Started")
         getDataFromUrl(url: url) { (data, response, error)  in
             guard let data = data, error == nil else { return }
             print(response?.suggestedFilename ?? url.lastPathComponent)
             print("Download Finished")
             DispatchQueue.main.async() { () -> Void in
-                let draggableView = DraggableView(frame: CGRect(x: (self.frame.size.width - self.CARD_WIDTH)/2,y: (self.frame.size.height - self.CARD_HEIGHT)/2,width: self.CARD_WIDTH,height: self.CARD_HEIGHT))
-
-                draggableView.companyLogoView.image = UIImage(data: data)
+                
+                self.allCards[imageIndex].companyLogoView.image = UIImage(data: data)
             }
         }
     }
@@ -187,7 +188,6 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
 //        distanceArray = swipeCardData.distanceToSend
         salaryArray = swipeCardData.salaryToSend
         companyLogoArray = swipeCardData.companyLogoToSend
-        
         
         self.loadCards()
     }
