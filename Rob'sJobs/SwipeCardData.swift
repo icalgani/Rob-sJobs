@@ -63,7 +63,6 @@ class SwipeCardData{
                             print(self.endDateToSend)
                             self.companyLogoToSend.append(aObject["company_logo"] as! String)
                             let experience = String(describing: aObject["has_experience"]!)
-                            print(experience)
                             if(experience == "0"){
                                 self.experienceToSend.append("No")
                             }else {
@@ -96,6 +95,6 @@ class SwipeCardData{
         
         let components = calendar.dateComponents([.day], from: date as Date, to: end!)
         
-        return String(describing: components)
+        return String(describing: components.day!)
     }
 }

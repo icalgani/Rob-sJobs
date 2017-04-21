@@ -292,6 +292,16 @@
                     <view key="view" contentMode="scaleToFill" id="7fb-NT-Rzv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PAE-kP-Nzt">
+                                <rect key="frame" x="235" y="580" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="icon_jobscard" selectedImage="icon_jobscard" id="AVh-LW-Ihq">
@@ -301,6 +311,69 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7DH-Wg-ffT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="124" y="-385"/>
+        </scene>
+        <!--Tap For More View Controller-->
+        <scene sceneID="NAM-ww-Q7b">
+            <objects>
+                <viewController storyboardIdentifier="TapForMore" id="CXR-8J-cqb" customClass="TapForMoreViewController" customModule="Rob_sJobs" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1Za-Jx-99V"/>
+                        <viewControllerLayoutGuide type="bottom" id="y1u-TZ-O4d"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wY1-Gu-i6u">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Um-RS-Eni">
+                                <rect key="frame" x="34" y="35.5" width="28" height="28"/>
+                                <state key="normal" image="icon_close"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Wf-AR-c5H">
+                                <rect key="frame" x="294" y="43" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" bounces="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dTL-D3-EgP">
+                                <rect key="frame" x="26" y="81" width="323" height="586"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gPs-Q0-sLW">
+                                        <rect key="frame" x="-0.5" y="0.0" width="323" height="586"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="586" id="IQL-L8-fEc"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="gPs-Q0-sLW" secondAttribute="bottom" id="D9F-jx-Ajo"/>
+                                    <constraint firstItem="gPs-Q0-sLW" firstAttribute="centerY" secondItem="dTL-D3-EgP" secondAttribute="centerY" id="WAI-pH-aMp"/>
+                                    <constraint firstItem="gPs-Q0-sLW" firstAttribute="width" secondItem="dTL-D3-EgP" secondAttribute="width" id="g3v-wX-jCi"/>
+                                    <constraint firstItem="gPs-Q0-sLW" firstAttribute="top" secondItem="dTL-D3-EgP" secondAttribute="top" id="oeY-dp-afz"/>
+                                    <constraint firstItem="gPs-Q0-sLW" firstAttribute="leading" secondItem="dTL-D3-EgP" secondAttribute="leading" id="oek-KC-y7I"/>
+                                    <constraint firstAttribute="trailing" secondItem="gPs-Q0-sLW" secondAttribute="trailing" id="snc-GQ-7zP"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="dTL-D3-EgP" secondAttribute="trailing" constant="10" id="9Wt-wc-GmL"/>
+                            <constraint firstItem="dTL-D3-EgP" firstAttribute="leading" secondItem="wY1-Gu-i6u" secondAttribute="leadingMargin" constant="10" id="A5E-N9-iX0"/>
+                            <constraint firstItem="3Wf-AR-c5H" firstAttribute="top" secondItem="1Za-Jx-99V" secondAttribute="bottom" constant="23" id="YOy-oU-bRv"/>
+                            <constraint firstItem="y1u-TZ-O4d" firstAttribute="top" secondItem="dTL-D3-EgP" secondAttribute="bottom" id="rD3-Gy-7hU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3Wf-AR-c5H" secondAttribute="trailing" constant="19" id="vgA-AN-05o"/>
+                            <constraint firstItem="3Wf-AR-c5H" firstAttribute="baseline" secondItem="2Um-RS-Eni" secondAttribute="baseline" id="yBi-SI-V94"/>
+                            <constraint firstItem="2Um-RS-Eni" firstAttribute="leading" secondItem="wY1-Gu-i6u" secondAttribute="leadingMargin" constant="18" id="yLf-A5-Jba"/>
+                            <constraint firstItem="dTL-D3-EgP" firstAttribute="top" secondItem="3Wf-AR-c5H" secondAttribute="bottom" constant="8" id="zMC-6f-kFB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ContainerVIew" destination="gPs-Q0-sLW" id="6Aq-Ed-BQh"/>
+                        <outlet property="ExitButton" destination="2Um-RS-Eni" id="3um-IR-loi"/>
+                        <outlet property="ScrollView" destination="dTL-D3-EgP" id="6JP-07-ecA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w3p-Up-cRn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1229.5999999999999" y="-473.6131934032984"/>
         </scene>
         <!--Custom Tabbar View Controller-->
         <scene sceneID="zY4-vU-kst">
@@ -325,6 +398,7 @@
     <resources>
         <image name="edit_profile" width="53" height="53"/>
         <image name="icon_chat_active" width="43" height="43"/>
+        <image name="icon_close" width="28" height="28"/>
         <image name="icon_jobscard" width="43" height="43"/>
         <image name="icon_profile" width="43" height="43"/>
     </resources>

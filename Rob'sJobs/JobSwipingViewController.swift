@@ -57,6 +57,14 @@ class JobSwipingViewController: UIViewController,CLLocationManagerDelegate, UITa
             }
         }
     }
+    
+    func doTapForMore(){
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Core", bundle: nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TapForMore") as! TapForMoreViewController
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        nextViewController.passedData = "test"
+        appDelegate.window?.rootViewController = nextViewController    }
     /*
     // MARK: - Navigation
 

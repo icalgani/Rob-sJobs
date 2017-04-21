@@ -82,6 +82,7 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
         draggableView.locationLabel.text = distanceArray[index]
         draggableView.salaryLabel.text = salaryArray[index]
         draggableView.experienceLabel.text = experienceArray[index]
+        draggableView.offerTimeLabel.text = "end in \(endDateArray[index]) days"
         
         //download image from url
         for index in 0...companyLogoArray.count-1 {
@@ -189,6 +190,7 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
         salaryArray = swipeCardData.salaryToSend
         companyLogoArray = swipeCardData.companyLogoToSend
         experienceArray = swipeCardData.experienceToSend
+        endDateArray = swipeCardData.endDateToSend
         
         self.loadCards()
     }
