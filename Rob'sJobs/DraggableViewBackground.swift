@@ -23,6 +23,7 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
     var salaryArray: [String] = []
     var endDateArray: [String] = []
     var companyLogoArray: [String] = []
+    var experienceArray: [String] = []
 
     let MAX_BUFFER_SIZE = 2
     let CARD_HEIGHT: CGFloat = 386
@@ -78,9 +79,11 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
         
         draggableView.requiredSkillLabel.text = interestArray[index]
         draggableView.typeLabel.text = employmentTypeArray[index]
-//        draggableView.locationLabel.text = distanceArray[index]
+        draggableView.locationLabel.text = distanceArray[index]
         draggableView.salaryLabel.text = salaryArray[index]
+        draggableView.experienceLabel.text = experienceArray[index]
         
+        //download image from url
         for index in 0...companyLogoArray.count-1 {
             if let checkedUrl = URL(string: companyLogoArray[index]) {
                 
@@ -93,11 +96,8 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
     }
     
     func downloadImage(url: URL, imageIndex: NSInteger) {
-        print("Download Started")
         getDataFromUrl(url: url) { (data, response, error)  in
             guard let data = data, error == nil else { return }
-            print(response?.suggestedFilename ?? url.lastPathComponent)
-            print("Download Finished")
             DispatchQueue.main.async() { () -> Void in
                 
                 self.allCards[imageIndex].companyLogoView.image = UIImage(data: data)
@@ -185,9 +185,10 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
         jobTitleArray = swipeCardData.jobTitleToSend
         interestArray = swipeCardData.interestToSend
         employmentTypeArray = swipeCardData.employmentTypeToSend
-//        distanceArray = swipeCardData.distanceToSend
+        distanceArray = swipeCardData.distanceToSend
         salaryArray = swipeCardData.salaryToSend
         companyLogoArray = swipeCardData.companyLogoToSend
+        experienceArray = swipeCardData.experienceToSend
         
         self.loadCards()
     }

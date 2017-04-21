@@ -19,7 +19,7 @@ class SwipeCardData{
     var salaryToSend: [String] = []
     var endDateToSend: [String] = []
     var companyLogoToSend: [String] = []
-    var logoImages: [UIImage] = []
+    var experienceToSend: [String] = []
     
     func getDataFromServer(dataToGet: String){
         var request = URLRequest(url: URL(string: "http://api.robsjobs.co/api/v1/match/\(dataToGet)")!)
@@ -55,10 +55,20 @@ class SwipeCardData{
                             self.jobTitleToSend.append(aObject["job_title"] as! String)
                             self.interestToSend.append(aObject["interests"] as! String)
                             self.employmentTypeToSend.append(aObject["employment_type"] as! String)
-//                            self.distanceToSend.append(aObject["distance"] as! String )
+                            self.distanceToSend.append(String(describing: aObject["distance"]!))
                             self.salaryToSend.append(aObject["salary"] as! String)
-                            self.endDateToSend.append(aObject["end_date"] as! String)
+//                            self.endDateToSend.append(aObject["end_date"] as! String)
+                            let endDate = aObject["end_date"] as! String
+                            self.endDateToSend.append(self.calculateEndDate(endDate: endDate))
+                            print(self.endDateToSend)
                             self.companyLogoToSend.append(aObject["company_logo"] as! String)
+                            let experience = String(describing: aObject["has_experience"]!)
+                            print(experience)
+                            if(experience == "0"){
+                                self.experienceToSend.append("No")
+                            }else {
+                                self.experienceToSend.append("Yes")
+                            }
                             
                         }// end for
                         
@@ -74,5 +84,18 @@ class SwipeCardData{
             
         }
         task.resume()
+    }
+    
+    func calculateEndDate(endDate: String)->String{
+        let calendar = NSCalendar.current
+        let date = NSDate()
+        let formatter = DateFormatter()
+        
+        formatter.dateFormat = "yyyy-MM-dd"
+        let end = formatter.date(from: endDate)
+        
+        let components = calendar.dateComponents([.day], from: date as Date, to: end!)
+        
+        return String(describing: components)
     }
 }
