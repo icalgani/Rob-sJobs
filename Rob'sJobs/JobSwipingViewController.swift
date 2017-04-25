@@ -14,6 +14,17 @@ class JobSwipingViewController: UIViewController,CLLocationManagerDelegate, UITa
 
     let locationManager = CLLocationManager()
     
+    var idArray: String!
+    var employerIDArray: String!
+    var jobTitleArray: String!
+    var interestArray: String!
+    var employmentTypeArray: String!
+    var distanceArray: String!
+    var salaryArray: String!
+    var endDateArray: String!
+    var companyLogoArray: String!
+    var experienceArray: String!
+    var descriptionArray: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,13 +69,23 @@ class JobSwipingViewController: UIViewController,CLLocationManagerDelegate, UITa
         }
     }
     
-    func doTapForMore(){
+    func doTapForMore(jobTitle: String, interest: String, employmentType: String, distance: String, salary: String, endDate: String, companyLogo: UIImage, experience: String, descriptionJob: String){
         let storyBoard : UIStoryboard = UIStoryboard(name: "Core", bundle: nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TapForMore") as! TapForMoreViewController
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        nextViewController.passedData = "test"
-        appDelegate.window?.rootViewController = nextViewController    }
+        nextViewController.jobTitleArray = jobTitle
+        nextViewController.interestArray = interest
+        nextViewController.employmentTypeArray = employmentType
+        nextViewController.distanceArray = distance
+        nextViewController.salaryArray = salary
+        nextViewController.endDateArray = endDate
+        nextViewController.companyLogoArray = companyLogo
+        nextViewController.experienceArray = experience
+        nextViewController.descriptionArray = descriptionJob
+        
+        appDelegate.window?.rootViewController = nextViewController
+    }
     /*
     // MARK: - Navigation
 

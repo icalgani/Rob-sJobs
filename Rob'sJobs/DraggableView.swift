@@ -19,15 +19,21 @@ let ROTATION_ANGLE: Float = 3.14/8  //%%% Higher = stronger rotation angle
 protocol DraggableViewDelegate {
     func cardSwipedLeft(card: UIView) -> Void
     func cardSwipedRight(card: UIView) -> Void
+    
+    func tapForMorePressed(button: UIButton) -> Void
+
 }
 
 class DraggableView: UIView {
     var delegate: DraggableViewDelegate!
+    
     var panGestureRecognizer: UIPanGestureRecognizer!
     var originPoint: CGPoint!
     var overlayView: OverlayView!
     var xFromCenter: Float!
     var yFromCenter: Float!
+    
+    var companyID: Int!
     
     var companyNameLabel: UILabel!
     var companyLogoView: UIImageView!
@@ -343,10 +349,9 @@ class DraggableView: UIView {
         moreButtonView.addSubview(moreButton)
     }
     
-    func action(_ sender:UIButton!) {
-        let viewController = JobSwipingViewController()
-        viewController.doTapForMore()
-            }
+    func action(_ button:UIButton!) -> Void {
+            delegate.tapForMorePressed(button: button)
+    }
     
     
     func setupView() -> Void {

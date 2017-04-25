@@ -24,6 +24,8 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
     var endDateArray: [String] = []
     var companyLogoArray: [String] = []
     var experienceArray: [String] = []
+    var descriptionArray: [String] = []
+    var companyImageArray: [UIImage] = []
 
     let MAX_BUFFER_SIZE = 2
     let CARD_HEIGHT: CGFloat = 386
@@ -35,6 +37,8 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
     var messageButton: UIButton!
     var checkButton: UIButton!
     var xButton: UIButton!
+    
+    var cardsSum: Int = 5
 
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -48,7 +52,7 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
         allCards = []
         loadedCards = []
         cardsLoadedIndex = 0
-        swipeCardData.getDataFromServer(dataToGet: "1/1/5/6/107")
+        swipeCardData.getDataFromServer(dataToGet: "1/1/\(cardsSum)/6/107")
     }
 
     func setupView() -> Void {
@@ -102,6 +106,7 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
             DispatchQueue.main.async() { () -> Void in
                 
                 self.allCards[imageIndex].companyLogoView.image = UIImage(data: data)
+                self.companyImageArray.append(UIImage(data: data)!)
             }
         }
     }
@@ -143,6 +148,8 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
             cardsLoadedIndex = cardsLoadedIndex + 1
             self.insertSubview(loadedCards[MAX_BUFFER_SIZE - 1], belowSubview: loadedCards[MAX_BUFFER_SIZE - 2])
         }
+        cardsSum -= 1
+        print(cardsSum)
     }
     
     func cardSwipedRight(card: UIView) -> Void {
@@ -153,6 +160,9 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
             cardsLoadedIndex = cardsLoadedIndex + 1
             self.insertSubview(loadedCards[MAX_BUFFER_SIZE - 1], belowSubview: loadedCards[MAX_BUFFER_SIZE - 2])
         }
+        cardsSum -= 1
+        print(cardsSum)
+
     }
 
     func swipeRight() -> Void {
@@ -165,6 +175,9 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
             () -> Void in
             dragView.overlayView.alpha = 1
         })
+        cardsSum -= 1
+        print(cardsSum)
+
         dragView.rightClickAction()
     }
 
@@ -178,6 +191,9 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
             () -> Void in
             dragView.overlayView.alpha = 1
         })
+        cardsSum -= 1
+        print(cardsSum)
+
         dragView.leftClickAction()
     }
     
@@ -191,7 +207,14 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
         companyLogoArray = swipeCardData.companyLogoToSend
         experienceArray = swipeCardData.experienceToSend
         endDateArray = swipeCardData.endDateToSend
+        descriptionArray = swipeCardData.descriptionToSend
         
         self.loadCards()
+    }
+    
+    func tapForMorePressed(button:UIButton) -> Void {
+        let viewController = JobSwipingViewController()
+        let indexToSend = 5 - cardsSum
+        viewController.doTapForMore(jobTitle: jobTitleArray[indexToSend], interest: interestArray[indexToSend], employmentType: employmentTypeArray[indexToSend], distance: distanceArray[indexToSend], salary: salaryArray[indexToSend], endDate: endDateArray[indexToSend], companyLogo: companyImageArray[indexToSend], experience: experienceArray[indexToSend], descriptionJob: descriptionArray[indexToSend])
     }
 }

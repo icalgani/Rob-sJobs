@@ -20,6 +20,7 @@ class SwipeCardData{
     var endDateToSend: [String] = []
     var companyLogoToSend: [String] = []
     var experienceToSend: [String] = []
+    var descriptionToSend: [String] = []
     
     func getDataFromServer(dataToGet: String){
         var request = URLRequest(url: URL(string: "http://api.robsjobs.co/api/v1/match/\(dataToGet)")!)
@@ -50,8 +51,8 @@ class SwipeCardData{
                         for index in 0...jsonData.count-1 {
                             
                             let aObject = jsonData[index]
-//                            self.idToSend.append(aObject["id"] as! String)
-//                            self.employerIDToSend.append(aObject["employer_id"] as! String)
+                            self.idToSend.append(String(describing: aObject["id"]!))
+                            self.employerIDToSend.append(String(describing: aObject["employer_id"]!))
                             self.jobTitleToSend.append(aObject["job_title"] as! String)
                             self.interestToSend.append(aObject["interests"] as! String)
                             self.employmentTypeToSend.append(aObject["employment_type"] as! String)
@@ -60,8 +61,8 @@ class SwipeCardData{
 //                            self.endDateToSend.append(aObject["end_date"] as! String)
                             let endDate = aObject["end_date"] as! String
                             self.endDateToSend.append(self.calculateEndDate(endDate: endDate))
-                            print(self.endDateToSend)
                             self.companyLogoToSend.append(aObject["company_logo"] as! String)
+                            self.descriptionToSend.append(aObject["desc"] as! String)
                             let experience = String(describing: aObject["has_experience"]!)
                             if(experience == "0"){
                                 self.experienceToSend.append("No")
