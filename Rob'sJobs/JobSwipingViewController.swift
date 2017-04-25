@@ -26,6 +26,9 @@ class JobSwipingViewController: UIViewController,CLLocationManagerDelegate, UITa
     var experienceArray: String!
     var descriptionArray: String!
     
+    @IBAction func backToJobSwiping(segue: UIStoryboardSegue) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -70,6 +73,7 @@ class JobSwipingViewController: UIViewController,CLLocationManagerDelegate, UITa
     }
     
     func doTapForMore(jobTitle: String, interest: String, employmentType: String, distance: String, salary: String, endDate: String, companyLogo: UIImage, experience: String, descriptionJob: String){
+        
         let storyBoard : UIStoryboard = UIStoryboard(name: "Core", bundle: nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TapForMore") as! TapForMoreViewController
         

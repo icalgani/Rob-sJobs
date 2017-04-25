@@ -299,6 +299,9 @@
                                         <state key="normal" title="Reset Password">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="ResetPasswordPressed:" destination="LTG-4D-5x9" eventType="touchUpInside" id="32U-By-voE"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -510,11 +513,44 @@
             </objects>
             <point key="canvasLocation" x="1135.546875" y="1025.5125"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="uqD-S9-Yo0">
+            <objects>
+                <viewController id="Qz2-ZQ-Wkr" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VZq-dy-HGW"/>
+                        <viewControllerLayoutGuide type="bottom" id="DEV-tF-Uyx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ADZ-EG-uk2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="U70-or-TbC">
+                                <rect key="frame" x="16" y="20" width="343" height="647"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94891661410000006" green="0.9490789771" blue="0.94890636210000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" image="YES"/>
+                        </accessibility>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="U70-or-TbC" secondAttribute="trailing" id="AdE-dL-7ea"/>
+                            <constraint firstItem="U70-or-TbC" firstAttribute="top" secondItem="VZq-dy-HGW" secondAttribute="bottom" id="Aqt-UP-nJ9"/>
+                            <constraint firstItem="U70-or-TbC" firstAttribute="leading" secondItem="ADZ-EG-uk2" secondAttribute="leadingMargin" id="Zr5-Tg-17M"/>
+                            <constraint firstItem="DEV-tF-Uyx" firstAttribute="top" secondItem="U70-or-TbC" secondAttribute="bottom" id="y8g-Jp-crk"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7wC-B2-YFX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-852" y="192"/>
+        </scene>
     </scenes>
     <resources>
         <image name="img_logo" width="300" height="60"/>
+        <image name="splash" width="480" height="640"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="HRc-Az-kMa"/>
+        <segue reference="iL9-4t-ylg"/>
     </inferredMetricsTieBreakers>
 </document>

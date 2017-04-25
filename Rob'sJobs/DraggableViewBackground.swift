@@ -38,7 +38,8 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
     var checkButton: UIButton!
     var xButton: UIButton!
     
-    var cardsSum: Int = 5
+    var cardsSum: Int = 10
+    var cardsStartID: Int = 1
 
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -52,7 +53,7 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
         allCards = []
         loadedCards = []
         cardsLoadedIndex = 0
-        swipeCardData.getDataFromServer(dataToGet: "1/1/\(cardsSum)/6/107")
+        swipeCardData.getDataFromServer(dataToGet: "1/\(cardsStartID)/\(cardsSum)/6/107")
     }
 
     func setupView() -> Void {
@@ -66,7 +67,7 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
         //create ok button
         checkButton = UIButton(frame: CGRect(x: self.frame.size.width/2 + CARD_WIDTH/2 - 85,y: self.frame.size.height/2 + CARD_HEIGHT/2 + 10,width: 59,height: 59))
         checkButton.setImage(UIImage(named: "icon_yes"), for: UIControlState.normal)
-        checkButton.addTarget(self, action: #selector(DraggableViewBackground.swipeRight), for: UIControlEvents.touchUpInside)
+        checkButton.addTarget(self, action: #selector(self.swipeRight), for: UIControlEvents.touchUpInside)
 
         self.addSubview(xButton)
         self.addSubview(checkButton)
@@ -124,11 +125,13 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
             for i in 0 ..< jobTitleArray.count {
                 let newCard: DraggableView = self.createDraggableViewWithDataAtIndex(index: i)
                 allCards.append(newCard)
+                print("all cards append = \(allCards.count)")
                 if i < numLoadedCardsCap {
                     loadedCards.append(newCard)
                 }
             }
-
+            
+            //if loaded cards is 0 put 2 cards in loaded cards, if loaded cards is 1 put 1 loaded cards
             for i in 0 ..< loadedCards.count {
                 if i > 0 {
                     self.insertSubview(loadedCards[i], belowSubview: loadedCards[i - 1])
@@ -148,21 +151,51 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
             cardsLoadedIndex = cardsLoadedIndex + 1
             self.insertSubview(loadedCards[MAX_BUFFER_SIZE - 1], belowSubview: loadedCards[MAX_BUFFER_SIZE - 2])
         }
-        cardsSum -= 1
+        print("all cards count: \(allCards.count)")
+        if loadedCards.isEmpty{
+            loadNewCards()
+        }
         print(cardsSum)
+        cardsSum -= 1
+        
+    }
+    
+    func loadNewCards(){
+        cardsSum = 10
+        cardsLoadedIndex = 0
+        idArray.removeAll()
+        employerIDArray.removeAll()
+        jobTitleArray.removeAll()
+        interestArray.removeAll()
+        employmentTypeArray.removeAll()
+        distanceArray.removeAll()
+        salaryArray.removeAll()
+        endDateArray.removeAll()
+        companyLogoArray.removeAll()
+        experienceArray.removeAll()
+        descriptionArray.removeAll()
+        companyImageArray.removeAll()
+        allCards.removeAll()
+        loadedCards.removeAll()
+        print("cards Sum in load new cards: \(cardsSum), cards start ID = \(cardsStartID)")
+        swipeCardData.resetAllData()
+        swipeCardData.getDataFromServer(dataToGet: "1/\(cardsStartID)/\(cardsSum)/6/107")
     }
     
     func cardSwipedRight(card: UIView) -> Void {
         loadedCards.remove(at: 0)
         
-        if cardsLoadedIndex < allCards.count {
+        if cardsLoadedIndex < 10 {
             loadedCards.append(allCards[cardsLoadedIndex])
             cardsLoadedIndex = cardsLoadedIndex + 1
             self.insertSubview(loadedCards[MAX_BUFFER_SIZE - 1], belowSubview: loadedCards[MAX_BUFFER_SIZE - 2])
+            print(cardsSum)
+        }
+        
+        if loadedCards.isEmpty{
+            loadNewCards()
         }
         cardsSum -= 1
-        print(cardsSum)
-
     }
 
     func swipeRight() -> Void {
@@ -175,9 +208,7 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
             () -> Void in
             dragView.overlayView.alpha = 1
         })
-        cardsSum -= 1
         print(cardsSum)
-
         dragView.rightClickAction()
     }
 
@@ -191,9 +222,7 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
             () -> Void in
             dragView.overlayView.alpha = 1
         })
-        cardsSum -= 1
         print(cardsSum)
-
         dragView.leftClickAction()
     }
     
@@ -214,7 +243,7 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
     
     func tapForMorePressed(button:UIButton) -> Void {
         let viewController = JobSwipingViewController()
-        let indexToSend = 5 - cardsSum
+        let indexToSend = 10 - cardsSum
         viewController.doTapForMore(jobTitle: jobTitleArray[indexToSend], interest: interestArray[indexToSend], employmentType: employmentTypeArray[indexToSend], distance: distanceArray[indexToSend], salary: salaryArray[indexToSend], endDate: endDateArray[indexToSend], companyLogo: companyImageArray[indexToSend], experience: experienceArray[indexToSend], descriptionJob: descriptionArray[indexToSend])
     }
 }

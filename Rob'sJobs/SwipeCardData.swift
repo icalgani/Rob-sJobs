@@ -22,6 +22,20 @@ class SwipeCardData{
     var experienceToSend: [String] = []
     var descriptionToSend: [String] = []
     
+    func resetAllData(){
+        idToSend.removeAll()
+        employerIDToSend.removeAll()
+        jobTitleToSend.removeAll()
+        interestToSend.removeAll()
+        employerIDToSend.removeAll()
+        distanceToSend.removeAll()
+        salaryToSend.removeAll()
+        endDateToSend.removeAll()
+        companyLogoToSend.removeAll()
+        experienceToSend.removeAll()
+        descriptionToSend.removeAll()
+    }
+    
     func getDataFromServer(dataToGet: String){
         var request = URLRequest(url: URL(string: "http://api.robsjobs.co/api/v1/match/\(dataToGet)")!)
         //create the session object

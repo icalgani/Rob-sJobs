@@ -38,6 +38,16 @@ class TapForMoreViewController: UIViewController {
     @IBOutlet weak var DescriptionLabel: UILabel!
     
     @IBOutlet weak var UserImage: UIImageView!
+    
+    @IBAction func CloseButtonPressed(_ sender: UIButton) {
+        
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Core", bundle: nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SwipingScene") as! CustomTabbarViewController
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController = nextViewController
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

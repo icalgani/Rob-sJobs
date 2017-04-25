@@ -9,7 +9,10 @@
 import UIKit
 
 class CustomTabbarViewController: UITabBarController {
-
+    
+    @IBAction func backToJobSwiping(segue: UIStoryboardSegue) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

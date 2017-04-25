@@ -290,7 +290,7 @@
         <!--Job Swiping View Controller-->
         <scene sceneID="AVJ-dJ-GeX">
             <objects>
-                <viewController id="tpS-5Z-uio" customClass="JobSwipingViewController" customModule="Rob_sJobs" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="JobSwipingViewController" id="tpS-5Z-uio" customClass="JobSwipingViewController" customModule="Rob_sJobs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jl4-eR-uh8"/>
                         <viewControllerLayoutGuide type="bottom" id="Cxy-FH-YSX"/>
@@ -330,15 +330,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Um-RS-Eni">
-                                <rect key="frame" x="34" y="41" width="28" height="28"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Um-RS-Eni">
+                                <rect key="frame" x="34" y="40" width="28" height="28"/>
                                 <state key="normal" image="icon_close"/>
+                                <connections>
+                                    <action selector="CloseButtonPressed:" destination="CXR-8J-cqb" eventType="touchUpInside" id="eHo-qk-gDR"/>
+                                </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" bounces="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dTL-D3-EgP">
                                 <rect key="frame" x="26" y="79" width="323" height="588"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gPs-Q0-sLW">
-                                        <rect key="frame" x="0.0" y="0.0" width="323" height="775"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="323" height="726"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uBW-0K-joN">
                                                 <rect key="frame" x="0.0" y="0.0" width="323" height="158"/>
@@ -567,6 +570,7 @@
                         <segue destination="tpS-5Z-uio" kind="relationship" relationship="viewControllers" id="BZK-3U-tQ7"/>
                         <segue destination="kAW-1T-6Zy" kind="relationship" relationship="viewControllers" id="mcY-eN-CMr"/>
                         <segue destination="ivr-Mx-xeA" kind="relationship" relationship="viewControllers" id="Stb-bH-f0A"/>
+                        <segue destination="CXR-8J-cqb" kind="show" identifier="showTapForMore" id="RH1-2B-maF"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PE2-y5-vaU" userLabel="First Responder" sceneMemberID="firstResponder"/>
