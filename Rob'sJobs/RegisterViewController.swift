@@ -52,9 +52,9 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
             //check login
             var request = URLRequest(url: URL(string: "http://api.robsjobs.co/api/v1/user/signup")!)
             request.httpMethod = "POST"
-            let postString = "email=\(String(describing: EmailTextfield.text))&password=\(String(describing: PasswordTextfield.text))&name=\(String(describing: NameTextfield.text))&mobile_no=\(String(describing: PhoneNumberTextfield.text))"
+            let postString = "email=\((EmailTextfield.text)!)&password=\((PasswordTextfield.text)!)&name=\((NameTextfield.text)!)&mobile_no=\((PhoneNumberTextfield.text)!)"
             request.httpBody = postString.data(using: .utf8)
-            
+            print(postString)
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 guard let data = data, error == nil else {                                                 // check for fundamental networking error
                     print("error=\(String(describing: error))")
@@ -69,14 +69,15 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
                             //if status code is not 200
                             let errorMessage = json["error"] as! [String:Any]
                             let currentErrorMessage = errorMessage["message"] as! String
-                            
+                            DispatchQueue.main.async {
                             //set alert if email or password is wrong
                             let alertController = UIAlertController(title: "Alert", message:
                                 currentErrorMessage, preferredStyle: UIAlertControllerStyle.alert)
                             alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: nil))
                             self.present(alertController, animated: true, completion: nil)
+                            }
                         }else{
-                            
+                            DispatchQueue.main.async {
                             //tell user that register is success
                             let alertController = UIAlertController(title: "Alert", message:
                                 "Registration Success", preferredStyle: UIAlertControllerStyle.alert)
@@ -87,7 +88,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
                             let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
                             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "StartingPoint") as! ViewController
                             self.present(nextViewController, animated:true, completion:nil)
-
+                            }
                         }
                     }
                     

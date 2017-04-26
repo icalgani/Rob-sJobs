@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TSk-vB-8JG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Qz2-ZQ-Wkr">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -513,10 +513,10 @@
             </objects>
             <point key="canvasLocation" x="1135.546875" y="1025.5125"/>
         </scene>
-        <!--View Controller-->
+        <!--Launch Screen View Controller-->
         <scene sceneID="uqD-S9-Yo0">
             <objects>
-                <viewController id="Qz2-ZQ-Wkr" sceneMemberID="viewController">
+                <viewController id="Qz2-ZQ-Wkr" customClass="LaunchScreenViewController" customModule="Rob_sJobs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VZq-dy-HGW"/>
                         <viewControllerLayoutGuide type="bottom" id="DEV-tF-Uyx"/>

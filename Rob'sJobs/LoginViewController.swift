@@ -48,9 +48,9 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             
             //check login
             request.httpMethod = "POST"
-            let postString = "email=\(String(describing: EmailPhoneNumberTextfield.text))&password=\(String(describing: PasswordTextfield.text))"
+            let postString = "email=\((EmailPhoneNumberTextfield.text)!)&password=\((PasswordTextfield.text)!)"
             request.httpBody = postString.data(using: .utf8)
-            
+            print("post string: \(postString)")
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 guard let data = data, error == nil else {                                                 // check for fundamental networking error
                     print("error=\(String(describing: error))")
@@ -65,7 +65,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                             //if status code is not 200
                             let errorMessage = json["error"] as! [String:Any]
                             let currentErrorMessage = errorMessage["message"] as! String
-                            
+                            print("status code: \(httpStatus.statusCode)")
                             //set alert if email or password is wrong
                             let alertController = UIAlertController(title: "Alert", message:
                                 currentErrorMessage, preferredStyle: UIAlertControllerStyle.alert)
@@ -73,25 +73,86 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                             self.present(alertController, animated: true, completion: nil)
                         }else{
                             let jsonData = json["data"] as! [String:Any]
-                            let userDictionary = ["userID": jsonData["id"], "userName": jsonData["name"], "userPhone": jsonData["mobile_no"], "userEmail": self.EmailPhoneNumberTextfield.text]
                             
-                            self.userDefaults.set(userDictionary, forKey: "userDictionary")
-                            
-                            //go to FirstTimeLogin Storyboard
-                            let storyBoard : UIStoryboard = UIStoryboard(name: "FirstTimeLogin", bundle: nil)
-                            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SetUpProfile") as UIViewController
-                            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                            appDelegate.window?.rootViewController = nextViewController
-                        }
-                    }
-                    
+                            DispatchQueue.main.async {
+                                
+                                self.getUserDataFromServer(userID: String(describing: jsonData["id"]!))
+                                
+                            }
+                        } // if else
+                    } //if json
                 } catch let error {
                     print(error.localizedDescription)
-                }
+                } // end do
                 
-            }
+            } //end task
             task.resume()
         }
+    }
+    func getUserDataFromServer(userID: String){
+        print("String inside getUserDataFromServer= \(userID)")
+        
+        var request = URLRequest(url: URL(string: "http://api.robsjobs.co/api/v1/user/profile/\(userID)")!)
+        
+        //check login
+        request.httpMethod = "GET"
+        print("request string: \(request)")
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {                                                 // check for fundamental networking error
+                print("error=\(String(describing: error))")
+                return
+            }
+            
+            //handling json
+            do {
+                //create json object from data
+                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                    if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                        //if status code is not 200
+                        print("status code: \(httpStatus.statusCode)")
+                    }else{
+                        if (self.userDefaults.object(forKey: "userDictionary") != nil){
+                            print("theres user default")
+                            self.userDefaults.removeObject(forKey: "userDictionary")
+                        }
+                        
+                        let jsonData = json["data"] as! [String:Any]
+                        if jsonData["city"] == nil{
+                            let userDictionary = ["userID": jsonData["id"],"email": jsonData["email"], "userName": jsonData["name"], "mobile_number": jsonData["mobile_number"]]
+                            self.userDefaults.set(userDictionary, forKey: "userDictionary")
+                        }else{
+//                        set data to UserDefault
+                        let userDictionary = ["userID": jsonData["id"], "birthdate": jsonData["birthdate"], "is_employed": jsonData["is_employed"], "curr_employment_sector": jsonData["curr_employment_sector"], "city": jsonData["city"], "province": jsonData["province"], "edu_level":jsonData["edu_level"], "interest": jsonData["interests"], "employment_type": jsonData["employment_type"], "sectors": jsonData["sectors"], "has_portofolio": jsonData["has_portofolio"], "has_work_experience": jsonData["has_work_experience"], "skills": jsonData["skills"], "bio": jsonData["bio"], "portofolio": jsonData["portofolio"], "email": jsonData["email"], "userName": jsonData["name"], "mobile_number": jsonData["mobile_number"], "image": jsonData["image"]]
+                        self.userDefaults.set(userDictionary, forKey: "userDictionary")
+                        }
+                        DispatchQueue.main.async {
+                            let dict = self.userDefaults.object(forKey: "userDictionary") as? [String: String] ?? [String: String]()
+                            
+                            if(dict["city"] != nil){
+                                //go to FirstTimeLogin Storyboard
+                                self.goToNextView(storyboardName: "FirstTimeLogin", identifier: "SetUpProfile")
+                            }else{
+                                //go to FirstTimeLogin Storyboard
+                                self.goToNextView(storyboardName: "Core", identifier: "SwipingScene")
+                            }
+                        }
+                    }
+                }
+                
+            } catch let error {
+                print(error.localizedDescription)
+            }
+            
+        }
+        task.resume()
+    }
+    
+    func goToNextView(storyboardName: String, identifier: String){
+        //go to FirstTimeLogin Storyboard
+        let storyBoard : UIStoryboard = UIStoryboard(name: storyboardName, bundle: nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: identifier) as UIViewController
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController = nextViewController
     }
     
     @IBAction func goToLogin(segue: UIStoryboardSegue) {

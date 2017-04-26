@@ -10,22 +10,26 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
-    @IBOutlet weak var UserDescriptionLabel: UILabel!
-    @IBOutlet weak var ProfileDetailStackView: UIStackView!
-    @IBOutlet weak var LabelForUnderline: UILabel!
-    @IBOutlet weak var LogOutButton: ButtonCustom!
     
-    @IBAction func doLogOut(_ sender: ButtonCustom) {
-    }
+    @IBOutlet weak var UserDescriptionLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //add underline on user description
-        UserDescriptionLabel.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.black, thickness: 1)
-        LabelForUnderline.layer.addBorder(edge: UIRectEdge.bottom, color: UIColor.black, thickness: 1)
     }
-
+    
+    override func viewDidLayoutSubviews() {
+        
+        // add bottom border at user description
+        let border = CALayer()
+        let width = CGFloat(1.0)
+        border.borderColor = UIColor.darkGray.cgColor
+        border.frame = CGRect(x: 0, y: UserDescriptionLabel.frame.size.height - width, width:  UserDescriptionLabel.frame.size.width, height: UserDescriptionLabel.frame.size.height)
+        
+        border.borderWidth = width
+        UserDescriptionLabel.layer.addSublayer(border)
+        UserDescriptionLabel.layer.masksToBounds = true
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

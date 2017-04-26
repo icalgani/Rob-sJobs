@@ -29,11 +29,11 @@ class ResetPasswordViewController: UIViewController {
         }else{
         
         //check login
-        var request = URLRequest(url: URL(string: "http://api.robsjobs.co/api/v1/user/signup")!)
+        var request = URLRequest(url: URL(string: "http://api.robsjobs.co/api/v1/user/forgot")!)
         request.httpMethod = "POST"
-        let postString = "email=\(String(describing: RegisteredEmailTextfield.text))"
+        let postString = "email=\((RegisteredEmailTextfield.text)!)"
         request.httpBody = postString.data(using: .utf8)
-        
+        print("postString from reset password= \(postString)")
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {                                                 // check for fundamental networking error
                 print("error=\(String(describing: error))")
@@ -48,14 +48,15 @@ class ResetPasswordViewController: UIViewController {
                         //if status code is not 200
                         let errorMessage = json["error"] as! [String:Any]
                         let currentErrorMessage = errorMessage["message"] as! String
-                        
+                        DispatchQueue.main.async {
                         //set alert if email or password is wrong
                         let alertController = UIAlertController(title: "Alert", message:
                             currentErrorMessage, preferredStyle: UIAlertControllerStyle.alert)
                         alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: nil))
                         self.present(alertController, animated: true, completion: nil)
+                        }
                     }else{
-                        
+                        DispatchQueue.main.async {
                         //tell user that register is success
                         let alertController = UIAlertController(title: "Alert", message:
                             "Reset Password Success", preferredStyle: UIAlertControllerStyle.alert)
@@ -66,7 +67,7 @@ class ResetPasswordViewController: UIViewController {
                         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
                         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "StartingPoint") as! ViewController
                         self.present(nextViewController, animated:true, completion:nil)
-                        
+                        }
                     }
                 }
                 
