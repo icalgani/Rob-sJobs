@@ -50,12 +50,17 @@
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g6l-It-QQh">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="675"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ELZ-3D-dCE">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_launcher" translatesAutoresizingMaskIntoConstraints="NO" id="ELZ-3D-dCE">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
-                                                <color key="backgroundColor" red="0.19875562191009521" green="0.83551603555679321" blue="0.65995770692825317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="300" id="BO7-xq-JmB"/>
                                                 </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xe5-k3-HQt">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Cj-xI-whF">
                                                 <rect key="frame" x="302" y="268" width="53" height="53"/>
@@ -253,13 +258,18 @@
                                             <constraint firstItem="7kq-gS-eua" firstAttribute="leading" secondItem="g6l-It-QQh" secondAttribute="leading" constant="20" id="8YJ-I8-A89"/>
                                             <constraint firstAttribute="trailing" secondItem="L5l-Sf-wPR" secondAttribute="trailing" constant="20" id="B0Q-UA-nW1"/>
                                             <constraint firstItem="L5l-Sf-wPR" firstAttribute="top" secondItem="3Cj-xI-whF" secondAttribute="bottom" constant="10" id="CSF-27-jTH"/>
+                                            <constraint firstAttribute="trailing" secondItem="xe5-k3-HQt" secondAttribute="trailing" id="DYz-8A-Srp"/>
                                             <constraint firstItem="3Cj-xI-whF" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Cde-Ob-gWs" secondAttribute="trailing" constant="126" id="H2c-NW-vBZ"/>
                                             <constraint firstItem="Cde-Ob-gWs" firstAttribute="top" secondItem="UVA-Dn-Ual" secondAttribute="bottom" constant="10" id="L5n-q5-hbv"/>
                                             <constraint firstItem="L5l-Sf-wPR" firstAttribute="leading" secondItem="g6l-It-QQh" secondAttribute="leading" constant="20" id="PN3-dl-Qb4"/>
                                             <constraint firstItem="9h8-9e-Xko" firstAttribute="leading" secondItem="g6l-It-QQh" secondAttribute="leading" constant="20" id="TBm-bI-QES"/>
+                                            <constraint firstItem="xe5-k3-HQt" firstAttribute="top" secondItem="g6l-It-QQh" secondAttribute="top" id="Y4G-lk-CUD"/>
                                             <constraint firstItem="ELZ-3D-dCE" firstAttribute="top" secondItem="g6l-It-QQh" secondAttribute="top" id="aHS-La-bhw"/>
                                             <constraint firstItem="ucv-Oo-9mM" firstAttribute="top" secondItem="7kq-gS-eua" secondAttribute="bottom" constant="20" id="f71-Ta-mg4"/>
+                                            <constraint firstItem="xe5-k3-HQt" firstAttribute="width" secondItem="ELZ-3D-dCE" secondAttribute="width" id="idL-Rt-ZzB"/>
+                                            <constraint firstItem="xe5-k3-HQt" firstAttribute="height" secondItem="ELZ-3D-dCE" secondAttribute="height" id="lQV-0R-fWa"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="700" id="luu-dt-Qzq"/>
+                                            <constraint firstItem="xe5-k3-HQt" firstAttribute="leading" secondItem="g6l-It-QQh" secondAttribute="leading" id="pGO-3G-WaY"/>
                                             <constraint firstItem="UVA-Dn-Ual" firstAttribute="leading" secondItem="g6l-It-QQh" secondAttribute="leading" constant="20" id="qXA-Zo-OBC"/>
                                             <constraint firstItem="3Cj-xI-whF" firstAttribute="top" secondItem="g6l-It-QQh" secondAttribute="top" constant="268" id="sMa-SU-fpP"/>
                                             <constraint firstAttribute="trailing" secondItem="3Cj-xI-whF" secondAttribute="trailing" constant="20" id="t7Q-bL-c22"/>
@@ -303,6 +313,7 @@
                         <outlet property="LogOutButton" destination="ucv-Oo-9mM" id="FoD-bu-MSO"/>
                         <outlet property="SkillsLabel" destination="9LF-KQ-mu0" id="cDX-72-bP6"/>
                         <outlet property="UserDescriptionLabel" destination="L5l-Sf-wPR" id="EHP-9L-4vJ"/>
+                        <outlet property="UserImage" destination="ELZ-3D-dCE" id="cI5-it-mIO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CQc-KP-ns7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -602,6 +613,7 @@
     </scenes>
     <resources>
         <image name="edit_profile" width="53" height="53"/>
+        <image name="ic_launcher" width="72" height="72"/>
         <image name="icon_chat_active" width="43" height="43"/>
         <image name="icon_close" width="28" height="28"/>
         <image name="icon_employment" width="54" height="54"/>

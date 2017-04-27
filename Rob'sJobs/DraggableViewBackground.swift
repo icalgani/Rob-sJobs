@@ -105,7 +105,7 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
         getDataFromUrl(url: url) { (data, response, error)  in
             guard let data = data, error == nil else { return }
             DispatchQueue.main.async() { () -> Void in
-                
+                print(data)
                 self.allCards[imageIndex].companyLogoView.image = UIImage(data: data)
                 self.companyImageArray.append(UIImage(data: data)!)
             }

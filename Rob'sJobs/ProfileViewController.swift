@@ -24,6 +24,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var EducationLabel: UILabel!
     @IBOutlet weak var CharactersLabel: UILabel!
     @IBOutlet weak var SkillsLabel: UILabel!
+    @IBOutlet weak var UserImage: UIImageView!
     
     @IBAction func doLogOut(_ sender: UIButton) {
         let defaults = UserDefaults.standard
@@ -40,6 +41,8 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         setUserDescriptionLabel()
+//        UserImage.backgroundColor = UIColor.black
+//        UserImage.layer.opacity = 0.3
     }
     
     override func viewDidLayoutSubviews() {
@@ -64,14 +67,36 @@ class ProfileViewController: UIViewController {
     func setUserDescriptionLabel(){
         let userDefaults = UserDefaults.standard
         let userDictionary = userDefaults.value(forKey: "userDictionary") as? [String: Any]
-                print(userDictionary?["email"])
         BirthdateLabel.text = (userDictionary?["birthdate"] as! String)
         EmailLabel.text = userDictionary?["email"] as! String
-        LocationLabel.text = userDictionary?["province"] as! String
+        LocationLabel.text = userDictionary?["city"] as! String
         EducationLabel.text = userDictionary?["edu_level"] as! String
         CharactersLabel.text = userDictionary?["interests"] as! String
         SkillsLabel.text = userDictionary?["skills"] as! String
         UserDescriptionLabel.text = userDictionary?["bio"] as! String
+        print(userDictionary?["image"] as! String)
+        //download image from url
+            if let checkedUrl = URL(string: userDictionary?["image"] as! String) {
+                
+                downloadImage(url: checkedUrl)
+            }
     }
+    
+    func downloadImage(url: URL) {
+        getDataFromUrl(url: url) { (data, response, error)  in
+            guard let data = data, error == nil else { return }
+            DispatchQueue.main.async() { () -> Void in
+                self.UserImage.image = UIImage(data: data)
+            }
+        }
+    }
+    
+    func getDataFromUrl(url: URL, completion: @escaping (_ data: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
+        URLSession.shared.dataTask(with: url) {
+            (data, response, error) in
+            completion(data, response, error)
+            }.resume()
+    }
+
 
 }
