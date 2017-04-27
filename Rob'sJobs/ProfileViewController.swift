@@ -40,13 +40,13 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUserDescriptionLabel()
 //        UserImage.backgroundColor = UIColor.black
 //        UserImage.layer.opacity = 0.3
     }
     
     override func viewDidLayoutSubviews() {
-        
+        setUserDescriptionLabel()
+
         // add bottom border at user description
         let descriptionUnderline = CALayer()
         let width = CGFloat(1.0)
@@ -67,19 +67,30 @@ class ProfileViewController: UIViewController {
     func setUserDescriptionLabel(){
         let userDefaults = UserDefaults.standard
         let userDictionary = userDefaults.value(forKey: "userDictionary") as? [String: Any]
-        BirthdateLabel.text = (userDictionary?["birthdate"] as! String)
-        EmailLabel.text = userDictionary?["email"] as! String
-        LocationLabel.text = userDictionary?["city"] as! String
-        EducationLabel.text = userDictionary?["edu_level"] as! String
-        CharactersLabel.text = userDictionary?["interests"] as! String
-        SkillsLabel.text = userDictionary?["skills"] as! String
-        UserDescriptionLabel.text = userDictionary?["bio"] as! String
-        print(userDictionary?["image"] as! String)
-        //download image from url
+        if(userDictionary?["city"] == nil){
+            userDefaults.removeObject(forKey: "userDictionary")
+            
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "StartingPoint") as UIViewController
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.window?.rootViewController = nextViewController
+        } else{
+            BirthdateLabel.text = (userDictionary?["birthdate"] as! String)
+            EmailLabel.text = userDictionary?["email"] as! String
+            LocationLabel.text = userDictionary?["city"] as! String
+            EducationLabel.text = userDictionary?["edu_level"] as! String
+            CharactersLabel.text = userDictionary?["interests"] as! String
+            SkillsLabel.text = userDictionary?["skills"] as! String
+            UserDescriptionLabel.text = userDictionary?["bio"] as! String
+            print(userDictionary?["image"] as! String)
+            //download image from url
             if let checkedUrl = URL(string: userDictionary?["image"] as! String) {
                 
                 downloadImage(url: checkedUrl)
             }
+        }
+        
     }
     
     func downloadImage(url: URL) {

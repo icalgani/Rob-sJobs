@@ -9,7 +9,10 @@
 import Foundation
 import UIKit
 
-class DraggableViewBackground: UIView, DraggableViewDelegate {
+class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerDelegate {
+    
+    let locationManager = CLLocationManager()
+
     let swipeCardData = SwipeCardData()
     var exampleCardLabels: [String]!
     var allCards: [DraggableView]!
@@ -26,6 +29,7 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
     var experienceArray: [String] = []
     var descriptionArray: [String] = []
     var companyImageArray: [UIImage] = []
+    var jobsScoreArray: [String] = []
 
     let MAX_BUFFER_SIZE = 2
     let CARD_HEIGHT: CGFloat = 386
@@ -40,6 +44,8 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
     
     var cardsSum: Int = 10
     var cardsStartID: Int = 1
+    
+    
 
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -50,10 +56,19 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
         super.layoutSubviews()
         self.setupView()
         NotificationCenter.default.addObserver(self, selector: #selector(self.loadList), name:NSNotification.Name(rawValue: "load"), object: nil)
+        
+        let userDefaults = UserDefaults.standard
+        let userDictionary = userDefaults.value(forKey: "userDictionary") as? [String: Any]
+        
         allCards = []
         loadedCards = []
         cardsLoadedIndex = 0
-        swipeCardData.getDataFromServer(dataToGet: "1/\(cardsStartID)/\(cardsSum)/6/107")
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        
+        var locValue:CLLocationCoordinate2D = manager.location.coordinate
+        swipeCardData.getDataFromServer(dataToGet: "\(String(describing: (userDictionary?["userID"])!))/1/\(cardsSum)/\(locValue.latitude)/\(locValue.longitude)")
     }
 
     func setupView() -> Void {
@@ -105,7 +120,6 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
         getDataFromUrl(url: url) { (data, response, error)  in
             guard let data = data, error == nil else { return }
             DispatchQueue.main.async() { () -> Void in
-                print(data)
                 self.allCards[imageIndex].companyLogoView.image = UIImage(data: data)
                 self.companyImageArray.append(UIImage(data: data)!)
             }
@@ -143,24 +157,11 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
         }
     }
 
-    func cardSwipedLeft(card: UIView) -> Void {
-        loadedCards.remove(at: 0)
-
-        if cardsLoadedIndex < allCards.count {
-            loadedCards.append(allCards[cardsLoadedIndex])
-            cardsLoadedIndex = cardsLoadedIndex + 1
-            self.insertSubview(loadedCards[MAX_BUFFER_SIZE - 1], belowSubview: loadedCards[MAX_BUFFER_SIZE - 2])
-        }
-        print("all cards count: \(allCards.count)")
-        if loadedCards.isEmpty{
-            loadNewCards()
-        }
-        print(cardsSum)
-        cardsSum -= 1
-        
-    }
-    
     func loadNewCards(){
+        
+        let userDefaults = UserDefaults.standard
+        let userDictionary = userDefaults.value(forKey: "userDictionary") as? [String: Any]
+        
         cardsSum = 10
         cardsLoadedIndex = 0
         idArray.removeAll()
@@ -175,12 +176,37 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
         experienceArray.removeAll()
         descriptionArray.removeAll()
         companyImageArray.removeAll()
+        jobsScoreArray.removeAll()
         allCards.removeAll()
         loadedCards.removeAll()
         print("cards Sum in load new cards: \(cardsSum), cards start ID = \(cardsStartID)")
         swipeCardData.resetAllData()
-        swipeCardData.getDataFromServer(dataToGet: "1/\(cardsStartID)/\(cardsSum)/6/107")
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        
+        var locValue:CLLocationCoordinate2D = manager.location.coordinate
+        swipeCardData.getDataFromServer(dataToGet: "\(String(describing: (userDictionary?["userID"])!))/1/\(cardsSum)/\(locValue.latitude)/\(locValue.longitude)")
     }
+
+    func cardSwipedLeft(card: UIView) -> Void {
+        loadedCards.remove(at: 0)
+
+        if cardsLoadedIndex < allCards.count {
+            loadedCards.append(allCards[cardsLoadedIndex])
+            cardsLoadedIndex = cardsLoadedIndex + 1
+            self.insertSubview(loadedCards[MAX_BUFFER_SIZE - 1], belowSubview: loadedCards[MAX_BUFFER_SIZE - 2])
+        }
+        print("all cards count: \(allCards.count)")
+        if loadedCards.isEmpty{
+            loadNewCards()
+        }else{
+        cardIsSwiped(requestType: "reject", indexToSend: (10 - cardsSum), jobScoreToSend: "job_score=\(jobsScoreArray[10 - cardsSum])")
+        }
+        
+        cardsSum -= 1
+    }
+    
     
     func cardSwipedRight(card: UIView) -> Void {
         loadedCards.remove(at: 0)
@@ -194,7 +220,11 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
         
         if loadedCards.isEmpty{
             loadNewCards()
+        }else{
+            
+        cardIsSwiped(requestType: "apply", indexToSend: (10 - cardsSum), jobScoreToSend: "&jobscore=\(jobsScoreArray[10 - cardsSum])")
         }
+        
         cardsSum -= 1
     }
 
@@ -237,8 +267,51 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
         experienceArray = swipeCardData.experienceToSend
         endDateArray = swipeCardData.endDateToSend
         descriptionArray = swipeCardData.descriptionToSend
+        jobsScoreArray = swipeCardData.jobsScoreToSend
+        idArray = swipeCardData.idToSend
         
         self.loadCards()
+    }
+    
+    func cardIsSwiped(requestType: String, indexToSend: Int, jobScoreToSend: String){
+        var request = URLRequest(url: URL(string: "http://api.robsjobs.co/api/v1/job/\(requestType)")!)
+        let userDefaults = UserDefaults.standard
+        let userDictionary = userDefaults.value(forKey: "userDictionary") as? [String: Any]
+        
+        //check login
+        request.httpMethod = "POST"
+        print(indexToSend)
+        print("userid=\(String(describing: (userDictionary?["userID"])!))&jobid=\(idArray[indexToSend])\(jobScoreToSend)")
+        
+        let postString = "userid=\(String(describing: (userDictionary?["userID"])!))&jobid=\(idArray[indexToSend])&\(jobScoreToSend)"
+        request.httpBody = postString.data(using: .utf8)
+        print("card is swiped post string: \(postString)")
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {                                                 // check for fundamental networking error
+                print("error=\(String(describing: error))")
+                return
+            }
+            
+            //handling json
+            do {
+                //create json object from data
+                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                    if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                        //if status code is not 200
+                        let errorMessage = json["error"] as! [String:Any]
+                        let currentErrorMessage = errorMessage["message"] as! String
+                        print("status code: \(httpStatus.statusCode)")
+                    }else{
+                        let jsonData = json["data"] as! [String:Any]
+                        print("job score= \(jsonData["job_score"]), job id = \(jsonData["jobid"]), user id = \(jsonData["userid"])")
+                    } // if else
+                } //if json
+            } catch let error {
+                print(error.localizedDescription)
+            } // end do
+            
+        } //end task
+        task.resume()
     }
     
     func tapForMorePressed(button:UIButton) -> Void {

@@ -40,11 +40,6 @@ class JobSwipingViewController: UIViewController,CLLocationManagerDelegate, UITa
         
         self.tabBarController?.delegate = self
         checkLocationIsOn()
-        
-        let draggableBackground: DraggableViewBackground = DraggableViewBackground(frame: self.view.frame)
-        self.view.addSubview(draggableBackground)
-        
-        
 
     }
 
@@ -65,6 +60,10 @@ class JobSwipingViewController: UIViewController,CLLocationManagerDelegate, UITa
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
+            
+            
+            let draggableBackground: DraggableViewBackground = DraggableViewBackground(frame: self.view.frame)
+            self.view.addSubview(draggableBackground)
         }else{
             if let settingsURL = URL(string: UIApplicationOpenSettingsURLString + Bundle.main.bundleIdentifier!) {
                 UIApplication.shared.open(settingsURL)

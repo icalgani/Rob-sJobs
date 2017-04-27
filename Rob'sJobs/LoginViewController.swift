@@ -89,6 +89,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             task.resume()
         }
     }
+    
     func getUserDataFromServer(userID: String){
         var request = URLRequest(url: URL(string: "http://api.robsjobs.co/api/v1/user/profile/\(userID)")!)
         
@@ -133,10 +134,11 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                             
                             if(dict["city"] != nil){
                                 //go to FirstTimeLogin Storyboard
-                                self.goToNextView(storyboardName: "FirstTimeLogin", identifier: "SetUpProfile")
+                                self.goToNextView(storyboardName: "Core", identifier: "SwipingScene")
                             }else{
                                 //go to FirstTimeLogin Storyboard
-                                self.goToNextView(storyboardName: "Core", identifier: "SwipingScene")
+                                self.goToNextView(storyboardName: "FirstTimeLogin", identifier: "SetUpProfile")
+
                             }
                         }
                     }
