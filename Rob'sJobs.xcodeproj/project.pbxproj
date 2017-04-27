@@ -46,6 +46,7 @@
 		FAC899261EA8B1E900D4800A /* SwipeCardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC899251EA8B1E900D4800A /* SwipeCardData.swift */; };
 		FAC899281EA9E57C00D4800A /* TapForMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC899271EA9E57C00D4800A /* TapForMoreViewController.swift */; };
 		FAC8992A1EAF77C900D4800A /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC899291EAF77C900D4800A /* LaunchScreenViewController.swift */; };
+		FAC8992C1EB0BCF900D4800A /* StraightLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC8992B1EB0BCF900D4800A /* StraightLine.swift */; };
 		FAC973CC1E96A453002A4E6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC973CB1E96A453002A4E6E /* AppDelegate.swift */; };
 		FAC973D11E96A453002A4E6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC973CF1E96A453002A4E6E /* Main.storyboard */; };
 		FAC973E11E96A453002A4E6E /* Rob_sJobsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC973E01E96A453002A4E6E /* Rob_sJobsTests.swift */; };
@@ -117,6 +118,7 @@
 		FAC899251EA8B1E900D4800A /* SwipeCardData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeCardData.swift; sourceTree = "<group>"; };
 		FAC899271EA9E57C00D4800A /* TapForMoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapForMoreViewController.swift; sourceTree = "<group>"; };
 		FAC899291EAF77C900D4800A /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		FAC8992B1EB0BCF900D4800A /* StraightLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StraightLine.swift; sourceTree = "<group>"; };
 		FAC973C81E96A453002A4E6E /* Rob'sJobs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rob'sJobs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAC973CB1E96A453002A4E6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAC973D01E96A453002A4E6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				FAB953861E96CC4000FC033C /* SSRadioButtonsController.swift */,
 				FAB953311E96AF5D00FC033C /* InputButton.swift */,
 				FAE02A361E9D153C00084F66 /* LabelUtility.swift */,
+				FAC8992B1EB0BCF900D4800A /* StraightLine.swift */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				FAE02A291E9C958B00084F66 /* TutorialTestPageViewController.swift in Sources */,
 				FAB953781E96C32500FC033C /* SalaryPickerTableViewController.swift in Sources */,
 				FAB953761E96C31A00FC033C /* DesiredSectorTableViewController.swift in Sources */,
+				FAC8992C1EB0BCF900D4800A /* StraightLine.swift in Sources */,
 				FAB953711E96C15600FC033C /* FloatLabelTextView.swift in Sources */,
 				FAC973CC1E96A453002A4E6E /* AppDelegate.swift in Sources */,
 				FAC8992A1EAF77C900D4800A /* LaunchScreenViewController.swift in Sources */,

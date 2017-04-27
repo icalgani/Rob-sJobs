@@ -90,13 +90,10 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         }
     }
     func getUserDataFromServer(userID: String){
-        print("String inside getUserDataFromServer= \(userID)")
-        
         var request = URLRequest(url: URL(string: "http://api.robsjobs.co/api/v1/user/profile/\(userID)")!)
         
         //check login
         request.httpMethod = "GET"
-        print("request string: \(request)")
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {                                                 // check for fundamental networking error
                 print("error=\(String(describing: error))")
@@ -106,7 +103,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             //handling json
             do {
                 //create json object from data
-                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                if let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] {
                     if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
                         //if status code is not 200
                         print("status code: \(httpStatus.statusCode)")
@@ -116,14 +113,20 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                             self.userDefaults.removeObject(forKey: "userDictionary")
                         }
                         
-                        let jsonData = json["data"] as! [String:Any]
+                        let jsonData = (json["data"]) as! [String:Any]
                         if jsonData["city"] == nil{
-                            let userDictionary = ["userID": jsonData["id"],"email": jsonData["email"], "userName": jsonData["name"], "mobile_number": jsonData["mobile_number"]]
+                            let userDictionary: [String:Any] = ["userID": jsonData["id"],"email": jsonData["email"], "userName": jsonData["name"], "mobile_number": jsonData["mobile_number"]]
                             self.userDefaults.set(userDictionary, forKey: "userDictionary")
                         }else{
 //                        set data to UserDefault
-                        let userDictionary = ["userID": jsonData["id"], "birthdate": jsonData["birthdate"], "is_employed": jsonData["is_employed"], "curr_employment_sector": jsonData["curr_employment_sector"], "city": jsonData["city"], "province": jsonData["province"], "edu_level":jsonData["edu_level"], "interest": jsonData["interests"], "employment_type": jsonData["employment_type"], "sectors": jsonData["sectors"], "has_portofolio": jsonData["has_portofolio"], "has_work_experience": jsonData["has_work_experience"], "skills": jsonData["skills"], "bio": jsonData["bio"], "portofolio": jsonData["portofolio"], "email": jsonData["email"], "userName": jsonData["name"], "mobile_number": jsonData["mobile_number"], "image": jsonData["image"]]
+                        let userDictionary:[String: Any] = ["userID": jsonData["id"], "birthdate": jsonData["birthdate"], "is_employed": jsonData["is_employed"], "curr_employment_sector": jsonData["curr_employment_sector"], "city": (jsonData["city"])!, "province": jsonData["province"], "edu_level":jsonData["edu_level"], "interests": jsonData["interests"], "employment_type": jsonData["employment_type"], "sectors": jsonData["sectors"], "has_portofolio": jsonData["has_portofolio"], "has_work_experience": jsonData["has_work_experience"], "skills": jsonData["skills"], "bio": jsonData["bio"], "portofolio": jsonData["portofolio"], "email": jsonData["email"], "userName": jsonData["name"], "mobile_number": jsonData["mobile_number"], "image": jsonData["image"]]
                         self.userDefaults.set(userDictionary, forKey: "userDictionary")
+                            
+                            // Check if data exists
+                            let userData = self.userDefaults.value(forKey: "userDictionary") as? [String: Any]
+                            
+//                            print(userData?["email"])
+//                            print("jason data email = \((jsonData["email"])!)")
                         }
                         DispatchQueue.main.async {
                             let dict = self.userDefaults.object(forKey: "userDictionary") as? [String: String] ?? [String: String]()
