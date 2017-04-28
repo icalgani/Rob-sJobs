@@ -26,6 +26,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var SkillsLabel: UILabel!
     @IBOutlet weak var UserImage: UIImageView!
     
+    
     @IBAction func doLogOut(_ sender: UIButton) {
         let defaults = UserDefaults.standard
         defaults.removeObject(forKey: "userDictionary")
@@ -108,6 +109,4 @@ class ProfileViewController: UIViewController {
             completion(data, response, error)
             }.resume()
     }
-
-
 }

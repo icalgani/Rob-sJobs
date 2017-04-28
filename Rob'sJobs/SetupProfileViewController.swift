@@ -332,7 +332,6 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
             let dvc = segue.destination as! UINavigationController
             let view = dvc.topViewController as! CityPickerTableViewController
             view.passedProvinceID = provinceID
-            print("prepare segue, province id  =\(provinceID)")
         }
     }
  

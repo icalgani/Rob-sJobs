@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA86CE291EB2ED3C00333648 /* SendJobToFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86CE281EB2ED3C00333648 /* SendJobToFriendViewController.swift */; };
+		FA86CE2B1EB2F01A00333648 /* FloatLabelWithBlackUnderline.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86CE2A1EB2F01A00333648 /* FloatLabelWithBlackUnderline.swift */; };
 		FAB952CF1E96AE8500FC033C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAB952CE1E96AE8500FC033C /* Assets.xcassets */; };
 		FAB953321E96AF5D00FC033C /* ButtonCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9532E1E96AF5D00FC033C /* ButtonCustom.swift */; };
 		FAB953331E96AF5D00FC033C /* UIUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9532F1E96AF5D00FC033C /* UIUtility.swift */; };
@@ -79,6 +81,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA86CE281EB2ED3C00333648 /* SendJobToFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendJobToFriendViewController.swift; sourceTree = "<group>"; };
+		FA86CE2A1EB2F01A00333648 /* FloatLabelWithBlackUnderline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelWithBlackUnderline.swift; sourceTree = "<group>"; };
 		FAB952CE1E96AE8500FC033C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAB9532E1E96AF5D00FC033C /* ButtonCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonCustom.swift; sourceTree = "<group>"; };
 		FAB9532F1E96AF5D00FC033C /* UIUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUtility.swift; sourceTree = "<group>"; };
@@ -165,17 +169,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA86CE2C1EB2F04D00333648 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				FAC8991F1EA73DB700D4800A /* JsonRequest.swift */,
+				FAC899251EA8B1E900D4800A /* SwipeCardData.swift */,
+			);
+			name = DataSource;
+			sourceTree = "<group>";
+		};
 		FAB953361E96AF6900FC033C /* Class */ = {
 			isa = PBXGroup;
 			children = (
 				FAB9536E1E96C14C00FC033C /* FloatLabelTextField.swift */,
 				FAB953701E96C15600FC033C /* FloatLabelTextView.swift */,
+				FA86CE2A1EB2F01A00333648 /* FloatLabelWithBlackUnderline.swift */,
 				FAB9532E1E96AF5D00FC033C /* ButtonCustom.swift */,
 				FAB9532F1E96AF5D00FC033C /* UIUtility.swift */,
 				FAE02A381E9D1BD200084F66 /* ExtensionCALayer.swift */,
 				FAB953301E96AF5D00FC033C /* Checkbox.swift */,
-				FAC8991F1EA73DB700D4800A /* JsonRequest.swift */,
-				FAC899251EA8B1E900D4800A /* SwipeCardData.swift */,
 				FAB953851E96CC4000FC033C /* SSRadioButton.swift */,
 				FAB953861E96CC4000FC033C /* SSRadioButtonsController.swift */,
 				FAB953311E96AF5D00FC033C /* InputButton.swift */,
@@ -252,6 +264,7 @@
 		FAC973CA1E96A453002A4E6E /* Rob'sJobs */ = {
 			isa = PBXGroup;
 			children = (
+				FA86CE2C1EB2F04D00333648 /* DataSource */,
 				FAC8991C1E9F257000D4800A /* SwipeLibrary */,
 				FAB953361E96AF6900FC033C /* Class */,
 				FAB952CE1E96AE8500FC033C /* Assets.xcassets */,
@@ -296,6 +309,7 @@
 				FAE02A341E9CC78200084F66 /* CustomTabbarViewController.swift */,
 				FAE02A3C1E9DD90700084F66 /* JobSwipingViewController.swift */,
 				FAC899271EA9E57C00D4800A /* TapForMoreViewController.swift */,
+				FA86CE281EB2ED3C00333648 /* SendJobToFriendViewController.swift */,
 				FAE02A3A1E9D1F1500084F66 /* ProfileViewController.swift */,
 			);
 			name = CoreApp;
@@ -465,6 +479,7 @@
 				FAE02A3B1E9D1F1500084F66 /* ProfileViewController.swift in Sources */,
 				FAB9533A1E96BFEB00FC033C /* ViewController.swift in Sources */,
 				FAC899201EA73DB700D4800A /* JsonRequest.swift in Sources */,
+				FA86CE2B1EB2F01A00333648 /* FloatLabelWithBlackUnderline.swift in Sources */,
 				FAC8991B1E9F256500D4800A /* OverlayView.swift in Sources */,
 				FAB953341E96AF5D00FC033C /* Checkbox.swift in Sources */,
 				FAB9536F1E96C14C00FC033C /* FloatLabelTextField.swift in Sources */,
@@ -479,6 +494,7 @@
 				FAB953951E9C7B0900FC033C /* TutorialPageViewController.swift in Sources */,
 				FAB953331E96AF5D00FC033C /* UIUtility.swift in Sources */,
 				FAE02A391E9D1BD200084F66 /* ExtensionCALayer.swift in Sources */,
+				FA86CE291EB2ED3C00333648 /* SendJobToFriendViewController.swift in Sources */,
 				FAB9537E1E96C34100FC033C /* SkillsPickerTableViewController.swift in Sources */,
 				FAB9533F1E96C06C00FC033C /* LoginViewController.swift in Sources */,
 				FAB953991E9C7CE800FC033C /* Page2ViewController.swift in Sources */,

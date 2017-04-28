@@ -71,7 +71,7 @@ class JobSwipingViewController: UIViewController,CLLocationManagerDelegate, UITa
         }
     }
     
-    func doTapForMore(jobTitle: String, interest: String, employmentType: String, distance: String, salary: String, endDate: String, companyLogo: UIImage, experience: String, descriptionJob: String){
+    func doTapForMore(jobTitle: String, interest: String, employmentType: String, distance: String, salary: String, endDate: String, companyLogo: UIImage, experience: String, descriptionJob: String, idJob: String){
         
         let storyBoard : UIStoryboard = UIStoryboard(name: "Core", bundle: nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TapForMore") as! TapForMoreViewController
@@ -86,6 +86,7 @@ class JobSwipingViewController: UIViewController,CLLocationManagerDelegate, UITa
         nextViewController.companyLogoArray = companyLogo
         nextViewController.experienceArray = experience
         nextViewController.descriptionArray = descriptionJob
+        nextViewController.idArray = idJob
         
         appDelegate.window?.rootViewController = nextViewController
     }

@@ -39,6 +39,11 @@ class TapForMoreViewController: UIViewController {
     
     @IBOutlet weak var UserImage: UIImageView!
     
+    @IBAction func backToTapForMore(segue: UIStoryboardSegue) {
+        
+    }
+    
+    
     @IBAction func CloseButtonPressed(_ sender: UIButton) {
         
         let storyBoard : UIStoryboard = UIStoryboard(name: "Core", bundle: nil)
@@ -77,6 +82,13 @@ class TapForMoreViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let dvc = segue.destination as! UINavigationController
+        let view = dvc.topViewController as! SendJobToFriendViewController
+        view.passedJobId = idArray
     }
 
 }

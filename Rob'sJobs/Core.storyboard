@@ -562,6 +562,13 @@
                                     <constraint firstItem="gPs-Q0-sLW" firstAttribute="top" secondItem="dTL-D3-EgP" secondAttribute="top" id="wCZ-eV-vz5"/>
                                 </constraints>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKc-cL-eHw">
+                                <rect key="frame" x="313" y="41" width="28" height="28"/>
+                                <state key="normal" image="icon_share"/>
+                                <connections>
+                                    <segue destination="uXp-Yg-2eu" kind="show" identifier="showSendToFriend" id="9Nq-MQ-KCt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.10550563782453537" green="0.54004389047622681" blue="0.42164140939712524" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -569,8 +576,10 @@
                             <constraint firstItem="y1u-TZ-O4d" firstAttribute="top" secondItem="dTL-D3-EgP" secondAttribute="bottom" id="BTk-qm-frD"/>
                             <constraint firstItem="2Um-RS-Eni" firstAttribute="top" secondItem="1Za-Jx-99V" secondAttribute="bottom" constant="21" id="Esc-dZ-FqD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dTL-D3-EgP" secondAttribute="trailing" constant="10" id="Qxv-QX-xCi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="pKc-cL-eHw" secondAttribute="trailing" constant="18" id="YaO-Gb-QJO"/>
                             <constraint firstItem="2Um-RS-Eni" firstAttribute="leading" secondItem="wY1-Gu-i6u" secondAttribute="leadingMargin" constant="18" id="bRv-nF-T5p"/>
                             <constraint firstItem="dTL-D3-EgP" firstAttribute="leading" secondItem="wY1-Gu-i6u" secondAttribute="leadingMargin" constant="10" id="lJy-Qc-od9"/>
+                            <constraint firstItem="pKc-cL-eHw" firstAttribute="top" secondItem="1Za-Jx-99V" secondAttribute="bottom" constant="21" id="nWE-30-UIF"/>
                         </constraints>
                     </view>
                     <connections>
@@ -590,6 +599,120 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w3p-Up-cRn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1228.125" y="-473.75"/>
+        </scene>
+        <!--Send to Friend-->
+        <scene sceneID="HdQ-xm-aX7">
+            <objects>
+                <viewController id="V6o-6M-PY7" customClass="SendJobToFriendViewController" customModule="Rob_sJobs" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KiJ-1d-Voo"/>
+                        <viewControllerLayoutGuide type="bottom" id="6GC-Ob-Y3M"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ukj-Cq-G4W">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ufQ-UO-fs6">
+                                <rect key="frame" x="36" y="114" width="303" height="200"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AE2-UX-E2g" customClass="FloatLabelWithBlackUnderline" customModule="Rob_sJobs" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="303" height="63.5"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="titleTextColour">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="titleActiveTextColour">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RIi-Ib-hQp" customClass="FloatLabelWithBlackUnderline" customModule="Rob_sJobs" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="68.5" width="303" height="63"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="titleTextColour">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="titleActiveTextColour">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eZJ-hS-xif" customClass="FloatLabelWithBlackUnderline" customModule="Rob_sJobs" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="136.5" width="303" height="63.5"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="titleTextColour">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="titleActiveTextColour">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="tkD-E0-wBP"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Or-AW-Ocd">
+                                <rect key="frame" x="36" y="344" width="303" height="40"/>
+                                <color key="backgroundColor" red="0.19875562191009521" green="0.83551603555679321" blue="0.65995770692825317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="2ur-ha-Pcd"/>
+                                </constraints>
+                                <state key="normal" title="Send">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendButtonPressed:" destination="V6o-6M-PY7" eventType="touchUpInside" id="ylO-Mt-vmp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="8Or-AW-Ocd" secondAttribute="trailing" constant="20" id="1vM-T1-UXR"/>
+                            <constraint firstItem="ufQ-UO-fs6" firstAttribute="top" secondItem="KiJ-1d-Voo" secondAttribute="bottom" constant="50" id="OBW-yD-j00"/>
+                            <constraint firstItem="8Or-AW-Ocd" firstAttribute="leading" secondItem="Ukj-Cq-G4W" secondAttribute="leadingMargin" constant="20" id="YPy-SA-LRb"/>
+                            <constraint firstItem="8Or-AW-Ocd" firstAttribute="top" secondItem="ufQ-UO-fs6" secondAttribute="bottom" constant="30" id="eiT-Tf-NAs"/>
+                            <constraint firstItem="ufQ-UO-fs6" firstAttribute="leading" secondItem="Ukj-Cq-G4W" secondAttribute="leadingMargin" constant="20" id="iFq-C0-OQm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ufQ-UO-fs6" secondAttribute="trailing" constant="20" id="zmg-Rd-UGp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Send to Friend" id="qKd-7v-9ki">
+                        <barButtonItem key="leftBarButtonItem" image="icon_back_black" id="6kC-5n-naB">
+                            <connections>
+                                <segue destination="SHc-vo-ywQ" kind="unwind" unwindAction="backToTapForMoreWithSegue:" id="aiC-oy-tEr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="EmailTextfield" destination="RIi-Ib-hQp" id="Zhj-fZ-TNG"/>
+                        <outlet property="NameTextfield" destination="AE2-UX-E2g" id="SwM-el-2u8"/>
+                        <outlet property="PhoneTextfield" destination="eZJ-hS-xif" id="izW-pF-PGJ"/>
+                        <outlet property="SendButton" destination="8Or-AW-Ocd" id="L03-2m-ovV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HMZ-Hx-fxb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="SHc-vo-ywQ" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3252" y="-480.80959520239884"/>
         </scene>
         <!--Custom Tabbar View Controller-->
         <scene sceneID="zY4-vU-kst">
@@ -611,10 +734,29 @@
             </objects>
             <point key="canvasLocation" x="-828" y="-57"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="oqC-q7-W9w">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uXp-Yg-2eu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2i5-kR-5nx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="V6o-6M-PY7" kind="relationship" relationship="rootViewController" id="9xd-aq-LaM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ufq-3r-xPe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2312.8000000000002" y="-480.80959520239884"/>
+        </scene>
     </scenes>
     <resources>
         <image name="edit_profile" width="53" height="53"/>
         <image name="ic_launcher" width="72" height="72"/>
+        <image name="icon_back_black" width="28" height="28"/>
         <image name="icon_chat_active" width="43" height="43"/>
         <image name="icon_close" width="28" height="28"/>
         <image name="icon_employment" width="54" height="54"/>
@@ -623,5 +765,6 @@
         <image name="icon_location" width="54" height="54"/>
         <image name="icon_profile" width="43" height="43"/>
         <image name="icon_salary" width="54" height="54"/>
+        <image name="icon_share" width="28" height="28"/>
     </resources>
 </document>

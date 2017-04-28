@@ -95,7 +95,7 @@ class CityPickerTableViewController: UITableViewController {
         // initialize new view controller and cast it as your view controller
         let viewController = segue.destination as! SetupProfileViewController
         // your new view controller should have property that will store passed value
-        viewController.passedProvinceValue = cityToPass
+        viewController.passedCityValue = cityToPass
         
     }
     
