@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import CoreLocation
+
 
 class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerDelegate {
     
@@ -67,8 +69,10 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         
-        var locValue:CLLocationCoordinate2D = manager.location.coordinate
+        let locValue:CLLocationCoordinate2D = locationManager.location!.coordinate
+        print("\(String(describing: (userDictionary?["userID"])!))/1/\(cardsSum)/\(locValue.latitude)/\(locValue.longitude)")
         swipeCardData.getDataFromServer(dataToGet: "\(String(describing: (userDictionary?["userID"])!))/1/\(cardsSum)/\(locValue.latitude)/\(locValue.longitude)")
+        
     }
 
     func setupView() -> Void {
@@ -185,7 +189,7 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         
-        var locValue:CLLocationCoordinate2D = manager.location.coordinate
+        var locValue:CLLocationCoordinate2D = locationManager.location!.coordinate
         swipeCardData.getDataFromServer(dataToGet: "\(String(describing: (userDictionary?["userID"])!))/1/\(cardsSum)/\(locValue.latitude)/\(locValue.longitude)")
     }
 
@@ -197,7 +201,6 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
             cardsLoadedIndex = cardsLoadedIndex + 1
             self.insertSubview(loadedCards[MAX_BUFFER_SIZE - 1], belowSubview: loadedCards[MAX_BUFFER_SIZE - 2])
         }
-        print("all cards count: \(allCards.count)")
         if loadedCards.isEmpty{
             loadNewCards()
         }else{
@@ -211,7 +214,7 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
     func cardSwipedRight(card: UIView) -> Void {
         loadedCards.remove(at: 0)
         
-        if cardsLoadedIndex < 10 {
+        if cardsLoadedIndex < allCards.count {
             loadedCards.append(allCards[cardsLoadedIndex])
             cardsLoadedIndex = cardsLoadedIndex + 1
             self.insertSubview(loadedCards[MAX_BUFFER_SIZE - 1], belowSubview: loadedCards[MAX_BUFFER_SIZE - 2])
@@ -221,8 +224,8 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
         if loadedCards.isEmpty{
             loadNewCards()
         }else{
-            
-        cardIsSwiped(requestType: "apply", indexToSend: (10 - cardsSum), jobScoreToSend: "&jobscore=\(jobsScoreArray[10 - cardsSum])")
+        
+            cardIsSwiped(requestType: "apply", indexToSend: (10 - cardsSum), jobScoreToSend: "jobscore=\(jobsScoreArray[10 - cardsSum])")
         }
         
         cardsSum -= 1
@@ -280,8 +283,7 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
         
         //check login
         request.httpMethod = "POST"
-        print(indexToSend)
-        print("userid=\(String(describing: (userDictionary?["userID"])!))&jobid=\(idArray[indexToSend])\(jobScoreToSend)")
+        print("userid=\(String(describing: (userDictionary?["userID"])!))&jobid=\(idArray[indexToSend])&\(jobScoreToSend)")
         
         let postString = "userid=\(String(describing: (userDictionary?["userID"])!))&jobid=\(idArray[indexToSend])&\(jobScoreToSend)"
         request.httpBody = postString.data(using: .utf8)

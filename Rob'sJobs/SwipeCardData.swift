@@ -64,6 +64,7 @@ class SwipeCardData{
                     }else{
                         
                         let jsonData = json["data"] as! [[String:Any]]
+                        print(jsonData)
                         for index in 0...jsonData.count-1 {
                             
                             let aObject = jsonData[index]
