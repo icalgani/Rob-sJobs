@@ -13,7 +13,7 @@ class ResetPasswordViewController: UIViewController {
     let Utility = UIUtility()
     
     @IBOutlet weak var ResetPasswordButton: ButtonCustom!
-    @IBOutlet weak var RegisteredEmailTextfield: FloatLabelTextField!
+    @IBOutlet weak var RegisteredEmailTextfield: UITextField!
     
     
     @IBAction func ResetPasswordPressed(_ sender: ButtonCustom) {
@@ -85,9 +85,9 @@ class ResetPasswordViewController: UIViewController {
         super.viewDidLoad()
         
         //create background
-        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "bg_login")
-        self.view.insertSubview(backgroundImage, at: 0)
+//        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+//        backgroundImage.image = UIImage(named: "bg_login")
+//        self.view.insertSubview(backgroundImage, at: 0)
         
         //change status bar color
         Utility.setStatusBarBackgroundColor(color: Utility.hexStringToUIColor(hex: "#d3d3d3"))
@@ -96,6 +96,17 @@ class ResetPasswordViewController: UIViewController {
         ResetPasswordButton.roundingButton()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidLayoutSubviews(){
+    let border = CALayer()
+    let width = CGFloat(2.0)
+    border.borderColor = UIColor(red:0/255.0, green:151/255.0, blue:136/255.0, alpha: 1.0).cgColor
+    border.frame = CGRect(x: 0, y: RegisteredEmailTextfield.frame.size.height - width, width:  RegisteredEmailTextfield.frame.size.width, height: RegisteredEmailTextfield.frame.size.height)
+    
+    border.borderWidth = width
+    RegisteredEmailTextfield.layer.addSublayer(border)
+    RegisteredEmailTextfield.layer.masksToBounds = true
     }
 
     override func didReceiveMemoryWarning() {

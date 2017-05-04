@@ -11,6 +11,7 @@ import UIKit
 class RegisterViewController: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var NameTextfield: UITextField!
+    @IBOutlet weak var LastNameTextfield: UITextField!
     @IBOutlet weak var EmailTextfield: UITextField!
     @IBOutlet weak var RetypeEmailTextfield: UITextField!
     @IBOutlet weak var PhoneNumberTextfield: UITextField!
@@ -18,7 +19,9 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var RetypePasswordTextfield: UITextField!
     @IBOutlet weak var SignUpButton: ButtonCustom!
     @IBOutlet weak var ScrollView: UIScrollView!
+    @IBOutlet weak var NameView: UIView!
     
+    @IBOutlet weak var StackName: UIStackView!
     let Utility = UIUtility()
     
     
@@ -52,7 +55,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
             //check login
             var request = URLRequest(url: URL(string: "http://api.robsjobs.co/api/v1/user/signup")!)
             request.httpMethod = "POST"
-            let postString = "email=\((EmailTextfield.text)!)&password=\((PasswordTextfield.text)!)&name=\((NameTextfield.text)!)&mobile_no=\((PhoneNumberTextfield.text)!)"
+            let postString = "email=\((EmailTextfield.text)!)&password=\((PasswordTextfield.text)!)&name=\((NameTextfield.text)!) \((LastNameTextfield.text)!)&mobile_no=\((PhoneNumberTextfield.text)!)"
             request.httpBody = postString.data(using: .utf8)
             print(postString)
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
@@ -112,10 +115,9 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         // Do any additional setup after loading the view.
         
         //create background
-        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "bg_login")
-        self.view.insertSubview(backgroundImage, at: 0)
-        SignUpButton.whiteBorder()
+//        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+//        backgroundImage.image = UIImage(named: "bg_login")
+//        self.view.insertSubview(backgroundImage, at: 0)
         
         //change status bar color
         Utility.setStatusBarBackgroundColor(color: Utility.hexStringToUIColor(hex: "#d3d3d3"))
@@ -127,8 +129,32 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)),name: NSNotification.Name.UIKeyboardWillHide, object: nil
         )
+    }
+    
+    override func viewDidLayoutSubviews() {
+//        set email borderColor
+        EmailTextfield.setGrayBorderWithpadding(20)
         
+        //set email borderColor
+        RetypeEmailTextfield.setGrayBorderWithpadding(20)
         
+        //set Phone borderColor
+        PhoneNumberTextfield.setGrayBorderWithpadding(20)
+        
+        //set password borderColor
+        PasswordTextfield.setGrayBorderWithpadding(20)
+        
+        //set RetypePasswordTextfield borderColor
+        RetypePasswordTextfield.setGrayBorderWithpadding(20)
+        
+        //set name view borderColor
+        NameView.layer.borderWidth = 1
+        NameView.layer.borderColor = UIColor.gray.cgColor
+        
+        NameTextfield.setLeftPaddingPoints(20)
+        LastNameTextfield.setLeftPaddingPoints(20)
+        
+        LastNameTextfield.setLineSeparator(5, lineWidth: 1.5)
     }
 
     override func didReceiveMemoryWarning() {
@@ -198,17 +224,4 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
