@@ -36,9 +36,9 @@ class OverlayView: UIView{
         _mode = mode
 
         if _mode == GGOverlayViewMode.GGOverlayViewModeLeft {
-            imageView.image = UIImage(named: "icon_no")
+            imageView.image = UIImage(named: "RJ_jobs_pass_stamp")
         } else {
-            imageView.image = UIImage(named: "icon_yes")
+            imageView.image = UIImage(named: "RJ_jobs_apply_stamp")
         }
     }
 

@@ -76,16 +76,16 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
     }
 
     func setupView() -> Void {
-        self.backgroundColor = UIColor(red: 0.92, green: 0.93, blue: 0.95, alpha: 1)
+//        self.backgroundColor = UIColor(red: 0.92, green: 0.93, blue: 0.95, alpha: 1)
 
         //create pass button
         xButton = UIButton(frame: CGRect(x: (self.frame.size.width - CARD_WIDTH)/2 + 35,y: self.frame.size.height/2 + CARD_HEIGHT/2 + 10,width: 59,height: 59))
-        xButton.setImage(UIImage(named: "icon_no"), for: UIControlState.normal)
+        xButton.setImage(UIImage(named: "RJ_pass_icon_col"), for: UIControlState.normal)
         xButton.addTarget(self, action: #selector(self.swipeLeft), for: UIControlEvents.touchUpInside)
         
         //create ok button
         checkButton = UIButton(frame: CGRect(x: self.frame.size.width/2 + CARD_WIDTH/2 - 85,y: self.frame.size.height/2 + CARD_HEIGHT/2 + 10,width: 59,height: 59))
-        checkButton.setImage(UIImage(named: "icon_yes"), for: UIControlState.normal)
+        checkButton.setImage(UIImage(named: "RJ_apply_icon_col"), for: UIControlState.normal)
         checkButton.addTarget(self, action: #selector(self.swipeRight), for: UIControlEvents.touchUpInside)
 
         self.addSubview(xButton)

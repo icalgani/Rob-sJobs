@@ -96,10 +96,6 @@ class DraggableView: UIView {
     }
     
     func setUpDraggableContent(){
-
-
-
-        
         //company Logo
         companyLogoView = UIImageView(frame: CGRect(x: 0,y: 10,width: 115,height: 80))
         companyLogoView.image = UIImage(named:"ads")
@@ -348,8 +344,10 @@ class DraggableView: UIView {
         moreButton.addTarget(self, action: #selector(self.action(_:)), for: UIControlEvents.touchUpInside)
         moreButtonView.addSubview(moreButton)
     }
+    //end setup draggable content
     
     func action(_ button:UIButton!) -> Void {
+        //delegate tap for more button
             delegate.tapForMorePressed(button: button)
     }
     
