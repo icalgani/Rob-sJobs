@@ -97,16 +97,16 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
         
         //set new data
         //set Job Title
-        draggableView.companyNameLabel.text = jobTitleArray[index]
-        draggableView.companyNameLabel.font = UIFont(name: "Arial", size: 16)
-        draggableView.companyNameLabel.numberOfLines = 0
+        draggableView.jobOfferLabel.text = jobTitleArray[index]
+        draggableView.jobOfferLabel.font = UIFont(name: "Arial", size: 16)
+        draggableView.jobOfferLabel.numberOfLines = 1
         
-        draggableView.requiredSkillLabel.text = interestArray[index]
+//        draggableView.requiredSkillLabel.text = interestArray[index]
         draggableView.typeLabel.text = employmentTypeArray[index]
         draggableView.locationLabel.text = distanceArray[index]
         draggableView.salaryLabel.text = salaryArray[index]
         draggableView.experienceLabel.text = experienceArray[index]
-        draggableView.offerTimeLabel.text = "end in \(endDateArray[index]) days"
+//        draggableView.offerTimeLabel.text = "end in \(endDateArray[index]) days"
         
         //download image from url
         for index in 0...companyLogoArray.count-1 {

@@ -34,6 +34,18 @@ class UIDetailInformationRow{
         
     }
     
+    func createDistance(view: UIView, container: UIView, detailView: UIView){
+        let detailInformationUI = UIDetailInformationRow()
+        let leadingSize = (view.frame.size.width - 20) / 4
+
+        //distance detail view
+        
+        view.addSubview(detailView)
+        //distance detail view constraint
+        detailView.translatesAutoresizingMaskIntoConstraints = false
+        detailInformationUI.createDetailConstraint(container: detailView, leadingToItem: container, leadingSize: 0, frameSizeWidth: Float(leadingSize), ToItem: container)
+    }
+    
     func createDetailConstraint(container: UIView, leadingToItem: UIView, leadingSize: Float, frameSizeWidth: Float,ToItem: UIView){
         NSLayoutConstraint(item: container,
                            attribute: .leading,

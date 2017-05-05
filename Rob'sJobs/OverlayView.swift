@@ -25,7 +25,7 @@ class OverlayView: UIView{
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
-        imageView = UIImageView(image: UIImage(named: "noButton"))
+        imageView = UIImageView(image: UIImage(named: "RJ_jobs_pass_stamp"))
         self.addSubview(imageView)
     }
 
