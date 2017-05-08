@@ -26,6 +26,7 @@ class JobSwipingViewController: UIViewController,CLLocationManagerDelegate, UITa
     var experienceArray: String!
     var descriptionArray: String!
     
+    @IBOutlet weak var SuperView: UIView!
     @IBAction func backToJobSwiping(segue: UIStoryboardSegue) {
     }
     
@@ -40,7 +41,7 @@ class JobSwipingViewController: UIViewController,CLLocationManagerDelegate, UITa
         
         self.tabBarController?.delegate = self
         checkLocationIsOn()
-
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,7 +73,7 @@ class JobSwipingViewController: UIViewController,CLLocationManagerDelegate, UITa
     }
     
     func doTapForMore(jobTitle: String, interest: String, employmentType: String, distance: String, salary: String, endDate: String, companyLogo: UIImage, experience: String, descriptionJob: String, idJob: String){
-        
+        print("inside doTapForMore ")
         let storyBoard : UIStoryboard = UIStoryboard(name: "Core", bundle: nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TapForMore") as! TapForMoreViewController
         

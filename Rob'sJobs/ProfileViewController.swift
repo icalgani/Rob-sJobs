@@ -26,6 +26,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var SkillsLabel: UILabel!
     @IBOutlet weak var UserImage: UIImageView!
     
+    @IBOutlet weak var UserAgeView: UIView!
     
     @IBAction func doLogOut(_ sender: UIButton) {
         let defaults = UserDefaults.standard
@@ -41,8 +42,6 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        UserImage.backgroundColor = UIColor.black
-//        UserImage.layer.opacity = 0.3
     }
     
     override func viewDidLayoutSubviews() {
@@ -58,6 +57,12 @@ class ProfileViewController: UIViewController {
         UserDescriptionLabel.layer.addSublayer(descriptionUnderline)
         UserDescriptionLabel.layer.masksToBounds = true
         
+        // rounding user profile image
+        self.UserImage.layer.cornerRadius = self.UserImage.frame.size.width / 2
+        self.UserImage.clipsToBounds = true
+        //rounding  user age
+        self.UserAgeView.layer.cornerRadius = self.UserAgeView.frame.size.width / 2
+        self.UserAgeView.clipsToBounds = true        
         }
     
     override func didReceiveMemoryWarning() {
@@ -99,6 +104,10 @@ class ProfileViewController: UIViewController {
             guard let data = data, error == nil else { return }
             DispatchQueue.main.async() { () -> Void in
                 self.UserImage.image = UIImage(data: data)
+                self.UserImage.layer.cornerRadius = self.UserImage.frame.size.width / 2
+                self.UserImage.clipsToBounds = true
+                self.UserImage.layer.borderWidth = 2
+                self.UserImage.layer.borderColor = UIColor(red:0.70, green:0.87, blue:0.86, alpha:1.0).cgColor
             }
         }
     }

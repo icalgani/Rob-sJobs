@@ -61,10 +61,6 @@ class TapForMoreViewController: UIViewController {
         backgroundImage.image = UIImage(named: "jobsdetail_bg")
         self.view.insertSubview(backgroundImage, at: 0)
         
-        InterestLabel.text = interestArray
-        InterestLabel.sizeToFit()
-        InterestLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
-        
         DescriptionLabel.text = descriptionArray
 //        DescriptionLabel.sizeToFit()
 //        DescriptionLabel.lineBreakMode = NSLineBreakMode.byWordWrapping

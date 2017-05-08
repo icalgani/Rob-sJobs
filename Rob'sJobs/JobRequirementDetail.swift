@@ -33,7 +33,7 @@ class JobRequirementDetail{
                            toItem: container,
                            attribute: .top,
                            multiplier: 1.0,
-                           constant: 20.0).isActive = true
+                           constant: 15.0).isActive = true
         
         //information label
         typeLabel.text = "No Info Given"
@@ -57,7 +57,15 @@ class JobRequirementDetail{
                            toItem: container,
                            attribute: .top,
                            multiplier: 1.0,
-                           constant: 21.0).isActive = true
+                           constant: 16.0).isActive = true
+        
+        NSLayoutConstraint(item: typeLabel,
+                           attribute: .height,
+                           relatedBy: .equal,
+                           toItem: nil,
+                           attribute: .notAnAttribute,
+                           multiplier: 1.0,
+                           constant: 12.0).isActive = true
         
         createEachDetail(logoName: "RJ_sallary_icon", requirementDetailLabel: salaryLabel, container: container, topConstraintTo: typeLabel)
         
@@ -88,7 +96,7 @@ class JobRequirementDetail{
                            toItem: topConstraintTo,
                            attribute: .bottom,
                            multiplier: 1.0,
-                           constant: 5.0).isActive = true
+                           constant: 7.0).isActive = true
         
         //information label
         requirementDetailLabel.text = "No Info Given"
@@ -112,7 +120,16 @@ class JobRequirementDetail{
                            toItem: topConstraintTo,
                            attribute: .bottom,
                            multiplier: 1.0,
-                           constant: 6.0).isActive = true
+                           constant: 7.0).isActive = true
+        
+        NSLayoutConstraint(item: requirementDetailLabel,
+                           attribute: .height,
+                           relatedBy: .equal,
+                           toItem: nil,
+                           attribute: .notAnAttribute,
+                           multiplier: 1.0,
+                           constant: 12.0).isActive = true
+
     }
     
     //DESCRIPTION
@@ -143,11 +160,11 @@ class JobRequirementDetail{
         
         NSLayoutConstraint(item: jobDescriptionLabel,
                            attribute: .height,
-                           relatedBy: .greaterThanOrEqual,
+                           relatedBy: .equal,
                            toItem: nil,
                            attribute: .notAnAttribute,
                            multiplier: 1.0,
-                           constant: 20.0).isActive = true
+                           constant: 100.0).isActive = true
         
         NSLayoutConstraint(item: jobDescriptionLabel,
                            attribute: .top,
@@ -159,7 +176,7 @@ class JobRequirementDetail{
     }
     
     //FOOTER
-    func createCardFooter(view: UIView, appliedNumberLabel: UILabel, offerRemainingLabel: UILabel){
+    func createCardFooter(view: UIView, appliedNumberLabel: UILabel, offerRemainingLabel: UILabel, topConstraint: UIButton){
         //Stack View
         let stackView   = UIStackView()
         stackView.axis  = UILayoutConstraintAxis.horizontal
@@ -168,8 +185,10 @@ class JobRequirementDetail{
         
         //APPLIED View
         let appliedView = UIView()
+        appliedView.backgroundColor = UIColor.orange
         //REMAINING DAYS VIEW
         let offerRemainingView = UIView()
+        offerRemainingView.backgroundColor = UIColor.blue
         
         //add view to stackView
         stackView.addArrangedSubview(appliedView)
@@ -213,12 +232,12 @@ class JobRequirementDetail{
                            constant: 0.0).isActive = true
         
         NSLayoutConstraint(item: stackView,
-                           attribute: .bottom,
+                           attribute: .top,
                            relatedBy: .equal,
-                           toItem: view,
+                           toItem: topConstraint,
                            attribute: .bottom,
                            multiplier: 1.0,
-                           constant: 0.0).isActive = true
+                           constant: 30.0).isActive = true
         
         NSLayoutConstraint(item: stackView,
                            attribute: .height,
@@ -227,6 +246,7 @@ class JobRequirementDetail{
                            attribute: .notAnAttribute,
                            multiplier: 1.0,
                            constant:20.0).isActive = true
+        
         appliedView.translatesAutoresizingMaskIntoConstraints = false
         appliedNumberLabel.translatesAutoresizingMaskIntoConstraints = false
         appliedImage.translatesAutoresizingMaskIntoConstraints = false
@@ -248,7 +268,7 @@ class JobRequirementDetail{
         container.translatesAutoresizingMaskIntoConstraints = false
         informationLabel.translatesAutoresizingMaskIntoConstraints = false
         logoImage.translatesAutoresizingMaskIntoConstraints = false
-        
+        informationLabel.backgroundColor = UIColor.brown
         //IMAGE CONSTRAINT
         NSLayoutConstraint(item: logoImage,
                            attribute: .leading,
@@ -282,6 +302,15 @@ class JobRequirementDetail{
                            attribute: .top,
                            multiplier: 1.0,
                            constant: 2.0).isActive = true
+        
+        NSLayoutConstraint(item: informationLabel,
+                           attribute: .height,
+                           relatedBy: .equal,
+                           toItem: nil,
+                           attribute: .notAnAttribute,
+                           multiplier: 1.0,
+                           constant: 10.0).isActive = true
+
         
     }
 }

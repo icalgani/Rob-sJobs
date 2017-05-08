@@ -133,7 +133,7 @@ class DraggableView: UIView {
                            attribute: .trailing, relatedBy: .equal,
                            toItem: self,
                            attribute: .trailing, multiplier: 1.0,
-                           constant: -10.0).isActive = true
+                           constant: -20.0).isActive = true
         
         NSLayoutConstraint(item: companyNameLabel,
                            attribute: .leading,
@@ -165,7 +165,7 @@ class DraggableView: UIView {
                            attribute: .top, relatedBy: .equal,
                            toItem: companyLogoView,
                            attribute: .bottom, multiplier: 1.0,
-                           constant: 10.0).isActive = true
+                           constant: 0.0).isActive = true
         
         NSLayoutConstraint(item: jobOfferLabel,
                            attribute: .leading, relatedBy: .equal,
@@ -215,9 +215,9 @@ class DraggableView: UIView {
                            attribute: .top,
                            relatedBy: .equal,
                            toItem: jobOfferLabel,
-                           attribute: .top,
+                           attribute: .bottom,
                            multiplier: 1.0,
-                           constant: 10.0).isActive = true
+                           constant: 0.0).isActive = true
 
         
         let jobRequirementDetail = JobRequirementDetail()
@@ -230,7 +230,7 @@ class DraggableView: UIView {
                            toItem: locationLabel,
                            attribute: .bottom,
                            multiplier: 1.0,
-                           constant: 10.0).isActive = true
+                           constant: 0.0).isActive = true
         
         //JOB DESCRIPTION CONTAINER VIEW
         let descriptionContainerView = UIView()
@@ -268,14 +268,14 @@ class DraggableView: UIView {
                            toItem: nil,
                            attribute: .notAnAttribute,
                            multiplier: 1.0,
-                           constant: 120.0).isActive = true
+                           constant: 100.0).isActive = true
         
         jobDescriptionLabel = UILabel()
         //CREATE JOB DESCRIPTION
         jobRequirementDetail.createJobDescriptionView(container: descriptionContainerView, jobDescriptionLabel: jobDescriptionLabel)
         
         //create button
-//        detailInformationUI.createTapForMoreButton(view: self)
+        //        detailInformationUI.createTapForMoreButton(view: self)
         moreButtonView = UIView()
         self.addSubview(moreButtonView)
         
@@ -302,22 +302,27 @@ class DraggableView: UIView {
                            toItem: descriptionContainerView,
                            attribute: .bottom,
                            multiplier: 1.0,
-                           constant: 5.0).isActive = true
-
+                           constant: 25.0).isActive = true
+        
+        NSLayoutConstraint(item: moreButtonView,
+                           attribute: .height,
+                           relatedBy: .equal,
+                           toItem: nil,
+                           attribute: .notAnAttribute,
+                           multiplier: 1.0,
+                           constant: 30.0).isActive = true
         
         moreButton = UIButton(frame: CGRect(x: 0,y: 0,width: self.frame.size.width - 20,height: 30))
         moreButton.backgroundColor = UIColor.clear
-        
         moreButton.setTitle("More", for: .normal)
         moreButton.setTitleColor(UIColor(red:0.00, green:0.59, blue:0.53, alpha:1.0), for: .normal)
-        moreButton.titleLabel?.font =  UIFont.boldSystemFont(ofSize: 12)
         moreButton.addTarget(self, action: #selector(self.action(_:)), for: UIControlEvents.touchUpInside)
         moreButtonView.addSubview(moreButton)
         
         appliedNumberLabel = UILabel()
         offerTimeLabel = UILabel()
         //CREATE CARD FOOTER
-        jobRequirementDetail.createCardFooter(view: self, appliedNumberLabel: appliedNumberLabel, offerRemainingLabel: offerTimeLabel)
+        jobRequirementDetail.createCardFooter(view: self, appliedNumberLabel: appliedNumberLabel, offerRemainingLabel: offerTimeLabel, topConstraint: moreButton)
     }
     //end setup draggable content
     
@@ -330,7 +335,7 @@ class DraggableView: UIView {
     func setupView() -> Void {
         self.layer.cornerRadius = 4;
         self.layer.shadowRadius = 3;
-        self.layer.shadowOpacity = 0.2;
+        self.layer.shadowOpacity = 0.6;
         self.layer.shadowOffset = CGSize(width: 1,height: 1);
     }
 

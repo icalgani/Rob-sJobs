@@ -70,7 +70,6 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         
         let locValue:CLLocationCoordinate2D = locationManager.location!.coordinate
-        print("\(String(describing: (userDictionary?["userID"])!))/1/\(cardsSum)/\(locValue.latitude)/\(locValue.longitude)")
         swipeCardData.getDataFromServer(dataToGet: "\(String(describing: (userDictionary?["userID"])!))/1/\(cardsSum)/\(locValue.latitude)/\(locValue.longitude)")
         
     }
@@ -79,12 +78,12 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
 //        self.backgroundColor = UIColor(red: 0.92, green: 0.93, blue: 0.95, alpha: 1)
 
         //create pass button
-        xButton = UIButton(frame: CGRect(x: (self.frame.size.width - CARD_WIDTH)/2 + 35,y: self.frame.size.height/2 + CARD_HEIGHT/2 + 10,width: 59,height: 59))
+        xButton = UIButton(frame: CGRect(x: (self.frame.size.width - CARD_WIDTH)/2 + 35,y: (self.frame.size.height/2) + CARD_HEIGHT/2 + 10,width: 59,height: 59))
         xButton.setImage(UIImage(named: "RJ_pass_icon_col"), for: UIControlState.normal)
         xButton.addTarget(self, action: #selector(self.swipeLeft), for: UIControlEvents.touchUpInside)
         
         //create ok button
-        checkButton = UIButton(frame: CGRect(x: self.frame.size.width/2 + CARD_WIDTH/2 - 85,y: self.frame.size.height/2 + CARD_HEIGHT/2 + 10,width: 59,height: 59))
+        checkButton = UIButton(frame: CGRect(x: self.frame.size.width/2 + CARD_WIDTH/2 - 85,y: (self.frame.size.height/2) + CARD_HEIGHT/2 + 10,width: 59,height: 59))
         checkButton.setImage(UIImage(named: "RJ_apply_icon_col"), for: UIControlState.normal)
         checkButton.addTarget(self, action: #selector(self.swipeRight), for: UIControlEvents.touchUpInside)
 
@@ -97,9 +96,9 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
         
         //set new data
         //set Job Title
-        draggableView.jobOfferLabel.text = jobTitleArray[index]
-        draggableView.jobOfferLabel.font = UIFont(name: "Arial", size: 16)
-        draggableView.jobOfferLabel.numberOfLines = 1
+//        draggableView.jobOfferLabel.text = jobTitleArray[index]
+//        draggableView.jobOfferLabel.font = UIFont(name: "Arial", size: 16)
+//        draggableView.jobOfferLabel.numberOfLines = 1
         
 //        draggableView.requiredSkillLabel.text = interestArray[index]
         draggableView.typeLabel.text = employmentTypeArray[index]
@@ -183,7 +182,6 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
         jobsScoreArray.removeAll()
         allCards.removeAll()
         loadedCards.removeAll()
-        print("cards Sum in load new cards: \(cardsSum), cards start ID = \(cardsStartID)")
         swipeCardData.resetAllData()
         
         locationManager.delegate = self
@@ -281,13 +279,10 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
         let userDefaults = UserDefaults.standard
         let userDictionary = userDefaults.value(forKey: "userDictionary") as? [String: Any]
         
-        //check login
         request.httpMethod = "POST"
-        print("userid=\(String(describing: (userDictionary?["userID"])!))&jobid=\(idArray[indexToSend])&\(jobScoreToSend)")
         
         let postString = "userid=\(String(describing: (userDictionary?["userID"])!))&jobid=\(idArray[indexToSend])&\(jobScoreToSend)"
         request.httpBody = postString.data(using: .utf8)
-        print("card is swiped post string: \(postString)")
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {                                                 // check for fundamental networking error
                 print("error=\(String(describing: error))")
@@ -305,7 +300,6 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
                         print("status code: \(httpStatus.statusCode)")
                     }else{
                         let jsonData = json["data"] as! [String:Any]
-                        print("job score= \(jsonData["job_score"]), job id = \(jsonData["jobid"]), user id = \(jsonData["userid"])")
                     } // if else
                 } //if json
             } catch let error {
@@ -317,6 +311,7 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
     }
     
     func tapForMorePressed(button:UIButton) -> Void {
+        print("button is pressed")
         let viewController = JobSwipingViewController()
         let indexToSend = 10 - cardsSum
         viewController.doTapForMore(jobTitle: jobTitleArray[indexToSend], interest: interestArray[indexToSend], employmentType: employmentTypeArray[indexToSend], distance: distanceArray[indexToSend], salary: salaryArray[indexToSend], endDate: endDateArray[indexToSend], companyLogo: companyImageArray[indexToSend], experience: experienceArray[indexToSend], descriptionJob: descriptionArray[indexToSend], idJob: idArray[indexToSend])
