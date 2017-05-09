@@ -45,6 +45,12 @@
 		FAB9539B1E9C7CEF00FC033C /* Page3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9539A1E9C7CEF00FC033C /* Page3ViewController.swift */; };
 		FAB9539D1E9C7CFA00FC033C /* Page4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB9539C1E9C7CFA00FC033C /* Page4ViewController.swift */; };
 		FAC70D681EC0646D004D0B33 /* temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC70D671EC0646D004D0B33 /* temp.swift */; };
+		FAC70D6A1EC19D7B004D0B33 /* EmployerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC70D691EC19D7B004D0B33 /* EmployerData.swift */; };
+		FAC70D6C1EC1A971004D0B33 /* ImageViewRounding.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC70D6B1EC1A971004D0B33 /* ImageViewRounding.swift */; };
+		FAC70D6E1EC1AA04004D0B33 /* CALayerBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC70D6D1EC1AA04004D0B33 /* CALayerBorder.swift */; };
+		FAC70D711EC1B11E004D0B33 /* UploadDoc.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC70D701EC1B11E004D0B33 /* UploadDoc.storyboard */; };
+		FAC70D731EC1B775004D0B33 /* UploadDocViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC70D721EC1B775004D0B33 /* UploadDocViewController.swift */; };
+		FAC70D751EC1CA05004D0B33 /* UIViewRounding.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC70D741EC1CA05004D0B33 /* UIViewRounding.swift */; };
 		FAC899191E9F256500D4800A /* DraggableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC899161E9F256500D4800A /* DraggableView.swift */; };
 		FAC8991A1E9F256500D4800A /* DraggableViewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC899171E9F256500D4800A /* DraggableViewBackground.swift */; };
 		FAC8991B1E9F256500D4800A /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC899181E9F256500D4800A /* OverlayView.swift */; };
@@ -125,6 +131,12 @@
 		FAB9539A1E9C7CEF00FC033C /* Page3ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page3ViewController.swift; sourceTree = "<group>"; };
 		FAB9539C1E9C7CFA00FC033C /* Page4ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page4ViewController.swift; sourceTree = "<group>"; };
 		FAC70D671EC0646D004D0B33 /* temp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = temp.swift; sourceTree = "<group>"; };
+		FAC70D691EC19D7B004D0B33 /* EmployerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployerData.swift; sourceTree = "<group>"; };
+		FAC70D6B1EC1A971004D0B33 /* ImageViewRounding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewRounding.swift; sourceTree = "<group>"; };
+		FAC70D6D1EC1AA04004D0B33 /* CALayerBorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerBorder.swift; sourceTree = "<group>"; };
+		FAC70D701EC1B11E004D0B33 /* UploadDoc.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UploadDoc.storyboard; sourceTree = "<group>"; };
+		FAC70D721EC1B775004D0B33 /* UploadDocViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadDocViewController.swift; sourceTree = "<group>"; };
+		FAC70D741EC1CA05004D0B33 /* UIViewRounding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewRounding.swift; sourceTree = "<group>"; };
 		FAC899161E9F256500D4800A /* DraggableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableView.swift; sourceTree = "<group>"; };
 		FAC899171E9F256500D4800A /* DraggableViewBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableViewBackground.swift; sourceTree = "<group>"; };
 		FAC899181E9F256500D4800A /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
@@ -185,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				FAC8991F1EA73DB700D4800A /* JsonRequest.swift */,
+				FAC70D691EC19D7B004D0B33 /* EmployerData.swift */,
 				FAC899251EA8B1E900D4800A /* SwipeCardData.swift */,
 			);
 			name = DataSource;
@@ -194,7 +207,10 @@
 			isa = PBXGroup;
 			children = (
 				FA93C46A1EBB05360084CDCF /* TextfieldPaddingExtension.swift */,
+				FAC70D6B1EC1A971004D0B33 /* ImageViewRounding.swift */,
+				FAC70D741EC1CA05004D0B33 /* UIViewRounding.swift */,
 				FA93C4701EBC7BB50084CDCF /* BoldTextExtension.swift */,
+				FAC70D6D1EC1AA04004D0B33 /* CALayerBorder.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -251,6 +267,15 @@
 			name = TutorialPage;
 			sourceTree = "<group>";
 		};
+		FAC70D6F1EC1B0F2004D0B33 /* UploadDoc */ = {
+			isa = PBXGroup;
+			children = (
+				FAC70D701EC1B11E004D0B33 /* UploadDoc.storyboard */,
+				FAC70D721EC1B775004D0B33 /* UploadDocViewController.swift */,
+			);
+			name = UploadDoc;
+			sourceTree = "<group>";
+		};
 		FAC8991C1E9F257000D4800A /* SwipeLibrary */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,6 +318,7 @@
 				FAC8991C1E9F257000D4800A /* SwipeLibrary */,
 				FAB953361E96AF6900FC033C /* Class */,
 				FAB952CE1E96AE8500FC033C /* Assets.xcassets */,
+				FAC70D6F1EC1B0F2004D0B33 /* UploadDoc */,
 				FAE02A311E9CC56E00084F66 /* CoreApp */,
 				FAB9538F1E975A3300FC033C /* TutorialPage */,
 				FAB953721E96C2E100FC033C /* FirstTimeLogin */,
@@ -466,6 +492,7 @@
 			files = (
 				FAB953741E96C30500FC033C /* FirstTimeLogin.storyboard in Resources */,
 				FAB952CF1E96AE8500FC033C /* Assets.xcassets in Resources */,
+				FAC70D711EC1B11E004D0B33 /* UploadDoc.storyboard in Resources */,
 				FAB9538A1E96D09500FC033C /* LaunchScreen.storyboard in Resources */,
 				FAE02A331E9CC5F400084F66 /* Core.storyboard in Resources */,
 				FAC973D11E96A453002A4E6E /* Main.storyboard in Resources */,
@@ -504,9 +531,11 @@
 				FAB953881E96CC4000FC033C /* SSRadioButtonsController.swift in Sources */,
 				FAB9538C1E96DFF100FC033C /* CurrentSectorTableViewController.swift in Sources */,
 				FAE02A3B1E9D1F1500084F66 /* ProfileViewController.swift in Sources */,
+				FAC70D6C1EC1A971004D0B33 /* ImageViewRounding.swift in Sources */,
 				FAB9533A1E96BFEB00FC033C /* ViewController.swift in Sources */,
 				FA93C4711EBC7BB50084CDCF /* BoldTextExtension.swift in Sources */,
 				FAC899201EA73DB700D4800A /* JsonRequest.swift in Sources */,
+				FAC70D6A1EC19D7B004D0B33 /* EmployerData.swift in Sources */,
 				FA86CE2B1EB2F01A00333648 /* FloatLabelWithBlackUnderline.swift in Sources */,
 				FAC8991B1E9F256500D4800A /* OverlayView.swift in Sources */,
 				FAB953341E96AF5D00FC033C /* Checkbox.swift in Sources */,
@@ -523,7 +552,9 @@
 				FAB953951E9C7B0900FC033C /* TutorialPageViewController.swift in Sources */,
 				FAB953331E96AF5D00FC033C /* UIUtility.swift in Sources */,
 				FAE02A391E9D1BD200084F66 /* ExtensionCALayer.swift in Sources */,
+				FAC70D6E1EC1AA04004D0B33 /* CALayerBorder.swift in Sources */,
 				FA86CE291EB2ED3C00333648 /* SendJobToFriendViewController.swift in Sources */,
+				FAC70D731EC1B775004D0B33 /* UploadDocViewController.swift in Sources */,
 				FAB9537E1E96C34100FC033C /* SkillsPickerTableViewController.swift in Sources */,
 				FAB9533F1E96C06C00FC033C /* LoginViewController.swift in Sources */,
 				FAB953991E9C7CE800FC033C /* Page2ViewController.swift in Sources */,
@@ -536,6 +567,7 @@
 				FAB953711E96C15600FC033C /* FloatLabelTextView.swift in Sources */,
 				FAC973CC1E96A453002A4E6E /* AppDelegate.swift in Sources */,
 				FAC8992A1EAF77C900D4800A /* LaunchScreenViewController.swift in Sources */,
+				FAC70D751EC1CA05004D0B33 /* UIViewRounding.swift in Sources */,
 				FAC899261EA8B1E900D4800A /* SwipeCardData.swift in Sources */,
 				FAB953841E96C35E00FC033C /* SetupProfileViewController.swift in Sources */,
 				FAB9537A1E96C32E00FC033C /* CityPickerTableViewController.swift in Sources */,

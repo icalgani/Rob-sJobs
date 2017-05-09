@@ -185,10 +185,8 @@ class JobRequirementDetail{
         
         //APPLIED View
         let appliedView = UIView()
-        appliedView.backgroundColor = UIColor.orange
         //REMAINING DAYS VIEW
         let offerRemainingView = UIView()
-        offerRemainingView.backgroundColor = UIColor.blue
         
         //add view to stackView
         stackView.addArrangedSubview(appliedView)
@@ -268,7 +266,6 @@ class JobRequirementDetail{
         container.translatesAutoresizingMaskIntoConstraints = false
         informationLabel.translatesAutoresizingMaskIntoConstraints = false
         logoImage.translatesAutoresizingMaskIntoConstraints = false
-        informationLabel.backgroundColor = UIColor.brown
         //IMAGE CONSTRAINT
         NSLayoutConstraint(item: logoImage,
                            attribute: .leading,

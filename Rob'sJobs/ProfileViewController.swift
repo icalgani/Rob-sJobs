@@ -11,12 +11,9 @@ import UIKit
 class ProfileViewController: UIViewController {
 
     
-    @IBOutlet weak var DetailStackView: UIStackView!
-    @IBOutlet weak var UserDescriptionLabel: UILabel!
-    @IBOutlet weak var ContainerView: UIView!
-    @IBOutlet weak var userSkillsLabel: UILabel!
-    @IBOutlet weak var LogOutButton: UIButton!
     
+    @IBOutlet weak var UserDescriptionLabel: UILabel!
+    @IBOutlet weak var userSkillsLabel: UILabel!
     
     @IBOutlet weak var BirthdateLabel: UILabel!
     @IBOutlet weak var EmailLabel: UILabel!
@@ -25,7 +22,11 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var CharactersLabel: UILabel!
     @IBOutlet weak var SkillsLabel: UILabel!
     @IBOutlet weak var UserImage: UIImageView!
+    @IBOutlet weak var ProfessionLabel: UILabel!
+    @IBOutlet weak var CityLabel: UILabel!
     
+    @IBOutlet weak var CityView: UIView!
+    @IBOutlet weak var ProfessionView: UIView!
     @IBOutlet weak var UserAgeView: UIView!
     
     @IBAction func doLogOut(_ sender: UIButton) {
@@ -46,23 +47,17 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         setUserDescriptionLabel()
-
-        // add bottom border at user description
-        let descriptionUnderline = CALayer()
-        let width = CGFloat(1.0)
-        descriptionUnderline.borderColor = UIColor.darkGray.cgColor
-        descriptionUnderline.frame = CGRect(x: 0, y: UserDescriptionLabel.frame.size.height - width, width:  UserDescriptionLabel.frame.size.width, height: UserDescriptionLabel.frame.size.height)
-        
-        descriptionUnderline.borderWidth = width
-        UserDescriptionLabel.layer.addSublayer(descriptionUnderline)
-        UserDescriptionLabel.layer.masksToBounds = true
         
         // rounding user profile image
         self.UserImage.layer.cornerRadius = self.UserImage.frame.size.width / 2
         self.UserImage.clipsToBounds = true
         //rounding  user age
         self.UserAgeView.layer.cornerRadius = self.UserAgeView.frame.size.width / 2
-        self.UserAgeView.clipsToBounds = true        
+        self.UserAgeView.clipsToBounds = true
+        
+        self.ProfessionView.layer.addBorderToSide(edge: UIRectEdge.top, color: UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0), thickness: 1.5)
+        self.CityView.layer.addBorderToSide(edge: UIRectEdge.top, color: UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0), thickness: 1.5)
+        self.CityView.layer.addBorderToSide(edge: UIRectEdge.left, color: UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0), thickness: 1.5)
         }
     
     override func didReceiveMemoryWarning() {
@@ -86,10 +81,11 @@ class ProfileViewController: UIViewController {
             EmailLabel.text = userDictionary?["email"] as! String
             LocationLabel.text = userDictionary?["city"] as! String
             EducationLabel.text = userDictionary?["edu_level"] as! String
-            CharactersLabel.text = userDictionary?["interests"] as! String
-            SkillsLabel.text = userDictionary?["skills"] as! String
+//            CharactersLabel.text = userDictionary?["interests"] as! String
+//            SkillsLabel.text = userDictionary?["skills"] as! String
             UserDescriptionLabel.text = userDictionary?["bio"] as! String
-            print(userDictionary?["image"] as! String)
+            ProfessionLabel.text = userDictionary?["sectors"] as! String
+            CityLabel.text = userDictionary?["city"] as! String
             //download image from url
             if let checkedUrl = URL(string: userDictionary?["image"] as! String) {
                 

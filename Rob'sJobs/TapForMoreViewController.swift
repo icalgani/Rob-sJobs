@@ -23,6 +23,9 @@ class TapForMoreViewController: UIViewController {
     var companyLogoArray: UIImage!
     var experienceArray: String!
     var descriptionArray: String!
+    var employerName: String!
+    
+    let employerData = EmployerData()
     
     @IBOutlet weak var ContainerVIew: UIView!
     @IBOutlet weak var ScrollView: UIScrollView!
@@ -32,6 +35,7 @@ class TapForMoreViewController: UIViewController {
     @IBOutlet weak var TypeLabel: UILabel!
     @IBOutlet weak var SalaryLabel: UILabel!
     @IBOutlet weak var ExperienceLabel: UILabel!
+    @IBOutlet weak var CompanyLabel: UILabel!
     
     @IBOutlet weak var JobLabel: UILabel!
     @IBOutlet weak var InterestLabel: UILabel!
@@ -55,11 +59,9 @@ class TapForMoreViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.setEmployerName), name:NSNotification.Name(rawValue: "setEmployerName"), object: nil)
+
         //set background image
-        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "jobsdetail_bg")
-        self.view.insertSubview(backgroundImage, at: 0)
         
         DescriptionLabel.text = descriptionArray
 //        DescriptionLabel.sizeToFit()
@@ -72,6 +74,11 @@ class TapForMoreViewController: UIViewController {
         ExperienceLabel.text = experienceArray
         UserImage.image = companyLogoArray
         
+        employerData.getDataFromServer(dataToGet: employerIDArray)
+    }
+    
+    func setEmployerName(notification: NSNotification){
+        CompanyLabel.text = employerData.jobEmployer
     }
 
 

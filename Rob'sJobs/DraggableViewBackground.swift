@@ -270,6 +270,7 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
         descriptionArray = swipeCardData.descriptionToSend
         jobsScoreArray = swipeCardData.jobsScoreToSend
         idArray = swipeCardData.idToSend
+        employerIDArray = swipeCardData.employerIDToSend
         
         self.loadCards()
     }
@@ -314,6 +315,6 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
         print("button is pressed")
         let viewController = JobSwipingViewController()
         let indexToSend = 10 - cardsSum
-        viewController.doTapForMore(jobTitle: jobTitleArray[indexToSend], interest: interestArray[indexToSend], employmentType: employmentTypeArray[indexToSend], distance: distanceArray[indexToSend], salary: salaryArray[indexToSend], endDate: endDateArray[indexToSend], companyLogo: companyImageArray[indexToSend], experience: experienceArray[indexToSend], descriptionJob: descriptionArray[indexToSend], idJob: idArray[indexToSend])
+        viewController.doTapForMore(jobTitle: jobTitleArray[indexToSend], interest: interestArray[indexToSend], employmentType: employmentTypeArray[indexToSend], distance: distanceArray[indexToSend], salary: salaryArray[indexToSend], endDate: endDateArray[indexToSend], companyLogo: companyImageArray[indexToSend], experience: experienceArray[indexToSend], descriptionJob: descriptionArray[indexToSend], idJob: idArray[indexToSend], employerID: employerIDArray[indexToSend])
     }
 }
