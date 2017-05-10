@@ -51,6 +51,9 @@
 		FAC70D711EC1B11E004D0B33 /* UploadDoc.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC70D701EC1B11E004D0B33 /* UploadDoc.storyboard */; };
 		FAC70D731EC1B775004D0B33 /* UploadDocViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC70D721EC1B775004D0B33 /* UploadDocViewController.swift */; };
 		FAC70D751EC1CA05004D0B33 /* UIViewRounding.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC70D741EC1CA05004D0B33 /* UIViewRounding.swift */; };
+		FAC70D771EC2C61D004D0B33 /* WorkExperiencePickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC70D761EC2C61D004D0B33 /* WorkExperiencePickerTableViewController.swift */; };
+		FAC70D791EC2E589004D0B33 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC70D781EC2E589004D0B33 /* SettingTableViewController.swift */; };
+		FAC70D7B1EC2EE06004D0B33 /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC70D7A1EC2EE06004D0B33 /* ProfileSettingViewController.swift */; };
 		FAC899191E9F256500D4800A /* DraggableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC899161E9F256500D4800A /* DraggableView.swift */; };
 		FAC8991A1E9F256500D4800A /* DraggableViewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC899171E9F256500D4800A /* DraggableViewBackground.swift */; };
 		FAC8991B1E9F256500D4800A /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC899181E9F256500D4800A /* OverlayView.swift */; };
@@ -137,6 +140,9 @@
 		FAC70D701EC1B11E004D0B33 /* UploadDoc.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UploadDoc.storyboard; sourceTree = "<group>"; };
 		FAC70D721EC1B775004D0B33 /* UploadDocViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadDocViewController.swift; sourceTree = "<group>"; };
 		FAC70D741EC1CA05004D0B33 /* UIViewRounding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewRounding.swift; sourceTree = "<group>"; };
+		FAC70D761EC2C61D004D0B33 /* WorkExperiencePickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkExperiencePickerTableViewController.swift; sourceTree = "<group>"; };
+		FAC70D781EC2E589004D0B33 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		FAC70D7A1EC2EE06004D0B33 /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
 		FAC899161E9F256500D4800A /* DraggableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableView.swift; sourceTree = "<group>"; };
 		FAC899171E9F256500D4800A /* DraggableViewBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableViewBackground.swift; sourceTree = "<group>"; };
 		FAC899181E9F256500D4800A /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
@@ -235,10 +241,11 @@
 			name = Class;
 			sourceTree = "<group>";
 		};
-		FAB953721E96C2E100FC033C /* FirstTimeLogin */ = {
+		FAB953721E96C2E100FC033C /* SetUp Data */ = {
 			isa = PBXGroup;
 			children = (
 				FAB953731E96C30500FC033C /* FirstTimeLogin.storyboard */,
+				FAC70D761EC2C61D004D0B33 /* WorkExperiencePickerTableViewController.swift */,
 				FAC899231EA88CF000D4800A /* EducationPickerTableViewController.swift */,
 				FAB953751E96C31A00FC033C /* DesiredSectorTableViewController.swift */,
 				FAB9538B1E96DFF100FC033C /* CurrentSectorTableViewController.swift */,
@@ -250,7 +257,7 @@
 				FAB953811E96C35600FC033C /* CharactersTableViewController.swift */,
 				FAB953831E96C35E00FC033C /* SetupProfileViewController.swift */,
 			);
-			name = FirstTimeLogin;
+			name = "SetUp Data";
 			sourceTree = "<group>";
 		};
 		FAB9538F1E975A3300FC033C /* TutorialPage */ = {
@@ -321,7 +328,7 @@
 				FAC70D6F1EC1B0F2004D0B33 /* UploadDoc */,
 				FAE02A311E9CC56E00084F66 /* CoreApp */,
 				FAB9538F1E975A3300FC033C /* TutorialPage */,
-				FAB953721E96C2E100FC033C /* FirstTimeLogin */,
+				FAB953721E96C2E100FC033C /* SetUp Data */,
 				FAC973CB1E96A453002A4E6E /* AppDelegate.swift */,
 				FAC973CF1E96A453002A4E6E /* Main.storyboard */,
 				FAC899291EAF77C900D4800A /* LaunchScreenViewController.swift */,
@@ -357,6 +364,8 @@
 			isa = PBXGroup;
 			children = (
 				FAE02A321E9CC5F400084F66 /* Core.storyboard */,
+				FAC70D781EC2E589004D0B33 /* SettingTableViewController.swift */,
+				FAC70D7A1EC2EE06004D0B33 /* ProfileSettingViewController.swift */,
 				FAE02A341E9CC78200084F66 /* CustomTabbarViewController.swift */,
 				FAE02A3C1E9DD90700084F66 /* JobSwipingViewController.swift */,
 				FAC899271EA9E57C00D4800A /* TapForMoreViewController.swift */,
@@ -532,6 +541,7 @@
 				FAB9538C1E96DFF100FC033C /* CurrentSectorTableViewController.swift in Sources */,
 				FAE02A3B1E9D1F1500084F66 /* ProfileViewController.swift in Sources */,
 				FAC70D6C1EC1A971004D0B33 /* ImageViewRounding.swift in Sources */,
+				FAC70D7B1EC2EE06004D0B33 /* ProfileSettingViewController.swift in Sources */,
 				FAB9533A1E96BFEB00FC033C /* ViewController.swift in Sources */,
 				FA93C4711EBC7BB50084CDCF /* BoldTextExtension.swift in Sources */,
 				FAC899201EA73DB700D4800A /* JsonRequest.swift in Sources */,
@@ -553,6 +563,7 @@
 				FAB953331E96AF5D00FC033C /* UIUtility.swift in Sources */,
 				FAE02A391E9D1BD200084F66 /* ExtensionCALayer.swift in Sources */,
 				FAC70D6E1EC1AA04004D0B33 /* CALayerBorder.swift in Sources */,
+				FAC70D791EC2E589004D0B33 /* SettingTableViewController.swift in Sources */,
 				FA86CE291EB2ED3C00333648 /* SendJobToFriendViewController.swift in Sources */,
 				FAC70D731EC1B775004D0B33 /* UploadDocViewController.swift in Sources */,
 				FAB9537E1E96C34100FC033C /* SkillsPickerTableViewController.swift in Sources */,
@@ -563,6 +574,7 @@
 				FAB953781E96C32500FC033C /* SalaryPickerTableViewController.swift in Sources */,
 				FAB953761E96C31A00FC033C /* DesiredSectorTableViewController.swift in Sources */,
 				FA93C46D1EBC25230084CDCF /* JobRequirementDetail.swift in Sources */,
+				FAC70D771EC2C61D004D0B33 /* WorkExperiencePickerTableViewController.swift in Sources */,
 				FAC8992C1EB0BCF900D4800A /* StraightLine.swift in Sources */,
 				FAB953711E96C15600FC033C /* FloatLabelTextView.swift in Sources */,
 				FAC973CC1E96A453002A4E6E /* AppDelegate.swift in Sources */,

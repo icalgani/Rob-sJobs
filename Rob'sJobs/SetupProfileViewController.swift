@@ -23,33 +23,30 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
     var passedDesiredSectorValue:String = ""
     var passedCurrentSectorValue:String = ""
     var provinceID: String = ""
+    var passedWorkExperienceValue: String = ""
     
-    @IBOutlet weak var EducationInput: FloatLabelTextField!
-    @IBOutlet weak var Stackview: UIStackView!
-    @IBOutlet weak var StackView: UIStackView!
+    
+    @IBOutlet weak var Scrollview: UIScrollView!
+    
+    @IBOutlet weak var WorkExperienceInput: UITextField!
+    @IBOutlet weak var EducationInput: UITextField!
     @IBOutlet weak var CharacterInput: FloatLabelTextField!
-    @IBOutlet weak var ProvinceInput: FloatLabelTextField!
-    @IBOutlet weak var NameInput: FloatLabelTextField!
-    @IBOutlet weak var BirthdateInput: FloatLabelTextField!
-    @IBOutlet weak var CityInput: FloatLabelTextField!
-    @IBOutlet weak var SalaryInput: FloatLabelTextField!
+    @IBOutlet weak var ProvinceInput: UITextField!
+    @IBOutlet weak var NameInput: UITextField!
+    @IBOutlet weak var BirthdateInput: UITextField!
+    @IBOutlet weak var CityInput: UITextField!
+    @IBOutlet weak var SalaryInput: UITextField!
     @IBOutlet weak var SkillsInput: FloatLabelTextField!
     @IBOutlet weak var EmploymentInput: FloatLabelTextField!
     @IBOutlet weak var DesiredSectorInput: FloatLabelTextField!
     @IBOutlet weak var NextButton: UIButton!
     @IBOutlet weak var CurrentSectorInput: FloatLabelTextField!
-    @IBOutlet weak var DescribeYourselfInput: FloatLabelTextField!
-    @IBOutlet weak var Scrollview: UIScrollView!
+    @IBOutlet weak var DescribeYourselfInput: UITextField!
     
     @IBOutlet weak var workExperienceYesButton: SSRadioButton!
     @IBOutlet weak var workExperienceNoButton: SSRadioButton!
     @IBOutlet weak var currentyEmployedYesButton: SSRadioButton!
     @IBOutlet weak var currentyEmployedNoButton: SSRadioButton!
-    
-    @IBOutlet weak var SearchDistanceSlider: UISlider!
-    
-    var workExperienceRadioController: SSRadioButtonsController?
-    var currentlyEmployedRadioController: SSRadioButtonsController?
     
     @IBAction func goToTutorialPage(_ sender: UIButton) {
         //close keypad
@@ -81,8 +78,6 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
             if(passedProvinceValue != "" && passedProvinceValue != "Province"){
                 CityInput.isUserInteractionEnabled=true
             }
-            print(provinceID)
-            
         }
         
         //if segue from City picker
@@ -115,74 +110,40 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
             }
         }
         
+        //if segue from educationpicker
+        if(segue.source.isKind(of: WorkExperiencePickerTableViewController.self)){
+            let workExperienceView:WorkExperiencePickerTableViewController = segue.source as! WorkExperiencePickerTableViewController
+            
+            if(workExperienceView.workExperienceToPass != ""){
+                passedWorkExperienceValue = workExperienceView.workExperienceToPass
+                WorkExperienceInput.text = passedWorkExperienceValue
+            }
+        }
+
+        
         //if segue from Characters picker
-        if(segue.source.isKind(of: CharactersTableViewController.self)){
-            let CharacterView:CharactersTableViewController = segue.source as! CharactersTableViewController
-            
-            if(CharacterView.charactersToPass.count>0){
-                passedCharacterValue = CharacterView.charactersToPass
-                let concatedPassedCharacterValue: String = passedCharacterValue.joined(separator: ", ")
-                CharacterInput.text = concatedPassedCharacterValue
-            }
-        }
-        
-        //if segue from Skills picker
-        if(segue.source.isKind(of: SkillsPickerTableViewController.self)){
-            let SkillView:SkillsPickerTableViewController = segue.source as! SkillsPickerTableViewController
-            
-            if(SkillView.skillToPass.count>0){
-                passedSkillValue = SkillView.skillToPass
-                let concatedPassedSkillValue: String = passedSkillValue.joined(separator: ", ")
-                SkillsInput.text = concatedPassedSkillValue
-            }
-        }
-        
-        //if segue from Employment picker
-        if(segue.source.isKind(of: EmploymentPickerTableViewController.self)){
-            let employmentView:EmploymentPickerTableViewController = segue.source as! EmploymentPickerTableViewController
-            
-            if(employmentView.employmentToPass != ""){
-                passedEmploymentValue = employmentView.employmentToPass
-                EmploymentInput.text = passedEmploymentValue
-            }
-        }
-        
-        //if segue from desired sector picker
-        if(segue.source.isKind(of: DesiredSectorTableViewController.self)){
-            let DesiredSector:DesiredSectorTableViewController = segue.source as! DesiredSectorTableViewController
-            
-            if(DesiredSector.desiredSectorToPass != ""){
-                passedDesiredSectorValue = DesiredSector.desiredSectorToPass
-                DesiredSectorInput.text = passedDesiredSectorValue
-            }
-        }
-        
-        //if segue from current sector picker
-        if(segue.source.isKind(of: CurrentSectorTableViewController.self)){
-            let CurrentSector:CurrentSectorTableViewController = segue.source as! CurrentSectorTableViewController
-            
-            if(CurrentSector.currentSectorToPass != ""){
-                passedCurrentSectorValue = CurrentSector.currentSectorToPass
-                CurrentSectorInput.text = passedCurrentSectorValue
-            }
-        }
+//        if(segue.source.isKind(of: CharactersTableViewController.self)){
+//            let CharacterView:CharactersTableViewController = segue.source as! CharactersTableViewController
+//            
+//            if(CharacterView.charactersToPass.count>0){
+//                passedCharacterValue = CharacterView.charactersToPass
+//                let concatedPassedCharacterValue: String = passedCharacterValue.joined(separator: ", ")
+//                CharacterInput.text = concatedPassedCharacterValue
+//            }
+//        }
     }
     
     @IBAction func setDateInput(_ sender: FloatLabelTextField) {
         let datePickerView:UIDatePicker = UIDatePicker()
-        
-                datePickerView.datePickerMode = UIDatePickerMode.date
-        
-                sender.inputView = datePickerView
-        
-                datePickerView.addTarget(self, action: #selector(datePickerValueChanged), for: UIControlEvents.valueChanged)
+        datePickerView.datePickerMode = UIDatePickerMode.date
+        sender.inputView = datePickerView
+        datePickerView.addTarget(self, action: #selector(datePickerValueChanged), for: UIControlEvents.valueChanged)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //change status bar color
-        Utility.setStatusBarBackgroundColor(color: Utility.hexStringToUIColor(hex: "#d3d3d3"))
+        let userDefaults = UserDefaults.standard
+        let userDictionary = userDefaults.value(forKey: "userDictionary") as? [String: Any]
         
         //add done to birthdate datepicker
         addUIBarPad(textField: BirthdateInput)
@@ -195,25 +156,53 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
         CityInput.delegate = self
         EducationInput.delegate = self
         SalaryInput.delegate = self
-        CharacterInput.delegate = self
-        SkillsInput.delegate = self
-        EmploymentInput.delegate = self
-        DesiredSectorInput.delegate = self
-        CurrentSectorInput.delegate = self
+        WorkExperienceInput.delegate = self
+        DescribeYourselfInput.delegate = self
+//        EmploymentInput.delegate = self
+//        DesiredSectorInput.delegate = self
+//        CurrentSectorInput.delegate = self
         
-        //set work experience radio button
-        workExperienceRadioController = SSRadioButtonsController(buttons: workExperienceYesButton, workExperienceNoButton)
-        workExperienceRadioController!.delegate = self
-        
-        //set currently employed radio button
-        currentlyEmployedRadioController = SSRadioButtonsController(buttons: currentyEmployedYesButton, currentyEmployedNoButton)
-        currentlyEmployedRadioController!.delegate = self
+//        //set work experience radio button
+//        workExperienceRadioController = SSRadioButtonsController(buttons: workExperienceYesButton, workExperienceNoButton)
+//        workExperienceRadioController!.delegate = self
+//        
+//        //set currently employed radio button
+//        currentlyEmployedRadioController = SSRadioButtonsController(buttons: currentyEmployedYesButton, currentyEmployedNoButton)
+//        currentlyEmployedRadioController!.delegate = self
         
         //set keyboard
         NotificationCenter.default.addObserver(self,selector: #selector(keyboardWillShow(notification:)),name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)),name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
+    }
+    
+    func setInputText(){
+        let userDefaults = UserDefaults.standard
+        let userDictionary = userDefaults.value(forKey: "userDictionary") as? [String: Any]
+        
+        NameInput.text = (userDictionary?["name"] as! String)
+        
+        if(userDictionary?["birthdate"] != nil){
+            BirthdateInput.text = (userDictionary?["birthdate"] as! String)
+        }
+        if(userDictionary?["province"] != nil){
+            ProvinceInput.text = (userDictionary?["province"] as! String)
+        }
+        if(userDictionary?["city"] != nil){
+            CityInput.text = (userDictionary?["city"] as! String)
+        }
+        if(userDictionary?["salary"] != nil){
+            SalaryInput.text = (userDictionary?["salary"] as! String)
+        }
+        if(userDictionary?["edu_level"] != nil){
+            EducationInput.text = (userDictionary?["edu_level"] as! String)
+        }
+        if(userDictionary?["bio"] != nil){
+            DescribeYourselfInput.text = (userDictionary?["bio"] as! String)
+        }
+
+
     }
     
     func keyboardWillShow(notification: Notification) {
@@ -245,30 +234,34 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
             return false
         }
         
-        if(textField == self.CharacterInput){
-            performSegue(withIdentifier: "showCharactersPicker", sender: self)
+        if(textField == self.WorkExperienceInput){
+            performSegue(withIdentifier: "showWorkExperiencePicker", sender: self)
             return false
         }
-        
-        if(textField == self.SkillsInput){
-            performSegue(withIdentifier: "showSkillsPicker", sender: self)
-            return false
-        }
-        
-        if(textField == self.EmploymentInput){
-            performSegue(withIdentifier: "showEmploymentPicker", sender: self)
-            return false
-        }
-        
-        if(textField == self.DesiredSectorInput){
-            performSegue(withIdentifier: "showDesiredSector", sender: self)
-            return false
-        }
-        
-        if(textField == self.CurrentSectorInput){
-            performSegue(withIdentifier: "showCurrentSector", sender: self)
-            return false
-        }
+//        if(textField == self.CharacterInput){
+//            performSegue(withIdentifier: "showCharactersPicker", sender: self)
+//            return false
+//        }
+//        
+//        if(textField == self.SkillsInput){
+//            performSegue(withIdentifier: "showSkillsPicker", sender: self)
+//            return false
+//        }
+//        
+//        if(textField == self.EmploymentInput){
+//            performSegue(withIdentifier: "showEmploymentPicker", sender: self)
+//            return false
+//        }
+//        
+//        if(textField == self.DesiredSectorInput){
+//            performSegue(withIdentifier: "showDesiredSector", sender: self)
+//            return false
+//        }
+//        
+//        if(textField == self.CurrentSectorInput){
+//            performSegue(withIdentifier: "showCurrentSector", sender: self)
+//            return false
+//        }
     return true
     }
 

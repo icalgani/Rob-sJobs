@@ -77,22 +77,21 @@ class ProfileViewController: UIViewController {
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.window?.rootViewController = nextViewController
         } else{
-            BirthdateLabel.text = (userDictionary?["birthdate"] as! String)
-            EmailLabel.text = userDictionary?["email"] as! String
-            LocationLabel.text = userDictionary?["city"] as! String
-            EducationLabel.text = userDictionary?["edu_level"] as! String
+            BirthdateLabel.text = (userDictionary?["birthdate"] as? String)
+            EmailLabel.text = userDictionary?["email"] as? String
+            LocationLabel.text = userDictionary?["city"] as? String
+            EducationLabel.text = userDictionary?["edu_level"] as? String
 //            CharactersLabel.text = userDictionary?["interests"] as! String
 //            SkillsLabel.text = userDictionary?["skills"] as! String
-            UserDescriptionLabel.text = userDictionary?["bio"] as! String
-            ProfessionLabel.text = userDictionary?["sectors"] as! String
-            CityLabel.text = userDictionary?["city"] as! String
+            UserDescriptionLabel.text = userDictionary?["bio"] as? String
+            ProfessionLabel.text = userDictionary?["sectors"] as? String
+            CityLabel.text = userDictionary?["city"] as? String
             //download image from url
             if let checkedUrl = URL(string: userDictionary?["image"] as! String) {
                 
                 downloadImage(url: checkedUrl)
             }
         }
-        
     }
     
     func downloadImage(url: URL) {
