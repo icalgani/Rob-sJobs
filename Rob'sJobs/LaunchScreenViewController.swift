@@ -15,10 +15,10 @@ class LaunchScreenViewController: UIViewController {
         super.viewDidLoad()
 
         if (self.userDefaults.object(forKey: "userDictionary") != nil){
-            let dict = self.userDefaults.object(forKey: "userDictionary") as? [String: String] ?? [String: String]()
-            print(dict["city"])
+            let userDefaults = UserDefaults.standard
+            let userDictionary = userDefaults.value(forKey: "userDictionary") as? [String: Any]
 
-            if(dict["city"] == nil){
+            if(userDictionary?["city"] != nil){
                 //go to FirstTimeLogin Storyboard
                 goToNextView(storyboardName: "FirstTimeLogin", identifier: "SetUpProfile")
             }else{

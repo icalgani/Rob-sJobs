@@ -10,26 +10,30 @@ import UIKit
 
 class ProfileSettingViewController: UIViewController {
 
+    @IBOutlet weak var SectorTextfield: UITextField!
+    @IBOutlet weak var SalaryTextfield: UITextField!
+    @IBOutlet weak var WorkTypeTextfield: UITextField!
+    @IBOutlet weak var WorkTimeTextfield: UITextField!
+    @IBOutlet weak var DistanceSlider: UISlider!
+    
+    
+    @IBAction func BackButtonPressed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func SliderValueChanged(_ sender: UISlider) {
+        let step: Float = 25.0
+        let roundedValue = round(sender.value / step) * step
+        sender.value = roundedValue
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

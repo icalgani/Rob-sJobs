@@ -141,12 +141,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
                         }
                         
                         let jsonData = (json["data"]) as! [String:Any]
+                        print("check jsondata[city] = \(jsonData["city"])")
                         if jsonData["city"] == nil{
                             let userDictionary: [String:Any] = ["userID": jsonData["id"],"email": jsonData["email"], "userName": jsonData["name"], "mobile_number": jsonData["mobile_number"]]
                             self.userDefaults.set(userDictionary, forKey: "userDictionary")
                         }else{
+                            print("inside else city != nil")
                             //                        set data to UserDefault
-                            let userDictionary:[String: Any] = ["userID": jsonData["id"], "birthdate": jsonData["birthdate"], "is_employed": jsonData["is_employed"], "curr_employment_sector": jsonData["curr_employment_sector"], "city": (jsonData["city"])!, "province": jsonData["province"], "edu_level":jsonData["edu_level"], "interests": jsonData["interests"], "employment_type": jsonData["employment_type"], "sectors": jsonData["sectors"], "has_portofolio": jsonData["has_portofolio"], "has_work_experience": jsonData["has_work_experience"], "skills": jsonData["skills"], "bio": jsonData["bio"], "portofolio": jsonData["portofolio"], "email": jsonData["email"], "userName": jsonData["name"], "mobile_number": jsonData["mobile_number"], "image": jsonData["image"]]
+                            let userDictionary:[String: Any] = ["userID": jsonData["id"], "birthdate": jsonData["birthdate"], "is_employed": jsonData["is_employed"], "curr_employment_sector": jsonData["curr_employment_sector"], "city": jsonData["city"], "province": jsonData["province"], "edu_level":jsonData["edu_level"], "interests": jsonData["interests"], "employment_type": jsonData["employment_type"], "sectors": jsonData["sectors"], "has_portofolio": jsonData["has_portofolio"], "has_work_experience": jsonData["has_work_experience"], "skills": jsonData["skills"], "bio": jsonData["bio"], "portofolio": jsonData["portofolio"], "email": jsonData["email"], "userName": jsonData["name"], "mobile_number": jsonData["mobile_number"], "image": jsonData["image"]]
                             self.userDefaults.set(userDictionary, forKey: "userDictionary")
                             
                             // Check if data exists
@@ -156,9 +158,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
                             //                            print("jason data email = \((jsonData["email"])!)")
                         }
                         DispatchQueue.main.async {
-                            let dict = self.userDefaults.object(forKey: "userDictionary") as? [String: String] ?? [String: String]()
-                            
-                            if(dict["city"] != nil){
+                            let userDefaults = UserDefaults.standard
+                            let userDictionary = userDefaults.value(forKey: "userDictionary") as? [String: Any]
+                            print("value of dict[city] = \(userDictionary?["city"])")
+                            if(userDictionary?["city"] != nil){
                                 //go to FirstTimeLogin Storyboard
                                 self.goToNextView(storyboardName: "Core", identifier: "SwipingScene")
                             }else{
@@ -179,11 +182,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func goToNextView(storyboardName: String, identifier: String){
-        //go to FirstTimeLogin Storyboard
         let storyBoard : UIStoryboard = UIStoryboard(name: storyboardName, bundle: nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: identifier) as UIViewController
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController = nextViewController
+        
+        if(storyboardName == "Core"){
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: identifier) as! UITabBarController
+            appDelegate.window?.rootViewController = nextViewController
+        }else {
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: identifier) as UIViewController
+            appDelegate.window?.rootViewController = nextViewController
+        }
     }
     
     //press next to change to next tab

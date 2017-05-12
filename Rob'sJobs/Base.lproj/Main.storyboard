@@ -151,7 +151,6 @@
                     <connections>
                         <outlet property="CreateAccountButton" destination="5uf-pY-zDR" id="sKV-bs-jM4"/>
                         <outlet property="FacebookButton" destination="nwT-5j-r0B" id="20P-j4-sL3"/>
-                        <outlet property="LoginButton" destination="edQ-z2-pkC" id="6Hk-BU-g1L"/>
                         <outlet property="PasswordTextfield" destination="YL9-yM-7eZ" id="Se9-e9-PNX"/>
                         <outlet property="UsernameTextfield" destination="zc6-M2-WOT" id="dqe-ca-lOP"/>
                     </connections>

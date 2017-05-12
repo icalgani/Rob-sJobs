@@ -30,6 +30,7 @@ class TapForMoreViewController: UIViewController {
     @IBOutlet weak var ContainerVIew: UIView!
     @IBOutlet weak var ScrollView: UIScrollView!
     @IBOutlet weak var ExitButton: UIButton!
+    @IBOutlet weak var OkButton: UIButton!
     
     @IBOutlet weak var DistanceLabel: UILabel!
     @IBOutlet weak var TypeLabel: UILabel!
@@ -51,12 +52,19 @@ class TapForMoreViewController: UIViewController {
     @IBAction func CloseButtonPressed(_ sender: UIButton) {
         
         let storyBoard : UIStoryboard = UIStoryboard(name: "Core", bundle: nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SwipingScene") as! CustomTabbarViewController
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SwipingScene") as! UITabBarController
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.rootViewController = nextViewController
     }
     
+    @IBAction func BackButtonPressed(_ sender: UIButton) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Core", bundle: nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SwipingScene") as! UITabBarController
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController = nextViewController
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(self.setEmployerName), name:NSNotification.Name(rawValue: "setEmployerName"), object: nil)
@@ -77,6 +85,12 @@ class TapForMoreViewController: UIViewController {
         employerData.getDataFromServer(dataToGet: employerIDArray)
     }
     
+    override func viewDidLayoutSubviews() {
+        self.ExitButton.layer.addBorderToSide(edge: UIRectEdge.top, color: UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0), thickness: 1.5)
+        self.OkButton.layer.addBorderToSide(edge: UIRectEdge.top, color: UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0), thickness: 1.5)
+        self.OkButton.layer.addBorderToSide(edge: UIRectEdge.left, color: UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0), thickness: 1.5)
+    }
+    
     func setEmployerName(notification: NSNotification){
         CompanyLabel.text = employerData.jobEmployer
     }
@@ -89,9 +103,9 @@ class TapForMoreViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let dvc = segue.destination as! UINavigationController
-        let view = dvc.topViewController as! SendJobToFriendViewController
-        view.passedJobId = idArray
+//        let dvc = segue.destination as! UINavigationController
+//        let view = dvc.topViewController as! SendJobToFriendViewController
+//        view.passedJobId = idArray
     }
 
 }

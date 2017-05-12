@@ -54,6 +54,7 @@
 		FAC70D771EC2C61D004D0B33 /* WorkExperiencePickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC70D761EC2C61D004D0B33 /* WorkExperiencePickerTableViewController.swift */; };
 		FAC70D791EC2E589004D0B33 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC70D781EC2E589004D0B33 /* SettingTableViewController.swift */; };
 		FAC70D7B1EC2EE06004D0B33 /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC70D7A1EC2EE06004D0B33 /* ProfileSettingViewController.swift */; };
+		FAC70D801EC59425004D0B33 /* GotMatchedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC70D7F1EC59425004D0B33 /* GotMatchedViewController.swift */; };
 		FAC899191E9F256500D4800A /* DraggableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC899161E9F256500D4800A /* DraggableView.swift */; };
 		FAC8991A1E9F256500D4800A /* DraggableViewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC899171E9F256500D4800A /* DraggableViewBackground.swift */; };
 		FAC8991B1E9F256500D4800A /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC899181E9F256500D4800A /* OverlayView.swift */; };
@@ -143,6 +144,7 @@
 		FAC70D761EC2C61D004D0B33 /* WorkExperiencePickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkExperiencePickerTableViewController.swift; sourceTree = "<group>"; };
 		FAC70D781EC2E589004D0B33 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		FAC70D7A1EC2EE06004D0B33 /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
+		FAC70D7F1EC59425004D0B33 /* GotMatchedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GotMatchedViewController.swift; sourceTree = "<group>"; };
 		FAC899161E9F256500D4800A /* DraggableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableView.swift; sourceTree = "<group>"; };
 		FAC899171E9F256500D4800A /* DraggableViewBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableViewBackground.swift; sourceTree = "<group>"; };
 		FAC899181E9F256500D4800A /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
@@ -283,6 +285,19 @@
 			name = UploadDoc;
 			sourceTree = "<group>";
 		};
+		FAC70D7E1EC5614B004D0B33 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				FAC973CF1E96A453002A4E6E /* Main.storyboard */,
+				FAC899291EAF77C900D4800A /* LaunchScreenViewController.swift */,
+				FAB953391E96BFEB00FC033C /* ViewController.swift */,
+				FAB9533B1E96C06C00FC033C /* ResetPasswordViewController.swift */,
+				FAB9533C1E96C06C00FC033C /* LoginViewController.swift */,
+				FAB9533D1E96C06C00FC033C /* RegisterViewController.swift */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
 		FAC8991C1E9F257000D4800A /* SwipeLibrary */ = {
 			isa = PBXGroup;
 			children = (
@@ -330,13 +345,8 @@
 				FAB9538F1E975A3300FC033C /* TutorialPage */,
 				FAB953721E96C2E100FC033C /* SetUp Data */,
 				FAC973CB1E96A453002A4E6E /* AppDelegate.swift */,
-				FAC973CF1E96A453002A4E6E /* Main.storyboard */,
-				FAC899291EAF77C900D4800A /* LaunchScreenViewController.swift */,
-				FAB953391E96BFEB00FC033C /* ViewController.swift */,
+				FAC70D7E1EC5614B004D0B33 /* Main */,
 				FAB953891E96D09500FC033C /* LaunchScreen.storyboard */,
-				FAB9533B1E96C06C00FC033C /* ResetPasswordViewController.swift */,
-				FAB9533C1E96C06C00FC033C /* LoginViewController.swift */,
-				FAB9533D1E96C06C00FC033C /* RegisterViewController.swift */,
 				FAC973D71E96A453002A4E6E /* Info.plist */,
 			);
 			path = "Rob'sJobs";
@@ -364,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				FAE02A321E9CC5F400084F66 /* Core.storyboard */,
+				FAC70D7F1EC59425004D0B33 /* GotMatchedViewController.swift */,
 				FAC70D781EC2E589004D0B33 /* SettingTableViewController.swift */,
 				FAC70D7A1EC2EE06004D0B33 /* ProfileSettingViewController.swift */,
 				FAE02A341E9CC78200084F66 /* CustomTabbarViewController.swift */,
@@ -542,6 +553,7 @@
 				FAE02A3B1E9D1F1500084F66 /* ProfileViewController.swift in Sources */,
 				FAC70D6C1EC1A971004D0B33 /* ImageViewRounding.swift in Sources */,
 				FAC70D7B1EC2EE06004D0B33 /* ProfileSettingViewController.swift in Sources */,
+				FAC70D801EC59425004D0B33 /* GotMatchedViewController.swift in Sources */,
 				FAB9533A1E96BFEB00FC033C /* ViewController.swift in Sources */,
 				FA93C4711EBC7BB50084CDCF /* BoldTextExtension.swift in Sources */,
 				FAC899201EA73DB700D4800A /* JsonRequest.swift in Sources */,

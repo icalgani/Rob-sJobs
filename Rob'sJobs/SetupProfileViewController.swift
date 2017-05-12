@@ -24,6 +24,7 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
     var passedCurrentSectorValue:String = ""
     var provinceID: String = ""
     var passedWorkExperienceValue: String = ""
+    var prevControllerFrom = 0
     
     
     @IBOutlet weak var Scrollview: UIScrollView!
@@ -49,14 +50,24 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
     @IBOutlet weak var currentyEmployedNoButton: SSRadioButton!
     
     @IBAction func goToTutorialPage(_ sender: UIButton) {
+        let userDefaults = UserDefaults.standard
+        let userDictionary = userDefaults.value(forKey: "userDictionary") as? [String: Any]
+
         //close keypad
         view.endEditing(true)
         
+        if(userDictionary?["city"] != nil){
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Core", bundle: nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SwipingScene") as! UITabBarController
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.window?.rootViewController = nextViewController        }else{
         //go to tutorial page
         let storyBoard : UIStoryboard = UIStoryboard(name: "TutorialPage", bundle: nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TutorialTestPageViewController") as UIViewController
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.rootViewController = nextViewController
+        }
     }
     
     //segue
@@ -145,6 +156,10 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
         let userDefaults = UserDefaults.standard
         let userDictionary = userDefaults.value(forKey: "userDictionary") as? [String: Any]
         
+        if(userDictionary?["city"] != nil){
+            setInputText()
+        }
+        
         //add done to birthdate datepicker
         addUIBarPad(textField: BirthdateInput)
         
@@ -174,14 +189,15 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
         NotificationCenter.default.addObserver(self,selector: #selector(keyboardWillShow(notification:)),name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)),name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        
     }
     
     func setInputText(){
         let userDefaults = UserDefaults.standard
         let userDictionary = userDefaults.value(forKey: "userDictionary") as? [String: Any]
         
-        NameInput.text = (userDictionary?["name"] as! String)
+        if(userDictionary?["userName"] != nil){
+            NameInput.text = (userDictionary?["userName"] as! String)
+        }
         
         if(userDictionary?["birthdate"] != nil){
             BirthdateInput.text = (userDictionary?["birthdate"] as! String)

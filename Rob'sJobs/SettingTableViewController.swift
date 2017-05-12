@@ -37,8 +37,6 @@ class SettingTableViewController: UITableViewController {
             let controller = storyboard.instantiateViewController(withIdentifier: "SetUpProfile") as! SetupProfileViewController
             // Add your destination view controller name and Identifier
             
-            // For example consider that there is an variable xyz in your destination View Controller and you are passing "ABC" values from current viewController.
-            
             self.present(controller, animated: true, completion: nil)
         }
         

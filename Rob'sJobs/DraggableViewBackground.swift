@@ -34,7 +34,7 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
     var jobsScoreArray: [String] = []
 
     let MAX_BUFFER_SIZE = 2
-    let CARD_HEIGHT: CGFloat = 386
+    let CARD_HEIGHT: CGFloat = 373
     let CARD_WIDTH: CGFloat = 290
 
     var cardsLoadedIndex: Int!
