@@ -18,7 +18,6 @@ class JsonRequest{
     var employmentSectorToSend: [String] = []
     var skillToSend: [String] = []
 
-
     func getDataFromServer(dataToGet: String){
         var request = URLRequest(url: URL(string: "http://api.robsjobs.co/api/v1/init/\(dataToGet)")!)
         //create the session object

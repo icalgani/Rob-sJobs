@@ -22,6 +22,7 @@ class SwipeCardData{
     var experienceToSend: [String] = []
     var descriptionToSend: [String] = []
     var jobsScoreToSend: [String] = []
+    var companyNameToSend: [String] = []
     
     func resetAllData(){
         idToSend.removeAll()
@@ -36,6 +37,7 @@ class SwipeCardData{
         experienceToSend.removeAll()
         descriptionToSend.removeAll()
         jobsScoreToSend.removeAll()
+        companyNameToSend.removeAll()
     }
     
     func getDataFromServer(dataToGet: String){
@@ -87,6 +89,8 @@ class SwipeCardData{
                             }else {
                                 self.experienceToSend.append("Yes")
                             }
+                            
+                            self.companyNameToSend.append(aObject["company_name"] as! String)
                             
                         }// end for
                         

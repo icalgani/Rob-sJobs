@@ -18,7 +18,7 @@ class LaunchScreenViewController: UIViewController {
             let userDefaults = UserDefaults.standard
             let userDictionary = userDefaults.value(forKey: "userDictionary") as? [String: Any]
 
-            if(userDictionary?["city"] != nil){
+            if(userDictionary?["city"] == nil){
                 //go to FirstTimeLogin Storyboard
                 goToNextView(storyboardName: "FirstTimeLogin", identifier: "SetUpProfile")
             }else{

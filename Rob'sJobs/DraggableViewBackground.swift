@@ -16,11 +16,14 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
     let locationManager = CLLocationManager()
 
     let swipeCardData = SwipeCardData()
+    let employerData = EmployerData()
+    
     var exampleCardLabels: [String]!
     var allCards: [DraggableView]!
     
     var idArray: [String] = []
     var employerIDArray: [String] = []
+    var companyNameArray: [String] = []
     var jobTitleArray: [String] = []
     var interestArray: [String] = []
     var employmentTypeArray: [String] = []
@@ -96,16 +99,18 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
         
         //set new data
         //set Job Title
-//        draggableView.jobOfferLabel.text = jobTitleArray[index]
-//        draggableView.jobOfferLabel.font = UIFont(name: "Arial", size: 16)
-//        draggableView.jobOfferLabel.numberOfLines = 1
+        draggableView.jobOfferLabel.text = jobTitleArray[index]
+        draggableView.jobOfferLabel.font = UIFont(name: "Arial", size: 16)
+        draggableView.jobOfferLabel.numberOfLines = 1
         
 //        draggableView.requiredSkillLabel.text = interestArray[index]
         draggableView.typeLabel.text = employmentTypeArray[index]
-        draggableView.locationLabel.text = distanceArray[index]
-        draggableView.salaryLabel.text = salaryArray[index]
+        draggableView.locationLabel.text = "\(distanceArray[index]) KM"
+        draggableView.salaryLabel.text = "IDR. \(salaryArray[index])"
         draggableView.experienceLabel.text = experienceArray[index]
 //        draggableView.offerTimeLabel.text = "end in \(endDateArray[index]) days"
+        draggableView.jobDescriptionLabel.text = descriptionArray[index]
+        draggableView.companyNameLabel.text = companyNameArray[index]
         
         //download image from url
         for index in 0...companyLogoArray.count-1 {
@@ -183,6 +188,7 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
         allCards.removeAll()
         loadedCards.removeAll()
         swipeCardData.resetAllData()
+        companyNameArray.removeAll()
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
@@ -271,6 +277,7 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
         jobsScoreArray = swipeCardData.jobsScoreToSend
         idArray = swipeCardData.idToSend
         employerIDArray = swipeCardData.employerIDToSend
+        companyNameArray = swipeCardData.companyNameToSend
         
         self.loadCards()
     }
@@ -315,6 +322,6 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
         print("button is pressed")
         let viewController = JobSwipingViewController()
         let indexToSend = 10 - cardsSum
-        viewController.doTapForMore(jobTitle: jobTitleArray[indexToSend], interest: interestArray[indexToSend], employmentType: employmentTypeArray[indexToSend], distance: distanceArray[indexToSend], salary: salaryArray[indexToSend], endDate: endDateArray[indexToSend], companyLogo: companyImageArray[indexToSend], experience: experienceArray[indexToSend], descriptionJob: descriptionArray[indexToSend], idJob: idArray[indexToSend], employerID: employerIDArray[indexToSend])
+        viewController.doTapForMore(jobTitle: jobTitleArray[indexToSend], interest: interestArray[indexToSend], employmentType: employmentTypeArray[indexToSend], distance: distanceArray[indexToSend], salary: salaryArray[indexToSend], endDate: endDateArray[indexToSend], companyLogo: companyImageArray[indexToSend], experience: experienceArray[indexToSend], descriptionJob: descriptionArray[indexToSend], idJob: idArray[indexToSend], employerID: employerIDArray[indexToSend], companyName: companyNameArray[indexToSend])
     }
 }

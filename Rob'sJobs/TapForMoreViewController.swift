@@ -23,7 +23,7 @@ class TapForMoreViewController: UIViewController {
     var companyLogoArray: UIImage!
     var experienceArray: String!
     var descriptionArray: String!
-    var employerName: String!
+    var companyName: String!
     
     let employerData = EmployerData()
     
@@ -65,9 +65,10 @@ class TapForMoreViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.rootViewController = nextViewController
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(self.setEmployerName), name:NSNotification.Name(rawValue: "setEmployerName"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.setEmployerName), name:NSNotification.Name(rawValue: "setEmployerName"), object: nil)
 
         //set background image
         
@@ -81,8 +82,7 @@ class TapForMoreViewController: UIViewController {
         SalaryLabel.text = salaryArray
         ExperienceLabel.text = experienceArray
         UserImage.image = companyLogoArray
-        
-        employerData.getDataFromServer(dataToGet: employerIDArray)
+        CompanyLabel.text = companyName
     }
     
     override func viewDidLayoutSubviews() {
@@ -91,9 +91,9 @@ class TapForMoreViewController: UIViewController {
         self.OkButton.layer.addBorderToSide(edge: UIRectEdge.left, color: UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0), thickness: 1.5)
     }
     
-    func setEmployerName(notification: NSNotification){
-        CompanyLabel.text = employerData.jobEmployer
-    }
+//    func setEmployerName(notification: NSNotification){
+//        CompanyLabel.text = employerData.jobEmployer
+//    }
 
 
     override func didReceiveMemoryWarning() {

@@ -13,6 +13,8 @@ class EmployerData{
     var jobID: String!
     var jobEmployer: String!
     
+    var companyNameToSend: [String] = []
+    
     func getDataFromServer(dataToGet: String){
         var request = URLRequest(url: URL(string: "http://api.robsjobs.co/api/v1/job/\(dataToGet)")!)
         //create the session object
@@ -57,5 +59,4 @@ class EmployerData{
         }
         task.resume()
     }
-
 }
