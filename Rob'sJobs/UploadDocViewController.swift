@@ -55,15 +55,14 @@ class UploadDocViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     func pickUserImage1(sender : UITapGestureRecognizer) {
-        let filePath = Bundle.main.path(forResource: "file", ofType: "pdf");
+        let fileExplorer = FileExplorerViewController()
         
-        let data: NSData? = NSData(contentsOfFile: filePath!)
-        if let fileData = data {
-            let content = NSString(data: fileData as Data, encoding:String.Encoding.utf8.rawValue) as! String
-        }
+        fileExplorer.canRemoveFiles = true //specify whether user is allowed to remove files
+        fileExplorer.canRemoveDirectories = false //specify whether user is allowed to remove directories
         
         imagePickedTag = 1
         
+        self.present(fileExplorer, animated: true, completion: nil)
     }
     
     func pickUserImage2(sender : UITapGestureRecognizer) {

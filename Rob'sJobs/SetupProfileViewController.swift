@@ -52,7 +52,10 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
     @IBAction func goToTutorialPage(_ sender: UIButton) {
         let userDefaults = UserDefaults.standard
         let userDictionary = userDefaults.value(forKey: "userDictionary") as? [String: Any]
-
+        
+        let sendJson = SendJsonSetupProfile()
+        sendJson.sendDataToAPI(userDictionary)
+        
         //close keypad
         view.endEditing(true)
         
@@ -61,10 +64,14 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
             let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SwipingScene") as! UITabBarController
             
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.window?.rootViewController = nextViewController        }else{
+            appDelegate.window?.rootViewController = nextViewController
+        
+        }else{
+            
         //go to tutorial page
         let storyBoard : UIStoryboard = UIStoryboard(name: "TutorialPage", bundle: nil)
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TutorialTestPageViewController") as UIViewController
+            
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.rootViewController = nextViewController
         }
@@ -322,7 +329,6 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
         Scrollview.contentInset.bottom = adjustmentHeight
         Scrollview.scrollIndicatorInsets.bottom = adjustmentHeight
     }
-    
     
     deinit {
         NotificationCenter.default.removeObserver(self)

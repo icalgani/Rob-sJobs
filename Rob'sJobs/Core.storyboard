@@ -1299,8 +1299,7 @@
                                 </constraints>
                                 <state key="normal" image="RJ_back_icon"/>
                                 <connections>
-                                    <action selector="BackButtonPressed:" destination="qFR-gY-uBv" eventType="touchUpInside" id="ly7-Er-k8I"/>
-                                    <segue destination="H54-sn-9vc" kind="unwind" unwindAction="backToProfileSettingSegueWithSegue:" id="LLA-bI-QOE"/>
+                                    <segue destination="H54-sn-9vc" kind="unwind" unwindAction="backToProfileSettingSegueWithSegue:" id="Url-vD-isc"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EKC-lC-wy8" userLabel="User Photo View">
