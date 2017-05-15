@@ -41,6 +41,7 @@ class SwipeCardData{
     }
     
     func getDataFromServer(dataToGet: String){
+        resetAllData()
         var request = URLRequest(url: URL(string: "http://api.robsjobs.co/api/v1/match/\(dataToGet)")!)
         //create the session object
         
@@ -67,9 +68,11 @@ class SwipeCardData{
                         
                         let jsonData = json["data"] as! [[String:Any]]
                         print(jsonData)
-                        for index in 0...jsonData.count-1 {
+                        for index in 0...(jsonData.count)-1 {
                             
-                            let aObject = jsonData[index]
+                            let defaultValue = "logocard"
+                            
+                            let aObject:[String:Any] = (jsonData[index])
                             self.idToSend.append(String(describing: aObject["id"]!))
                             self.employerIDToSend.append(String(describing: aObject["employer_id"]!))
                             self.jobTitleToSend.append(aObject["job_title"] as! String)
@@ -80,7 +83,15 @@ class SwipeCardData{
 //                            self.endDateToSend.append(aObject["end_date"] as! String)
                             let endDate = aObject["end_date"] as! String
                             self.endDateToSend.append(self.calculateEndDate(endDate: endDate))
-                            self.companyLogoToSend.append(aObject["company_logo"] as! String)
+                            
+                            if let companyLogo = aObject["company_logo"] as? String{
+                                print(companyLogo != nil)
+                                print("aObject dalam if != nil \(companyLogo)")
+                                self.companyLogoToSend.append(companyLogo)
+                            }else{
+                                self.companyLogoToSend.append("No Data")
+                            }
+                            
                             self.descriptionToSend.append(aObject["desc"] as! String)
                             self.jobsScoreToSend.append(String(describing: aObject["score"]!))
                             let experience = String(describing: aObject["has_experience"]!)

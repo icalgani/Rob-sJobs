@@ -48,7 +48,6 @@
 		FAC70D6A1EC19D7B004D0B33 /* EmployerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC70D691EC19D7B004D0B33 /* EmployerData.swift */; };
 		FAC70D6C1EC1A971004D0B33 /* ImageViewRounding.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC70D6B1EC1A971004D0B33 /* ImageViewRounding.swift */; };
 		FAC70D6E1EC1AA04004D0B33 /* CALayerBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC70D6D1EC1AA04004D0B33 /* CALayerBorder.swift */; };
-		FAC70D711EC1B11E004D0B33 /* UploadDoc.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC70D701EC1B11E004D0B33 /* UploadDoc.storyboard */; };
 		FAC70D731EC1B775004D0B33 /* UploadDocViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC70D721EC1B775004D0B33 /* UploadDocViewController.swift */; };
 		FAC70D751EC1CA05004D0B33 /* UIViewRounding.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC70D741EC1CA05004D0B33 /* UIViewRounding.swift */; };
 		FAC70D771EC2C61D004D0B33 /* WorkExperiencePickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC70D761EC2C61D004D0B33 /* WorkExperiencePickerTableViewController.swift */; };
@@ -138,7 +137,6 @@
 		FAC70D691EC19D7B004D0B33 /* EmployerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployerData.swift; sourceTree = "<group>"; };
 		FAC70D6B1EC1A971004D0B33 /* ImageViewRounding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewRounding.swift; sourceTree = "<group>"; };
 		FAC70D6D1EC1AA04004D0B33 /* CALayerBorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerBorder.swift; sourceTree = "<group>"; };
-		FAC70D701EC1B11E004D0B33 /* UploadDoc.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UploadDoc.storyboard; sourceTree = "<group>"; };
 		FAC70D721EC1B775004D0B33 /* UploadDocViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadDocViewController.swift; sourceTree = "<group>"; };
 		FAC70D741EC1CA05004D0B33 /* UIViewRounding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewRounding.swift; sourceTree = "<group>"; };
 		FAC70D761EC2C61D004D0B33 /* WorkExperiencePickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkExperiencePickerTableViewController.swift; sourceTree = "<group>"; };
@@ -276,15 +274,6 @@
 			name = TutorialPage;
 			sourceTree = "<group>";
 		};
-		FAC70D6F1EC1B0F2004D0B33 /* UploadDoc */ = {
-			isa = PBXGroup;
-			children = (
-				FAC70D701EC1B11E004D0B33 /* UploadDoc.storyboard */,
-				FAC70D721EC1B775004D0B33 /* UploadDocViewController.swift */,
-			);
-			name = UploadDoc;
-			sourceTree = "<group>";
-		};
 		FAC70D7E1EC5614B004D0B33 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,7 +329,6 @@
 				FAC8991C1E9F257000D4800A /* SwipeLibrary */,
 				FAB953361E96AF6900FC033C /* Class */,
 				FAB952CE1E96AE8500FC033C /* Assets.xcassets */,
-				FAC70D6F1EC1B0F2004D0B33 /* UploadDoc */,
 				FAE02A311E9CC56E00084F66 /* CoreApp */,
 				FAB9538F1E975A3300FC033C /* TutorialPage */,
 				FAB953721E96C2E100FC033C /* SetUp Data */,
@@ -373,6 +361,7 @@
 		FAE02A311E9CC56E00084F66 /* CoreApp */ = {
 			isa = PBXGroup;
 			children = (
+				FAC70D721EC1B775004D0B33 /* UploadDocViewController.swift */,
 				FAE02A321E9CC5F400084F66 /* Core.storyboard */,
 				FAC70D7F1EC59425004D0B33 /* GotMatchedViewController.swift */,
 				FAC70D781EC2E589004D0B33 /* SettingTableViewController.swift */,
@@ -512,7 +501,6 @@
 			files = (
 				FAB953741E96C30500FC033C /* FirstTimeLogin.storyboard in Resources */,
 				FAB952CF1E96AE8500FC033C /* Assets.xcassets in Resources */,
-				FAC70D711EC1B11E004D0B33 /* UploadDoc.storyboard in Resources */,
 				FAB9538A1E96D09500FC033C /* LaunchScreen.storyboard in Resources */,
 				FAE02A331E9CC5F400084F66 /* Core.storyboard in Resources */,
 				FAC973D11E96A453002A4E6E /* Main.storyboard in Resources */,

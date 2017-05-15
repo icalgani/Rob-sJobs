@@ -198,7 +198,6 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
         if(userDictionary?["userName"] != nil){
             NameInput.text = (userDictionary?["userName"] as! String)
         }
-        
         if(userDictionary?["birthdate"] != nil){
             BirthdateInput.text = (userDictionary?["birthdate"] as! String)
         }
@@ -217,8 +216,6 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
         if(userDictionary?["bio"] != nil){
             DescribeYourselfInput.text = (userDictionary?["bio"] as! String)
         }
-
-
     }
     
     func keyboardWillShow(notification: Notification) {

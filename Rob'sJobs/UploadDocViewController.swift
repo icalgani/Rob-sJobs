@@ -55,12 +55,15 @@ class UploadDocViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     func pickUserImage1(sender : UITapGestureRecognizer) {
-        imagePicker.allowsEditing = true
-        imagePicker.sourceType = .photoLibrary
+        let filePath = Bundle.main.path(forResource: "file", ofType: "pdf");
+        
+        let data: NSData? = NSData(contentsOfFile: filePath!)
+        if let fileData = data {
+            let content = NSString(data: fileData as Data, encoding:String.Encoding.utf8.rawValue) as! String
+        }
         
         imagePickedTag = 1
         
-        present(imagePicker, animated: true, completion: nil)
     }
     
     func pickUserImage2(sender : UITapGestureRecognizer) {
@@ -115,7 +118,6 @@ class UploadDocViewController: UIViewController, UIImagePickerControllerDelegate
         self.UserPicture.roundingUIView()
         
         //set padding to placeholder
-        self.FieldOfWorkTextfield.setLeftPaddingPoints(20.0)
         self.PortfolioTextfield.setLeftPaddingPoints(20.0)
     }
     override func didReceiveMemoryWarning() {

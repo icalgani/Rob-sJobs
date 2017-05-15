@@ -105,7 +105,7 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
         
 //        draggableView.requiredSkillLabel.text = interestArray[index]
         draggableView.typeLabel.text = employmentTypeArray[index]
-        draggableView.locationLabel.text = "\(distanceArray[index]) KM"
+        draggableView.locationLabel.text = "\(distanceArray[index]) Km"
         draggableView.salaryLabel.text = "IDR. \(salaryArray[index])"
         draggableView.experienceLabel.text = experienceArray[index]
 //        draggableView.offerTimeLabel.text = "end in \(endDateArray[index]) days"
@@ -114,9 +114,10 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
         
         //download image from url
         for index in 0...companyLogoArray.count-1 {
-            if let checkedUrl = URL(string: companyLogoArray[index]) {
-                
-                downloadImage(url: checkedUrl,imageIndex: index)
+            if(companyLogoArray[index] != "No Data"){
+                if let checkedUrl = URL(string: companyLogoArray[index]) {
+                    downloadImage(url: checkedUrl,imageIndex: index)
+                }
             }
         }
         
@@ -125,6 +126,7 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
     }
     
     func downloadImage(url: URL, imageIndex: NSInteger) {
+        
         getDataFromUrl(url: url) { (data, response, error)  in
             guard let data = data, error == nil else { return }
             DispatchQueue.main.async() { () -> Void in
@@ -289,7 +291,8 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
         
         request.httpMethod = "POST"
         
-        let postString = "userid=\(String(describing: (userDictionary?["userID"])!))&jobid=\(idArray[indexToSend])&\(jobScoreToSend)"
+        let postString = "userid=\(String(describing: (userDictionary?["userID"])!))&jobid=\((idArray[indexToSend]))&\(jobScoreToSend)"
+        print("post string card is swiped = \(postString)")
         request.httpBody = postString.data(using: .utf8)
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {                                                 // check for fundamental networking error

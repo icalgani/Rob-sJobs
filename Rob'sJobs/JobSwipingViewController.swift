@@ -30,6 +30,17 @@ class JobSwipingViewController: UIViewController,CLLocationManagerDelegate, UITa
     @IBAction func backToJobSwiping(segue: UIStoryboardSegue) {
     }
     
+    @IBOutlet weak var MoreButton: UIButton!
+    
+    @IBAction func MoreButtonPressed(_ sender: UIButton) {
+        print("setting button is pressed")
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Core", bundle: nil)
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SettingProfile") as UIViewController
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController = nextViewController
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

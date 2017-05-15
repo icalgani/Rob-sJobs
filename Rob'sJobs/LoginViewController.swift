@@ -116,6 +116,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                         }
                         print("theres no user default")
                         let jsonData = (json["data"]) as! [String:Any]
+                        print("value of jsondata[city] == nil is \(jsonData["city"] == nil) and != nil is \(jsonData["city"] != nil)")
                         if jsonData["city"] == nil{
                             let userDictionary: [String:Any] = ["userID": jsonData["id"],"email": jsonData["email"], "userName": jsonData["name"], "mobile_number": jsonData["mobile_number"]]
                             self.userDefaults.set(userDictionary, forKey: "userDictionary")

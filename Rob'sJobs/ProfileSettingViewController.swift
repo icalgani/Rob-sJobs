@@ -17,6 +17,9 @@ class ProfileSettingViewController: UIViewController {
     @IBOutlet weak var DistanceSlider: UISlider!
     
     
+    @IBAction func backToProfileSettingSegue(segue: UIStoryboardSegue) {
+    }
+    
     @IBAction func BackButtonPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
