@@ -279,13 +279,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FA174A751EC98E1200D0514A /* FileExplorer */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = FileExplorer;
-			sourceTree = "<group>";
-		};
 		FA174AC51EC990F400D0514A /* File Explorer */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +322,16 @@
 				FA174A9F1EC98F9900D0514A /* WebViewController.swift */,
 			);
 			name = "File Explorer";
+			sourceTree = "<group>";
+		};
+		FA174AC81EC9B1D400D0514A /* Profile Setting Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FAB953771E96C32500FC033C /* SalaryPickerTableViewController.swift */,
+				FAB9538B1E96DFF100FC033C /* CurrentSectorTableViewController.swift */,
+				FAB9537F1E96C34A00FC033C /* EmploymentPickerTableViewController.swift */,
+			);
+			name = "Profile Setting Controller";
 			sourceTree = "<group>";
 		};
 		FA86CE2C1EB2F04D00333648 /* DataSource */ = {
@@ -381,12 +384,9 @@
 				FA174AC61EC9A4FC00D0514A /* SendJsonSetupProfile.swift */,
 				FAC899231EA88CF000D4800A /* EducationPickerTableViewController.swift */,
 				FAB953751E96C31A00FC033C /* DesiredSectorTableViewController.swift */,
-				FAB9538B1E96DFF100FC033C /* CurrentSectorTableViewController.swift */,
-				FAB953771E96C32500FC033C /* SalaryPickerTableViewController.swift */,
 				FAB953791E96C32E00FC033C /* CityPickerTableViewController.swift */,
 				FAB9537B1E96C33800FC033C /* ProvincePickerTableViewController.swift */,
 				FAB9537D1E96C34100FC033C /* SkillsPickerTableViewController.swift */,
-				FAB9537F1E96C34A00FC033C /* EmploymentPickerTableViewController.swift */,
 				FAB953811E96C35600FC033C /* CharactersTableViewController.swift */,
 				FAB953831E96C35E00FC033C /* SetupProfileViewController.swift */,
 			);
@@ -458,7 +458,6 @@
 			isa = PBXGroup;
 			children = (
 				FA174AC51EC990F400D0514A /* File Explorer */,
-				FA174A751EC98E1200D0514A /* FileExplorer */,
 				FA93C4691EBB05150084CDCF /* Extension */,
 				FA86CE2C1EB2F04D00333648 /* DataSource */,
 				FAC8991C1E9F257000D4800A /* SwipeLibrary */,
@@ -496,6 +495,7 @@
 		FAE02A311E9CC56E00084F66 /* CoreApp */ = {
 			isa = PBXGroup;
 			children = (
+				FA174AC81EC9B1D400D0514A /* Profile Setting Controller */,
 				FAC70D721EC1B775004D0B33 /* UploadDocViewController.swift */,
 				FAE02A321E9CC5F400084F66 /* Core.storyboard */,
 				FAC70D7F1EC59425004D0B33 /* GotMatchedViewController.swift */,

@@ -378,6 +378,7 @@
                         <outlet property="UserAgeView" destination="Png-cb-NXp" id="W5R-AY-8Ym"/>
                         <outlet property="UserDescriptionLabel" destination="yBn-TX-61F" id="T8l-m4-bkn"/>
                         <outlet property="UserImage" destination="ELZ-3D-dCE" id="cI5-it-mIO"/>
+                        <outlet property="UserNameLabel" destination="UVA-Dn-Ual" id="gGn-ch-dPr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CQc-KP-ns7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -389,7 +390,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="SettingProfile" id="Y5C-jk-vcr" customClass="SettingTableViewController" customModule="Rob_sJobs" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="EWE-xp-iuf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -466,6 +467,51 @@
             </objects>
             <point key="canvasLocation" x="2358" y="542"/>
         </scene>
+        <!--Select Sector-->
+        <scene sceneID="ddz-aK-PHZ">
+            <objects>
+                <tableViewController id="aiz-Nf-OOa" customClass="CurrentSectorTableViewController" customModule="Rob_sJobs" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="OJj-WL-QOa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CurrentSectorCell" textLabel="UK3-Yb-fUu" style="IBUITableViewCellStyleDefault" id="FFc-7U-DyN">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FFc-7U-DyN" id="dmf-4g-DKz">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UK3-Yb-fUu">
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="aiz-Nf-OOa" id="0Yd-E3-IgR"/>
+                            <outlet property="delegate" destination="aiz-Nf-OOa" id="Fyi-R0-4rh"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Select Sector" id="Xos-aE-Do7">
+                        <barButtonItem key="leftBarButtonItem" title="Done" id="w4W-Jj-Ock">
+                            <connections>
+                                <segue destination="5lO-0v-87d" kind="unwind" unwindAction="backToProfileSettingSegueWithSegue:" id="Oho-AD-wWp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uet-MR-rov" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="5lO-0v-87d" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4007" y="2896"/>
+        </scene>
         <!--Setting-->
         <scene sceneID="ogc-Eo-mzQ">
             <objects>
@@ -492,6 +538,9 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <segue destination="Pwx-Ul-hcD" kind="show" identifier="showSectorPicker" id="uAQ-Un-byP"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Salary" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HRP-pU-0Ya">
                                                 <rect key="frame" x="10" y="134" width="355" height="40"/>
@@ -501,6 +550,9 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <segue destination="zFw-Kh-Lq3" kind="show" identifier="showSalaryPicker" id="2eI-eL-5LH"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Work Type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fIe-wy-fTS">
                                                 <rect key="frame" x="10" y="194" width="355" height="40"/>
@@ -646,7 +698,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JCf-VY-tmp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3068" y="1297.6011994002999"/>
+            <point key="canvasLocation" x="4007.1999999999998" y="1297.6011994002999"/>
         </scene>
         <!--Job Swiping View Controller-->
         <scene sceneID="AVJ-dJ-GeX">
@@ -1402,7 +1454,88 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PBs-y4-jPq" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="H54-sn-9vc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4017" y="1298"/>
+            <point key="canvasLocation" x="4956" y="1297.6011994002999"/>
+        </scene>
+        <!--Select Expected Salary-->
+        <scene sceneID="Rh9-1Q-NPn">
+            <objects>
+                <tableViewController id="CRv-pC-UZK" customClass="SalaryPickerTableViewController" customModule="Rob_sJobs" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="iLP-LF-fe3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="salaryCell" textLabel="3sP-7k-Quu" style="IBUITableViewCellStyleDefault" id="dTX-dC-wvf">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dTX-dC-wvf" id="4ym-FN-b7e">
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3sP-7k-Quu">
+                                            <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="CRv-pC-UZK" id="Kcd-K9-KPl"/>
+                            <outlet property="delegate" destination="CRv-pC-UZK" id="21F-2A-wiK"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Select Expected Salary" id="lMb-kJ-Vsf">
+                        <barButtonItem key="leftBarButtonItem" title="Done" id="jEv-0n-qo8">
+                            <connections>
+                                <segue destination="S7I-Tf-0Z6" kind="unwind" unwindAction="backToSetupProfileWithSegue:" id="GSi-km-PAJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IT2-vj-Mi4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="S7I-Tf-0Z6" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="5030" y="2956"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="KYb-xa-H3c">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zFw-Kh-Lq3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="axw-W9-zcb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="CRv-pC-UZK" kind="relationship" relationship="rootViewController" id="JA5-6A-CH9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yzl-jV-jtu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5030" y="2042"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ZN5-Pk-JFL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pwx-Ul-hcD" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lbK-QD-Jvv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="aiz-Nf-OOa" kind="relationship" relationship="rootViewController" id="xe2-Mb-yTL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Y1-V2-95o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4007" y="2043"/>
         </scene>
     </scenes>
     <resources>
@@ -1431,8 +1564,8 @@
         <image name="img_logo" width="300" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Xwk-qZ-ioh"/>
         <segue reference="g6F-ph-Mfk"/>
         <segue reference="0nf-LI-kxD"/>
-        <segue reference="zwm-fq-zKa"/>
     </inferredMetricsTieBreakers>
 </document>

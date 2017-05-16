@@ -174,6 +174,12 @@ class DraggableView: UIView {
                            constant: 10.0).isActive = true
         
         NSLayoutConstraint(item: jobOfferLabel,
+                           attribute: .trailing, relatedBy: .equal,
+                           toItem: self,
+                           attribute: .trailing, multiplier: 1.0,
+                           constant: -10.0).isActive = true
+        
+        NSLayoutConstraint(item: jobOfferLabel,
                            attribute: .width,
                            relatedBy: .greaterThanOrEqual,
                            toItem: nil,

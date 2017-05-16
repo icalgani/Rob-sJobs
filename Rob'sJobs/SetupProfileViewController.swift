@@ -54,7 +54,7 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
         let userDictionary = userDefaults.value(forKey: "userDictionary") as? [String: Any]
         
         let sendJson = SendJsonSetupProfile()
-        sendJson.sendDataToAPI(userDictionary)
+        sendJson.sendDataToAPI(userDictionary: userDictionary!)
         
         //close keypad
         view.endEditing(true)
@@ -118,16 +118,6 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
             }
         }
         
-        //if segue from Salary picker
-        if(segue.source.isKind(of: SalaryPickerTableViewController.self)){
-            let SalaryView:SalaryPickerTableViewController = segue.source as! SalaryPickerTableViewController
-            
-            if(SalaryView.salaryToPass != ""){
-                passedSalaryValue = SalaryView.salaryToPass
-                SalaryInput.text = passedSalaryValue
-            }
-        }
-        
         //if segue from educationpicker
         if(segue.source.isKind(of: WorkExperiencePickerTableViewController.self)){
             let workExperienceView:WorkExperiencePickerTableViewController = segue.source as! WorkExperiencePickerTableViewController
@@ -177,7 +167,6 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
         ProvinceInput.delegate = self
         CityInput.delegate = self
         EducationInput.delegate = self
-        SalaryInput.delegate = self
         WorkExperienceInput.delegate = self
         DescribeYourselfInput.delegate = self
 //        EmploymentInput.delegate = self

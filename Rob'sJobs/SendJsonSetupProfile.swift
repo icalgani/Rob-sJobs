@@ -11,13 +11,99 @@ import UIKit
 
 class SendJsonSetupProfile{
     
-    func sendDataToAPI(userDictionary: Dictionary){
+    func sendDataToAPI(userDictionary: Dictionary<String, Any>){
         
+        var salarymin: String?
+        var salarymax: String?
         
         //check login
         var request = URLRequest(url: URL(string: "http://api.robsjobs.co/api/v1/user/profile")!)
         request.httpMethod = "POST"
-        let postString = "userid=\(userDictionary["userid"])&password=\((PasswordTextfield.text)!)&name=\((NameTextfield.text)!) \((LastNameTextfield.text)!)&mobile_no=\((PhoneNumberTextfield.text)!)"
+        
+        var postString = ""
+//        var postString = "userid=\(userDictionary["userID"] as? String)&name=\(userDictionary["userName"]! as? String)&birthdate=\(userDictionary["birthdate"]! as? String)&city=\(userDictionary["city"]! as? String)&province=\(userDictionary["province"] as? String)"
+        
+        if let userid = userDictionary["userID"] as? String{
+            postString += "userid=\(userid)"
+        } else{
+            postString += "userid=542"
+        }
+        
+        if let username = userDictionary["userName"] as? String{
+            postString += "&name=\(username)"
+        } else{
+            postString += "&name="
+        }
+        
+        if let birthdate = userDictionary["birthdate"] as? String{
+            postString += "&birthdate=\(birthdate)"
+        } else{
+            postString += "&birthdate="
+        }
+        
+        if let city = userDictionary["city"] as? String{
+            postString += "&city=\(city)"
+        } else{
+            postString += "&city="
+        }
+        
+        if let province = userDictionary["province"] as? String{
+            postString += "&province=\(province)"
+        } else{
+            postString += "&province="
+        }
+        
+        if let salarymin = userDictionary["salarymin"] as? String{
+            postString += "&salarymin=\(salarymin)"
+        } else{
+            postString += "&salarymin="
+        }
+        
+        if let salarymax = userDictionary["salarymax"] as? String{
+            postString += "&salarymax=\(salarymax)"
+        } else{
+            postString += "&salarymax="
+        }
+        
+        if let edulevel = userDictionary["edu_level"] as? String{
+            postString += "&edulevel=\(edulevel)"
+        } else{
+            postString += "&edulevel="
+        }
+        
+        postString += "&interest=" //deprecated
+        
+        if let emptype = userDictionary["employment_type"] as? String{
+            postString += "&emptype=\(emptype)"
+        } else{
+            postString += "&emptype="
+        }
+        
+        if let empsector = userDictionary["sectors"] as? String{
+            postString += "&empsector=\(empsector)"
+        } else{
+            postString += "&empsector="
+        }
+        
+        if let distance = userDictionary["distance"] as? String{
+            postString += "&distance=\(distance)"
+        } else{
+            postString += "&distance="
+        }
+        
+        postString += "&bio=" //deprecated
+        postString += "&skill=" //deprecated
+        postString += "&isemployed=" //deprecated
+        postString += "&currentsector=" //deprecated
+        postString += "&hasexperience=" //deprecated
+        postString += "&bio=" //deprecated
+        
+        if let portofolio = userDictionary["portofolio"] as? String{
+            postString += "&portofolio=\(portofolio)"
+        } else{
+            postString += "&portofolio="
+        }
+        
         request.httpBody = postString.data(using: .utf8)
         print(postString)
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
@@ -32,35 +118,18 @@ class SendJsonSetupProfile{
                 if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
                     if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
                         //if status code is not 200
+                        print("status code= \(httpStatus.statusCode)")
                         let errorMessage = json["error"] as! [String:Any]
                         let currentErrorMessage = errorMessage["message"] as! String
-                        DispatchQueue.main.async {
-                            //set alert if email or password is wrong
-                            let alertController = UIAlertController(title: "Alert", message:
-                                currentErrorMessage, preferredStyle: UIAlertControllerStyle.alert)
-                            alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: nil))
-                            self.present(alertController, animated: true, completion: nil)
-                        }
+                        
                     }else{
-                        DispatchQueue.main.async {
-                            //tell user that register is success
-                            let alertController = UIAlertController(title: "Alert", message:
-                                "Registration Success", preferredStyle: UIAlertControllerStyle.alert)
-                            alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: nil))
-                            self.present(alertController, animated: true, completion: nil)
-                            
-                            //go to FirstTimeLogin Storyboard
-                            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "StartingPoint") as! ViewController
-                            self.present(nextViewController, animated:true, completion:nil)
-                        }
+                     print("setup profile success")
+                        print("hasil json setting profile = \(json)")
                     }
                 }
-                
             } catch let error {
                 print(error.localizedDescription)
             } // end do
-            
         }//end request
         task.resume()
     }

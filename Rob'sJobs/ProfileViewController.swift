@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var UserDescriptionLabel: UILabel!
     @IBOutlet weak var userSkillsLabel: UILabel!
     
+    @IBOutlet weak var UserNameLabel: UILabel!
     @IBOutlet weak var BirthdateLabel: UILabel!
     @IBOutlet weak var EmailLabel: UILabel!
     @IBOutlet weak var LocationLabel: UILabel!
@@ -77,6 +78,8 @@ class ProfileViewController: UIViewController {
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.window?.rootViewController = nextViewController
         } else{
+            UserNameLabel.text = userDictionary?["userName"] as? String
+
             BirthdateLabel.text = (userDictionary?["birthdate"] as? String)
             EmailLabel.text = userDictionary?["email"] as? String
             LocationLabel.text = userDictionary?["city"] as? String
