@@ -23,7 +23,27 @@ class ProfileSettingViewController: UIViewController, UITextFieldDelegate {
     var passedWorkTypeValue: String?
     var passedWorkTimeValue: String?
     var distanceValue: String?
-
+    
+    func validateData() -> Bool {
+        if (SectorTextfield.text == "" || SalaryTextfield.text == "" || WorkTimeTextfield.text == ""){
+            
+            showAlert(alertMessage: "Field must be filled")
+            
+            return false
+        } else{
+            return true
+        }
+        return false
+    }
+    
+    func showAlert(alertMessage: String){
+        //show alert if there is empty field
+        let alertController = UIAlertController(title: "Alert", message:
+            alertMessage, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     @IBAction func backToProfileSettingSegue(segue: UIStoryboardSegue) {
         
         //if segue from Salary picker
@@ -46,6 +66,15 @@ class ProfileSettingViewController: UIViewController, UITextFieldDelegate {
             }
         }
         
+        if(segue.source.isKind(of: EmploymentPickerTableViewController.self)){
+            let View:EmploymentPickerTableViewController = segue.source as! EmploymentPickerTableViewController
+            
+            if(View.employmentToPass != ""){
+                passedWorkTimeValue = View.employmentToPass
+                WorkTimeTextfield.text = passedWorkTimeValue
+            }
+        }
+        
         
     }
     
@@ -58,13 +87,37 @@ class ProfileSettingViewController: UIViewController, UITextFieldDelegate {
         let roundedValue = round(sender.value / step) * step
         sender.value = roundedValue
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let userDefaults = UserDefaults.standard
+        var userDictionary = userDefaults.value(forKey: "userDictionary") as? [String: Any]
+        
+        setField()
         
         SectorTextfield.delegate = self
         SalaryTextfield.delegate = self
         WorkTimeTextfield.delegate = self
         WorkTypeTextfield.delegate = self
+    }
+    
+    func setField(){
+        let userDefaults = UserDefaults.standard
+        var userDictionary = userDefaults.value(forKey: "userDictionary") as? [String: Any]
+        
+        if(userDictionary?["sectors"] != nil){
+            SectorTextfield.text = (userDictionary?["sectors"] as? String)
+        }
+        if(userDictionary?["salary"] != nil){
+            SalaryTextfield.text = (userDictionary?["salary"] as? String)
+        }
+        if(userDictionary?["employment_type"]! != nil){
+            WorkTimeTextfield.text = (userDictionary?["employment_type"] as! String)
+        }
+        if(userDictionary?["distance"]! != nil){
+            DistanceSlider.value = (userDictionary?["distance"] as! Float)
+        }
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
@@ -84,13 +137,32 @@ class ProfileSettingViewController: UIViewController, UITextFieldDelegate {
 //        }
         
         if(textField == self.WorkTimeTextfield){
-            performSegue(withIdentifier: "showWorkTimePicker", sender: self)
+            performSegue(withIdentifier: "showWorkTImePicker", sender: self)
             return false
         }
     
         return true
     }
 
+    override func shouldPerformSegue(withIdentifier identifier: String?, sender: Any?) -> Bool {
+        if(validateData()){
+            let userDefaults = UserDefaults.standard
+            var userDictionary = userDefaults.value(forKey: "userDictionary") as? [String: Any]
+            
+            userDictionary?["sectors"] = SectorTextfield.text
+            userDictionary?["salary"] = SalaryTextfield.text
+            userDictionary?["employment_type"] = WorkTimeTextfield.text
+            userDictionary?["distance"] = DistanceSlider.value
+            userDefaults.set(userDictionary, forKey: "userDictionary")
+            
+            let sendJson = SendJsonSetupProfile()
+            sendJson.sendDataToAPI(userDictionary: userDictionary!)
+            
+            return true
+        }
+        return false
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

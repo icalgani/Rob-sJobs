@@ -13,9 +13,6 @@ class SendJsonSetupProfile{
     
     func sendDataToAPI(userDictionary: Dictionary<String, Any>){
         
-        var salarymin: String?
-        var salarymax: String?
-        
         //check login
         var request = URLRequest(url: URL(string: "http://api.robsjobs.co/api/v1/user/profile")!)
         request.httpMethod = "POST"
@@ -23,12 +20,17 @@ class SendJsonSetupProfile{
         var postString = ""
 //        var postString = "userid=\(userDictionary["userID"] as? String)&name=\(userDictionary["userName"]! as? String)&birthdate=\(userDictionary["birthdate"]! as? String)&city=\(userDictionary["city"]! as? String)&province=\(userDictionary["province"] as? String)"
         
-        if let userid = userDictionary["userID"] as? String{
-            postString += "userid=\(userid)"
-        } else{
-            postString += "userid=542"
-        }
+//        print("nilai userID sebelum masuk postString == \(userDictionary["userID"] as! String)")
+//        if let userid = userDictionary["userID"] as? String{
+//            print("userid == \(userid)")
+//            postString += "userid=\(userid)"
+//        } else{
+//            print("userid == nil")
+//            postString += "userid=542"
+//        }
         
+        postString += "userid=\(userDictionary["userID"]!)"
+
         if let username = userDictionary["userName"] as? String{
             postString += "&name=\(username)"
         } else{
@@ -91,13 +93,16 @@ class SendJsonSetupProfile{
             postString += "&distance="
         }
         
-        postString += "&bio=" //deprecated
+        if let bio = userDictionary["bio"] as? String{
+            postString += "&bio=\(bio)"
+        } else{
+            postString += "&bio="
+        }
         postString += "&skill=" //deprecated
         postString += "&isemployed=" //deprecated
         postString += "&currentsector=" //deprecated
         postString += "&hasexperience=" //deprecated
-        postString += "&bio=" //deprecated
-        
+                  
         if let portofolio = userDictionary["portofolio"] as? String{
             postString += "&portofolio=\(portofolio)"
         } else{

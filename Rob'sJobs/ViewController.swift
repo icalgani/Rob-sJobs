@@ -148,7 +148,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
                             self.userDefaults.set(userDictionary, forKey: "userDictionary")
                         }else{
                             print("inside else city != nil")
-                            print("userID buat di kirim = \(jsonData["id"])")
 
                             //  set data to UserDefault
                             var userDictionary:[String: Any] = ["userID": jsonData["id"], "birthdate": jsonData["birthdate"], "is_employed": jsonData["is_employed"], "curr_employment_sector": jsonData["curr_employment_sector"], "city": jsonData["city"], "province": jsonData["province"], "edu_level":jsonData["edu_level"], "interests": jsonData["interests"], "employment_type": jsonData["employment_type"], "sectors": jsonData["sectors"], "has_portofolio": jsonData["has_portofolio"], "has_work_experience": jsonData["has_work_experience"], "skills": jsonData["skills"], "bio": jsonData["bio"], "portofolio": jsonData["portofolio"], "email": jsonData["email"], "userName": jsonData["name"], "mobile_number": jsonData["mobile_number"], "image": jsonData["image"]]

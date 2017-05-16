@@ -68,45 +68,47 @@ class SwipeCardData{
                         
                         let jsonData = json["data"] as! [[String:Any]]
                         print(jsonData)
-                        for index in 0...(jsonData.count)-1 {
+                        if(jsonData.count != 0){
+                            for index in 0...(jsonData.count)-1 {
+                                
+                                let defaultValue = "logocard"
+                                
+                                let aObject:[String:Any] = (jsonData[index])
+                                self.idToSend.append(String(describing: aObject["id"]!))
+                                self.employerIDToSend.append(String(describing: aObject["employer_id"]!))
+                                self.jobTitleToSend.append(aObject["job_title"] as! String)
+                                self.interestToSend.append(aObject["interests"] as! String)
+                                self.employmentTypeToSend.append(aObject["employment_type"] as! String)
+                                self.distanceToSend.append(String(describing: aObject["distance"]!))
+                                self.salaryToSend.append(aObject["salary"] as! String)
+    //                            self.endDateToSend.append(aObject["end_date"] as! String)
+                                let endDate = aObject["end_date"] as! String
+                                self.endDateToSend.append(self.calculateEndDate(endDate: endDate))
+                                
+                                if let companyLogo = aObject["company_logo"] as? String{
+                                    print(companyLogo != nil)
+                                    print("aObject dalam if != nil \(companyLogo)")
+                                    self.companyLogoToSend.append(companyLogo)
+                                }else{
+                                    self.companyLogoToSend.append("No Data")
+                                }
+                                
+                                self.descriptionToSend.append(aObject["desc"] as! String)
+                                self.jobsScoreToSend.append(String(describing: aObject["score"]!))
+                                let experience = String(describing: aObject["has_experience"]!)
+                                if(experience == "0"){
+                                    self.experienceToSend.append("No")
+                                }else {
+                                    self.experienceToSend.append("Yes")
+                                }
+                                
+                                self.companyNameToSend.append(aObject["company_name"] as! String)
+                                
+                            }// end for
                             
-                            let defaultValue = "logocard"
-                            
-                            let aObject:[String:Any] = (jsonData[index])
-                            self.idToSend.append(String(describing: aObject["id"]!))
-                            self.employerIDToSend.append(String(describing: aObject["employer_id"]!))
-                            self.jobTitleToSend.append(aObject["job_title"] as! String)
-                            self.interestToSend.append(aObject["interests"] as! String)
-                            self.employmentTypeToSend.append(aObject["employment_type"] as! String)
-                            self.distanceToSend.append(String(describing: aObject["distance"]!))
-                            self.salaryToSend.append(aObject["salary"] as! String)
-//                            self.endDateToSend.append(aObject["end_date"] as! String)
-                            let endDate = aObject["end_date"] as! String
-                            self.endDateToSend.append(self.calculateEndDate(endDate: endDate))
-                            
-                            if let companyLogo = aObject["company_logo"] as? String{
-                                print(companyLogo != nil)
-                                print("aObject dalam if != nil \(companyLogo)")
-                                self.companyLogoToSend.append(companyLogo)
-                            }else{
-                                self.companyLogoToSend.append("No Data")
+                            DispatchQueue.main.async {
+                                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
                             }
-                            
-                            self.descriptionToSend.append(aObject["desc"] as! String)
-                            self.jobsScoreToSend.append(String(describing: aObject["score"]!))
-                            let experience = String(describing: aObject["has_experience"]!)
-                            if(experience == "0"){
-                                self.experienceToSend.append("No")
-                            }else {
-                                self.experienceToSend.append("Yes")
-                            }
-                            
-                            self.companyNameToSend.append(aObject["company_name"] as! String)
-                            
-                        }// end for
-                        
-                        DispatchQueue.main.async {
-                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
                         }
                     }
                 }

@@ -512,6 +512,51 @@
             </objects>
             <point key="canvasLocation" x="4007" y="2896"/>
         </scene>
+        <!--Work Time-->
+        <scene sceneID="kpT-Kk-85T">
+            <objects>
+                <tableViewController id="o5U-Fd-ohz" customClass="EmploymentPickerTableViewController" customModule="Rob_sJobs" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="V2s-rK-Iq9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="employmentCell" textLabel="v2N-5f-uLg" style="IBUITableViewCellStyleDefault" id="QfI-hp-xae">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QfI-hp-xae" id="O6B-Fp-jqP">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="v2N-5f-uLg">
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="o5U-Fd-ohz" id="Lm4-Q4-1Im"/>
+                            <outlet property="delegate" destination="o5U-Fd-ohz" id="vuZ-VH-9DM"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Work Time" id="MHH-wR-kEQ">
+                        <barButtonItem key="leftBarButtonItem" title="Done" id="afY-R8-jer">
+                            <connections>
+                                <segue destination="W0e-zu-TZC" kind="unwind" unwindAction="backToProfileSettingSegueWithSegue:" id="Y7R-Y7-Yoa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6fV-ZD-wN2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="W0e-zu-TZC" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3252" y="2895"/>
+        </scene>
         <!--Setting-->
         <scene sceneID="ogc-Eo-mzQ">
             <objects>
@@ -571,6 +616,9 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <segue destination="uSf-Fx-Nmb" kind="show" identifier="showWorkTImePicker" id="4Ey-n8-OlM"/>
+                                                </connections>
                                             </textField>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Bry-rX-6qp">
                                                 <rect key="frame" x="8" y="394" width="359" height="31"/>
@@ -627,7 +675,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="qFR-gY-uBv" kind="show" id="hN6-N9-6xT"/>
+                                                    <segue destination="qFR-gY-uBv" kind="show" id="8mS-vM-AR6"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bh1-tl-FeW">
@@ -709,7 +757,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Cxy-FH-YSX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7fb-NT-Rzv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jIW-d5-sC2">
@@ -1334,7 +1382,7 @@
         <!--Upload Doc View Controller-->
         <scene sceneID="rM1-vM-vDf">
             <objects>
-                <viewController id="qFR-gY-uBv" customClass="UploadDocViewController" customModule="Rob_sJobs" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UploadDoc" id="qFR-gY-uBv" customClass="UploadDocViewController" customModule="Rob_sJobs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zaI-Ds-QoM"/>
                         <viewControllerLayoutGuide type="bottom" id="8pf-du-H4i"/>
@@ -1491,7 +1539,7 @@
                     <navigationItem key="navigationItem" title="Select Expected Salary" id="lMb-kJ-Vsf">
                         <barButtonItem key="leftBarButtonItem" title="Done" id="jEv-0n-qo8">
                             <connections>
-                                <segue destination="S7I-Tf-0Z6" kind="unwind" unwindAction="backToSetupProfileWithSegue:" id="GSi-km-PAJ"/>
+                                <segue destination="S7I-Tf-0Z6" kind="unwind" unwindAction="backToProfileSettingSegueWithSegue:" id="aw6-Q3-ldz"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1517,7 +1565,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yzl-jV-jtu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5030" y="2042"/>
+            <point key="canvasLocation" x="4956" y="2031"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZN5-Pk-JFL">
@@ -1535,7 +1583,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Y1-V2-95o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4007" y="2043"/>
+            <point key="canvasLocation" x="3966" y="2042"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nHt-Af-kbr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uSf-Fx-Nmb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9If-Vb-Wqz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="o5U-Fd-ohz" kind="relationship" relationship="rootViewController" id="gMb-kb-m7m"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ruc-Je-Usa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3252" y="2041.529235382309"/>
         </scene>
     </scenes>
     <resources>
@@ -1564,8 +1630,8 @@
         <image name="img_logo" width="300" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="BZK-3U-tQ7"/>
+        <segue reference="Stb-bH-f0A"/>
         <segue reference="Xwk-qZ-ioh"/>
-        <segue reference="g6F-ph-Mfk"/>
-        <segue reference="0nf-LI-kxD"/>
     </inferredMetricsTieBreakers>
 </document>

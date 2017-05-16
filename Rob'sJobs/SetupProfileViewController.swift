@@ -51,30 +51,61 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
     
     @IBAction func goToTutorialPage(_ sender: UIButton) {
         let userDefaults = UserDefaults.standard
-        let userDictionary = userDefaults.value(forKey: "userDictionary") as? [String: Any]
+        var userDictionary = userDefaults.value(forKey: "userDictionary") as? [String: Any]
         
-        let sendJson = SendJsonSetupProfile()
-        sendJson.sendDataToAPI(userDictionary: userDictionary!)
-        
-        //close keypad
-        view.endEditing(true)
-        
-        if(userDictionary?["city"] != nil){
-            let storyBoard : UIStoryboard = UIStoryboard(name: "Core", bundle: nil)
-            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SwipingScene") as! UITabBarController
+        if(validateData()){
             
+            userDictionary?["userName"] = NameInput.text
+            userDictionary?["birthdate"] = BirthdateInput.text
+            userDictionary?["province"] = ProvinceInput.text
+            userDictionary?["city"] = CityInput.text
+            userDictionary?["bio"] = DescribeYourselfInput.text
+            userDictionary?["edu_level"] = EducationInput.text
+            
+            userDefaults.set(userDictionary, forKey: "userDictionary")
+
+            let sendJson = SendJsonSetupProfile()
+            sendJson.sendDataToAPI(userDictionary: userDictionary!)
+            
+            //close keypad
+            view.endEditing(true)
+            
+            if(userDictionary?["city"] != nil){
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Core", bundle: nil)
+                let nextViewController = storyBoard.instantiateViewController(withIdentifier: "SwipingScene") as! UITabBarController
+                
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.window?.rootViewController = nextViewController
+            }else{
+                
+            //go to tutorial page
+            let storyBoard : UIStoryboard = UIStoryboard(name: "TutorialPage", bundle: nil)
+            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TutorialTestPageViewController") as UIViewController
+                
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.window?.rootViewController = nextViewController
-        
-        }else{
-            
-        //go to tutorial page
-        let storyBoard : UIStoryboard = UIStoryboard(name: "TutorialPage", bundle: nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "TutorialTestPageViewController") as UIViewController
-            
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window?.rootViewController = nextViewController
+            }
         }
+    }
+    
+    func validateData() -> Bool {
+        if (NameInput.text == "" || EducationInput.text == "" || BirthdateInput.text == "" || CityInput.text == "" || ProvinceInput.text == "" || DescribeYourselfInput.text == ""){
+            
+            showAlert(alertMessage: "Field must be filled")
+            
+            return false
+        } else{
+            return true
+        }
+        return false
+    }
+    
+    func showAlert(alertMessage: String){
+        //show alert if there is empty field
+        let alertController = UIAlertController(title: "Alert", message:
+            alertMessage, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: nil))
+        self.present(alertController, animated: true, completion: nil)
     }
     
     //segue
@@ -210,7 +241,10 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
             EducationInput.text = (userDictionary?["edu_level"] as! String)
         }
         if(userDictionary?["bio"] != nil){
-            DescribeYourselfInput.text = (userDictionary?["bio"] as! String)
+            print("userDictionary[bio] == \(userDictionary?["bio"])")
+            print("userDictionary[bio] ver 1 == \(userDictionary?["bio"] as? String)")
+
+            DescribeYourselfInput.text = (userDictionary?["bio"] as? String)
         }
     }
     
@@ -235,11 +269,6 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
         
         if(textField == self.EducationInput){
             performSegue(withIdentifier: "showEducationPicker", sender: self)
-            return false
-        }
-        
-        if(textField == self.SalaryInput){
-            performSegue(withIdentifier: "showSalaryPicker", sender: self)
             return false
         }
         

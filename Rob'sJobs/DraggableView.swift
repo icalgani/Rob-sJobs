@@ -11,9 +11,9 @@ import UIKit
 
 let ACTION_MARGIN: Float = 120      //%%% distance from center where the action applies. Higher = swipe further in order for the action to be called
 let SCALE_STRENGTH: Float = 4       //%%% how quickly the card shrinks. Higher = slower shrinking
-let SCALE_MAX:Float = 0.93          //%%% upper bar for how much the card shrinks. Higher = shrinks less
+let SCALE_MAX:Float = 1          //%%% upper bar for how much the card shrinks. Higher = shrinks less
 let ROTATION_MAX: Float = 1         //%%% the maximum rotation allowed in radians.  Higher = card can keep rotating longer
-let ROTATION_STRENGTH: Float = 320  //%%% strength of rotation. Higher = weaker rotation
+let ROTATION_STRENGTH: Float = 400  //%%% strength of rotation. Higher = weaker rotation
 let ROTATION_ANGLE: Float = 3.14/8  //%%% Higher = stronger rotation angle
 
 protocol DraggableViewDelegate {
@@ -113,7 +113,7 @@ class DraggableView: UIView {
         companyLogoView.contentMode = UIViewContentMode.scaleAspectFit
         
         //company name
-        companyNameLabel = UILabel(frame: CGRect(x: 0,y: 0, width: 200,height: 30))
+        companyNameLabel = UILabel(frame: CGRect(x: 0,y: 0, width: 30,height: 30))
         companyNameLabel.text = "no info given"
         companyNameLabel.textColor = UIColor.black
         companyNameLabel.font = UIFont(name: companyNameLabel.font.fontName, size: 10)

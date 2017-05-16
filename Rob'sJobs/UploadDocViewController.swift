@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Foundation
+
+#import "FileExplorer"
 
 class UploadDocViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -59,6 +62,8 @@ class UploadDocViewController: UIViewController, UIImagePickerControllerDelegate
         
         fileExplorer.canRemoveFiles = true //specify whether user is allowed to remove files
         fileExplorer.canRemoveDirectories = false //specify whether user is allowed to remove directories
+        fileExplorer.canChooseFiles = true //specify whether user is allowed to choose files
+        fileExplorer.canChooseDirectories = true //specify whether user is allowed to choose directories
         
         imagePickedTag = 1
         
