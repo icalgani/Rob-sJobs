@@ -100,7 +100,6 @@ class TestController: UIViewController, UITableViewDelegate, UITableViewDataSour
         messageArray = chatData.messageToSend
         userTypeArray = chatData.userTypeToSend
         self.TableViewOutlet.reloadData()
-
     }
     
     //adjust keyboard so you can see what you fill in

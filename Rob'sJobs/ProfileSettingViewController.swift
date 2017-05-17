@@ -106,16 +106,16 @@ class ProfileSettingViewController: UIViewController, UITextFieldDelegate {
         let userDefaults = UserDefaults.standard
         var userDictionary = userDefaults.value(forKey: "userDictionary") as? [String: Any]
         
-        if(userDictionary?["sectors"] != nil){
+        if let sectors = userDictionary?["sectors"]{
             SectorTextfield.text = (userDictionary?["sectors"] as? String)
         }
-        if(userDictionary?["salary"] != nil){
+        if let salary = userDictionary?["salary"]{
             SalaryTextfield.text = (userDictionary?["salary"] as? String)
         }
-        if(userDictionary?["employment_type"]! != nil){
+        if let employment_type = userDictionary?["employment_type"]{
             WorkTimeTextfield.text = (userDictionary?["employment_type"] as! String)
         }
-        if(userDictionary?["distance"]! != nil){
+        if let distance = userDictionary?["distance"]{
             DistanceSlider.value = (userDictionary?["distance"] as! Float)
         }
     }
