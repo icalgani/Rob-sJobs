@@ -12,17 +12,24 @@ class TestCell: UITableViewCell{
 
     @IBOutlet weak var MessageLabel: UILabel!
     @IBOutlet weak var TimeLabel: UILabel!
+    @IBOutlet weak var MessageView: UIView!
+    
+    
 }
 
-class TestController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TestController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var TableViewOutlet: UITableView!
     
     @IBOutlet weak var MessageTextfield: UITextField!
     @IBOutlet weak var SendMessageButton: UIButton!
+    @IBOutlet weak var MessageScrollView: UIScrollView!
     
-    var messageArray: [String] = ["test", "Lorem ipsum dolor sit amet, ex illud abhorreant mea. Mel at amet integre. In fugit putant pertinacia per. No ius veniam rationibus, id qualisque persecuti incorrupte mel. Quo unum adipiscing necessitatibus ex, modus assum numquam ea est."]
-
+    let chatData = ChatData()
+    
+    var messageArray: [String] = []
+    var userTypeArray: [String] = []
+    
     @IBAction func SendButtonPressed(_ sender: UIButton) {
         
         messageArray.append(MessageTextfield.text!)
@@ -34,12 +41,42 @@ class TestController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         TableViewOutlet.rowHeight = UITableViewAutomaticDimension
         TableViewOutlet.estimatedRowHeight = 100
-        // Do any additional setup after loading the view.
+        
+        chatData.getDataFromServer(dataToGet: "9143/0/5")
+        
+        MessageTextfield.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.loadChatData), name:NSNotification.Name(rawValue: "loadChatData"), object: nil)
+        NotificationCenter.default.addObserver(self,selector: #selector(keyboardWillShow(notification:)),name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)),name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
+    
+    func loadChatData(){
+        messageArray = chatData.messageToSend
+        userTypeArray = chatData.userTypeToSend
+        self.TableViewOutlet.reloadData()
 
+    }
+    
+    //adjust keyboard so you can see what you fill in
+    func adjustInsetForKeyboardShow(show: Bool, notification: Notification) {
+        guard let value = notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue else { return }
+        let keyboardFrame = value.cgRectValue
+        let adjustmentHeight = (keyboardFrame.height + 20) * (show ? 1 : -1)
+        MessageScrollView.contentInset.bottom = adjustmentHeight
+        MessageScrollView.scrollIndicatorInsets.bottom = adjustmentHeight
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func keyboardWillShow(notification: Notification) {
+        adjustInsetForKeyboardShow(show: true, notification: notification)
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        adjustInsetForKeyboardShow(show: false, notification: notification as Notification)
     }
     
     // MARK: - Table view data source
@@ -59,6 +96,11 @@ class TestController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCell(withIdentifier: "test", for: indexPath) as! TestCell
         
         cell.MessageLabel?.text = messageArray[indexPath.row]
+        
+        if(userTypeArray[indexPath.row] == "employer"){
+            
+        }
+        
         
         return cell
     }

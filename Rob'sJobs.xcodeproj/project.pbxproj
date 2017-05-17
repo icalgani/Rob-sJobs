@@ -49,6 +49,7 @@
 		FA4A4D8E1ECAF9C300643371 /* test.c in Sources */ = {isa = PBXBuildFile; fileRef = FA4A4D8C1ECAF9C300643371 /* test.c */; };
 		FA4A4D901ECB229E00643371 /* Testing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA4A4D8F1ECB229E00643371 /* Testing.storyboard */; };
 		FA4A4D951ECB2C6200643371 /* TestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A4D941ECB2C6200643371 /* TestController.swift */; };
+		FA4A4D991ECC27AE00643371 /* ChatData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A4D981ECC27AE00643371 /* ChatData.swift */; };
 		FA86CE291EB2ED3C00333648 /* SendJobToFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86CE281EB2ED3C00333648 /* SendJobToFriendViewController.swift */; };
 		FA86CE2B1EB2F01A00333648 /* FloatLabelWithBlackUnderline.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86CE2A1EB2F01A00333648 /* FloatLabelWithBlackUnderline.swift */; };
 		FA93C4661EBADB970084CDCF /* FloatLabelTextViewWithGreyUnderline.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA93C4651EBADB970084CDCF /* FloatLabelTextViewWithGreyUnderline.swift */; };
@@ -183,6 +184,7 @@
 		FA4A4D8D1ECAF9C300643371 /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
 		FA4A4D8F1ECB229E00643371 /* Testing.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Testing.storyboard; sourceTree = "<group>"; };
 		FA4A4D941ECB2C6200643371 /* TestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestController.swift; sourceTree = "<group>"; };
+		FA4A4D981ECC27AE00643371 /* ChatData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatData.swift; sourceTree = "<group>"; };
 		FA86CE281EB2ED3C00333648 /* SendJobToFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendJobToFriendViewController.swift; sourceTree = "<group>"; };
 		FA86CE2A1EB2F01A00333648 /* FloatLabelWithBlackUnderline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelWithBlackUnderline.swift; sourceTree = "<group>"; };
 		FA93C4651EBADB970084CDCF /* FloatLabelTextViewWithGreyUnderline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextViewWithGreyUnderline.swift; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 				FAC8991F1EA73DB700D4800A /* JsonRequest.swift */,
 				FAC70D691EC19D7B004D0B33 /* EmployerData.swift */,
 				FAC899251EA8B1E900D4800A /* SwipeCardData.swift */,
+				FA4A4D981ECC27AE00643371 /* ChatData.swift */,
 			);
 			name = DataSource;
 			sourceTree = "<group>";
@@ -728,6 +731,7 @@
 				FA174AC71EC9A4FC00D0514A /* SendJsonSetupProfile.swift in Sources */,
 				FAC8991B1E9F256500D4800A /* OverlayView.swift in Sources */,
 				FAB953341E96AF5D00FC033C /* Checkbox.swift in Sources */,
+				FA4A4D991ECC27AE00643371 /* ChatData.swift in Sources */,
 				FAB9536F1E96C14C00FC033C /* FloatLabelTextField.swift in Sources */,
 				FA174AC41EC98F9900D0514A /* WebViewController.swift in Sources */,
 				FA174AB61EC98F9900D0514A /* LoadingViewController.swift in Sources */,
