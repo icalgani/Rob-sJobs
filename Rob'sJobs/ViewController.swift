@@ -20,7 +20,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     var userDefaults = UserDefaults.standard
 
     
-    @IBAction func backToLogin(segue: UIStoryboardSegue) {
+    @IBAction func backToStartingPoint(segue: UIStoryboardSegue) {
     }
 
     @IBAction func registerUser(segue: UIStoryboardSegue) {

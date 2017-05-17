@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		FA166CF41EC033B8007A3ED2 /* CoreTabBarControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA166CF31EC033B8007A3ED2 /* CoreTabBarControler.swift */; };
-		FA174A791EC98EBE00D0514A /* FileExplorer-master in Frameworks */ = {isa = PBXBuildFile; fileRef = FA174A781EC98EBE00D0514A /* FileExplorer-master */; };
 		FA174AA01EC98F9900D0514A /* ActionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA174A7A1EC98F9900D0514A /* ActionsViewController.swift */; };
 		FA174AA11EC98F9900D0514A /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA174A7B1EC98F9900D0514A /* Array+Extension.swift */; };
 		FA174AA21EC98F9900D0514A /* CheckmarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA174A7C1EC98F9900D0514A /* CheckmarkButton.swift */; };
@@ -47,6 +46,9 @@
 		FA174AC31EC98F9900D0514A /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA174A9E1EC98F9900D0514A /* URL+Extension.swift */; };
 		FA174AC41EC98F9900D0514A /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA174A9F1EC98F9900D0514A /* WebViewController.swift */; };
 		FA174AC71EC9A4FC00D0514A /* SendJsonSetupProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA174AC61EC9A4FC00D0514A /* SendJsonSetupProfile.swift */; };
+		FA4A4D8E1ECAF9C300643371 /* test.c in Sources */ = {isa = PBXBuildFile; fileRef = FA4A4D8C1ECAF9C300643371 /* test.c */; };
+		FA4A4D901ECB229E00643371 /* Testing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA4A4D8F1ECB229E00643371 /* Testing.storyboard */; };
+		FA4A4D951ECB2C6200643371 /* TestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A4D941ECB2C6200643371 /* TestController.swift */; };
 		FA86CE291EB2ED3C00333648 /* SendJobToFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86CE281EB2ED3C00333648 /* SendJobToFriendViewController.swift */; };
 		FA86CE2B1EB2F01A00333648 /* FloatLabelWithBlackUnderline.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86CE2A1EB2F01A00333648 /* FloatLabelWithBlackUnderline.swift */; };
 		FA93C4661EBADB970084CDCF /* FloatLabelTextViewWithGreyUnderline.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA93C4651EBADB970084CDCF /* FloatLabelTextViewWithGreyUnderline.swift */; };
@@ -136,7 +138,6 @@
 
 /* Begin PBXFileReference section */
 		FA166CF31EC033B8007A3ED2 /* CoreTabBarControler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreTabBarControler.swift; sourceTree = "<group>"; };
-		FA174A781EC98EBE00D0514A /* FileExplorer-master */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "FileExplorer-master"; path = "../../Downloads/FileExplorer-master"; sourceTree = "<group>"; };
 		FA174A7A1EC98F9900D0514A /* ActionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionsViewController.swift; path = "FileExplorer-master/FileExplorer/FileExplorer/ActionsViewController.swift"; sourceTree = "<group>"; };
 		FA174A7B1EC98F9900D0514A /* Array+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Array+Extension.swift"; path = "FileExplorer-master/FileExplorer/FileExplorer/Array+Extension.swift"; sourceTree = "<group>"; };
 		FA174A7C1EC98F9900D0514A /* CheckmarkButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckmarkButton.swift; path = "FileExplorer-master/FileExplorer/FileExplorer/CheckmarkButton.swift"; sourceTree = "<group>"; };
@@ -176,6 +177,12 @@
 		FA174A9E1EC98F9900D0514A /* URL+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "URL+Extension.swift"; path = "FileExplorer-master/FileExplorer/FileExplorer/URL+Extension.swift"; sourceTree = "<group>"; };
 		FA174A9F1EC98F9900D0514A /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebViewController.swift; path = "FileExplorer-master/FileExplorer/FileExplorer/WebViewController.swift"; sourceTree = "<group>"; };
 		FA174AC61EC9A4FC00D0514A /* SendJsonSetupProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendJsonSetupProfile.swift; sourceTree = "<group>"; };
+		FA174ACB1ECAE0FA00D0514A /* Robsjobs-BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Robsjobs-BridgingHeader.h"; sourceTree = "<group>"; };
+		FA4A4D8B1ECAF9C200643371 /* Rob'sJobs-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Rob'sJobs-Bridging-Header.h"; sourceTree = "<group>"; };
+		FA4A4D8C1ECAF9C300643371 /* test.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = test.c; sourceTree = "<group>"; };
+		FA4A4D8D1ECAF9C300643371 /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
+		FA4A4D8F1ECB229E00643371 /* Testing.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Testing.storyboard; sourceTree = "<group>"; };
+		FA4A4D941ECB2C6200643371 /* TestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestController.swift; sourceTree = "<group>"; };
 		FA86CE281EB2ED3C00333648 /* SendJobToFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendJobToFriendViewController.swift; sourceTree = "<group>"; };
 		FA86CE2A1EB2F01A00333648 /* FloatLabelWithBlackUnderline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelWithBlackUnderline.swift; sourceTree = "<group>"; };
 		FA93C4651EBADB970084CDCF /* FloatLabelTextViewWithGreyUnderline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextViewWithGreyUnderline.swift; sourceTree = "<group>"; };
@@ -257,7 +264,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA174A791EC98EBE00D0514A /* FileExplorer-master in Frameworks */,
 				FAE02A401E9DD9F100084F66 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,6 +338,15 @@
 				FAB9537F1E96C34A00FC033C /* EmploymentPickerTableViewController.swift */,
 			);
 			name = "Profile Setting Controller";
+			sourceTree = "<group>";
+		};
+		FA4A4D911ECB22AE00643371 /* Testing */ = {
+			isa = PBXGroup;
+			children = (
+				FA4A4D8F1ECB229E00643371 /* Testing.storyboard */,
+				FA4A4D941ECB2C6200643371 /* TestController.swift */,
+			);
+			name = Testing;
 			sourceTree = "<group>";
 		};
 		FA86CE2C1EB2F04D00333648 /* DataSource */ = {
@@ -467,9 +482,14 @@
 				FAB9538F1E975A3300FC033C /* TutorialPage */,
 				FAB953721E96C2E100FC033C /* SetUp Data */,
 				FAC973CB1E96A453002A4E6E /* AppDelegate.swift */,
+				FA4A4D911ECB22AE00643371 /* Testing */,
 				FAC70D7E1EC5614B004D0B33 /* Main */,
 				FAB953891E96D09500FC033C /* LaunchScreen.storyboard */,
+				FA174ACB1ECAE0FA00D0514A /* Robsjobs-BridgingHeader.h */,
 				FAC973D71E96A453002A4E6E /* Info.plist */,
+				FA4A4D8C1ECAF9C300643371 /* test.c */,
+				FA4A4D8D1ECAF9C300643371 /* test.h */,
+				FA4A4D8B1ECAF9C200643371 /* Rob'sJobs-Bridging-Header.h */,
 			);
 			path = "Rob'sJobs";
 			sourceTree = "<group>";
@@ -514,7 +534,6 @@
 		FAE02A3E1E9DD9F100084F66 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FA174A781EC98EBE00D0514A /* FileExplorer-master */,
 				FAE02A3F1E9DD9F100084F66 /* MapKit.framework */,
 			);
 			name = Frameworks;
@@ -589,6 +608,7 @@
 					FAC973C71E96A453002A4E6E = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = GDR59R6QDD;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
@@ -637,6 +657,7 @@
 			files = (
 				FAB953741E96C30500FC033C /* FirstTimeLogin.storyboard in Resources */,
 				FAB952CF1E96AE8500FC033C /* Assets.xcassets in Resources */,
+				FA4A4D901ECB229E00643371 /* Testing.storyboard in Resources */,
 				FAB9538A1E96D09500FC033C /* LaunchScreen.storyboard in Resources */,
 				FAE02A331E9CC5F400084F66 /* Core.storyboard in Resources */,
 				FAC973D11E96A453002A4E6E /* Main.storyboard in Resources */,
@@ -677,6 +698,7 @@
 				FA174AAB1EC98F9900D0514A /* FileExplorerViewController.swift in Sources */,
 				FA174AA91EC98F9900D0514A /* Errors.swift in Sources */,
 				FA174AA31EC98F9900D0514A /* Configuration.swift in Sources */,
+				FA4A4D8E1ECAF9C300643371 /* test.c in Sources */,
 				FAB9539D1E9C7CFA00FC033C /* Page4ViewController.swift in Sources */,
 				FA174AAE1EC98F9900D0514A /* FileSpecificationProvider.swift in Sources */,
 				FA174AB81EC98F9900D0514A /* ThumbnailGenerator.swift in Sources */,
@@ -694,6 +716,7 @@
 				FA174AB31EC98F9900D0514A /* Item.swift in Sources */,
 				FA174AA71EC98F9900D0514A /* DirectoryViewController.swift in Sources */,
 				FA93C4711EBC7BB50084CDCF /* BoldTextExtension.swift in Sources */,
+				FA4A4D951ECB2C6200643371 /* TestController.swift in Sources */,
 				FA174ABC1EC98F9900D0514A /* UIImage+Extension.swift in Sources */,
 				FA174AB01EC98F9900D0514A /* FileViewModel.swift in Sources */,
 				FA174AC11EC98F9900D0514A /* UIViewController+Extension.swift in Sources */,
@@ -906,11 +929,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = GDR59R6QDD;
 				INFOPLIST_FILE = "Rob'sJobs/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "sagaraasia.Rob-sJobs";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Rob'sJobs/Rob'sJobs-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -919,11 +945,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = GDR59R6QDD;
 				INFOPLIST_FILE = "Rob'sJobs/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "sagaraasia.Rob-sJobs";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Rob'sJobs/Rob'sJobs-Bridging-Header.h";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

@@ -222,29 +222,27 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
         let userDefaults = UserDefaults.standard
         let userDictionary = userDefaults.value(forKey: "userDictionary") as? [String: Any]
         
-        if(userDictionary?["userName"] != nil){
-            NameInput.text = (userDictionary?["userName"] as! String)
+        if let username = userDictionary?["userName"]{
+            NameInput.text = username as! String
         }
-        if(userDictionary?["birthdate"] != nil){
-            BirthdateInput.text = (userDictionary?["birthdate"] as! String)
+        
+        if let birthdate = userDictionary?["birthdate"]{
+            BirthdateInput.text = birthdate as! String
         }
-        if(userDictionary?["province"] != nil){
-            ProvinceInput.text = (userDictionary?["province"] as! String)
+        
+        if let province = userDictionary?["province"] {
+            ProvinceInput.text = province as! String
         }
-        if(userDictionary?["city"] != nil){
-            CityInput.text = (userDictionary?["city"] as! String)
+        
+        if let city = userDictionary?["city"]{
+            CityInput.text = city as! String
         }
-        if(userDictionary?["salary"] != nil){
-            SalaryInput.text = (userDictionary?["salary"] as! String)
+        
+        if let edu_level = userDictionary?["edu_level"]{
+            EducationInput.text = edu_level as! String
         }
-        if(userDictionary?["edu_level"] != nil){
-            EducationInput.text = (userDictionary?["edu_level"] as! String)
-        }
-        if(userDictionary?["bio"] != nil){
-            print("userDictionary[bio] == \(userDictionary?["bio"])")
-            print("userDictionary[bio] ver 1 == \(userDictionary?["bio"] as? String)")
-
-            DescribeYourselfInput.text = (userDictionary?["bio"] as? String)
+        if let bio = userDictionary?["bio"]{
+            DescribeYourselfInput.text = bio as! String
         }
     }
     

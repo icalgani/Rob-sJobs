@@ -9,8 +9,6 @@
 import UIKit
 import Foundation
 
-#import "FileExplorer"
-
 class UploadDocViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var UserPicture: UIView!

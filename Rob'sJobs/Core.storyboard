@@ -295,7 +295,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvH-ZZ-h1y" userLabel="App Version Label">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ver. 2.0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvH-ZZ-h1y" userLabel="App Version Label">
                                                 <rect key="frame" x="147" y="259" width="80" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="80" id="gzL-Lf-wq4"/>
@@ -383,7 +383,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CQc-KP-ns7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="126" y="542"/>
+            <point key="canvasLocation" x="125.59999999999999" y="541.52923538230891"/>
         </scene>
         <!--Setting-->
         <scene sceneID="4Ky-D5-MEt">
@@ -1630,8 +1630,8 @@
         <image name="img_logo" width="300" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BZK-3U-tQ7"/>
         <segue reference="Stb-bH-f0A"/>
+        <segue reference="BZK-3U-tQ7"/>
         <segue reference="Xwk-qZ-ioh"/>
     </inferredMetricsTieBreakers>
 </document>
