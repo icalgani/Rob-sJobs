@@ -14,7 +14,47 @@ class TestCell: UITableViewCell{
     @IBOutlet weak var TimeLabel: UILabel!
     @IBOutlet weak var MessageView: UIView!
     
+    func setConstraintEmployer(){
+            MessageView.translatesAutoresizingMaskIntoConstraints = false
+        
+            NSLayoutConstraint(item: MessageView,
+                               attribute: .leading,
+                               relatedBy: .equal,
+                               toItem: self,
+                               attribute: .leading,
+                               multiplier: 1.0,
+                               constant: 10).isActive = true
+        
+            TimeLabel.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint(item: TimeLabel,
+                               attribute: .leading,
+                               relatedBy: .equal,
+                               toItem: MessageView,
+                               attribute: .trailing,
+                               multiplier: 1.0,
+                               constant: 10).isActive = true
+    }
     
+    func setConstraintUser(){
+        MessageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint(item: MessageView,
+                           attribute: .trailing,
+                           relatedBy: .equal,
+                           toItem: self,
+                           attribute: .trailing,
+                           multiplier: 1.0,
+                           constant: -10).isActive = true
+        
+        TimeLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: TimeLabel,
+                           attribute: .trailing,
+                           relatedBy: .equal,
+                           toItem: MessageView,
+                           attribute: .leading,
+                           multiplier: 1.0,
+                           constant: -10).isActive = true
+    }
 }
 
 class TestController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
@@ -24,6 +64,9 @@ class TestController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var MessageTextfield: UITextField!
     @IBOutlet weak var SendMessageButton: UIButton!
     @IBOutlet weak var MessageScrollView: UIScrollView!
+    @IBOutlet weak var ContentView: UIView!
+    @IBOutlet weak var TestCell: UITableViewCell!
+    
     
     let chatData = ChatData()
     
@@ -33,7 +76,9 @@ class TestController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func SendButtonPressed(_ sender: UIButton) {
         
         messageArray.append(MessageTextfield.text!)
+        userTypeArray.append("user")
         self.TableViewOutlet.reloadData()
+        MessageTextfield.text = ""
         
     }
     override func viewDidLoad() {
@@ -96,12 +141,11 @@ class TestController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCell(withIdentifier: "test", for: indexPath) as! TestCell
         
         cell.MessageLabel?.text = messageArray[indexPath.row]
-        
         if(userTypeArray[indexPath.row] == "employer"){
-            
+            cell.setConstraintEmployer()
+        }else{
+            cell.setConstraintUser()
         }
-        
-        
         return cell
     }
     
