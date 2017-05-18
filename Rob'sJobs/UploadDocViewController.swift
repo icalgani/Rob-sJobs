@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 
+
 class UploadDocViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var UserPicture: UIView!
@@ -64,7 +65,7 @@ class UploadDocViewController: UIViewController, UIImagePickerControllerDelegate
         fileExplorer.canChooseDirectories = true //specify whether user is allowed to choose directories
         
         imagePickedTag = 1
-        
+        fileExplorer.delegate = self
         self.present(fileExplorer, animated: true, completion: nil)
     }
     
@@ -137,5 +138,24 @@ class UploadDocViewController: UIViewController, UIImagePickerControllerDelegate
         // Pass the selected object to the new view controller.
     }
     */
+}
 
+extension UploadDocViewController: FileExplorerViewControllerDelegate {
+    public func fileExplorerViewController(_ controller: FileExplorerViewController, didChooseURLs urls: [URL]) {
+        var message = ""
+        for url in urls {
+            message += "\(url.lastPathComponent)"
+            if url != urls.last {
+                message += "\n"
+            }
+        }
+        
+        let alertController = UIAlertController(title: "Choosen files", message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    public func fileExplorerViewControllerDidFinish(_ controller: FileExplorerViewController) {
+        
+    }
 }

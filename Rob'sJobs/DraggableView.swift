@@ -13,7 +13,7 @@ let ACTION_MARGIN: Float = 120      //%%% distance from center where the action 
 let SCALE_STRENGTH: Float = 4       //%%% how quickly the card shrinks. Higher = slower shrinking
 let SCALE_MAX:Float = 1          //%%% upper bar for how much the card shrinks. Higher = shrinks less
 let ROTATION_MAX: Float = 1         //%%% the maximum rotation allowed in radians.  Higher = card can keep rotating longer
-let ROTATION_STRENGTH: Float = 400  //%%% strength of rotation. Higher = weaker rotation
+let ROTATION_STRENGTH: Float = 1000  //%%% strength of rotation. Higher = weaker rotation
 let ROTATION_ANGLE: Float = 3.14/16  //%%% Higher = stronger rotation angle
 
 protocol DraggableViewDelegate {
