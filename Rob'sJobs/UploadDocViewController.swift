@@ -59,10 +59,10 @@ class UploadDocViewController: UIViewController, UIImagePickerControllerDelegate
     func pickUserImage1(sender : UITapGestureRecognizer) {
         let fileExplorer = FileExplorerViewController()
         
-        fileExplorer.canRemoveFiles = true //specify whether user is allowed to remove files
+        fileExplorer.canRemoveFiles = false //specify whether user is allowed to remove files
         fileExplorer.canRemoveDirectories = false //specify whether user is allowed to remove directories
-        fileExplorer.canChooseFiles = true //specify whether user is allowed to choose files
-        fileExplorer.canChooseDirectories = true //specify whether user is allowed to choose directories
+//        fileExplorer.canChooseFiles = true //specify whether user is allowed to choose files
+//        fileExplorer.canChooseDirectories = true //specify whether user is allowed to choose directories
         
         imagePickedTag = 1
         fileExplorer.delegate = self
