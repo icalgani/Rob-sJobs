@@ -14,7 +14,7 @@ let SCALE_STRENGTH: Float = 4       //%%% how quickly the card shrinks. Higher =
 let SCALE_MAX:Float = 1          //%%% upper bar for how much the card shrinks. Higher = shrinks less
 let ROTATION_MAX: Float = 1         //%%% the maximum rotation allowed in radians.  Higher = card can keep rotating longer
 let ROTATION_STRENGTH: Float = 400  //%%% strength of rotation. Higher = weaker rotation
-let ROTATION_ANGLE: Float = 3.14/8  //%%% Higher = stronger rotation angle
+let ROTATION_ANGLE: Float = 3.14/16  //%%% Higher = stronger rotation angle
 
 protocol DraggableViewDelegate {
     func cardSwipedLeft(card: UIView) -> Void
@@ -144,13 +144,23 @@ class DraggableView: UIView {
                            constant: 10).isActive = true
         
         NSLayoutConstraint(item: companyNameLabel,
-                           attribute: .height,
+                           attribute: .width,
                            relatedBy: .greaterThanOrEqual,
+                           toItem: nil,
+                           attribute: .notAnAttribute,
+                           multiplier: 1.0,
+                           constant: 50).isActive = true
+        
+        NSLayoutConstraint(item: companyNameLabel,
+                           attribute: .height,
+                           relatedBy: .equal,
                            toItem: nil,
                            attribute: .notAnAttribute,
                            multiplier: 1.0,
                            constant: 30).isActive = true
         
+        companyNameLabel.clipsToBounds = true
+
         
         
         jobOfferLabel = UILabel(frame: CGRect(x: 0,y: 0, width: 200,height: 30))

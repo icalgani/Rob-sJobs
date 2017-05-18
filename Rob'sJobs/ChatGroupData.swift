@@ -13,6 +13,7 @@ class ChatGroupData{
     var companyImageToPass: [String] = []
     var companyNameToPass: [String] = []
     var companyUserNameToPass: [String] = []
+    var chatGroupIDToPass: [String] = []
     
     func getDataFromServer(dataToGet: String){
         var request = URLRequest(url: URL(string: "http://api.robsjobs.co/api/v1/chat/group/\(dataToGet)")!)
@@ -48,11 +49,13 @@ class ChatGroupData{
                                 if let companyLogo = aObject["company_logo"] as? String{
                                     self.companyImageToPass.append(companyLogo)
                                 }else{
-                                    self.companyImageToPass.append("No Data")
+                                    self.companyImageToPass.append("RJ_login_logo")
                                 }
 
                                 self.companyNameToPass.append(aObject["company_name"] as! String)
                                 self.companyUserNameToPass.append(aObject["username"] as! String)
+                                self.chatGroupIDToPass.append(String(describing: aObject["job_application_id"]!))
+                                
                                 
                             }// end for
                             

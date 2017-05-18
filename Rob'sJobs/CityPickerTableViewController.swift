@@ -76,12 +76,6 @@ class CityPickerTableViewController: UITableViewController {
         selectedCity = City[indexPath.row]
         
         //update the checkmark for the current row
-        let cell = tableView.cellForRow(at: indexPath)
-        cell?.accessoryType = .checkmark
-        
-        selectedCity = City[indexPath.row]
-        
-        //update the checkmark for the current row
         let cellUpdate = tableView.cellForRow(at: indexPath)
         cellUpdate?.accessoryType = .checkmark
         

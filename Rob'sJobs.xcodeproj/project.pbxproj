@@ -52,6 +52,7 @@
 		FA4A4D991ECC27AE00643371 /* ChatData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A4D981ECC27AE00643371 /* ChatData.swift */; };
 		FA4A4D9C1ECC4AC200643371 /* ChatGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A4D9B1ECC4AC200643371 /* ChatGroupViewController.swift */; };
 		FA4A4D9E1ECC4D8700643371 /* ChatGroupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A4D9D1ECC4D8700643371 /* ChatGroupData.swift */; };
+		FA4A4DA01ECD4A4100643371 /* ChatDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A4D9F1ECD4A4100643371 /* ChatDetailViewController.swift */; };
 		FA86CE291EB2ED3C00333648 /* SendJobToFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86CE281EB2ED3C00333648 /* SendJobToFriendViewController.swift */; };
 		FA86CE2B1EB2F01A00333648 /* FloatLabelWithBlackUnderline.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA86CE2A1EB2F01A00333648 /* FloatLabelWithBlackUnderline.swift */; };
 		FA93C4661EBADB970084CDCF /* FloatLabelTextViewWithGreyUnderline.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA93C4651EBADB970084CDCF /* FloatLabelTextViewWithGreyUnderline.swift */; };
@@ -189,6 +190,7 @@
 		FA4A4D981ECC27AE00643371 /* ChatData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatData.swift; sourceTree = "<group>"; };
 		FA4A4D9B1ECC4AC200643371 /* ChatGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatGroupViewController.swift; sourceTree = "<group>"; };
 		FA4A4D9D1ECC4D8700643371 /* ChatGroupData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatGroupData.swift; sourceTree = "<group>"; };
+		FA4A4D9F1ECD4A4100643371 /* ChatDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatDetailViewController.swift; sourceTree = "<group>"; };
 		FA86CE281EB2ED3C00333648 /* SendJobToFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendJobToFriendViewController.swift; sourceTree = "<group>"; };
 		FA86CE2A1EB2F01A00333648 /* FloatLabelWithBlackUnderline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelWithBlackUnderline.swift; sourceTree = "<group>"; };
 		FA93C4651EBADB970084CDCF /* FloatLabelTextViewWithGreyUnderline.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextViewWithGreyUnderline.swift; sourceTree = "<group>"; };
@@ -535,6 +537,7 @@
 				FA174AC81EC9B1D400D0514A /* Profile Setting Controller */,
 				FA4A4D9A1ECC4A9000643371 /* Setting */,
 				FAE02A321E9CC5F400084F66 /* Core.storyboard */,
+				FA4A4D9F1ECD4A4100643371 /* ChatDetailViewController.swift */,
 				FAC70D721EC1B775004D0B33 /* UploadDocViewController.swift */,
 				FA4A4D9B1ECC4AC200643371 /* ChatGroupViewController.swift */,
 				FAC70D7F1EC59425004D0B33 /* GotMatchedViewController.swift */,
@@ -706,6 +709,7 @@
 				FAC899241EA88CF000D4800A /* EducationPickerTableViewController.swift in Sources */,
 				FA174AC21EC98F9900D0514A /* UknownFileTypeViewController.swift in Sources */,
 				FA174ABF1EC98F9900D0514A /* UIToolbar+Extension.swift in Sources */,
+				FA4A4DA01ECD4A4100643371 /* ChatDetailViewController.swift in Sources */,
 				FAC899191E9F256500D4800A /* DraggableView.swift in Sources */,
 				FA174AB41EC98F9900D0514A /* ItemCell.swift in Sources */,
 				FAE02A351E9CC78200084F66 /* CustomTabbarViewController.swift in Sources */,
