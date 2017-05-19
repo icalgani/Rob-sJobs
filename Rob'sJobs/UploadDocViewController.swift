@@ -152,3 +152,15 @@ extension UploadDocViewController: FileExplorerViewControllerDelegate {
         
     }
 }
+
+extension UploadDocViewController: UIDocumentPickerDelegate {
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL){
+        print("Entre a documentPicker")
+    }
+    
+    func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+        print("Sali a documentPicker")
+    }
+    
+}
