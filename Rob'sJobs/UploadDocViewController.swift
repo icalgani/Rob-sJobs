@@ -8,7 +8,7 @@
 
 import UIKit
 import Foundation
-
+import MobileCoreServices
 
 class UploadDocViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -57,16 +57,9 @@ class UploadDocViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     func pickUserImage1(sender : UITapGestureRecognizer) {
-        let fileExplorer = FileExplorerViewController()
-        
-        fileExplorer.canRemoveFiles = false //specify whether user is allowed to remove files
-        fileExplorer.canRemoveDirectories = false //specify whether user is allowed to remove directories
-//        fileExplorer.canChooseFiles = true //specify whether user is allowed to choose files
-//        fileExplorer.canChooseDirectories = true //specify whether user is allowed to choose directories
-        
-        imagePickedTag = 1
-        fileExplorer.delegate = self
-        self.present(fileExplorer, animated: true, completion: nil)
+        let documentPickerController = UIDocumentPickerViewController(documentTypes: [String(kUTTypePDF), String(kUTTypeImage), String(kUTTypeMovie), String(kUTTypeVideo), String(kUTTypePlainText), String(kUTTypeMP3)], in: .import)
+//        documentPickerController.delegate = self
+        present(documentPickerController, animated: true, completion: nil)
     }
     
     func pickUserImage2(sender : UITapGestureRecognizer) {
