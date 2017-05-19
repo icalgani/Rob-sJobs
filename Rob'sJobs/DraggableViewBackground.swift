@@ -73,8 +73,12 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         
         let locValue:CLLocationCoordinate2D = locationManager.location!.coordinate
-        swipeCardData.getDataFromServer(dataToGet: "\(String(describing: (userDictionary?["userID"])!))/1/\(cardsSum)/\(locValue.latitude)/\(locValue.longitude)")
         
+        if let userid = userDictionary?["userID"]{
+            swipeCardData.getDataFromServer(dataToGet: "\(String(describing: (userDictionary?["userID"])!))/1/\(cardsSum)/\(locValue.latitude)/\(locValue.longitude)")
+        } else{
+            print("cant get userid")
+        }
     }
 
     func setupView() -> Void {

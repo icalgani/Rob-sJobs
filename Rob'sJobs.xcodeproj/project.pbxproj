@@ -197,6 +197,7 @@
 		FA93C46A1EBB05360084CDCF /* TextfieldPaddingExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextfieldPaddingExtension.swift; sourceTree = "<group>"; };
 		FA93C46C1EBC25230084CDCF /* JobRequirementDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobRequirementDetail.swift; sourceTree = "<group>"; };
 		FA93C4701EBC7BB50084CDCF /* BoldTextExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoldTextExtension.swift; sourceTree = "<group>"; };
+		FA9C2B941ECED8D300B4DD52 /* Rob'sJobs.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Rob'sJobs.entitlements"; sourceTree = "<group>"; };
 		FAB952CE1E96AE8500FC033C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAB9532E1E96AF5D00FC033C /* ButtonCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonCustom.swift; sourceTree = "<group>"; };
 		FAB9532F1E96AF5D00FC033C /* UIUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUtility.swift; sourceTree = "<group>"; };
@@ -491,6 +492,7 @@
 		FAC973CA1E96A453002A4E6E /* Rob'sJobs */ = {
 			isa = PBXGroup;
 			children = (
+				FA9C2B941ECED8D300B4DD52 /* Rob'sJobs.entitlements */,
 				FA174AC51EC990F400D0514A /* File Explorer */,
 				FA93C4691EBB05150084CDCF /* Extension */,
 				FA86CE2C1EB2F04D00333648 /* DataSource */,
@@ -627,12 +629,18 @@
 				TargetAttributes = {
 					FAC973C71E96A453002A4E6E = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = GDR59R6QDD;
+						DevelopmentTeam = 7G9SJJ9MKF;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
 							};
 						};
 					};
@@ -954,11 +962,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = GDR59R6QDD;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 7G9SJJ9MKF;
 				INFOPLIST_FILE = "Rob'sJobs/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "sagaraasia.Rob-sJobs";
+				PRODUCT_BUNDLE_IDENTIFIER = "robsjobs.Rob-sJobs";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Rob'sJobs/Rob'sJobs-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -970,11 +980,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = GDR59R6QDD;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 7G9SJJ9MKF;
 				INFOPLIST_FILE = "Rob'sJobs/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "sagaraasia.Rob-sJobs";
+				PRODUCT_BUNDLE_IDENTIFIER = "robsjobs.Rob-sJobs";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Rob'sJobs/Rob'sJobs-Bridging-Header.h";
 				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "";
 				SWIFT_VERSION = 3.0;
