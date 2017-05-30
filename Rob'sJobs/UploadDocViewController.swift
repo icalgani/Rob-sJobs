@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 import MobileCoreServices
+import Photos
 
 class UploadDocViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
@@ -51,17 +52,16 @@ class UploadDocViewController: UIViewController, UIImagePickerControllerDelegate
         }
         
         let image_data = UIImageJPEGRepresentation(imageToSend, 0.5)!
-        
         var body = Data()
-        let mimetype = "image/jpeg"
+        let mimetype = "image/jpg"
         
         //define the data post parameter
         body.append("--\(boundary)\r\n".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
         body.append("Content-Disposition:form-data; name=\"userid\" \r\n\r\n".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
         body.append("\(String(describing: (userDictionary?["userID"])!))\r\n".data(using: .utf8, allowLossyConversion: true)!)
         body.append("--\(boundary)\r\n".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
-        body.append("Content-Disposition:form-data; name=\"photo\"; filename=\"profile.jpeg\"\r\n\r\n".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
-        body.append("Content-Type: \(mimetype)".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+        body.append("Content-Disposition:form-data; name=\"photo\"; filename=\"profile.jpg\"\r\n\r\n".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+        body.append("Content-Type: \(mimetype)\r\n\r\n".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
         body.append(image_data)
 //        print(image_data)
         body.append("\r\n\r\n--\(boundary)--\r\n".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
@@ -85,9 +85,8 @@ class UploadDocViewController: UIViewController, UIImagePickerControllerDelegate
                         print("error message: \(errorMessage["message"] as! String)")
                         //set alert if email or password is wrong
                     }else{
-                        let httpStatus = response as? HTTPURLResponse
-                        let errorMessage = json["data"] as! [String:Any]
-                        print("message: \(errorMessage)")
+                        let dataMessage = json["data"] as! [String:Any]
+                        print("message: \(dataMessage)")
                     }
                 } //if json
             } catch let error {
@@ -170,8 +169,9 @@ class UploadDocViewController: UIViewController, UIImagePickerControllerDelegate
                 
                 UIGraphicsEndImageContext()
                 self.UserPicture.backgroundColor = UIColor(patternImage: image)
+                self.UserPhotoIcon.image = UIImage(named: "")
                 
-                imageToSend = pickedImage
+                self.imageToSend = pickedImage
             case 1:
                 self.Certificate1.contentMode = .scaleAspectFit
                 self.Certificate1.image = pickedImage

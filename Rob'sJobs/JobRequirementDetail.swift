@@ -237,7 +237,7 @@ class JobRequirementDetail{
                            toItem: topConstraint,
                            attribute: .bottom,
                            multiplier: 1.0,
-                           constant: 30.0).isActive = true
+                           constant: 15.0).isActive = true
         
         NSLayoutConstraint(item: stackView,
                            attribute: .height,

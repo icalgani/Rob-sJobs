@@ -37,7 +37,7 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
     var jobsScoreArray: [String] = []
 
     let MAX_BUFFER_SIZE = 2
-    let CARD_HEIGHT: CGFloat = 320
+    let CARD_HEIGHT: CGFloat = 300
     let CARD_WIDTH: CGFloat = 290
 
     var cardsLoadedIndex: Int!
@@ -99,7 +99,7 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
     }
 
     func createDraggableViewWithDataAtIndex(index: NSInteger) -> DraggableView {
-        let draggableView = DraggableView(frame: CGRect(x: (self.frame.size.width - CARD_WIDTH)/2,y: (self.frame.size.height - CARD_HEIGHT)/2,width: CARD_WIDTH,height: CARD_HEIGHT))
+        let draggableView = DraggableView(frame: CGRect(x: (self.frame.size.width - CARD_WIDTH)/2,y: (self.frame.size.height - CARD_HEIGHT - 50)/2,width: CARD_WIDTH,height: CARD_HEIGHT))
         
         //set new data
         //set Job Title

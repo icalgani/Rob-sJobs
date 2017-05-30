@@ -89,10 +89,10 @@ class ProfileViewController: UIViewController {
             ProfessionLabel.text = userDictionary?["sectors"] as? String
             CityLabel.text = userDictionary?["city"] as? String
             //download image from url
-//            if let checkedUrl = URL(string: userDictionary?["image"] as! String) {
-//                
-//                downloadImage(url: checkedUrl)
-//            }
+            if let checkedUrl = URL(string: userDictionary?["image"] as! String) {
+                
+                downloadImage(url: checkedUrl)
+            }
         }
     }
     
@@ -100,7 +100,7 @@ class ProfileViewController: UIViewController {
         getDataFromUrl(url: url) { (data, response, error)  in
             guard let data = data, error == nil else { return }
             DispatchQueue.main.async() { () -> Void in
-                self.UserImage.image = UIImage(data: data)
+                self.UserImage.image = UIImage(data: data, scale: 0.5)
                 self.UserImage.layer.cornerRadius = self.UserImage.frame.size.width / 2
                 self.UserImage.clipsToBounds = true
                 self.UserImage.layer.borderWidth = 2
