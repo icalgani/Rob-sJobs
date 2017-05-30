@@ -50,9 +50,10 @@ class JobSwipingViewController: UIViewController,CLLocationManagerDelegate, UITa
         // For use in foreground
         locationManager.requestWhenInUseAuthorization()
         
+        //
+        MoreButton.isUserInteractionEnabled = true
         self.tabBarController?.delegate = self
         checkLocationIsOn()
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,7 +73,6 @@ class JobSwipingViewController: UIViewController,CLLocationManagerDelegate, UITa
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
-            
             
             let draggableBackground: DraggableViewBackground = DraggableViewBackground(frame: self.view.frame)
             self.view.addSubview(draggableBackground)

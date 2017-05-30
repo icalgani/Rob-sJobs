@@ -11,7 +11,7 @@ import UIKit
 
 class JobRequirementDetail{
     
-    func createJobRequirementDetail(view: UIView, container: UIView, typeLabel: UILabel, salaryLabel: UILabel, experienceLabel: UILabel, distanceLabel: UILabel){
+    func createJobRequirementDetail(view: UIView, container: UIView, typeLabel: UILabel, salaryLabel: UILabel, experienceLabel: UILabel){
         
         let typeLogo = UIImageView(frame: CGRect(x:0 ,y:0 ,width: 15, height: 15))
         typeLogo.image = UIImage(named: "RJ_work_icon")
@@ -33,7 +33,7 @@ class JobRequirementDetail{
                            toItem: container,
                            attribute: .top,
                            multiplier: 1.0,
-                           constant: 15.0).isActive = true
+                           constant: 5.0).isActive = true
         
         //information label
         typeLabel.text = "No Info Given"
@@ -57,7 +57,7 @@ class JobRequirementDetail{
                            toItem: container,
                            attribute: .top,
                            multiplier: 1.0,
-                           constant: 16.0).isActive = true
+                           constant: 5.0).isActive = true
         
         NSLayoutConstraint(item: typeLabel,
                            attribute: .height,
@@ -70,9 +70,6 @@ class JobRequirementDetail{
         createEachDetail(logoName: "RJ_sallary_icon", requirementDetailLabel: salaryLabel, container: container, topConstraintTo: typeLabel)
         
         createEachDetail(logoName: "RJ_experience_icon", requirementDetailLabel: experienceLabel, container: container, topConstraintTo: salaryLabel)
-        
-        createEachDetail(logoName: "RJ_location_icon", requirementDetailLabel: distanceLabel, container: container, topConstraintTo: experienceLabel)
-        
     }
     
     func createEachDetail(logoName: String, requirementDetailLabel: UILabel, container: UIView, topConstraintTo: UILabel){
@@ -164,7 +161,7 @@ class JobRequirementDetail{
                            toItem: nil,
                            attribute: .notAnAttribute,
                            multiplier: 1.0,
-                           constant: 100.0).isActive = true
+                           constant: 60.0).isActive = true
         
         NSLayoutConstraint(item: jobDescriptionLabel,
                            attribute: .top,
@@ -181,23 +178,28 @@ class JobRequirementDetail{
         let stackView   = UIStackView()
         stackView.axis  = UILayoutConstraintAxis.horizontal
         stackView.distribution  = UIStackViewDistribution.fillEqually
+        stackView.alignment = .center
         stackView.spacing   = 0.0
         
         //APPLIED View
         let appliedView = UIView()
+        
+        
         //REMAINING DAYS VIEW
         let offerRemainingView = UIView()
         
         //add view to stackView
         stackView.addArrangedSubview(appliedView)
         stackView.addArrangedSubview(offerRemainingView)
+        appliedView.center = stackView.center
+        offerRemainingView.center = stackView.center
         
         //add stackview to cardview
         view.addSubview(stackView)
         
         //create applied image and add to applied view
         let appliedImage = UIImageView(frame: CGRect(x:0 ,y:0 ,width: 15, height: 15))
-        appliedImage.image = UIImage(named: "RJ_applied_icon")
+        appliedImage.image = UIImage(named: "RJ_location_icon")
         appliedImage.contentMode = UIViewContentMode.scaleAspectFit
         appliedView.addSubview(appliedImage)
         
@@ -255,7 +257,6 @@ class JobRequirementDetail{
         
         setFooterViewConstraint(container: appliedView, logoImage: appliedImage, informationLabel: appliedNumberLabel, stackview: stackView)
         setFooterViewConstraint(container: offerRemainingView, logoImage: offerImage, informationLabel: offerRemainingLabel, stackview: stackView)
-
     }
     
     func setFooterViewConstraint(container: UIView, logoImage: UIImageView, informationLabel: UILabel, stackview: UIStackView){
@@ -263,9 +264,11 @@ class JobRequirementDetail{
         //information label
         informationLabel.text = "No Info Given"
         informationLabel.font = UIFont(name: "Arial", size: 10)
+        
         container.translatesAutoresizingMaskIntoConstraints = false
         informationLabel.translatesAutoresizingMaskIntoConstraints = false
         logoImage.translatesAutoresizingMaskIntoConstraints = false
+        
         //IMAGE CONSTRAINT
         NSLayoutConstraint(item: logoImage,
                            attribute: .leading,
@@ -307,7 +310,5 @@ class JobRequirementDetail{
                            attribute: .notAnAttribute,
                            multiplier: 1.0,
                            constant: 10.0).isActive = true
-
-        
     }
 }

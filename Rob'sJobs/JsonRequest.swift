@@ -10,6 +10,8 @@ import Foundation
 
 class JsonRequest{
     var salaryToSend: [String] = []
+    var salaryMinToSend: [String] = []
+    var salaryMaxToSend: [String] = []
     var provinceToSend: [String] = []
     var cityToSend: [String] = []
     var characterToSend: [String] = []
@@ -52,6 +54,8 @@ class JsonRequest{
                                 switch dataToGet{
                                     case "salary":
                                         self.salaryToSend.append(aObject["label"] as! String)
+                                        self.salaryMaxToSend.append(String(describing: aObject["salary_max"]))
+                                        self.salaryMinToSend.append(String(describing: aObject["salary_min"]))
                                         break
                             
                                     case "province":

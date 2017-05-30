@@ -150,20 +150,59 @@ class ViewController: UIViewController, UITextFieldDelegate {
                             print("inside else city != nil")
 
                             //  set data to UserDefault
-                            var userDictionary:[String: Any] = ["userID": jsonData["id"], "birthdate": jsonData["birthdate"], "is_employed": jsonData["is_employed"], "curr_employment_sector": jsonData["curr_employment_sector"], "city": jsonData["city"], "province": jsonData["province"], "edu_level":jsonData["edu_level"], "interests": jsonData["interests"], "employment_type": jsonData["employment_type"], "sectors": jsonData["sectors"], "has_portofolio": jsonData["has_portofolio"], "has_work_experience": jsonData["has_work_experience"], "skills": jsonData["skills"], "bio": jsonData["bio"], "portofolio": jsonData["portofolio"], "email": jsonData["email"], "userName": jsonData["name"], "mobile_number": jsonData["mobile_number"], "image": jsonData["image"]]
+                            var userDictionary:[String: Any] = ["userID": jsonData["id"], "birthdate": jsonData["birthdate"], "curr_employment_sector": jsonData["curr_employment_sector"], "city": jsonData["city"], "province": jsonData["province"], "edu_level":jsonData["edu_level"], "employment_type": jsonData["employment_type"], "sectors": jsonData["sectors"]]
                             
+                            self.userDefaults.set(userDictionary, forKey: "userDictionary")
+
                             if let image = jsonData["image"]{
-                                userDictionary["image"] = image
+                                userDictionary["image"] = String(describing: image)
+                            }
+                            self.userDefaults.set(userDictionary, forKey: "userDictionary")
+
+                            if let skills = jsonData["skills"]{
+                                userDictionary["skills"] = skills
+                            }
+                            self.userDefaults.set(userDictionary, forKey: "userDictionary")
+
+                            if let bio = jsonData["bio"]{
+                                userDictionary["bio"] = bio
+                            }
+                            self.userDefaults.set(userDictionary, forKey: "userDictionary")
+
+                            if let portofolio = jsonData["portofolio"]{
+                                userDictionary["portofolio"] = portofolio
+                            }
+                            self.userDefaults.set(userDictionary, forKey: "userDictionary")
+
+                            if let email = jsonData["email"]{
+                                userDictionary["email"] = email
+                            }
+                            self.userDefaults.set(userDictionary, forKey: "userDictionary")
+
+                            if let userName = jsonData["name"]{
+                                userDictionary["userName"] = userName
+                            }
+                            self.userDefaults.set(userDictionary, forKey: "userDictionary")
+
+                            if let mobile_number = jsonData["mobile_number"]{
+                                userDictionary["mobile_number"] = String(describing: mobile_number)
+                            }
+                            self.userDefaults.set(userDictionary, forKey: "userDictionary")
+                            
+                            if let salary = jsonData["salary"] {
+                                userDictionary["salary"] = String(describing: salary)
                             }
                             
                             if let salarymin = jsonData["salarymin"] {
-                                userDictionary["salarymin"] = salarymin
+                                userDictionary["salarymin"] = String(describing: salarymin)
                             }
-                            
+                            self.userDefaults.set(userDictionary, forKey: "userDictionary")
+
                             if let salarymax = jsonData["salarymax"]{
-                                userDictionary["salarymax"] = salarymax
+                                userDictionary["salarymax"] = String(describing: salarymax)
                             }
-                            
+                            self.userDefaults.set(userDictionary, forKey: "userDictionary")
+
                             if let distance = jsonData["distance"]{
                                 userDictionary["distance"] = distance
                             }

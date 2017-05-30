@@ -83,6 +83,7 @@ class ChatData{
         let postString = "jobappid=\(jobAppId)&userid=313&message=\(message)"
 
         request.httpBody = postString.data(using: .utf8)
+        
         print("post string from chat data: \(postString)")
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {                                                 // check for fundamental networking error

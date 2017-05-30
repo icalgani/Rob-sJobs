@@ -52,6 +52,8 @@ class ProfileSettingViewController: UIViewController, UITextFieldDelegate {
             
             if(SalaryView.salaryToPass != ""){
                 passedSalaryValue = SalaryView.salaryToPass
+                passedSalaryMaxValue = SalaryView.salaryMaxToPass
+                passedSalaryMinValue = SalaryView.salaryMinToPass
                 SalaryTextfield.text = passedSalaryValue
             }
         }
@@ -91,15 +93,17 @@ class ProfileSettingViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let userDefaults = UserDefaults.standard
-        var userDictionary = userDefaults.value(forKey: "userDictionary") as? [String: Any]
-        
         setField()
         
         SectorTextfield.delegate = self
         SalaryTextfield.delegate = self
         WorkTimeTextfield.delegate = self
         WorkTypeTextfield.delegate = self
+        
+        SectorTextfield.setLeftPaddingPoints(30)
+        SalaryTextfield.setLeftPaddingPoints(30)
+        WorkTimeTextfield.setLeftPaddingPoints(30)
+        WorkTypeTextfield.setLeftPaddingPoints(30)
     }
     
     func setField(){
@@ -109,6 +113,7 @@ class ProfileSettingViewController: UIViewController, UITextFieldDelegate {
         if let sectors = userDictionary?["sectors"]{
             SectorTextfield.text = (userDictionary?["sectors"] as? String)
         }
+        print(userDictionary?["salary"])
         if let salary = userDictionary?["salary"]{
             SalaryTextfield.text = (userDictionary?["salary"] as? String)
         }
@@ -153,6 +158,8 @@ class ProfileSettingViewController: UIViewController, UITextFieldDelegate {
             userDictionary?["salary"] = SalaryTextfield.text
             userDictionary?["employment_type"] = WorkTimeTextfield.text
             userDictionary?["distance"] = DistanceSlider.value
+            userDictionary?["salarymin"] = passedSalaryMinValue
+            userDictionary?["salarymax"] = passedSalaryMaxValue
             userDefaults.set(userDictionary, forKey: "userDictionary")
             
             let sendJson = SendJsonSetupProfile()

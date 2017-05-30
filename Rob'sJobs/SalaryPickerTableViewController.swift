@@ -12,6 +12,11 @@ class SalaryPickerTableViewController: UITableViewController {
     
     let jsonRequest = JsonRequest()
     var salaryArray: [String] = []
+    var salaryMinArray: [String] = []
+    var salaryMaxArray: [String] = []
+    
+    var salaryMinToPass: String = "0"
+    var salaryMaxToPass: String = "0"
     var salaryToPass: String = ""
     
     var selectedSalary:String? {
@@ -83,6 +88,8 @@ class SalaryPickerTableViewController: UITableViewController {
         
         // Get Cell Label
         salaryToPass = salaryArray[(indexPath.row)]
+        salaryMaxToPass = salaryMaxArray[indexPath.row]
+        salaryMinToPass = salaryMinArray[indexPath.row]
         
     }
     
@@ -98,6 +105,8 @@ class SalaryPickerTableViewController: UITableViewController {
     func loadList(notification: NSNotification){
         //load data here
         salaryArray = jsonRequest.salaryToSend
+        salaryMaxArray = jsonRequest.salaryMaxToSend
+        salaryMinArray = jsonRequest.salaryMinToSend
         self.tableView.reloadData()
     }
 }

@@ -28,7 +28,7 @@ class CoreTabBarControler: UITabBarController {
         tabFrame.origin.y = self.view.frame.size.height - 30
         self.tabBar.frame = tabFrame
         
-        self.tabBar.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0)
+//        self.tabBar.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0)
     }
     /*
     // MARK: - Navigation

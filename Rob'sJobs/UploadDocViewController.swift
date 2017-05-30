@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 import MobileCoreServices
 
-class UploadDocViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class UploadDocViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     @IBOutlet weak var UserPicture: UIView!
     @IBOutlet weak var UserPhotoIcon: UIImageView!
@@ -23,8 +23,86 @@ class UploadDocViewController: UIViewController, UIImagePickerControllerDelegate
     
     let imagePicker = UIImagePickerController()
     var imagePickedTag = 0
+    var imageToSend: UIImage!
     
     @IBAction func DoneButtonPressed(_ sender: UIButton) {
+        
+        UploadRequest()
+    }
+    
+    func UploadRequest()
+    {
+        let userDefaults = UserDefaults.standard
+        var userDictionary = userDefaults.value(forKey: "userDictionary") as? [String: Any]
+
+        var request = URLRequest(url: URL(string: "http://api.robsjobs.co/api/v1/user/uploadphoto")!)
+        
+        request.httpMethod = "POST"
+        
+        let boundary = generateBoundaryString()
+        
+        //define the multipart request type
+        
+        request.addValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        
+        if (imageToSend == nil)
+        {
+            return
+        }
+        
+        let image_data = UIImageJPEGRepresentation(imageToSend, 0.5)!
+        
+        var body = Data()
+        let mimetype = "image/jpeg"
+        
+        //define the data post parameter
+        body.append("--\(boundary)\r\n".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+        body.append("Content-Disposition:form-data; name=\"userid\" \r\n\r\n".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+        body.append("\(String(describing: (userDictionary?["userID"])!))\r\n".data(using: .utf8, allowLossyConversion: true)!)
+        body.append("--\(boundary)\r\n".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+        body.append("Content-Disposition:form-data; name=\"photo\"; filename=\"profile.jpeg\"\r\n\r\n".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+        body.append("Content-Type: \(mimetype)".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+        body.append(image_data)
+//        print(image_data)
+        body.append("\r\n\r\n--\(boundary)--\r\n".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+
+        request.httpBody = body as Data
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {                                                 // check for fundamental networking error
+                print("error=\(String(describing: error))")
+                return
+            }
+            
+            //handling json
+            do {
+                //create json object from data
+                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                    if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                        //if status code is not 200
+                        let errorMessage = json["error"] as! [String:Any]
+                        print("status code: \(httpStatus.statusCode)")
+                        print("error message: \(errorMessage["message"] as! String)")
+                        //set alert if email or password is wrong
+                    }else{
+                        let httpStatus = response as? HTTPURLResponse
+                        let errorMessage = json["data"] as! [String:Any]
+                        print("message: \(errorMessage)")
+                    }
+                } //if json
+            } catch let error {
+                print(error.localizedDescription)
+            } // end do
+            
+        } //end task
+        task.resume()
+
+    }
+    
+    
+    func generateBoundaryString() -> String
+    {
+        return "Boundary-\(UUID().uuidString)"
     }
     
     override func viewDidLoad() {
@@ -58,7 +136,7 @@ class UploadDocViewController: UIViewController, UIImagePickerControllerDelegate
     
     func pickUserImage1(sender : UITapGestureRecognizer) {
         let documentPickerController = UIDocumentPickerViewController(documentTypes: [String(kUTTypePDF), String(kUTTypeImage), String(kUTTypeMovie), String(kUTTypeVideo), String(kUTTypePlainText), String(kUTTypeMP3)], in: .import)
-//        documentPickerController.delegate = self
+        documentPickerController.delegate = self
         present(documentPickerController, animated: true, completion: nil)
     }
     
@@ -81,6 +159,7 @@ class UploadDocViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
+        
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             switch imagePickedTag {
             case 0:
@@ -91,6 +170,8 @@ class UploadDocViewController: UIViewController, UIImagePickerControllerDelegate
                 
                 UIGraphicsEndImageContext()
                 self.UserPicture.backgroundColor = UIColor(patternImage: image)
+                
+                imageToSend = pickedImage
             case 1:
                 self.Certificate1.contentMode = .scaleAspectFit
                 self.Certificate1.image = pickedImage
@@ -121,46 +202,29 @@ class UploadDocViewController: UIViewController, UIImagePickerControllerDelegate
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-}
-
-extension UploadDocViewController: FileExplorerViewControllerDelegate {
-    public func fileExplorerViewController(_ controller: FileExplorerViewController, didChooseURLs urls: [URL]) {
-        var message = ""
-        for url in urls {
-            message += "\(url.lastPathComponent)"
-            if url != urls.last {
-                message += "\n"
-            }
-        }
-        
-        let alertController = UIAlertController(title: "Choosen files", message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alertController, animated: true, completion: nil)
-    }
     
-    public func fileExplorerViewControllerDidFinish(_ controller: FileExplorerViewController) {
-        
-    }
 }
+
 
 extension UploadDocViewController: UIDocumentPickerDelegate {
     
-    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL){
-        print("Entre a documentPicker")
+    public func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
+        
+        let cico = url as URL
+        print("The Url is : \(cico)")
+        
+        //optional, case PDF -> render
+        //displayPDFweb.loadRequest(NSURLRequest(url: cico) as URLRequest)
     }
     
     func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
-        print("Sali a documentPicker")
+        print("this is documentpicker")
     }
+}
+extension NSMutableData {
     
+    public func appendString(string: String) {
+            let stringData = string.data(using: String.Encoding.utf8, allowLossyConversion: true)
+            append(stringData!)
+        }
 }

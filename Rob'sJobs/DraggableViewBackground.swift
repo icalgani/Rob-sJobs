@@ -37,7 +37,7 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
     var jobsScoreArray: [String] = []
 
     let MAX_BUFFER_SIZE = 2
-    let CARD_HEIGHT: CGFloat = 373
+    let CARD_HEIGHT: CGFloat = 320
     let CARD_WIDTH: CGFloat = 290
 
     var cardsLoadedIndex: Int!
@@ -109,10 +109,10 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
         
 //        draggableView.requiredSkillLabel.text = interestArray[index]
         draggableView.typeLabel.text = employmentTypeArray[index]
-        draggableView.locationLabel.text = "\(distanceArray[index]) Km"
+        draggableView.appliedNumberLabel.text = "\(distanceArray[index]) Km"
         draggableView.salaryLabel.text = "IDR. \(salaryArray[index])"
         draggableView.experienceLabel.text = experienceArray[index]
-//        draggableView.offerTimeLabel.text = "end in \(endDateArray[index]) days"
+        draggableView.offerTimeLabel.text = "end in \(endDateArray[index]) days"
         draggableView.jobDescriptionLabel.text = descriptionArray[index]
         draggableView.companyNameLabel.text = companyNameArray[index]
         

@@ -213,6 +213,13 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
 //        currentlyEmployedRadioController!.delegate = self
         
         //set keyboard
+        NameInput.setLeftPaddingPoints(30)
+        BirthdateInput.setLeftPaddingPoints(30)
+        ProvinceInput.setLeftPaddingPoints(30)
+        CityInput.setLeftPaddingPoints(30)
+        EducationInput.setLeftPaddingPoints(30)
+        WorkExperienceInput.setLeftPaddingPoints(30)
+        DescribeYourselfInput.setLeftPaddingPoints(30)
         NotificationCenter.default.addObserver(self,selector: #selector(keyboardWillShow(notification:)),name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)),name: NSNotification.Name.UIKeyboardWillHide, object: nil)
