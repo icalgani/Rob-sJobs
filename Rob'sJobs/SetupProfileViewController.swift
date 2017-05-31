@@ -318,9 +318,11 @@ class SetupProfileViewController: UIViewController, UITextFieldDelegate, SSRadio
         
         let dateFormatter = DateFormatter()
         
-        dateFormatter.dateStyle = DateFormatter.Style.medium
-        
-        dateFormatter.timeStyle = DateFormatter.Style.none
+        dateFormatter.dateFormat = "YYYY-MM-dd"
+//        
+//        dateFormatter.dateStyle = DateFormatter.Style.medium
+//        
+//        dateFormatter.timeStyle = DateFormatter.Style.none
 
         BirthdateInput.text = dateFormatter.string(from: sender.date)
     }

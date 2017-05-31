@@ -1425,10 +1425,10 @@
             </objects>
             <point key="canvasLocation" x="3252" y="-480.80959520239884"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Core Tab Bar Controler-->
         <scene sceneID="zY4-vU-kst">
             <objects>
-                <tabBarController storyboardIdentifier="SwipingScene" id="iid-pl-IdM" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="SwipingScene" id="iid-pl-IdM" customClass="CoreTabBarControler" customModule="Rob_sJobs" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="KtC-EG-Uuz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1940,8 +1940,8 @@
         <image name="img_logo" width="300" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zwm-fq-zKa"/>
         <segue reference="Stb-bH-f0A"/>
         <segue reference="BZK-3U-tQ7"/>
+        <segue reference="nLV-Zn-hap"/>
     </inferredMetricsTieBreakers>
 </document>

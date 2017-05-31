@@ -104,7 +104,7 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
         //set new data
         //set Job Title
         draggableView.jobOfferLabel.text = jobTitleArray[index]
-        draggableView.jobOfferLabel.font = UIFont(name: "Arial", size: 16)
+        draggableView.jobOfferLabel.font = UIFont.boldSystemFont(ofSize: 16)
         draggableView.jobOfferLabel.numberOfLines = 1
         
 //        draggableView.requiredSkillLabel.text = interestArray[index]

@@ -89,10 +89,9 @@ class ProfileViewController: UIViewController {
             ProfessionLabel.text = userDictionary?["sectors"] as? String
             CityLabel.text = userDictionary?["city"] as? String
             //download image from url
-            if let checkedUrl = URL(string: userDictionary?["image"] as! String) {
-                
-                downloadImage(url: checkedUrl)
-            }
+//            if let checkedUrl = URL(string: userDictionary?["image"] as String) {
+//                downloadImage(url: checkedUrl)
+//            }
         }
     }
     
