@@ -25,6 +25,7 @@ class UploadDocViewController: UIViewController, UIImagePickerControllerDelegate
     let imagePicker = UIImagePickerController()
     var imagePickedTag = 0
     var imageToSend: UIImage!
+    var path : URL!
     
     @IBAction func DoneButtonPressed(_ sender: UIButton) {
         
@@ -51,20 +52,20 @@ class UploadDocViewController: UIViewController, UIImagePickerControllerDelegate
             return
         }
         
-        let image_data = UIImageJPEGRepresentation(imageToSend, 0.5)!
+        let image_data = UIImageJPEGRepresentation(imageToSend!, 0.5)!
         var body = Data()
-        let mimetype = "image/jpg"
+        let mimetype = "image/jpeg"
         
         //define the data post parameter
-        body.append("--\(boundary)\r\n".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
-        body.append("Content-Disposition:form-data; name=\"userid\" \r\n\r\n".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+        body.append("--\(boundary)\r\n".data(using: .utf8, allowLossyConversion: true)!)
+        body.append("Content-Disposition:form-data; name=\"userid\" \r\n\r\n".data(using: .utf8, allowLossyConversion: true)!)
         body.append("\(String(describing: (userDictionary?["userID"])!))\r\n".data(using: .utf8, allowLossyConversion: true)!)
-        body.append("--\(boundary)\r\n".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
-        body.append("Content-Disposition:form-data; name=\"photo\"; filename=\"profile.jpg\"\r\n\r\n".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
-        body.append("Content-Type: \(mimetype)\r\n\r\n".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+        body.append("--\(boundary)\r\n".data(using: .utf8, allowLossyConversion: true)!)
+        body.append("Content-Disposition:form-data; name=\"photo\"; filename=\"userPhoto.jpg\"\r\n\r\n".data(using: .utf8, allowLossyConversion: true)!)
+        body.append("Content-Type:\(mimetype)\r\n\r\n".data(using: .utf8, allowLossyConversion: true)!)
         body.append(image_data)
 //        print(image_data)
-        body.append("\r\n\r\n--\(boundary)--\r\n".data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+        body.append("\r\n\r\n--\(boundary)--\r\n".data(using: .utf8, allowLossyConversion: true)!)
 
         request.httpBody = body as Data
         
@@ -125,7 +126,7 @@ class UploadDocViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     func pickUserImage(sender : UITapGestureRecognizer) {
-        imagePicker.allowsEditing = true
+        imagePicker.allowsEditing = false
         imagePicker.sourceType = .photoLibrary
         
         imagePickedTag = 0
@@ -166,6 +167,8 @@ class UploadDocViewController: UIViewController, UIImagePickerControllerDelegate
                 pickedImage.draw(in: self.UserPicture.bounds)
                 
                 let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+                print(info[UIImagePickerControllerReferenceURL]!)
+                self.path = info[UIImagePickerControllerReferenceURL]! as! URL
                 
                 UIGraphicsEndImageContext()
                 self.UserPicture.backgroundColor = UIColor(patternImage: image)
@@ -221,10 +224,20 @@ extension UploadDocViewController: UIDocumentPickerDelegate {
         print("this is documentpicker")
     }
 }
-extension NSMutableData {
+
+public enum ImageFormat {
+    case PNG
+    case JPEG(CGFloat)
+}
+
+extension UIImage {
     
-    public func appendString(string: String) {
-            let stringData = string.data(using: String.Encoding.utf8, allowLossyConversion: true)
-            append(stringData!)
+    public func base64(format: ImageFormat) -> String {
+        var imageData: NSData
+        switch format {
+        case .PNG: imageData = UIImagePNGRepresentation(self)! as NSData
+        case .JPEG(let compression): imageData = UIImageJPEGRepresentation(self, compression)! as NSData
         }
+        return imageData.base64EncodedString()
+    }
 }
