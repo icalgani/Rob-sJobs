@@ -37,7 +37,7 @@ class JobRequirementDetail{
         
         //information label
         typeLabel.text = "No Info Given"
-        typeLabel.font = UIFont(name: "Arial", size: 12)
+        typeLabel.font = UIFont.boldSystemFont(ofSize: 10)
         typeLabel.textColor = UIColor(red:0.00, green:0.59, blue:0.53, alpha:1.0)
         container.addSubview(typeLabel)
         typeLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -97,7 +97,7 @@ class JobRequirementDetail{
         
         //information label
         requirementDetailLabel.text = "No Info Given"
-        requirementDetailLabel.font = UIFont(name: "Arial", size: 12)
+        requirementDetailLabel.font = UIFont.boldSystemFont(ofSize: 10)
         requirementDetailLabel.textColor = UIColor(red:0.00, green:0.59, blue:0.53, alpha:1.0)
         container.addSubview(requirementDetailLabel)
         requirementDetailLabel.translatesAutoresizingMaskIntoConstraints = false

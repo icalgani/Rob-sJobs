@@ -151,7 +151,6 @@ class ChatDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         return messageArray.count
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         tableView.deselectRow(at: indexPath, animated: true)

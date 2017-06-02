@@ -44,7 +44,7 @@ class SwipeCardData{
         resetAllData()
         var request = URLRequest(url: URL(string: "http://api.robsjobs.co/api/v1/match/\(dataToGet)")!)
         //create the session object
-        
+        print("data to get = \(dataToGet)")
         request.httpMethod = "GET"
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
@@ -65,8 +65,12 @@ class SwipeCardData{
                         let currentErrorMessage = errorMessage["message"] as! String
                         print(currentErrorMessage)
                     }else{
+                        print("getting json data")
+                        print("json[data] = \(json["data"] as! [[String:Any]])")
+                        print("json = \(json)")
                         
                         let jsonData = json["data"] as! [[String:Any]]
+                        
                         print(jsonData)
                         if(jsonData.count != 0){
                             for index in 0...(jsonData.count)-1 {

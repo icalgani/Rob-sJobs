@@ -47,6 +47,9 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
     var checkButton: UIButton!
     var xButton: UIButton!
     
+    var xButtonView: UIView!
+    var checkButtonView: UIView!
+    
     var cardsSum: Int = 10
     var cardsStartID: Int = 1
     
@@ -85,17 +88,66 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
 //        self.backgroundColor = UIColor(red: 0.92, green: 0.93, blue: 0.95, alpha: 1)
 
         //create pass button
-        xButton = UIButton(frame: CGRect(x: (self.frame.size.width - CARD_WIDTH)/2 + 35,y: (self.frame.size.height/2) + CARD_HEIGHT/2 + 10,width: 59,height: 59))
+        xButtonView = UIView(frame: CGRect(x: (self.frame.size.width - CARD_WIDTH)/2 + 35,y: (self.frame.size.height/2) + CARD_HEIGHT/2 + 10,width: 50,height: 50))
+        xButtonView.backgroundColor = UIColor.white
+        xButtonView.layer.cornerRadius = xButtonView.frame.size.width / 2
+        xButtonView.layer.shadowRadius = 3
+        xButtonView.layer.shadowOpacity = 0.6
+        xButtonView.layer.shadowOffset = CGSize(width: 1,height: 1)
+        
+        xButton = UIButton(frame: CGRect(x:0 , y: 0,width: 50,height: 50))
         xButton.setImage(UIImage(named: "RJ_pass_icon_col"), for: UIControlState.normal)
         xButton.addTarget(self, action: #selector(self.swipeLeft), for: UIControlEvents.touchUpInside)
+        self.addSubview(xButtonView)
         
         //create ok button
-        checkButton = UIButton(frame: CGRect(x: self.frame.size.width/2 + CARD_WIDTH/2 - 85,y: (self.frame.size.height/2) + CARD_HEIGHT/2 + 10,width: 59,height: 59))
+        checkButtonView = UIView(frame: CGRect(x: self.frame.size.width/2 + CARD_WIDTH/2 - 85,y: (self.frame.size.height/2) + CARD_HEIGHT/2 + 10,width: 50,height: 50))
+        checkButtonView.backgroundColor = UIColor.white
+        checkButtonView.layer.cornerRadius = checkButtonView.frame.size.width / 2
+        checkButtonView.layer.shadowRadius = 3
+        checkButtonView.layer.shadowOpacity = 0.6
+        checkButtonView.layer.shadowOffset = CGSize(width: 1,height: 1)
+        self.addSubview(checkButtonView)
+        
+        checkButton = UIButton(frame: CGRect(x:0 , y: 0,width: 50,height: 50))
         checkButton.setImage(UIImage(named: "RJ_apply_icon_col"), for: UIControlState.normal)
         checkButton.addTarget(self, action: #selector(self.swipeRight), for: UIControlEvents.touchUpInside)
 
-        self.addSubview(xButton)
-        self.addSubview(checkButton)
+        xButtonView.addSubview(xButton)
+        xButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: xButton,
+                           attribute: .centerX,
+                           relatedBy: .equal,
+                           toItem: xButtonView,
+                           attribute: .centerX,
+                           multiplier: 1.0,
+                           constant:0.0).isActive = true
+        
+        NSLayoutConstraint(item: xButton,
+                           attribute: .centerY,
+                           relatedBy: .equal,
+                           toItem: xButtonView,
+                           attribute: .centerY,
+                           multiplier: 1.0,
+                           constant:0.0).isActive = true
+        
+        checkButtonView.addSubview(checkButton)
+        NSLayoutConstraint(item: checkButton,
+                           attribute: .centerX,
+                           relatedBy: .equal,
+                           toItem: checkButtonView,
+                           attribute: .centerX,
+                           multiplier: 1.0,
+                           constant:0.0).isActive = true
+        
+        NSLayoutConstraint(item: checkButton,
+                           attribute: .centerY,
+                           relatedBy: .equal,
+                           toItem: checkButtonView,
+                           attribute: .centerY,
+                           multiplier: 1.0,
+                           constant:0.0).isActive = true
+        
     }
 
     func createDraggableViewWithDataAtIndex(index: NSInteger) -> DraggableView {
@@ -109,6 +161,7 @@ class DraggableViewBackground: UIView, DraggableViewDelegate, CLLocationManagerD
         
 //        draggableView.requiredSkillLabel.text = interestArray[index]
         draggableView.typeLabel.text = employmentTypeArray[index]
+        draggableView.typeLabel.font = UIFont.boldSystemFont(ofSize: 10)
         draggableView.appliedNumberLabel.text = "\(distanceArray[index]) Km"
         draggableView.salaryLabel.text = "IDR. \(salaryArray[index])"
         draggableView.experienceLabel.text = experienceArray[index]

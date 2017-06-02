@@ -46,6 +46,7 @@
 		FA174AC31EC98F9900D0514A /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA174A9E1EC98F9900D0514A /* URL+Extension.swift */; };
 		FA174AC41EC98F9900D0514A /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA174A9F1EC98F9900D0514A /* WebViewController.swift */; };
 		FA174AC71EC9A4FC00D0514A /* SendJsonSetupProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA174AC61EC9A4FC00D0514A /* SendJsonSetupProfile.swift */; };
+		FA1AD0321EDEEE800078A0A2 /* bandung.gpx in Resources */ = {isa = PBXBuildFile; fileRef = FA1AD0311EDEEE800078A0A2 /* bandung.gpx */; };
 		FA4A4D8E1ECAF9C300643371 /* test.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4A4D8C1ECAF9C300643371 /* test.m */; };
 		FA4A4D901ECB229E00643371 /* Testing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA4A4D8F1ECB229E00643371 /* Testing.storyboard */; };
 		FA4A4D951ECB2C6200643371 /* TestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4A4D941ECB2C6200643371 /* TestController.swift */; };
@@ -183,6 +184,7 @@
 		FA174A9F1EC98F9900D0514A /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebViewController.swift; path = "FileExplorer-master/FileExplorer/FileExplorer/WebViewController.swift"; sourceTree = "<group>"; };
 		FA174AC61EC9A4FC00D0514A /* SendJsonSetupProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendJsonSetupProfile.swift; sourceTree = "<group>"; };
 		FA174ACB1ECAE0FA00D0514A /* Robsjobs-BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Robsjobs-BridgingHeader.h"; sourceTree = "<group>"; };
+		FA1AD0311EDEEE800078A0A2 /* bandung.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = bandung.gpx; path = ../../Downloads/bandung.gpx; sourceTree = "<group>"; };
 		FA4A4D8B1ECAF9C200643371 /* Rob'sJobs-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Rob'sJobs-Bridging-Header.h"; sourceTree = "<group>"; };
 		FA4A4D8C1ECAF9C300643371 /* test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = test.m; sourceTree = "<group>"; };
 		FA4A4D8D1ECAF9C300643371 /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
@@ -474,6 +476,7 @@
 		FAC973BF1E96A453002A4E6E = {
 			isa = PBXGroup;
 			children = (
+				FA1AD0311EDEEE800078A0A2 /* bandung.gpx */,
 				FAC973CA1E96A453002A4E6E /* Rob'sJobs */,
 				FAC973DF1E96A453002A4E6E /* Rob'sJobsTests */,
 				FAC973EA1E96A453002A4E6E /* Rob'sJobsUITests */,
@@ -694,6 +697,7 @@
 				FAE02A331E9CC5F400084F66 /* Core.storyboard in Resources */,
 				FAC973D11E96A453002A4E6E /* Main.storyboard in Resources */,
 				FAB953911E975A4C00FC033C /* TutorialPage.storyboard in Resources */,
+				FA1AD0321EDEEE800078A0A2 /* bandung.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

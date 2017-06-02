@@ -13,6 +13,7 @@ import CoreLocation
 class JobSwipingViewController: UIViewController,CLLocationManagerDelegate, UITabBarControllerDelegate {
 
     let locationManager = CLLocationManager()
+    var currentLocation: CLLocation!
     
     var idArray: String!
     var employerIDArray: String!
@@ -51,7 +52,6 @@ class JobSwipingViewController: UIViewController,CLLocationManagerDelegate, UITa
         locationManager.requestWhenInUseAuthorization()
         
         //
-        MoreButton.isUserInteractionEnabled = true
         self.tabBarController?.delegate = self
         checkLocationIsOn()
     }
@@ -73,7 +73,8 @@ class JobSwipingViewController: UIViewController,CLLocationManagerDelegate, UITa
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
-            
+            currentLocation = locationManager.location
+            print("lat long = \(currentLocation?.coordinate.latitude)/\(currentLocation?.coordinate.longitude)")
             let draggableBackground: DraggableViewBackground = DraggableViewBackground(frame: self.view.frame)
             self.view.addSubview(draggableBackground)
         }else{
